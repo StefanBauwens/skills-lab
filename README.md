@@ -2,7 +2,7 @@
 
 ## Preperation
 Using:
-* Cineme4D and Blender
+* Cinema4D and Blender
 * Unity3D
 * Trello for Scrum
 * Github with command line
