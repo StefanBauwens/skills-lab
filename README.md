@@ -12,9 +12,10 @@ Using:
 * Github with command line
 * HTC Vive and optional Gear VR
 
-##Controller application ideas
+## Controller application ideas
 * Laser beam coming from controller which can 'grab' objects
 * Colorwheel/wheel on controller touch pad. 
 * Digital hand which is controlled using the controller buttons etc. (example: https://www.youtube.com/watch?v=fEKn_COI-GQ)
-
+* Give buzz feedback to make friction seem more realistic (e.g. with a bow and arrow)
+* Stylus in hand to use on touch screen
 
