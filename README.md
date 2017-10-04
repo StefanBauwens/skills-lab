@@ -8,7 +8,7 @@ This VR project will be used in a HTC Vive headset.
 Using:
 * Cinema4D and Blender
 * Unity3D
-* Trello for Scrum
+* Trello for Scrum (https://trello.com/skillslab2)
 * Github with command line
 * HTC Vive and optional Gear VR
 
