@@ -123,12 +123,12 @@ Prefab:
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 355
+      value: 459
       objectReference: {fileID: 0}
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 147.5
+      value: 187.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -558,12 +558,12 @@ Prefab:
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 274
+      value: 378
       objectReference: {fileID: 0}
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 147.5
+      value: 187.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012484682510, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -7603,7 +7603,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1126713074}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.81
   m_Height: 10.7
   m_Direction: 2
@@ -7616,7 +7616,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1126713074}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.81
   m_Height: 10.79
   m_Direction: 2
@@ -7629,7 +7629,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1126713074}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.81
   m_Height: 8.37
   m_Direction: 0
@@ -7642,7 +7642,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1126713074}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.81
   m_Height: 8.37
   m_Direction: 0
@@ -7728,7 +7728,7 @@ MonoBehaviour:
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders:
-  - {fileID: 1126713086}
+  - {fileID: 338144038}
   isGrabbable: 1
   holdButtonToGrab: 0
   stayGrabbedOnTeleport: 1
