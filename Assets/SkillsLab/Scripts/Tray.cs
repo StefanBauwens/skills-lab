@@ -7,7 +7,7 @@ public class Tray : MonoBehaviour {
     //makes items that are put in the tray child of the tray so that you can teleport and move around with it
 
     protected List<GameObject> children = new List<GameObject>();
-    public Collider[] ignoredColliders;
+    public Collider[] includeColliders;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class Tray : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (ignoredColliders.Contains(other))
+        if (!includeColliders.Contains(other)) //if it's not a collider that is in the include list
         {
             return;
         }
