@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: b3d68d8d34a1ffe4cab4317c7c0614cd
-timeCreated: 1511544032
+guid: 2980fadba0d99be48a918013aa6e98c2
+timeCreated: 1511787267
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Door
+    100000: Door
+    100002: //RootNode
     100004: Handle
-    400000: //RootNode
-    400002: Door
+    400000: Door
+    400002: //RootNode
     400004: Handle
     2300000: Door
     2300002: Handle
@@ -22,7 +22,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: eebd7760f259f8448869701135330cd9, type: 2}
+    second: {fileID: 2100000, guid: d3cf160653d164aff932c544908149a8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
