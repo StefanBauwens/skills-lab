@@ -123,7 +123,7 @@ Prefab:
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 459
+      value: 461.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -558,7 +558,7 @@ Prefab:
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 378
+      value: 380.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -2679,6 +2679,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   includeColliders:
   - {fileID: 1486991584}
+  detachWhenCollidingWithLayer: 8
+  breakTime: 0.25
 --- !u!65 &338144038
 BoxCollider:
   m_ObjectHideFlags: 0
