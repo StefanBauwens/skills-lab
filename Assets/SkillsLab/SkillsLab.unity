@@ -563,7 +563,11 @@ Prefab:
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
+<<<<<<< HEAD
       value: 131.5
+=======
+      value: 201.5
+>>>>>>> parent of 25dfe1c... Add badge model
       objectReference: {fileID: 0}
     - target: {fileID: 224000012484682510, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
