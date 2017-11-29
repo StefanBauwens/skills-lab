@@ -14,18 +14,9 @@ MonoBehaviour:
   m_PixelRect:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    y: 44
-    width: 1680
-    height: 952
-=======
-=======
->>>>>>> parent of f8c3bee... last commit of the day
     y: 43
     width: 1638
     height: 839
->>>>>>> parent of f8c3bee... last commit of the day
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
@@ -49,24 +40,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
-<<<<<<< HEAD
-    width: 1680
-    height: 902
-  m_MinSize: {x: 683, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
-  vertical: 0
-  controlID: 93
-=======
     width: 1638
     height: 789
   m_MinSize: {x: 683, y: 492}
   m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 9
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+  controlID: 46
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -81,18 +60,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1339
+    x: 1306
     y: 0
-<<<<<<< HEAD
-    width: 341
-    height: 902
-=======
     width: 332
     height: 789
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
   m_MinSize: {x: 277, y: 71}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
@@ -116,16 +87,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 331
-    height: 546
-=======
     width: 323
-    height: 476
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+    height: 477
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
@@ -148,21 +111,9 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    y: 546
-    width: 1339
-    height: 356
-=======
-    y: 476
+    y: 477
     width: 1306
-    height: 313
->>>>>>> parent of f8c3bee... last commit of the day
-=======
-    y: 476
-    width: 1306
-    height: 313
->>>>>>> parent of f8c3bee... last commit of the day
+    height: 312
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
   m_ActualView: {fileID: 13}
@@ -190,8 +141,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1680
-    height: 952
+    width: 1638
+    height: 839
   m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
@@ -210,7 +161,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1680
+    width: 1638
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -230,8 +181,8 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
-    y: 932
-    width: 1680
+    y: 819
+    width: 1638
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -253,24 +204,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 1339
-    height: 902
-  m_MinSize: {x: 406, y: 492}
-  m_MaxSize: {x: 10002, y: 14042}
-  vertical: 1
-  controlID: 94
-=======
     width: 1306
     height: 789
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 10
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+  controlID: 47
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -289,24 +228,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-<<<<<<< HEAD
-    width: 1339
-    height: 546
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
-  vertical: 0
-  controlID: 95
-=======
     width: 1306
-    height: 476
+    height: 477
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 11
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+  controlID: 48
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -321,18 +248,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 331
+    x: 323
     y: 0
-<<<<<<< HEAD
-    width: 1008
-    height: 546
-=======
     width: 983
-    height: 476
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+    height: 477
   m_MinSize: {x: 204, y: 221}
   m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 16}
@@ -341,7 +260,7 @@ MonoBehaviour:
   - {fileID: 17}
   - {fileID: 12}
   m_Selected: 0
-  m_LastSelected: 1
+  m_LastSelected: 0
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -391,21 +310,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    y: 640
-    width: 1337
-    height: 335
-=======
-    y: 568
+    y: 569
     width: 1304
-    height: 292
->>>>>>> parent of f8c3bee... last commit of the day
-=======
-    y: 568
-    width: 1304
-    height: 292
->>>>>>> parent of f8c3bee... last commit of the day
+    height: 291
   m_SearchFilter:
     m_NameFilter: 
     m_ClassNames: []
@@ -418,46 +325,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-<<<<<<< HEAD
-<<<<<<< HEAD
-    - Assets/SkillsLab
+    - Assets/SkillsLab/3D Models/Vanas/Materials/CardScanner/Materials
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/SkillsLab
-=======
-=======
->>>>>>> parent of f8c3bee... last commit of the day
-    - Assets
-  m_ViewMode: 1
-  m_StartGridSize: 64
-  m_LastFolders:
-  - Assets
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+  - Assets/SkillsLab/3D Models/Vanas/Materials/CardScanner/Materials
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Cindy Ho\Documents\MT 3\Projects Virtual 3D\skills-lab-master
   m_IsLocked: 0
   m_FolderTreeState:
-<<<<<<< HEAD
-<<<<<<< HEAD
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2a300000
-    m_LastClickedID: 12330
-    m_ExpandedIDs: 000000003a2a00002e2e00002a30000000ca9a3bffffff7f
-=======
-=======
->>>>>>> parent of f8c3bee... last commit of the day
-    scrollPos: {x: 0, y: 95}
-    m_SelectedIDs: 9a430000
-    m_LastClickedID: 17306
-    m_ExpandedIDs: 000000009a4300008447000086470000ba470000c0470000b24800003e4f000000ca9a3bffffff7f
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+    scrollPos: {x: 0, y: 126}
+    m_SelectedIDs: bc4a0000
+    m_LastClickedID: 19132
+    m_ExpandedIDs: 000000007c450000c04500004848000078490000ae490000b4490000b6490000bc490000c6490000b64a0000f84a000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -485,15 +365,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    m_ExpandedIDs: 000000003a2a00002e2e00002a300000
-=======
-    m_ExpandedIDs: 000000009a4300008447000086470000ba470000c0470000b24800003e4f0000
->>>>>>> parent of f8c3bee... last commit of the day
-=======
-    m_ExpandedIDs: 000000009a4300008447000086470000ba470000c0470000b24800003e4f0000
->>>>>>> parent of f8c3bee... last commit of the day
+    m_ExpandedIDs: 000000007c450000c04500004848000078490000ae490000b4490000b6490000bc490000c6490000b64a0000f84a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -520,8 +392,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
-    m_ExpandedInstanceIDs: c6230000
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -570,20 +442,10 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
-    x: 1341
-    y: 94
-    width: 339
-    height: 881
-=======
-=======
->>>>>>> parent of f8c3bee... last commit of the day
     x: 1308
     y: 92
     width: 330
     height: 768
->>>>>>> parent of f8c3bee... last commit of the day
   m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
@@ -614,36 +476,14 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    y: 94
-    width: 329
-    height: 525
+    y: 92
+    width: 321
+    height: 456
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: bc4a0000
     m_LastClickedID: 0
-    m_ExpandedIDs: 3cfbffff00000000083400003a340000
-=======
-    y: 92
-    width: 321
-    height: 455
-  m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 844b0000
-    m_LastClickedID: 19332
-    m_ExpandedIDs: 58d3ffff00000000
->>>>>>> parent of f8c3bee... last commit of the day
-=======
-    y: 92
-    width: 321
-    height: 455
-  m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 844b0000
-    m_LastClickedID: 19332
-    m_ExpandedIDs: 58d3ffff00000000
->>>>>>> parent of f8c3bee... last commit of the day
+    m_ExpandedIDs: 6a81ffffeabfffff68c1ffff9cc5ffff14c7fffff2cbffff76cfffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -688,44 +528,19 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
-    x: 333
-    y: 94
-    width: 1004
-    height: 525
-=======
-=======
->>>>>>> parent of f8c3bee... last commit of the day
     x: 325
     y: 92
     width: 979
-    height: 455
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+    height: 456
   m_SceneLighting: 1
-  lastFramingTime: 0
+  lastFramingTime: 414.30127869579115
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-<<<<<<< HEAD
-<<<<<<< HEAD
-    m_Target: {x: -0.75777245, y: 1.1944346, z: -1.2219453}
+    m_Target: {x: -1.4527407, y: 1.3578149, z: -3.6477494}
     speed: 2
-    m_Value: {x: -0.75777245, y: 1.1944346, z: -1.2219453}
-=======
-    m_Target: {x: -3.1553338, y: 0.66065454, z: -1.4990463}
-    speed: 2
-    m_Value: {x: -3.1553338, y: 0.66065454, z: -1.4990463}
->>>>>>> parent of f8c3bee... last commit of the day
-=======
-    m_Target: {x: -3.1553338, y: 0.66065454, z: -1.4990463}
-    speed: 2
-    m_Value: {x: -3.1553338, y: 0.66065454, z: -1.4990463}
->>>>>>> parent of f8c3bee... last commit of the day
+    m_Value: {x: -1.4527407, y: 1.3578149, z: -3.6477494}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -748,43 +563,19 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-<<<<<<< HEAD
-<<<<<<< HEAD
-    m_Target: {x: -0.1170001, y: -0.02621842, z: 0.0030898224, w: -0.99278146}
+    m_Target: {x: 0.013857081, y: -0.98497695, z: 0.0951572, w: 0.14343531}
     speed: 2
-    m_Value: {x: -0.11700011, y: -0.026218422, z: 0.0030898226, w: -0.99278146}
+    m_Value: {x: 0.013857079, y: -0.9849768, z: 0.09515718, w: 0.1434353}
   m_Size:
-    m_Target: 13.222461
+    m_Target: 2.2368188
     speed: 2
-    m_Value: 13.222461
-=======
-=======
->>>>>>> parent of f8c3bee... last commit of the day
-    m_Target: {x: -0.10324754, y: 0.84103566, z: -0.17294857, w: -0.50208354}
-    speed: 2
-    m_Value: {x: -0.10324752, y: 0.84103554, z: -0.17294855, w: -0.5020835}
-  m_Size:
-    m_Target: 3.5882425
-    speed: 2
-    m_Value: 3.5882425
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+    m_Value: 2.2368188
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_ShowGlobalGrid: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
   m_LastSceneViewRotation: {x: 0, y: 0, z: 0, w: 0}
-=======
-  m_LastSceneViewRotation: {x: 0.13479848, y: 0.7357459, z: -0.15359806, w: 0.6456895}
->>>>>>> parent of f8c3bee... last commit of the day
-=======
-  m_LastSceneViewRotation: {x: 0.13479848, y: 0.7357459, z: -0.15359806, w: 0.6456895}
->>>>>>> parent of f8c3bee... last commit of the day
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -812,23 +603,10 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
-    x: 507
-    y: 94
-    width: 1532
-    height: 790
-=======
-=======
->>>>>>> parent of f8c3bee... last commit of the day
-    x: 325
-    y: 92
-    width: 979
-    height: 455
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+    x: 323
+    y: 17
+    width: 973
+    height: 501
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
@@ -837,30 +615,17 @@ MonoBehaviour:
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
-<<<<<<< HEAD
-<<<<<<< HEAD
-    m_HBaseRangeMin: -766
-    m_HBaseRangeMax: 766
-    m_VBaseRangeMin: -386.5
-    m_VBaseRangeMax: 386.5
-=======
-=======
->>>>>>> parent of f8c3bee... last commit of the day
-    m_HBaseRangeMin: -489.5
-    m_HBaseRangeMax: 489.5
-    m_VBaseRangeMin: -219
-    m_VBaseRangeMax: 219
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+    m_HBaseRangeMin: -486.5
+    m_HBaseRangeMax: 486.5
+    m_VBaseRangeMin: -242
+    m_VBaseRangeMax: 242
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 0
-    m_VSlider: 0
+    m_HSlider: 1
+    m_VSlider: 1
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoom: 0
@@ -870,56 +635,25 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 17
-<<<<<<< HEAD
-      width: 1532
-      height: 773
+      width: 973
+      height: 484
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 766, y: 386.5}
-=======
-      width: 979
-      height: 438
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 489.5, y: 219}
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+    m_Translation: {x: 486.5, y: 242}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-<<<<<<< HEAD
-<<<<<<< HEAD
-      x: -766
-      y: -386.5
-      width: 1532
-      height: 773
-=======
-=======
->>>>>>> parent of f8c3bee... last commit of the day
-      x: -489.5
-      y: -219
-      width: 979
-      height: 438
-<<<<<<< HEAD
->>>>>>> parent of f8c3bee... last commit of the day
-=======
->>>>>>> parent of f8c3bee... last commit of the day
+      x: -486.5
+      y: -242
+      width: 973
+      height: 484
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
-  m_CurrentColorSpace: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LastWindowPixelSize: {x: 1532, y: 790}
-=======
-  m_LastWindowPixelSize: {x: 979, y: 455}
->>>>>>> parent of f8c3bee... last commit of the day
-=======
-  m_LastWindowPixelSize: {x: 979, y: 455}
->>>>>>> parent of f8c3bee... last commit of the day
+  m_CurrentColorSpace: -1
+  m_LastWindowPixelSize: {x: 973, y: 501}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -945,14 +679,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-<<<<<<< HEAD
     x: 8
     y: 718
     width: 1366
     height: 308
-=======
-    x: 0
-    y: 546
-    width: 1223
-    height: 250
->>>>>>> parent of f8c3bee... last commit of the day
