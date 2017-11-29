@@ -24,4 +24,9 @@ public class SearchResult : MonoBehaviour {
         _Name = name;
         _Info = info;
     }
+
+    public override string ToString()
+    {
+        return string.Format("[SearchResult: Name={0}, Info={1}]", Name, Info);
+    }
 }

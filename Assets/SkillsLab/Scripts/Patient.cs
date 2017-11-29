@@ -33,4 +33,9 @@ public class Patient : SearchResult
         IsMale = isMale;
     }
 
+    public override string ToString()
+    {
+        return string.Format("[Patient: FirstName={0}, Age={1}, IsMale={2}, Name={3}, Info={4}]", FirstName, Age, IsMale, Name, Info);
+    }
+
 }

@@ -32,4 +32,9 @@ public class Medical : SearchResult
         Drawer = drawer;
         Type = typeM;
     }
+
+    public override string ToString()
+    {
+        return string.Format("[Medical: Name={0}, Drawer={1}, Type={2}, Info={3}]", Name, Drawer, Type, Info);
+    }
 }

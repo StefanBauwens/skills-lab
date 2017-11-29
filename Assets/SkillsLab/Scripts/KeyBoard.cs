@@ -62,14 +62,17 @@ public class KeyBoard : MonoBehaviour {
         SearchResult[] results;
         if (inputF == medical)
         {
-            results = search.SearchForMedical(inputF.text);
+            results = search.SearchForMedical(medical.text);
         }
         else
         {
             results = search.SearchForName(firstName.text, lastName.text);
         }
 
-        Debug.Log(results);
+        foreach (var result in results)
+        {
+            Debug.Log(result.ToString());
+        }
     }
 
 }
