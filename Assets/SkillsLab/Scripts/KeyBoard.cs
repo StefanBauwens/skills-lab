@@ -9,6 +9,9 @@ public class KeyBoard : MonoBehaviour {
     public InputField firstName;
     public InputField lastName;
     public InputField medical;
+    public Dropdown resultsPatients;
+    public Dropdown resultsMedical;
+
     protected SearchVanas search;
 
 	// Use this for initi1alization
@@ -63,10 +66,40 @@ public class KeyBoard : MonoBehaviour {
         if (inputF == medical)
         {
             results = search.SearchForMedical(medical.text);
+            resultsMedical.options.Clear();
+            foreach (var item in results)
+            {
+                resultsMedical.options.Add(new Dropdown.OptionData(item.Name));
+            }
+            if (results.Length == 0)
+            {
+                resultsMedical.GetComponentInChildren<Text>().text = "No results";
+                resultsMedical.interactable = false;
+            }
+            else
+            {
+                resultsMedical.GetComponentInChildren<Text>().text = "Results";
+                resultsMedical.interactable = true;
+            }
         }
         else
         {
             results = search.SearchForName(firstName.text, lastName.text);
+            resultsPatients.options.Clear();
+            foreach (var item in results)
+            {
+                resultsPatients.options.Add(new Dropdown.OptionData(item.Name + " " + ((Patient)item).FirstName));
+            }
+            if (results.Length == 0)
+            {
+                resultsPatients.GetComponentInChildren<Text>().text = "No results";
+                resultsPatients.interactable = false;
+            }
+            else
+            {
+                resultsPatients.GetComponentInChildren<Text>().text = "Results";
+                resultsPatients.interactable = true;
+            }
         }
 
         foreach (var result in results)

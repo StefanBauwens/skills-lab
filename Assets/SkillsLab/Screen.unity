@@ -1542,6 +1542,16 @@ Prefab:
       propertyPath: medical
       value: 
       objectReference: {fileID: 1734016152}
+    - target: {fileID: 114865354256482750, guid: 25f64690172b74bd09c0d4f568531f9b,
+        type: 2}
+      propertyPath: resultsPatients
+      value: 
+      objectReference: {fileID: 264471981}
+    - target: {fileID: 114865354256482750, guid: 25f64690172b74bd09c0d4f568531f9b,
+        type: 2}
+      propertyPath: resultsMedical
+      value: 
+      objectReference: {fileID: 766370801}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25f64690172b74bd09c0d4f568531f9b, type: 2}
   m_IsPrefabParent: 0
