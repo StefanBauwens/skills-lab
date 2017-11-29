@@ -4,12 +4,35 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class KeyBoard : MonoBehaviour {
-    public InputField inputF;
+
+    protected InputField inputF;
+    public InputField firstName;
+    public InputField lastName;
+    public InputField medical;
+    protected SearchVanas search;
 
 	// Use this for initi1alization
 	void Start () {
-		
-	}
+        inputF = firstName;
+        search = new SearchVanas();
+        search.Start();
+    }
+
+    private void Update()
+    {
+        if (firstName.isFocused)
+        {
+            inputF = firstName;
+        }
+        else if (lastName.isFocused)
+        {
+            inputF = lastName;
+        }
+        else if (medical.isFocused)
+        {
+            inputF = medical;
+        }
+    }
 
     public void TypeKey(string character)
     {
@@ -36,7 +59,17 @@ public class KeyBoard : MonoBehaviour {
 
     public void Submit()
     {
-        //do something on vanas kast
+        SearchResult[] results;
+        if (inputF == medical)
+        {
+            results = search.SearchForMedical(inputF.text);
+        }
+        else
+        {
+            results = search.SearchForName(firstName.text, lastName.text);
+        }
+
+        Debug.Log(results);
     }
 
 }
