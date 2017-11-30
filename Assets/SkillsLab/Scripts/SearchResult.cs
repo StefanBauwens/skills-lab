@@ -29,4 +29,9 @@ public class SearchResult : MonoBehaviour {
     {
         return string.Format("[SearchResult: Name={0}, Info={1}]", Name, Info);
     }
+
+    public virtual string ToResult()
+    {
+        return string.Format("Name: {0}\nInfo:\n{1}", Name, Info);
+    }
 }

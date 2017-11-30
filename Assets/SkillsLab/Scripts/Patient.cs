@@ -38,4 +38,9 @@ public class Patient : SearchResult
         return string.Format("[Patient: FirstName={0}, Age={1}, IsMale={2}, Name={3}, Info={4}]", FirstName, Age, IsMale, Name, Info);
     }
 
+    public override string ToResult()
+    {
+        return string.Format("Name: {0}\tFirstName: {1}\nAge: {2}\tSex: {3}\nInfo:\n{4}", Name, FirstName, Age, IsMale ? "M" : "F", Info);
+    }
+
 }

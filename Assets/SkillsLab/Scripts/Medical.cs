@@ -37,4 +37,9 @@ public class Medical : SearchResult
     {
         return string.Format("[Medical: Name={0}, Drawer={1}, Type={2}, Info={3}]", Name, Drawer, Type, Info);
     }
+
+    public override string ToResult()
+    {
+        return string.Format("Name: {0}\nType: {1}\nDrawer: {2}\nInfo:\n{3}", Name, Type.ToString(), Drawer, Info);
+    }
 }
