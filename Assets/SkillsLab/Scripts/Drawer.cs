@@ -11,13 +11,19 @@ public class Drawer : MonoBehaviour {
     private VRTK_InteractableObject interactScript;
     private Rigidbody rb;
     private Vector3 startPos;
+    private ConfigurableJoint configJoint;
     private bool opened;
 
     void Start()
     {
-        //startPos = transform.position;
         interactScript = GetComponent<VRTK_InteractableObject>();
         rb = GetComponent<Rigidbody>();
+        configJoint = GetComponent<ConfigurableJoint>();
+        //startPos = transform.position;
+        SetGrabStatus(false);
+        SetRigidbodyStatus(false);
+        //SetConfigJointStatus(false);
+        
         // Subscribe function to the event
         interactScript.InteractableObjectGrabbed += new InteractableObjectEventHandler(ObjectGrabbed);
     }
@@ -47,10 +53,10 @@ public class Drawer : MonoBehaviour {
     // Enable/disable opening the drawer
     public void SetGrabStatus(bool enableGrab)
     {
-        Debug.Log("Parent Obj: " + gameObject.transform.parent);
-        Debug.Log("Drawer: " + gameObject);
         if (enableGrab)
         {
+            Debug.Log("Parent Obj: " + gameObject.transform.parent);
+            Debug.Log("Drawer: " + gameObject);
             interactScript.isGrabbable = true;
         }
         else
@@ -59,16 +65,29 @@ public class Drawer : MonoBehaviour {
         }
     }
 
-    // Rigidbody will detect/not detect other rigidbodies
+    // Rigidbody will detect/not detect other rigidbodies (lock drawer)
     public void SetRigidbodyStatus(bool enableRb)
     {
         if (enableRb)
         {
-            rb.detectCollisions = true;
+            rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
         }
         else
         {
-            rb.detectCollisions = false;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+        }
+    }
+
+    public void SetConfigJointStatus(bool enableMotion)
+    {
+        if (enableMotion)
+        {
+            configJoint.xMotion = ConfigurableJointMotion.Limited;
+        }
+        else
+        {
+            configJoint.xMotion = ConfigurableJointMotion.Locked;
+            Debug.Log("locked motion");
         }
     }
 

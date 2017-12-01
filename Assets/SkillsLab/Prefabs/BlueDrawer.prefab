@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4977964648559646}
   - component: {fileID: 33969895890681158}
   - component: {fileID: 23865632048096164}
+  - component: {fileID: 114511069862313212}
   - component: {fileID: 54180782357796204}
   - component: {fileID: 153023224124458866}
   - component: {fileID: 114023377027241540}
@@ -28,11 +29,11 @@ GameObject:
   - component: {fileID: 114752330721809162}
   - component: {fileID: 136292039863415216}
   - component: {fileID: 64536225723856390}
-  - component: {fileID: 114511069862313212}
   - component: {fileID: 65552193732418106}
   - component: {fileID: 65180261408876352}
   - component: {fileID: 65090984086082906}
   - component: {fileID: 65943628446298596}
+  - component: {fileID: 65382730469858932}
   m_Layer: 0
   m_Name: BlueDrawer
   m_TagString: Untagged
@@ -458,7 +459,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 118
   m_CollisionDetection: 0
 --- !u!64 &64536225723856390
 MeshCollider:
@@ -534,6 +535,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00007503118, y: 0.0052192523, z: 0.0015719255}
   m_Center: {x: 0.0010319849, y: -0.0000000037252903, z: 0}
+--- !u!65 &65382730469858932
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286543537261874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00956832, y: 0.00009809566, z: 0.0019801322}
+  m_Center: {x: -0.000012566763, y: -0.0026036822, z: -0.00023510259}
 --- !u!65 &65408303898515310
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -568,8 +581,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.009591133, y: 0.0054693087, z: 0.000671073}
-  m_Center: {x: -0.000009989563, y: -0.000013863525, z: -0.00073889975}
+  m_Size: {x: 0.009591133, y: 0.0054693087, z: 0.0007274457}
+  m_Center: {x: -0.000009989739, y: -0.000013863524, z: -0.00071071385}
 --- !u!108 &108583233103984616
 Light:
   m_ObjectHideFlags: 1

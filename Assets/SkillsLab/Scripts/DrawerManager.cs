@@ -23,6 +23,7 @@ public class DrawerManager : MonoBehaviour {
     private byte GetCorrectDrawerIndex(string medicine)
     {
         int index = -1;
+        int count = 0;
         foreach(Drawer drawer in drawers)
         {
             if(drawer.medicineInDrawer == medicine)
@@ -39,8 +40,8 @@ public class DrawerManager : MonoBehaviour {
 
     // Get drawer with specified medicine
     private Drawer GetCorrectDrawer(string medicine)
-    {
-         return drawers[GetCorrectDrawerIndex(medicine)];
+    {       
+        return drawers[GetCorrectDrawerIndex(medicine)];
     }
     
 
@@ -50,5 +51,7 @@ public class DrawerManager : MonoBehaviour {
         activeDrawer = GetCorrectDrawer(medicine);
         activeDrawer.SetLightStatus(true);
         activeDrawer.SetGrabStatus(true);
+        activeDrawer.SetRigidbodyStatus(true);
+        //activeDrawer.SetConfigJointStatus(true);
     }
 }

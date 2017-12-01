@@ -112,12 +112,11 @@ GameObject:
   - component: {fileID: 33218444401636612}
   - component: {fileID: 23054898164339740}
   - component: {fileID: 114699933237024966}
+  - component: {fileID: 54678668653986530}
   - component: {fileID: 114076892001100852}
   - component: {fileID: 114304092465199524}
   - component: {fileID: 114890530007245986}
-  - component: {fileID: 54678668653986530}
   - component: {fileID: 153467662753782150}
-  - component: {fileID: 64082052827469532}
   m_Layer: 0
   m_Name: Drawer
   m_TagString: Untagged
@@ -570,22 +569,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!64 &64082052827469532
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1729203123394390}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 23460b37681a9c44b8ea09c8e64bee51, type: 3}
 --- !u!64 &64345059829858976
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -730,7 +715,7 @@ MonoBehaviour:
   grabAttachMechanicScript: {fileID: 0}
   secondaryGrabActionScript: {fileID: 0}
   isUsable: 0
-  holdButtonToUse: 1
+  holdButtonToUse: 0
   useOnlyIfGrabbed: 0
   pointerActivatesUseAction: 0
   useOverrideButton: 0
@@ -747,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99490d2901160b540b6ce6a321816a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 0
+  precisionGrab: 1
   rightSnapHandle: {fileID: 0}
   leftSnapHandle: {fileID: 0}
   throwVelocityWithAttachDistance: 0
@@ -791,7 +776,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.46300006, y: 1.607301, z: -2.784}
+  m_ConnectedAnchor: {x: -0.773, y: 1.607301, z: -2.784}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
