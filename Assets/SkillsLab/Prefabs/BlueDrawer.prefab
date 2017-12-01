@@ -28,6 +28,11 @@ GameObject:
   - component: {fileID: 114752330721809162}
   - component: {fileID: 136292039863415216}
   - component: {fileID: 64536225723856390}
+  - component: {fileID: 114511069862313212}
+  - component: {fileID: 65552193732418106}
+  - component: {fileID: 65180261408876352}
+  - component: {fileID: 65090984086082906}
+  - component: {fileID: 65943628446298596}
   m_Layer: 0
   m_Name: BlueDrawer
   m_TagString: Untagged
@@ -227,8 +232,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286543537261874}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.016000032, z: 0.053040028}
-  m_LocalScale: {x: 100, y: 99.99997, z: 99.99997}
+  m_LocalPosition: {x: 0, y: -0.219, z: 0.053040028}
+  m_LocalScale: {x: 100, y: 99.99992, z: 99.99992}
   m_Children:
   - {fileID: 4597252530714056}
   - {fileID: 4185888116092704}
@@ -463,12 +468,24 @@ MeshCollider:
   m_GameObject: {fileID: 1286543537261874}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 1
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 047307194910749418bd1063c8c04efa, type: 3}
+--- !u!65 &65090984086082906
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286543537261874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00010176827, y: 0.0054258327, z: 0.0019642524}
+  m_Center: {x: 0.0048045833, y: 0.000007874481, z: -0.00009486543}
 --- !u!65 &65105916223018674
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -493,6 +510,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.00007503083, y: 0.0052192523, z: 0.0015719255}
   m_Center: {x: 0.0026682883, y: -0.0000000037252903, z: 0}
+--- !u!65 &65180261408876352
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286543537261874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0000898796, y: 0.0054258327, z: 0.0019822628}
+  m_Center: {x: -0.0048405197, y: 0.000007874481, z: -0.00010387065}
 --- !u!65 &65338055260789696
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -517,6 +546,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.000075031065, y: 0.0052192523, z: 0.0015719255}
   m_Center: {x: -0.0019384656, y: -0.0000000037252903, z: 0}
+--- !u!65 &65552193732418106
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286543537261874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009780916, y: 0.0003245311, z: 0.0020987478}
+  m_Center: {x: 0, y: 0.002558529, z: -0.00017579488}
+--- !u!65 &65943628446298596
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286543537261874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009591133, y: 0.0054693087, z: 0.000671073}
+  m_Center: {x: -0.000009989563, y: -0.000013863525, z: -0.00073889975}
 --- !u!108 &108583233103984616
 Light:
   m_ObjectHideFlags: 1
@@ -585,6 +638,19 @@ MonoBehaviour:
   breakForce: 500
   strength: 500
   damper: 50
+--- !u!114 &114511069862313212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286543537261874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460b9e395f81f4f4d9305cae3904fd94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medicineInDrawer: 
+  drawerLight: {fileID: 1833749732434422}
 --- !u!114 &114752330721809162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -600,14 +666,14 @@ MonoBehaviour:
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
-  isGrabbable: 1
+  isGrabbable: 0
   holdButtonToGrab: 1
-  stayGrabbedOnTeleport: 0
+  stayGrabbedOnTeleport: 1
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 114085636495227292}
-  secondaryGrabActionScript: {fileID: 114023377027241540}
+  grabAttachMechanicScript: {fileID: 0}
+  secondaryGrabActionScript: {fileID: 0}
   isUsable: 0
   holdButtonToUse: 0
   useOnlyIfGrabbed: 0
@@ -638,7 +704,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.003, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.164, y: 1.7236001, z: -2.7909162}
+  m_ConnectedAnchor: {x: 0.164, y: 1.5238501, z: -2.7909162}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
