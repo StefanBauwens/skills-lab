@@ -12,7 +12,7 @@ public class SearchVanas : MonoBehaviour
     public void Start()
     {
         patients = new Patient[] { new Patient("Bauwens", "Stefan", "jabla", 22, true), new Patient("Ho", "Cindy", "habla", 20, false) };
-        medicals = new Medical[] { new Medical("Ibuprofen", "", "A1", TypeOfMedicine.Pill), new Medical("Asperine", "bruis", "B2", TypeOfMedicine.EffervescentTablet), new Medical("Fun", "bla", "C#", TypeOfMedicine.IDKYET) };
+        medicals = new Medical[] { new Medical("Ibuprofen", "", "A1", TypeOfMedicine.Pill, 4), new Medical("Asperine", "bruis", "B2", TypeOfMedicine.EffervescentTablet, 3), new Medical("Fun", "bla", "C#", TypeOfMedicine.IDKYET, 9001) };
     }
 
     public Patient[] SearchForName(string fName, string lName)

@@ -6,37 +6,65 @@ using UnityEngine.UI;
 public class SwitchPanels : MonoBehaviour {
     public CanvasGroup panelSearch;
     public CanvasGroup panelResults;
+    public CanvasGroup loginScreen;
 
-	// Use this for initialization
+    protected SearchResult currentResult;
+
+    public Button logOutBtn;
+    public Button retrieveButton;
+
 	void Start () {
+        Logout();
+        currentResult = null;
+        logOutBtn.onClick.AddListener(Logout);
+        retrieveButton.onClick.AddListener(RetrieveButton);
+	}
+
+    public void Login()
+    {
         BackButton();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        DisablePanel(loginScreen, true);
+    }
+
+    protected void Logout()
+    {
+        DisablePanel(panelResults, true);
+        DisablePanel(panelSearch, true);
+        DisablePanel(loginScreen, false);
+    }
 
     public void ShowResult(SearchResult result)
     {
+        if (result is Medical)
+        {
+            retrieveButton.gameObject.SetActive(((Medical)result).Quantity > 0);
+        }
+        else
+        {
+;            retrieveButton.gameObject.SetActive(false);
+        }
+        currentResult = result;
         panelResults.GetComponentInChildren<Text>().text = result.ToResult();
-        panelResults.alpha = 1;
-        panelResults.interactable = true;
-        panelResults.blocksRaycasts = true;
-        panelSearch.alpha = 0;
-        panelSearch.interactable = false;
-        panelSearch.blocksRaycasts = false;
-
+        DisablePanel(panelResults, false);
+        DisablePanel(panelSearch, true);
     }
 
     public void BackButton()
     {
-        panelResults.alpha = 0;
-        panelResults.interactable = false;
-        panelResults.blocksRaycasts = false;
-        panelSearch.alpha = 1;
-        panelSearch.interactable = true;
-        panelSearch.blocksRaycasts = true;
+        DisablePanel(panelResults, true);
+        DisablePanel(panelSearch, false);
+    }
 
+    protected void RetrieveButton()
+    {
+        ((Medical)currentResult).Quantity--;
+        //Script to open drawer
+    }
+
+    protected void DisablePanel(CanvasGroup panel, bool disablePanel)
+    {
+        panel.alpha = disablePanel?0:1;
+        panel.interactable = !disablePanel;
+        panel.blocksRaycasts = !disablePanel;
     }
 }
