@@ -7981,6 +7981,21 @@ Prefab:
       propertyPath: strength
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 153467662753782150, guid: 2d30777ba6b92974fbde969fd184c324,
+        type: 2}
+      propertyPath: m_ProjectionDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114304092465199524, guid: 2d30777ba6b92974fbde969fd184c324,
+        type: 2}
+      propertyPath: breakForce
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 54678668653986530, guid: 2d30777ba6b92974fbde969fd184c324,
+        type: 2}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 2d30777ba6b92974fbde969fd184c324, type: 2}
@@ -8636,7 +8651,7 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 7a0851a67a12a00408b1449ef2bf25c7, type: 2}
     - target: {fileID: 100000, guid: 91e60d8ec24dd4d4eb54f295357af3cc, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91e60d8ec24dd4d4eb54f295357af3cc, type: 3}
@@ -12975,7 +12990,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1419996949}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1

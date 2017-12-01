@@ -739,7 +739,7 @@ MonoBehaviour:
   throwMultiplier: 1
   onGrabCollisionDelay: 0
   destroyImmediatelyOnThrow: 1
-  breakForce: 1500
+  breakForce: 500
   strength: 500
   damper: 50
 --- !u!114 &114699933237024966

@@ -10,7 +10,6 @@ public class Drawer : MonoBehaviour {
     public GameObject drawerLight;
     private VRTK_InteractableObject interactScript;
     private Rigidbody rb;
-    private Vector3 startPos;
     private ConfigurableJoint configJoint;
     private bool opened;
 
@@ -19,23 +18,13 @@ public class Drawer : MonoBehaviour {
         interactScript = GetComponent<VRTK_InteractableObject>();
         rb = GetComponent<Rigidbody>();
         configJoint = GetComponent<ConfigurableJoint>();
-        //startPos = transform.position;
         SetGrabStatus(false);
         SetRigidbodyStatus(false);
-        //SetConfigJointStatus(false);
         
         // Subscribe function to the event
         interactScript.InteractableObjectGrabbed += new InteractableObjectEventHandler(ObjectGrabbed);
     }
 
-    private void Update()
-    {
-        // Drawer gets locked when it's back in the start position
-        //if(opened && transform.position == startPos)
-        //{
-        //    SetGrabStatus(false);
-        //}
-    }
 
     // Enable/disable drawer light
     public void SetLightStatus(bool enableLight)
@@ -65,10 +54,10 @@ public class Drawer : MonoBehaviour {
         }
     }
 
-    // Rigidbody will detect/not detect other rigidbodies (lock drawer)
+    // Drawer will be locked (freeze pos & rot)
     public void SetRigidbodyStatus(bool enableRb)
     {
-        if (enableRb)
+        if (enableRb) // Won't freeze pos z for opening drawer
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
         }
@@ -95,7 +84,7 @@ public class Drawer : MonoBehaviour {
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
         Debug.Log("Im Grabbed");
-        SetLightStatus(false);
+        //SetLightStatus(false);
         opened = true;
     }
 
