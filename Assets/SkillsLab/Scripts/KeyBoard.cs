@@ -29,10 +29,8 @@ public class KeyBoard : MonoBehaviour {
         search.Start();
         resultsMedical.Hide();
         resultsPatients.Hide();
-        GoButtonMedical.interactable = false;
-        GoButtonPatient.interactable = false;
-        //resultsMedical.onValueChanged.AddListener(SelectResult);
-        //resultsPatients.onValueChanged.AddListener(SelectResult);                                          
+        GoButtonMedical.gameObject.SetActive(false);
+        GoButtonPatient.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -97,9 +95,11 @@ public class KeyBoard : MonoBehaviour {
         if (inputF == medical)
         {
             resultsPatients.interactable = false;
-            GoButtonPatient.interactable = false;
+            //GoButtonPatient.interactable = false;
+            GoButtonPatient.gameObject.SetActive(false);
             resultsMedical.interactable = true;
-            GoButtonMedical.interactable = true;
+            //GoButtonMedical.interactable = true;
+            GoButtonMedical.gameObject.SetActive(true);
 
             results = search.SearchForMedical(medical.text);
             resultsMedical.options.Clear();
@@ -128,9 +128,11 @@ public class KeyBoard : MonoBehaviour {
         else
         {
             resultsPatients.interactable = true;
-            GoButtonPatient.interactable = true;
+            //GoButtonPatient.interactable = true;
+            GoButtonPatient.gameObject.SetActive(true);
             resultsMedical.interactable = false;
-            GoButtonMedical.interactable = false;
+            //GoButtonMedical.interactable = false;
+            GoButtonMedical.gameObject.SetActive(false);
 
             results = search.SearchForName(firstName.text, lastName.text);
             resultsPatients.options.Clear();

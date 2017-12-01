@@ -40,7 +40,7 @@ public class Patient : SearchResult
 
     public override string ToResult()
     {
-        return string.Format("Name: {0}\tFirstName: {1}\nAge: {2}\tSex: {3}\nInfo:\n{4}", Name, FirstName, Age, IsMale ? "M" : "F", Info);
+        return string.Format("<b>Name:</b> {0}\t<b>FirstName:</b> {1}\n<b>Age:</b> {2}\t<b>Sex:</b> {3}\n<b>Info:</b>\n{4}", Name, FirstName, Age, IsMale ? "M" : "F", Info);
     }
 
 }
