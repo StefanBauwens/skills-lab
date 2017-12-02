@@ -10,14 +10,11 @@ public class Drawer : MonoBehaviour {
     public GameObject drawerLight;
     private VRTK_InteractableObject interactScript;
     private Rigidbody rb;
-    private ConfigurableJoint configJoint;
-    private bool opened;
 
     void Start()
     {
         interactScript = GetComponent<VRTK_InteractableObject>();
         rb = GetComponent<Rigidbody>();
-        configJoint = GetComponent<ConfigurableJoint>();
         SetGrabStatus(false);
         SetRigidbodyStatus(false);
         
@@ -39,13 +36,11 @@ public class Drawer : MonoBehaviour {
         }
     }
 
-    // Enable/disable opening the drawer
+    // Make drawer grabbable/ungrabbable (lock)
     public void SetGrabStatus(bool enableGrab)
     {
         if (enableGrab)
         {
-            Debug.Log("Parent Obj: " + gameObject.transform.parent);
-            Debug.Log("Drawer: " + gameObject);
             interactScript.isGrabbable = true;
         }
         else
@@ -57,7 +52,7 @@ public class Drawer : MonoBehaviour {
     // Drawer will be locked (freeze pos & rot)
     public void SetRigidbodyStatus(bool enableRb)
     {
-        if (enableRb) // Won't freeze pos z for opening drawer
+        if (enableRb) // Unfreeze pos z to unlock drawer
         {
             rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
         }
@@ -67,25 +62,11 @@ public class Drawer : MonoBehaviour {
         }
     }
 
-    public void SetConfigJointStatus(bool enableMotion)
-    {
-        if (enableMotion)
-        {
-            configJoint.xMotion = ConfigurableJointMotion.Limited;
-        }
-        else
-        {
-            configJoint.xMotion = ConfigurableJointMotion.Locked;
-            Debug.Log("locked motion");
-        }
-    }
-
-    // Called when object is grabbed
+    // Called when object(drawer) is grabbed
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
         Debug.Log("Im Grabbed");
-        //SetLightStatus(false);
-        opened = true;
+        //SetLightStatus(false); --> turn off when start pos reached
     }
 
 }

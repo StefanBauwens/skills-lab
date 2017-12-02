@@ -1,34 +1,61 @@
-﻿using System.Collections;
+﻿using System; // Add for Action
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
 public class DrawerManager : MonoBehaviour {
 
-    public byte nrOfDrawers;
+    private Action<EventParam> medicineSelectedListener;
+    private int nrOfDrawers;
     private Drawer[] drawers;
     private Drawer activeDrawer;
 
-    // Use this for initialization
+    void OnEnable()
+    {
+        EventManagerParam.StartListening(GameEvent.UNLOCK_DRAWER, medicineSelectedListener);
+    }
+
+    void OnDisable()
+    {
+        EventManagerParam.StopListening(GameEvent.UNLOCK_DRAWER, medicineSelectedListener);
+    }
+
+    void Awake()
+    {
+        // Instantiate Action<EventParam> and add a function
+        medicineSelectedListener = new Action<EventParam>(OnMedicineSelected);
+    }
+
     void Start () {
+        nrOfDrawers = FindObjectsOfType<Drawer>().Length;
         drawers = new Drawer[nrOfDrawers];
         drawers = FindObjectsOfType<Drawer>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            // Create parameter to pass to the event
+            EventParam medicine = new EventParam();
+            // Choose specific type from different params in struct and assign value
+            medicine.param1 = "tablets";
+
+            // Trigger event by passing event name and parameter
+            EventManagerParam.TriggerEvent(GameEvent.UNLOCK_DRAWER, medicine);
+        }
+    } 
+
+    // Returns index of drawer with the right medicine
     private byte GetCorrectDrawerIndex(string medicine)
     {
         int index = -1;
-        int count = 0;
         foreach(Drawer drawer in drawers)
         {
             if(drawer.medicineInDrawer == medicine)
             {
-                index = System.Array.IndexOf(drawers, drawer);
+                index = Array.IndexOf(drawers, drawer);
             }
             else
             {
@@ -44,7 +71,6 @@ public class DrawerManager : MonoBehaviour {
         return drawers[GetCorrectDrawerIndex(medicine)];
     }
     
-
     // Called when patient and medicine is selected
     public void SetActiveDrawer(string medicine)
     {
@@ -52,6 +78,12 @@ public class DrawerManager : MonoBehaviour {
         activeDrawer.SetLightStatus(true);
         activeDrawer.SetGrabStatus(true);
         activeDrawer.SetRigidbodyStatus(true);
-        //activeDrawer.SetConfigJointStatus(true);
+    }
+
+    // Called when "unlockDrawer" event is triggered
+    void OnMedicineSelected(EventParam medicine)
+    {
+        // Pass the string value from medicine param
+        Managers.DrawersMan.SetActiveDrawer(medicine.param1);
     }
 }

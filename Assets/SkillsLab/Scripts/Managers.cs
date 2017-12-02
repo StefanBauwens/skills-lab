@@ -14,12 +14,4 @@ public class Managers : MonoBehaviour {
         DrawersMan = GetComponent<DrawerManager>();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("Medicine selected!");
-            EventManager.TriggerEvent("enableDrawer");
-        }
-    }
 }
