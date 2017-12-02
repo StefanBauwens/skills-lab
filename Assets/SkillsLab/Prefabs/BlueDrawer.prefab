@@ -28,7 +28,6 @@ GameObject:
   - component: {fileID: 114085636495227292}
   - component: {fileID: 114752330721809162}
   - component: {fileID: 136292039863415216}
-  - component: {fileID: 64536225723856390}
   - component: {fileID: 65552193732418106}
   - component: {fileID: 65180261408876352}
   - component: {fileID: 65090984086082906}
@@ -233,7 +232,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286543537261874}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -0.219, z: 0.053040028}
+  m_LocalPosition: {x: 0, y: 0.016000032, z: 0.053040028}
   m_LocalScale: {x: 100, y: 99.99992, z: 99.99992}
   m_Children:
   - {fileID: 4597252530714056}
@@ -453,7 +452,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286543537261874}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 0
@@ -461,20 +460,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
---- !u!64 &64536225723856390
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1286543537261874}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Convex: 1
-  m_InflateMesh: 0
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 047307194910749418bd1063c8c04efa, type: 3}
 --- !u!65 &65090984086082906
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -545,8 +530,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.00956832, y: 0.00009809566, z: 0.0019801322}
-  m_Center: {x: -0.000012566763, y: -0.0026036822, z: -0.00023510259}
+  m_Size: {x: 0.00956832, y: 0.00012828685, z: 0.0019816519}
+  m_Center: {x: -0.000012566763, y: -0.0026833676, z: -0.00013299721}
 --- !u!65 &65408303898515310
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -581,8 +566,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.009591133, y: 0.0054693087, z: 0.0007274457}
-  m_Center: {x: -0.000009989739, y: -0.000013863524, z: -0.00071071385}
+  m_Size: {x: 0.009591133, y: 0.005329884, z: 0.0007274458}
+  m_Center: {x: -0.000009989739, y: 0.00005584872, z: -0.00071071496}
 --- !u!108 &108583233103984616
 Light:
   m_ObjectHideFlags: 1
@@ -717,7 +702,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.003, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.164, y: 1.5238501, z: -2.7909162}
+  m_ConnectedAnchor: {x: 0.164, y: 1.7236001, z: -2.7909162}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
