@@ -9,6 +9,7 @@ public class LockDrawerEndPos : MonoBehaviour {
         if (other.gameObject.GetComponent<Drawer>())
         {
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            other.GetComponent<Drawer>().SetGrabStatus(false);
         }
     }
 }
