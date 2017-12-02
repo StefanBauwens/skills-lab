@@ -50,22 +50,23 @@ public class Drawer : MonoBehaviour {
     }
 
     // Drawer will be locked (freeze pos & rot)
-    public void SetRigidbodyStatus(bool enableRb)
+    public void SetRigidbodyStatus(bool unlockZ)
     {
-        if (enableRb) // Unfreeze pos z to unlock drawer
-        {
+        if (unlockZ) // Unfreeze pos z to unlock drawer
+        {  
             rb.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY;
+            rb.isKinematic = false; // Stop weird forces on items
         }
         else
-        {
+        { 
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            rb.isKinematic = true;
         }
     }
 
     // Called when object(drawer) is grabbed
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
-        Debug.Log("Im Grabbed");
         //SetLightStatus(false); --> turn off when start pos reached
     }
 

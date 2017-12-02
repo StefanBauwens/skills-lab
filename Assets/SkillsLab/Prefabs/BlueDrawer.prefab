@@ -33,6 +33,8 @@ GameObject:
   - component: {fileID: 65090984086082906}
   - component: {fileID: 65943628446298596}
   - component: {fileID: 65382730469858932}
+  - component: {fileID: 65871019233138630}
+  - component: {fileID: 114795280588634086}
   m_Layer: 0
   m_Name: BlueDrawer
   m_TagString: Untagged
@@ -232,7 +234,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286543537261874}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.016000032, z: 0.053040028}
+  m_LocalPosition: {x: 0, y: -0.219, z: 0.053040028}
   m_LocalScale: {x: 100, y: 99.99992, z: 99.99992}
   m_Children:
   - {fileID: 4597252530714056}
@@ -452,11 +454,11 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286543537261874}
   serializedVersion: 2
-  m_Mass: 10
+  m_Mass: 5
   m_Drag: 1
   m_AngularDrag: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
@@ -556,6 +558,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.009780916, y: 0.0003245311, z: 0.0020987478}
   m_Center: {x: 0, y: 0.002558529, z: -0.00017579488}
+--- !u!65 &65871019233138630
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286543537261874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009604376, y: 0.00533621, z: 0.0023144442}
+  m_Center: {x: 0.00005982045, y: 0.000059329806, z: -0.00006794681}
 --- !u!65 &65943628446298596
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -664,7 +678,7 @@ MonoBehaviour:
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
-  isGrabbable: 0
+  isGrabbable: 1
   holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
   validDrop: 1
@@ -679,6 +693,17 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!114 &114795280588634086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1286543537261874}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97545249373ffaf4fabad87f9e36a0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136292039863415216
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -702,7 +727,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.003, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.164, y: 1.7236001, z: -2.7909162}
+  m_ConnectedAnchor: {x: 0.164, y: 1.5238501, z: -2.7909162}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
