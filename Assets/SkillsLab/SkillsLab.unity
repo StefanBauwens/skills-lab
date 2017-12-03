@@ -563,7 +563,7 @@ Prefab:
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 140.5
+      value: 210.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012484682510, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -22128,15 +22128,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: a0c9b6649f9744959b13bc55f63ead76, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.812
+      value: -0.94
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a0c9b6649f9744959b13bc55f63ead76, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.049
+      value: 1.97
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a0c9b6649f9744959b13bc55f63ead76, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.49
+      value: -2.735
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a0c9b6649f9744959b13bc55f63ead76, type: 3}
       propertyPath: m_LocalRotation.x
@@ -22169,6 +22169,10 @@ Prefab:
     - target: {fileID: 400000, guid: a0c9b6649f9744959b13bc55f63ead76, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.047651887
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a0c9b6649f9744959b13bc55f63ead76, type: 3}
+      propertyPath: m_Name
+      value: Badge
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c9b6649f9744959b13bc55f63ead76, type: 3}

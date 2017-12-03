@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class UnlockVanas : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public SwitchPanels switcher;
+    const string BADGETAG = "badge";
 
-    void On
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == BADGETAG)
+        {
+            switcher.Login();
+        }
+    }
 }
