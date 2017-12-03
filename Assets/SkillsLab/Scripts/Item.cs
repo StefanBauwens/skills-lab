@@ -20,12 +20,8 @@ public class Item : MonoBehaviour {
     // Disable all constraints when item is grabbed
     private void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
-        if(transform.parent != null)
-        {
-            rb.constraints = RigidbodyConstraints.None;
-            transform.parent = null;
-            isGrabbed = true;
-        }
-        
+        rb.constraints = RigidbodyConstraints.None;
+        transform.parent = null;
+        isGrabbed = true;      
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028544, g: 0.22571565, b: 0.306924, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028527, g: 0.22571528, b: 0.30692375, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1827,7 +1827,7 @@ Prefab:
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 210.5
+      value: 211
       objectReference: {fileID: 0}
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -2262,7 +2262,7 @@ Prefab:
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 210.5
+      value: 211
       objectReference: {fileID: 0}
     - target: {fileID: 224000012484682510, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -3372,7 +3372,6 @@ GameObject:
   - component: {fileID: 478496005}
   - component: {fileID: 478496004}
   - component: {fileID: 478496003}
-  - component: {fileID: 478496002}
   - component: {fileID: 478496001}
   - component: {fileID: 478496000}
   - component: {fileID: 478495999}
@@ -3443,29 +3442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &478496002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 478495998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2315305343a584e8758755b54117c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clipOnTouch: {fileID: 0}
-  strengthOnTouch: 0
-  durationOnTouch: 0
-  intervalOnTouch: 0.05
-  clipOnGrab: {fileID: 0}
-  strengthOnGrab: 0
-  durationOnGrab: 0
-  intervalOnGrab: 0.05
-  clipOnUse: {fileID: 0}
-  strengthOnUse: 0
-  durationOnUse: 0
-  intervalOnUse: 0.05
 --- !u!136 &478496003
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3514,7 +3490,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 478495998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9250001, y: 1.7980001, z: -3.7670002}
+  m_LocalPosition: {x: 2.064, y: 1.55, z: -2.564}
   m_LocalScale: {x: 0.0013709008, y: 0.001370901, z: 0.001370901}
   m_Children:
   - {fileID: 291329894}
@@ -6027,7 +6003,6 @@ GameObject:
   - component: {fileID: 779820533}
   - component: {fileID: 779820532}
   - component: {fileID: 779820531}
-  - component: {fileID: 779820530}
   - component: {fileID: 779820529}
   - component: {fileID: 779820528}
   - component: {fileID: 779820527}
@@ -6098,19 +6073,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0819812, y: 0.043115377, z: 0.48037705}
-  m_Center: {x: 0.0021277664, y: 0.9057834, z: 0.0059911013}
---- !u!114 &779820530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 779820524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Size: {x: 1.0819812, y: 0.013292372, z: 0.48037705}
+  m_Center: {x: 0.0021277664, y: 0.92069495, z: 0.0059911013}
 --- !u!65 &779820531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6119,10 +6083,10 @@ BoxCollider:
   m_GameObject: {fileID: 779820524}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.0532796, y: 0.013043821, z: 0.43626332}
-  m_Center: {x: -0.0032060144, y: 0.9246433, z: -0.0046652853}
+  m_Size: {x: 1.0532796, y: 0.037011445, z: 0.43626332}
+  m_Center: {x: -0.0032060144, y: 0.93662703, z: -0.0046652853}
 --- !u!153 &779820532
 ConfigurableJoint:
   m_ObjectHideFlags: 0
@@ -6133,7 +6097,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 2.7, y: 0.624, z: -3.58}
+  m_ConnectedAnchor: {x: 2.172, y: 0.624, z: -2.516}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -6235,9 +6199,9 @@ MonoBehaviour:
   throwMultiplier: 1
   onGrabCollisionDelay: 0
   destroyImmediatelyOnThrow: 1
-  breakForce: 1500
-  strength: 500
-  damper: 50
+  breakForce: 10000
+  strength: 750
+  damper: 100
 --- !u!114 &779820534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6261,7 +6225,7 @@ MonoBehaviour:
   grabOverrideButton: 0
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 779820533}
-  secondaryGrabActionScript: {fileID: 779820530}
+  secondaryGrabActionScript: {fileID: 0}
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -6302,7 +6266,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 779820524}
   m_LocalRotation: {x: 0, y: -0.22818094, z: 0, w: 0.97361875}
-  m_LocalPosition: {x: 2.7, y: 0.624, z: -3.58}
+  m_LocalPosition: {x: 2.172, y: 0.624, z: -2.516}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1444668809}
@@ -11461,7 +11425,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1557030074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.387, y: 2.105, z: -2.457}
+  m_LocalPosition: {x: 2.4839997, y: 1.604, z: -2.4249997}
   m_LocalScale: {x: 0.2, y: 0.005, z: 0.2}
   m_Children:
   - {fileID: 1268718911}
