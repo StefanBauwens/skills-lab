@@ -7,7 +7,6 @@ public class SwitchPanels : MonoBehaviour {
     public CanvasGroup panelSearch;
     public CanvasGroup panelResults;
     public CanvasGroup loginScreen;
-
     protected SearchResult currentResult;
 
     public Button logOutBtn;
@@ -58,7 +57,10 @@ public class SwitchPanels : MonoBehaviour {
     protected void RetrieveButton()
     {
         ((Medical)currentResult).Quantity--;
-        //Script to open drawer
+
+        EventParam medicine = new EventParam();
+        medicine.param1 = currentResult.Name;
+        EventManagerParam.TriggerEvent(GameEvent.UNLOCK_DRAWER, medicine);
     }
 
     protected void DisablePanel(CanvasGroup panel, bool disablePanel)
