@@ -6,6 +6,7 @@ using VRTK;
 
 public class DrawerManager : MonoBehaviour {
 
+    public GameObject blueVanasLight;
     private Action<EventParam> medicineSelectedListener;
     private int nrOfDrawers;
     private Drawer[] drawers;
@@ -40,7 +41,7 @@ public class DrawerManager : MonoBehaviour {
             // Create parameter to pass to the event
             EventParam medicine = new EventParam();
             // Choose specific type from different params in struct and assign value
-            medicine.param1 = "tablets";
+            medicine.param1 = "Ibuprofen";
 
             // Trigger event by passing event name and parameter
             EventManagerParam.TriggerEvent(GameEvent.UNLOCK_DRAWER, medicine);
@@ -75,9 +76,9 @@ public class DrawerManager : MonoBehaviour {
     public void SetActiveDrawer(string medicine)
     {
         activeDrawer = GetCorrectDrawer(medicine);
-        activeDrawer.SetLightStatus(true);
         activeDrawer.SetGrabStatus(true);
         activeDrawer.SetRigidbodyStatus(true);
+        StartCoroutine(DisableLights());
     }
 
     // Called when "unlockDrawer" event is triggered
@@ -85,5 +86,24 @@ public class DrawerManager : MonoBehaviour {
     {
         // Pass the string value from medicine param
         Managers.DrawersMan.SetActiveDrawer(medicine.param1);
+    }
+
+    private IEnumerator DisableLights()
+    {
+        // Enable smallLight on blueVanas
+        if (activeDrawer.name.Contains("BlueDrawer"))
+        {
+            blueVanasLight.SetActive(true);
+            activeDrawer.SetLightStatus(true);
+            yield return new WaitForSeconds(10);
+            blueVanasLight.SetActive(false);
+        }
+        else // grayVanas drawer
+        {
+            activeDrawer.SetLightStatus(true);
+            yield return new WaitForSeconds(10);
+        }
+
+        activeDrawer.SetLightStatus(false);
     }
 }
