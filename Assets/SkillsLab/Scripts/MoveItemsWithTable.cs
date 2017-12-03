@@ -15,17 +15,6 @@ public class MoveItemsWithTable : MonoBehaviour {
             }
         }
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.GetComponent<Item>())
-    //    {
-    //        collision.gameObject.GetComponent<Item>().touchesTable = true;
-    //        if (collision.gameObject.GetComponent<Item>().isGrabbed == false)
-    //        {
-    //            StartCoroutine(ConstrainMovement(collision));
-    //        }
-    //    }
-    //}
 
     private void OnTriggerExit(Collider other)
     {
@@ -35,16 +24,6 @@ public class MoveItemsWithTable : MonoBehaviour {
             other.gameObject.GetComponent<Item>().isGrabbed = false;
         }
     }
-
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.gameObject.GetComponent<Item>())
-    //    {
-    //        collision.gameObject.GetComponent<Item>().touchesTable = false;
-    //        collision.gameObject.GetComponent<Item>().isGrabbed = false;
-    //    }
-
-    //}
 
     private IEnumerator ConstrainMovement(Collider other)
     {

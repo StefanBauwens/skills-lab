@@ -61,6 +61,7 @@ public class SwitchPanels : MonoBehaviour {
         EventParam medicine = new EventParam();
         medicine.param1 = currentResult.Name;
         EventManagerParam.TriggerEvent(GameEvent.UNLOCK_DRAWER, medicine);
+        Debug.Log("medicine selected: " + currentResult.Name);
     }
 
     protected void DisablePanel(CanvasGroup panel, bool disablePanel)
