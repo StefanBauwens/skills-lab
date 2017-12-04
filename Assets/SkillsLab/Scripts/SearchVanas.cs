@@ -12,7 +12,7 @@ public class SearchVanas : MonoBehaviour
     public void Start()
     {
         patients = new Patient[] { new Patient("Bauwens", "Stefan", "jabla", 22, true), new Patient("Ho", "Cindy", "habla", 20, false) };
-        medicals = new Medical[] { new Medical("Ibuprofen", "", "A1", TypeOfMedicine.Pill, 4), new Medical("Asperine", "bruis", "B2", TypeOfMedicine.EffervescentTablet, 3), new Medical("Fun", "bla", "C#", TypeOfMedicine.IDKYET, 9001) };
+        medicals = new Medical[] { new Medical("Ibuprofen", "", "A1", TypeOfMedicine.Pill, 4), new Medical("Asperine", "bruis", "B2", TypeOfMedicine.EffervescentTablet, 3), new Medical("Fun", "bla", "C#", TypeOfMedicine.IDKYET, 9001), new Medical("Syringe 1.5ml", "", "", TypeOfMedicine.Syringe, 1), new Medical("Syringe 2.5ml", "", "", TypeOfMedicine.Syringe, 1), new Medical("Syringe 5ml", "", "", TypeOfMedicine.Syringe, 1), new Medical("Syringe 10ml", "", "", TypeOfMedicine.Syringe, 1), /*new Medical("Syringe 20ml", "", "", TypeOfMedicine.Syringe, 1),*/ new Medical("Syringe 50ml", "", "", TypeOfMedicine.Syringe, 1) };
     }
 
     public Patient[] SearchForName(string fName, string lName)
@@ -47,7 +47,12 @@ public class SearchVanas : MonoBehaviour
         List<Medical> results = new List<Medical>();
         foreach (Medical medical in medicals)
         {
-            if (medical.Name.ToLower() == name.ToLower())
+            /*if (medical.Name.ToLower() == name.ToLower())
+            {
+                results.Add(medical);
+            }*/
+
+            if (medical.Name.ToLower().Contains(name.ToLower()))
             {
                 results.Add(medical);
             }

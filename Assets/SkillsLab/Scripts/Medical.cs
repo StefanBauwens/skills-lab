@@ -7,6 +7,7 @@ public enum TypeOfMedicine
     Pill,
     EffervescentTablet,
     Tubes,
+    Syringe,
     IDKYET
 }
 
