@@ -35,7 +35,7 @@ GameObject:
   - component: {fileID: 65382730469858932}
   - component: {fileID: 65871019233138630}
   - component: {fileID: 114795280588634086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlueDrawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 33462985189225894}
   - component: {fileID: 23854095043802806}
   - component: {fileID: 65105916223018674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 33257879691100520}
   - component: {fileID: 23195258240722936}
   - component: {fileID: 65114050838968232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 33407038971568228}
   - component: {fileID: 23269569390687156}
   - component: {fileID: 65338055260789696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 33996602812429350}
   - component: {fileID: 23067415352384346}
   - component: {fileID: 65408303898515310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4185888116092704}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlueDrawer-Sep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1286543537261874}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -1.3887416, y: 0.5, z: -3.0081427}
+  m_LocalPosition: {x: 0, y: 0.016000032, z: 0.053040028}
   m_LocalScale: {x: 100, y: 99.99992, z: 99.99992}
   m_Children:
   - {fileID: 4185888116092704}
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460b9e395f81f4f4d9305cae3904fd94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  medicineInDrawer: 
+  medicineInDrawer: Syringe 50ml
   drawerLight: {fileID: 0}
 --- !u!114 &114752330721809162
 MonoBehaviour:
@@ -611,7 +611,12 @@ MonoBehaviour:
   disableWhenIdle: 1
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
-  ignoredColliders: []
+  ignoredColliders:
+  - {fileID: 65114050838968232}
+  - {fileID: 65338055260789696}
+  - {fileID: 65105916223018674}
+  - {fileID: 65943628446298596}
+  - {fileID: 65408303898515310}
   isGrabbable: 1
   holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
@@ -661,7 +666,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.003, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.21899997, z: 0.35303977}
+  m_ConnectedAnchor: {x: 0.164, y: 1.7236001, z: -2.7909162}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1

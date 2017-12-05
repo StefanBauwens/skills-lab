@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33881739241104618}
   - component: {fileID: 23786780260425298}
   - component: {fileID: 64408798415244758}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33413213666797232}
   - component: {fileID: 23470157227421880}
   - component: {fileID: 64511589779182462}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33266527331178944}
   - component: {fileID: 23667977550354774}
   - component: {fileID: 64886708284266890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 33820918139673670}
   - component: {fileID: 23654824657537196}
   - component: {fileID: 64345059829858976}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 33903322688827496}
   - component: {fileID: 23254591083135570}
   - component: {fileID: 64820936740230664}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 65262408270413178}
   - component: {fileID: 65068460995882896}
   - component: {fileID: 114139018496229636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Drawer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4144771691156480}
   - component: {fileID: 108191826587736902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 33448323900284856}
   - component: {fileID: 23140083461829444}
   - component: {fileID: 64503488776392318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Separator5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1729203123394390}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0015399997}
+  m_LocalPosition: {x: 0, y: 0, z: 0.003199999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4144771691156480}
@@ -784,7 +784,13 @@ MonoBehaviour:
   disableWhenIdle: 1
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
-  ignoredColliders: []
+  ignoredColliders:
+  - {fileID: 64511589779182462}
+  - {fileID: 64820936740230664}
+  - {fileID: 64345059829858976}
+  - {fileID: 64408798415244758}
+  - {fileID: 64503488776392318}
+  - {fileID: 64886708284266890}
   isGrabbable: 0
   holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
@@ -866,7 +872,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.773, y: 1.5243008, z: -2.784}
+  m_ConnectedAnchor: {x: -0.46300006, y: 1.690301, z: -2.784}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
