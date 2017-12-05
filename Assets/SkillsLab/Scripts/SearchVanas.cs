@@ -29,11 +29,11 @@ public class SearchVanas : MonoBehaviour
             }
             else
             {
-                if (patient.FirstName.ToLower() == fName.ToLower())
+                if (patient.FirstName.ToLower().Contains(fName.ToLower()))
                 {
                     results.Add(patient);
                 }
-                if (patient.Name.ToLower() == lName.ToLower())
+                if (patient.Name.ToLower().Contains(lName.ToLower()))
                 {
                     results.Add(patient);
                 }
