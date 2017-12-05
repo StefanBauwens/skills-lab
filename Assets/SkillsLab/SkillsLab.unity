@@ -685,7 +685,7 @@ Prefab:
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 141
+      value: 211
       objectReference: {fileID: 0}
     - target: {fileID: 224000012484682510, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -3664,6 +3664,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13700000, guid: f46ff5594dee5d04fa7d25efbe5cd998, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f46ff5594dee5d04fa7d25efbe5cd998, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.144545
@@ -3735,6 +3739,10 @@ Prefab:
     - target: {fileID: 100146, guid: f46ff5594dee5d04fa7d25efbe5cd998, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: f46ff5594dee5d04fa7d25efbe5cd998, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f46ff5594dee5d04fa7d25efbe5cd998, type: 3}
