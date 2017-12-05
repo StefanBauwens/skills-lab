@@ -18,7 +18,7 @@ public class SearchVanas : MonoBehaviour
     public Patient[] SearchForName(string fName, string lName)
     {
         List<Patient> results = new List<Patient>();
-
+        results.Clear();
         foreach (Patient patient in patients)
         {
             if (patient.FirstName.ToLower() == fName.ToLower() && patient.Name.ToLower() == lName.ToLower()) //if it finds a direct match exit (will not work if you have more than one member with the same first and lastname)
