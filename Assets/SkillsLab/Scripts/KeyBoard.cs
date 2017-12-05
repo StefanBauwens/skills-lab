@@ -85,7 +85,10 @@ public class KeyBoard : MonoBehaviour {
             inputF.caretPosition++;
         }
         inputF.text += character;
-        Submit();
+        if(inputF.text.Length >= 3)
+        {
+            Submit();
+        }
     }
 
     public void BackSpace()

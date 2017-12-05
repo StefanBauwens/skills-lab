@@ -47,11 +47,6 @@ public class SearchVanas : MonoBehaviour
         List<Medical> results = new List<Medical>();
         foreach (Medical medical in medicals)
         {
-            /*if (medical.Name.ToLower() == name.ToLower())
-            {
-                results.Add(medical);
-            }*/
-
             if (medical.Name.ToLower().Contains(name.ToLower()))
             {
                 results.Add(medical);
