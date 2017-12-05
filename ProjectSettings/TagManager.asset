@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TeleportIgnore
   - ExcludeTeleport
+  - badge
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - 
   - 
   - ExcludeTeleport
-  - 
+  - Item
   - 
   - 
   - 
