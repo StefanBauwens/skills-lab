@@ -29,11 +29,11 @@ public class SearchVanas : MonoBehaviour
             }
             else
             {
-                if (patient.FirstName.ToLower() == fName.ToLower())
+                if (patient.FirstName.ToLower().Contains(fName.ToLower()))
                 {
                     results.Add(patient);
                 }
-                if (patient.Name.ToLower() == lName.ToLower())
+                if (patient.Name.ToLower().Contains(lName.ToLower()))
                 {
                     results.Add(patient);
                 }
@@ -47,11 +47,6 @@ public class SearchVanas : MonoBehaviour
         List<Medical> results = new List<Medical>();
         foreach (Medical medical in medicals)
         {
-            /*if (medical.Name.ToLower() == name.ToLower())
-            {
-                results.Add(medical);
-            }*/
-
             if (medical.Name.ToLower().Contains(name.ToLower()))
             {
                 results.Add(medical);
