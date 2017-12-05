@@ -135,10 +135,8 @@ public class KeyBoard : MonoBehaviour {
         else
         {
             resultsPatients.interactable = true;
-            //GoButtonPatient.interactable = true;
             GoButtonPatient.gameObject.SetActive(true);
             resultsMedical.interactable = false;
-            //GoButtonMedical.interactable = false;
             GoButtonMedical.gameObject.SetActive(false);
 
             results = search.SearchForName(firstName.text, lastName.text);
