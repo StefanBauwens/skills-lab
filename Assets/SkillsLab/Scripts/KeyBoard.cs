@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class KeyBoard : MonoBehaviour {
 
@@ -131,6 +132,9 @@ public class KeyBoard : MonoBehaviour {
                 resultsMedical.interactable = true;
                 resultsMedical.Show();
             }
+            resultsPatients.Hide();
+            //EventSystem.current.SetSelectedGameObject(inputF.gameObject, null);
+            //inputF.OnPointerClick(null);
         }
         else
         {
@@ -161,6 +165,15 @@ public class KeyBoard : MonoBehaviour {
                 resultsPatients.interactable = true;
                 resultsPatients.Show();
             }
+            resultsPatients.Hide();
+
+            //Disable blocker!
+
+
+            //resultsPatients.
+            //EventSystem.current.SetSelectedGameObject(inputF.gameObject, null);
+            //inputF.OnPointerClick(null);
+
         }
 
         foreach (var result in results)
