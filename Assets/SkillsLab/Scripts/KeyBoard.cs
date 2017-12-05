@@ -69,9 +69,10 @@ public class KeyBoard : MonoBehaviour {
 
     public void TypeKey(string character)
     {
-        if (character == "⌫")
+        if (character == "←")
         {
             BackSpace();
+            inputF.caretPosition--;
             return;
         }
         else if (character == "↩")
@@ -79,7 +80,12 @@ public class KeyBoard : MonoBehaviour {
             Submit();
             return;
         }
+        else
+        {
+            inputF.caretPosition++;
+        }
         inputF.text += character;
+        Submit();
     }
 
     public void BackSpace()
@@ -95,10 +101,8 @@ public class KeyBoard : MonoBehaviour {
         if (inputF == medical)
         {
             resultsPatients.interactable = false;
-            //GoButtonPatient.interactable = false;
             GoButtonPatient.gameObject.SetActive(false);
             resultsMedical.interactable = true;
-            //GoButtonMedical.interactable = true;
             GoButtonMedical.gameObject.SetActive(true);
 
             results = search.SearchForMedical(medical.text);
