@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class KeyBoard : MonoBehaviour {
-
+    
     protected InputField inputF;
     public InputField firstName;
     public InputField lastName;
@@ -131,6 +132,7 @@ public class KeyBoard : MonoBehaviour {
                 resultsMedical.interactable = true;
                 resultsMedical.Show();
             }
+            EventSystem.current.SetSelectedGameObject(this.gameObject);
         }
         else
         {
@@ -161,6 +163,8 @@ public class KeyBoard : MonoBehaviour {
                 resultsPatients.interactable = true;
                 resultsPatients.Show();
             }
+            EventSystem.current.SetSelectedGameObject(this.gameObject);
+
         }
 
         foreach (var result in results)
