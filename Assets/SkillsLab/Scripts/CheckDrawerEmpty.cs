@@ -18,7 +18,7 @@ public class CheckDrawerEmpty : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
+        if (other.gameObject.GetComponent<Item>())
         {
             count++;
         }
@@ -26,7 +26,7 @@ public class CheckDrawerEmpty : MonoBehaviour {
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Item"))
+        if (other.gameObject.GetComponent<Item>())
         {
             count--;
             if (count == 0) // Drawer is empty
