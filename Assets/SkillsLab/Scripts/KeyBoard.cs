@@ -74,17 +74,12 @@ public class KeyBoard : MonoBehaviour {
         if (character == "←")
         {
             BackSpace();
-            //inputF.caretPosition--;
             return;
         }
         else if (character == "↩")
         {
             Submit();
             return;
-        }
-        else
-        {
-            //inputF.caretPosition++;
         }
         inputF.text += character;
         if(inputF.text.Length >= 2)
