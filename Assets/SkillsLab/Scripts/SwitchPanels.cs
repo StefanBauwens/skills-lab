@@ -13,7 +13,7 @@ public class SwitchPanels : MonoBehaviour {
     public Button retrieveButton;
 
 	void Start () {
-        Logout();
+        //Logout();
         currentResult = null;
         logOutBtn.onClick.AddListener(Logout);
         retrieveButton.onClick.AddListener(RetrieveButton);

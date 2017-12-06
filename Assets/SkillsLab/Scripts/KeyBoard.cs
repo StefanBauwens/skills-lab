@@ -70,10 +70,11 @@ public class KeyBoard : MonoBehaviour {
 
     public void TypeKey(string character)
     {
+        inputF.caretPosition = 0;
         if (character == "←")
         {
             BackSpace();
-            inputF.caretPosition--;
+            //inputF.caretPosition--;
             return;
         }
         else if (character == "↩")
@@ -83,10 +84,10 @@ public class KeyBoard : MonoBehaviour {
         }
         else
         {
-            inputF.caretPosition++;
+            //inputF.caretPosition++;
         }
         inputF.text += character;
-        if(inputF.text.Length >= 3)
+        if(inputF.text.Length >= 2)
         {
             Submit();
         }
@@ -105,6 +106,7 @@ public class KeyBoard : MonoBehaviour {
         if (inputF == medical)
         {
             resultsPatients.interactable = false;
+            resultsPatients.Hide();
             GoButtonPatient.gameObject.SetActive(false);
             resultsMedical.interactable = true;
             GoButtonMedical.gameObject.SetActive(true);
@@ -128,16 +130,16 @@ public class KeyBoard : MonoBehaviour {
             }
             else
             {
+                //resultsMedical.Hide();
                 resultsMedical.GetComponentInChildren<Text>().text = "Results";
                 resultsMedical.interactable = true;
-                resultsMedical.Show();
+                //resultsMedical.Show();
+                StartCoroutine(RefreshDropdown(resultsMedical));
             }
-            resultsPatients.Hide();
-            //EventSystem.current.SetSelectedGameObject(inputF.gameObject, null);
-            //inputF.OnPointerClick(null);
         }
         else
         {
+            resultsMedical.Hide();
             resultsPatients.interactable = true;
             GoButtonPatient.gameObject.SetActive(true);
             resultsMedical.interactable = false;
@@ -161,25 +163,39 @@ public class KeyBoard : MonoBehaviour {
             }
             else
             {
+                //resultsPatients.Hide();
                 resultsPatients.GetComponentInChildren<Text>().text = "Results";
                 resultsPatients.interactable = true;
-                resultsPatients.Show();
+                //resultsPatients.Show();
+                StartCoroutine(RefreshDropdown(resultsPatients));
+
             }
-            resultsPatients.Hide();
-
-            //Disable blocker!
-
-
-            //resultsPatients.
-            //EventSystem.current.SetSelectedGameObject(inputF.gameObject, null);
-            //inputF.OnPointerClick(null);
 
         }
+        DisableBlocker();
 
         foreach (var result in results)
         {
             Debug.Log(result.ToString());
         }
+    }
+
+    protected void DisableBlocker()
+    {
+        Transform blocker = null;
+        blocker = this.gameObject.transform.parent.parent.Find("Blocker");
+        if (blocker != null)
+        {
+            Destroy(blocker.gameObject);
+        }
+    }
+
+    protected IEnumerator RefreshDropdown(Dropdown dropdown)
+    {
+        dropdown.Hide();
+        yield return new WaitForSeconds(0.2f);
+        dropdown.Show();
+        DisableBlocker();
     }
 
 }
