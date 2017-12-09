@@ -11274,6 +11274,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cfdf141753bd43b987f107c93164705, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &501878723 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114215284658519928, guid: 4cfdf141753bd43b987f107c93164705,
+    type: 2}
+  m_PrefabInternal: {fileID: 501878722}
+  m_Script: {fileID: 11500000, guid: ac2a40b037b07431eaa251ebea23b42a, type: 3}
 --- !u!1 &502222416
 GameObject:
   m_ObjectHideFlags: 0
@@ -23757,6 +23763,60 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1257688317}
   m_Mesh: {fileID: 0}
+--- !u!1 &1258555165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1258555166}
+  - component: {fileID: 1258555168}
+  - component: {fileID: 1258555167}
+  m_Layer: 0
+  m_Name: BadgeScanner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1258555166
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1258555165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1805745785}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1258555167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1258555165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d67569d9aac7b4605bd9ec5b7598010a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  switcher: {fileID: 501878723}
+--- !u!65 &1258555168
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1258555165}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9999999, y: 1.6622146, z: 0.073754594}
+  m_Center: {x: 0, y: 0.010866896, z: -0.036841664}
 --- !u!1 &1270242711
 GameObject:
   m_ObjectHideFlags: 0
