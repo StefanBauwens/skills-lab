@@ -7,6 +7,7 @@ TagManager:
   - TeleportIgnore
   - ExcludeTeleport
   - badge
+  - needleCap
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - 
   - ExcludeTeleport
   - Item
-  - 
-  - 
-  - 
+  - needle
+  - needleCover
+  - syringe
   - 
   - 
   - 
