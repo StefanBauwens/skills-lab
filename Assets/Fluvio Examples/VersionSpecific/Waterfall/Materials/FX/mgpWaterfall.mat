@@ -10,133 +10,55 @@ Material:
   m_Shader: {fileID: 4800000, guid: 386e509166890054c8c522e929089d76, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON _EMISSION _NORMALMAP _VERTEXCOLORMODE_ALBEDO
   m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
   stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TexEnvs:
-      data:
-        first:
-          name: _MainTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 1f9d0a4343fab4e21a278b8add2a14b8, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _BumpMap
-        second:
-          m_Texture: {fileID: 2800000, guid: dca40bebe4cdd443ea7f19fdc741e519, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MetallicGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _EmissionMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _SpecGlossMap
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: dca40bebe4cdd443ea7f19fdc741e519, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 1f9d0a4343fab4e21a278b8add2a14b8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-      data:
-        first:
-          name: _Cutoff
-        second: 0.5
-      data:
-        first:
-          name: _AlphaTestRef
-        second: 0.5
-      data:
-        first:
-          name: _InvFade
-        second: 1
-      data:
-        first:
-          name: _Cutoff2
-        second: 0.25
-      data:
-        first:
-          name: _Glossiness
-        second: 0.2
-      data:
-        first:
-          name: _Metallic
-        second: 0.8
-      data:
-        first:
-          name: _BumpScale
-        second: 0.2
-      data:
-        first:
-          name: _VertexColorMode
-        second: 1
-      data:
-        first:
-          name: _CullFluid
-        second: -1
-      data:
-        first:
-          name: _EmissionScaleUI
-        second: 0
-      data:
-        first:
-          name: _DownsampleFactorUI
-        second: 1
-      data:
-        first:
-          name: _FluidBlurUI
-        second: 0.1
-      data:
-        first:
-          name: _FluidBlurBackgroundUI
-        second: 0.25
-      data:
-        first:
-          name: _FluidSpecularScaleUI
-        second: 0
-      data:
-        first:
-          name: _FluidBlurNormalsUI
-        second: 0.125
-      data:
-        first:
-          name: _FluidRefractionUI
-        second: 2
-      data:
-        first:
-          name: _SpecularSetup
-        second: 1
+    - _AlphaTestRef: 0.5
+    - _BumpScale: 0.2
+    - _CullFluid: -1
+    - _Cutoff: 0.5
+    - _Cutoff2: 0.25
+    - _DownsampleFactorUI: 1
+    - _EmissionScaleUI: 0
+    - _FluidBlurBackgroundUI: 0.25
+    - _FluidBlurNormalsUI: 0.125
+    - _FluidBlurUI: 0.1
+    - _FluidRefractionUI: 2
+    - _FluidSpecularScaleUI: 0
+    - _Glossiness: 0.2
+    - _InvFade: 1
+    - _Metallic: 0.8
+    - _SpecularSetup: 1
+    - _VertexColorMode: 1
     m_Colors:
-      data:
-        first:
-          name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 0}
-      data:
-        first:
-          name: _Color
-        second: {r: 1, g: 1, b: 1, a: 0.09411765}
-      data:
-        first:
-          name: _SpecColor
-        second: {r: 0, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _EmissionColorUI
-        second: {r: 1, g: 1, b: 1, a: 0}
-      data:
-        first:
-          name: _FluidTintUI
-        second: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.09411765}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 0}
+    - _FluidTintUI: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
