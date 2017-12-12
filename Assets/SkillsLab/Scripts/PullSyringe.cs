@@ -8,10 +8,12 @@ public class PullSyringe : MonoBehaviour {
     private VRTK_InteractableObject interactScript;
     protected Transform snapDrop;
     protected Transform insideSyringe;
-    public float ammountToMove = 0.1f;
+    public float speed = 0.1f;
     public float maxMove = 0.1f;
     protected Vector3 beginPosition;
     protected bool isPulling;
+    protected bool isPushing;
+    protected bool toggle;
 
     const string NEEDLELAYER = "needle";
     const string INSIDESYRINGE = "inside";
@@ -19,6 +21,7 @@ public class PullSyringe : MonoBehaviour {
     void Start()
     {
         isPulling = false;
+        toggle = false;
         snapDrop = this.GetComponentInChildren<VRTK_SnapDropZone>().transform;
         insideSyringe = this.transform.Find(INSIDESYRINGE);
         beginPosition = insideSyringe.transform.localPosition;
@@ -29,33 +32,49 @@ public class PullSyringe : MonoBehaviour {
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
     {
-        Debug.Log("You're clicking");
-
         foreach (Transform child in snapDrop)
         {
-            if (LayerMask.LayerToName(child.gameObject.layer) == NEEDLELAYER && !isPulling)
+            if (LayerMask.LayerToName(child.gameObject.layer) == NEEDLELAYER && !isPulling && !isPulling)
             {
-                isPulling = true;
-                StartCoroutine(Pulling());
+                if (!toggle)
+                {
+                    isPulling = true;
+                    StartCoroutine(Pulling());
+                }
+                else
+                {
+                    isPushing = true;
+                    StartCoroutine(Pushing());
+                }
+               
             }
         }
     }
 
     private void ObjectUnused(object sender, InteractableObjectEventArgs e)
     {
+        toggle = !toggle;
         isPulling = false;
-        Debug.Log("You stopped clicking");
+        isPushing = false;
     }
 
     IEnumerator Pulling()
     {
-        Debug.Log("Distance = " + (insideSyringe.transform.localPosition.y - beginPosition.y));
-        while (isPulling && (insideSyringe.localPosition.y - beginPosition.y) < maxMove) 
+        while (!isPushing && isPulling && (insideSyringe.localPosition.y - beginPosition.y) < maxMove) 
         {
             yield return new WaitForEndOfFrame();
-            insideSyringe.localPosition += (Vector3.up * Time.deltaTime * ammountToMove);
+            insideSyringe.localPosition += (Vector3.up * Time.deltaTime * speed);
         }
         isPulling = false;
     }
 
+    IEnumerator Pushing()
+    {
+        while (!isPulling && isPushing && (insideSyringe.localPosition.y - beginPosition.y) > 0)
+        {
+            yield return new WaitForEndOfFrame();
+            insideSyringe.localPosition -= (Vector3.up * Time.deltaTime * speed);
+        }
+        isPushing = false;
+    }
 }

@@ -690,52 +690,52 @@ Prefab:
     - target: {fileID: 224000012484682510, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 60
+      value: 34.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000010031187690, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 60
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 224000012859001416, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 20.5
+      value: 12.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012504011746, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 20.5
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012326194302, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224000010901609716, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 33
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 224000010722234208, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 33
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224000010535295132, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 33
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 224000010358937380, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224000012747905524, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3, type: 2}
@@ -5305,7 +5305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2494833c255de4ab81ef153ce38cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammountToMove: 0.1
+  speed: 0.1
   maxMove: 0.1
 --- !u!4 &206171575 stripped
 Transform:
@@ -8713,8 +8713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2494833c255de4ab81ef153ce38cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammountToMove: 0.1
-  maxMove: 0.1
+  speed: 0.1
+  maxMove: 0.13
 --- !u!4 &413923939 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4401333183709378, guid: 84bfed683bb594941b0a818dbe1a5b7e,
@@ -11149,7 +11149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2494833c255de4ab81ef153ce38cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammountToMove: 0.1
+  speed: 0.1
   maxMove: 0.1
 --- !u!1 &552360954
 GameObject:
@@ -13194,7 +13194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2494833c255de4ab81ef153ce38cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammountToMove: 0.1
+  speed: 0.1
   maxMove: 0.1
 --- !u!4 &677782297 stripped
 Transform:
@@ -14471,7 +14471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2494833c255de4ab81ef153ce38cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammountToMove: 0.1
+  speed: 0.1
   maxMove: 0.1
 --- !u!4 &745146453 stripped
 Transform:
@@ -23960,8 +23960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2494833c255de4ab81ef153ce38cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammountToMove: 0.1
-  maxMove: 0.1
+  speed: 0.1
+  maxMove: 0.2
 --- !u!1 &1306417541
 GameObject:
   m_ObjectHideFlags: 0
