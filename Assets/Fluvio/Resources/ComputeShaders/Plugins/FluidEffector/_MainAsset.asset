@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -623334564, guid: b435991485f6c8a4f9af5ca764dd7f07, type: 3}
+  m_Name: _MainAsset
+  m_EditorClassIdentifier: 
+  m_DirectComputeShader: {fileID: 0}
+  m_ComputeShader: {fileID: 7200000, guid: 5b079bf8f9e554146831b98730904744, type: 3}
+  m_OpenCLShader: {fileID: 4900000, guid: 7a68a66c9e3178c428c9e4c9ab217c8d, type: 3}
+  m_OpenCLEditorIncludePath: Assets/Fluvio/Resources/ComputeShaders/Plugins/FluidEffector/_MainAsset.asset
+  m_OpenCLIncludePaths: []
+  m_OpenCLIncludeSource: []

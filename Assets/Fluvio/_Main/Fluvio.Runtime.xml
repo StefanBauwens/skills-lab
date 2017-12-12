@@ -1,0 +1,2764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Fluvio.Runtime</name>
+  </assembly>
+  <members>
+    <member name="T:JetBrains.Annotations.CanBeNullAttribute">
+      <summary>
+            Indicates that the value of the marked element could be <c>null</c> sometimes,
+            so the check for <c>null</c> is necessary before its usage
+            </summary>
+      <example>
+        <code>
+            [CanBeNull] public object Test() { return null; }
+            public void UseTest() {
+            var p = Test();
+            var s = p.ToString(); // Warning: Possible 'System.NullReferenceException'
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:JetBrains.Annotations.NotNullAttribute">
+      <summary>
+            Indicates that the value of the marked element could never be <c>null</c></summary>
+      <example>
+        <code>
+            [NotNull] public object Foo() {
+            return null; // Warning: Possible 'null' assignment
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:JetBrains.Annotations.StringFormatMethodAttribute">
+      <summary>
+            Indicates that the marked method builds string by format pattern and (optional) arguments.
+            Parameter, which contains format string, should be given in constructor. The format string
+            should be in <see cref="M:System.String.Format(System.IFormatProvider,System.String,System.Object[])" />-like form
+            </summary>
+      <example>
+        <code>
+            [StringFormatMethod("message")]
+            public void ShowError(string message, params object[] args) { /* do something */ }
+            public void Foo() {
+            ShowError("Failed: {0}"); // Warning: Non-existing argument in format string
+            }
+            </code>
+      </example>
+    </member>
+    <member name="M:JetBrains.Annotations.StringFormatMethodAttribute.#ctor(System.String)">
+      <param name="formatParameterName">
+            Specifies which parameter of an annotated method should be treated as format-string
+            </param>
+    </member>
+    <member name="T:JetBrains.Annotations.InvokerParameterNameAttribute">
+      <summary>
+            Indicates that the function argument should be string literal and match one
+            of the parameters of the caller function. For example, ReSharper annotates
+            the parameter of <see cref="T:System.ArgumentNullException" /></summary>
+      <example>
+        <code>
+            public void Foo(string param) {
+            if (param == null)
+            throw new ArgumentNullException("par"); // Warning: Cannot resolve symbol
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:JetBrains.Annotations.NotifyPropertyChangedInvocatorAttribute">
+      <summary>
+            Indicates that the method is contained in a type that implements
+            <see cref="T:System.ComponentModel.INotifyPropertyChanged" /> interface
+            and this method is used to notify that some property value changed
+            </summary>
+      <remarks>
+            The method should be non-static and conform to one of the supported signatures:
+            <list><item><c>NotifyChanged(string)</c></item><item><c>NotifyChanged(params string[])</c></item><item><c>NotifyChanged{T}(Expression{Func{T}})</c></item><item><c>NotifyChanged{T,U}(Expression{Func{T,U}})</c></item><item><c>SetProperty{T}(ref T, T, string)</c></item></list></remarks>
+      <example>
+        <code>
+            public class Foo : INotifyPropertyChanged {
+            public event PropertyChangedEventHandler PropertyChanged;
+            [NotifyPropertyChangedInvocator]
+            protected virtual void NotifyChanged(string propertyName) { ... }
+            private string _name;
+            public string Name {
+            get { return _name; }
+            set { _name = value; NotifyChanged("LastName"); /* Warning */ }
+            }
+            }
+            </code>
+            Examples of generated notifications:
+            <list><item><c>NotifyChanged("Property")</c></item><item><c>NotifyChanged(() =&gt; Property)</c></item><item><c>NotifyChanged((VM x) =&gt; x.Property)</c></item><item><c>SetProperty(ref myField, value, "Property")</c></item></list></example>
+    </member>
+    <member name="T:JetBrains.Annotations.ContractAnnotationAttribute">
+      <summary>
+            Describes dependency between method input and output
+            </summary>
+      <syntax>
+        <p>Function Definition Table syntax:</p>
+        <list>
+          <item>FDT      ::= FDTRow [;FDTRow]*</item>
+          <item>FDTRow   ::= Input =&gt; Output | Output &lt;= Input</item>
+          <item>Input    ::= ParameterName: Value [, Input]*</item>
+          <item>Output   ::= [ParameterName: Value]* {halt|stop|void|nothing|Value}</item>
+          <item>Value    ::= true | false | null | notnull | canbenull</item>
+        </list>
+            If method has single input parameter, it's name could be omitted.<br />
+            Using <c>halt</c> (or <c>void</c>/<c>nothing</c>, which is the same)
+            for method output means that the methos doesn't return normally.<br /><c>canbenull</c> annotation is only applicable for output parameters.<br />
+            You can use multiple <c>[ContractAnnotation]</c> for each FDT row,
+            or use single attribute with rows separated by semicolon.<br /></syntax>
+      <examples>
+        <list>
+          <item>
+            <code>
+            [ContractAnnotation("=&gt; halt")]
+            public void TerminationMethod()
+            </code>
+          </item>
+          <item>
+            <code>
+            [ContractAnnotation("halt &lt;= condition: false")]
+            public void Assert(bool condition, string text) // regular assertion method
+            </code>
+          </item>
+          <item>
+            <code>
+            [ContractAnnotation("s:null =&gt; true")]
+            public bool IsNullOrEmpty(string s) // string.IsNullOrEmpty()
+            </code>
+          </item>
+          <item>
+            <code>
+            // A method that returns null if the parameter is null, and not null if the parameter is not null
+            [ContractAnnotation("null =&gt; null; notnull =&gt; notnull")]
+            public object Transform(object data)
+            </code>
+          </item>
+          <item>
+            <code>
+            [ContractAnnotation("s:null=&gt;false; =&gt;true,result:notnull; =&gt;false, result:null")]
+            public bool TryParse(string s, out Person result)
+            </code>
+          </item>
+        </list>
+      </examples>
+    </member>
+    <member name="T:JetBrains.Annotations.LocalizationRequiredAttribute">
+      <summary>
+            Indicates that marked element should be localized or not
+            </summary>
+      <example>
+        <code>
+            [LocalizationRequiredAttribute(true)]
+            public class Foo {
+            private string str = "my string"; // Warning: Localizable string
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:JetBrains.Annotations.CannotApplyEqualityOperatorAttribute">
+      <summary>
+            Indicates that the value of the marked type (or its derivatives)
+            cannot be compared using '==' or '!=' operators and <c>Equals()</c>
+            should be used instead. However, using '==' or '!=' for comparison
+            with <c>null</c> is always permitted.
+            </summary>
+      <example>
+        <code>
+            [CannotApplyEqualityOperator]
+            class NoEquality { }
+            class UsesNoEquality {
+            public void Test() {
+            var ca1 = new NoEquality();
+            var ca2 = new NoEquality();
+            if (ca1 != null) { // OK
+            bool condition = ca1 == ca2; // Warning
+            }
+            }
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:JetBrains.Annotations.BaseTypeRequiredAttribute">
+      <summary>
+            When applied to a target attribute, specifies a requirement for any type marked
+            with the target attribute to implement or inherit specific type or types.
+            </summary>
+      <example>
+        <code>
+            [BaseTypeRequired(typeof(IComponent)] // Specify requirement
+            public class ComponentAttribute : Attribute { }
+            [Component] // ComponentAttribute requires implementing IComponent interface
+            public class MyComponent : IComponent { }
+            </code>
+      </example>
+    </member>
+    <member name="T:JetBrains.Annotations.UsedImplicitlyAttribute">
+      <summary>
+            Indicates that the marked symbol is used implicitly
+            (e.g. via reflection, in external library), so this symbol
+            will not be marked as unused (as well as by other usage inspections)
+            </summary>
+    </member>
+    <member name="T:JetBrains.Annotations.MeansImplicitUseAttribute">
+      <summary>
+            Should be used on attributes and causes ReSharper
+            to not mark symbols marked with such attributes as unused
+            (as well as by other usage inspections)
+            </summary>
+    </member>
+    <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.Access">
+      <summary>Only entity marked with attribute considered used</summary>
+    </member>
+    <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.Assign">
+      <summary>Indicates implicit assignment to a member</summary>
+    </member>
+    <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature">
+      <summary>
+            Indicates implicit instantiation of a type with fixed constructor signature.
+            That means any unused constructor parameters won't be reported as such.
+            </summary>
+    </member>
+    <member name="F:JetBrains.Annotations.ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature">
+      <summary>Indicates implicit instantiation of a type</summary>
+    </member>
+    <member name="T:JetBrains.Annotations.ImplicitUseTargetFlags">
+      <summary>
+            Specify what is considered used implicitly
+            when marked with <see cref="T:JetBrains.Annotations.MeansImplicitUseAttribute" />
+            or <see cref="T:JetBrains.Annotations.UsedImplicitlyAttribute" /></summary>
+    </member>
+    <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.Members">
+      <summary>Members of entity marked with attribute are considered used</summary>
+    </member>
+    <member name="F:JetBrains.Annotations.ImplicitUseTargetFlags.WithMembers">
+      <summary>Entity marked with attribute and all its members considered used</summary>
+    </member>
+    <member name="T:JetBrains.Annotations.PublicAPIAttribute">
+      <summary>
+            This attribute is intended to mark publicly available API
+            which should not be removed and so is treated as used
+            </summary>
+    </member>
+    <member name="T:JetBrains.Annotations.InstantHandleAttribute">
+      <summary>
+            Tells code analysis engine if the parameter is completely handled
+            when the invoked method is on stack. If the parameter is a delegate,
+            indicates that delegate is executed while the method is executed.
+            If the parameter is an enumerable, indicates that it is enumerated
+            while the method is executed
+            </summary>
+    </member>
+    <member name="T:JetBrains.Annotations.PureAttribute">
+      <summary>
+            Indicates that a method does not make any observable state changes.
+            The same as <c>System.Diagnostics.Contracts.PureAttribute</c></summary>
+      <example>
+        <code>
+            [Pure] private int Multiply(int x, int y) { return x * y; }
+            public void Foo() {
+            const int a = 2, b = 2;
+            Multiply(a, b); // Waring: Return value of pure method is not used
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:JetBrains.Annotations.PathReferenceAttribute">
+      <summary>
+            Indicates that a parameter is a path to a file or a folder
+            within a web project. Path can be relative or absolute,
+            starting from web root (~)
+            </summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcActionAttribute">
+      <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+            is an MVC action. If applied to a method, the MVC action name is calculated
+            implicitly from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcAreaAttribute">
+      <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC area.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcControllerAttribute">
+      <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that
+            the parameter is an MVC controller. If applied to a method,
+            the MVC controller name is calculated implicitly from the context.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String, String)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcMasterAttribute">
+      <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC Master.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Controller.View(String, String)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcModelTypeAttribute">
+      <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC model type.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Controller.View(String, Object)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcPartialViewAttribute">
+      <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that
+            the parameter is an MVC partial view. If applied to a method,
+            the MVC partial view name is calculated implicitly from the context.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.RenderPartialExtensions.RenderPartial(HtmlHelper, String)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcSupressViewErrorAttribute">
+      <summary>
+            ASP.NET MVC attribute. Allows disabling all inspections
+            for MVC views within a class or a method.
+            </summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcDisplayTemplateAttribute">
+      <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC display template.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.DisplayExtensions.DisplayForModel(HtmlHelper, String)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcEditorTemplateAttribute">
+      <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC editor template.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.EditorExtensions.EditorForModel(HtmlHelper, String)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcTemplateAttribute">
+      <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC template.
+            Use this attribute for custom wrappers similar to
+            <c>System.ComponentModel.DataAnnotations.UIHintAttribute(System.String)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcViewAttribute">
+      <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+            is an MVC view. If applied to a method, the MVC view name is calculated implicitly
+            from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Controller.View(Object)</c></summary>
+    </member>
+    <member name="T:JetBrains.Annotations.AspMvcActionSelectorAttribute">
+      <summary>
+            ASP.NET MVC attribute. When applied to a parameter of an attribute,
+            indicates that this parameter is an MVC action name
+            </summary>
+      <example>
+        <code>
+            [ActionName("Foo")]
+            public ActionResult Login(string returnUrl) {
+            ViewBag.ReturnUrl = Url.Action("Foo"); // OK
+            return RedirectToAction("Bar"); // Error: Cannot resolve action
+            }
+            </code>
+      </example>
+    </member>
+    <member name="T:JetBrains.Annotations.RazorSectionAttribute">
+      <summary>
+            Razor attribute. Indicates that a parameter or a method is a Razor section.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.WebPages.WebPageBase.RenderSection(String)</c></summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidEffectDepthMode">
+      <summary>
+            Controls how fluid effect depth is calculated relative to opaque objects.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectDepthMode.None">
+      <summary>
+            Do not calculate depth at all. Fluids will render in front of all opaque objects.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectDepthMode.ConstantDepth">
+      <summary>
+            Calculate the fluid at a constant depth from the camera based on its origin. Useful for 2D fluids in an orthographic view.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectDepthMode.DepthTexture">
+      <summary>
+            Sample approximate particle depth using a depth texture.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.SimulationDimensions">
+      <summary>
+            Controls whether or not a fluid uses 2D or 3D simulation.
+            </summary>
+      <remarks>
+            2D fluid simulation can be much faster and more memory efficient than 3D fluid simulation.
+            </remarks>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.SimulationDimensions.Fluid3D">
+      <summary>
+            Use 3D fluid simulation.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.SimulationDimensions.Fluid2D">
+      <summary>
+            Use 2D fluid simulation.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidType">
+      <summary>
+            Controls whether or not the fluid is dynamic, kinematic, or static.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidType.Dynamic">
+      <summary>
+            Dynamic fluids will have forces applied to them by the solver. Their positions/velocities can also be updated externally.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidType.Kinematic">
+      <summary>
+            Kinematic fluids will not have forces applied to them by the solver. Their positions/velocities can be updated externally.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidType.Static">
+      <summary>
+            Static fluids will not have forces applied to them and cannot be updated externally.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.ComputeAPI">
+      <summary>
+            Defines a compute API for hardware acceleration.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.ComputeAPI.None">
+      <summary>
+            Represents disabled hardware acceleration or no hardware acceleration available.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.ComputeAPI.OpenCL">
+      <summary>
+            OpenCL, or the Open Computing Language. This is an open hardware acceleration platform that can run on the GPU or CPU in various forms.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.ComputeAPI.UnityNative">
+      <summary>
+            Unity's native compute shader pipeline.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.HardwareAccelerationType.None">
+      <summary>
+            Represents disabled hardware acceleration or no hardware acceleration available.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.HardwareAccelerationType.OpenCL">
+      <summary>
+            OpenCL, or the Open Computing Language. This is an open hardware acceleration platform that can run on the GPU or CPU in various forms.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.HardwareAccelerationType.UnityNative">
+      <summary>
+            Represents Unity's native compute shader pipeline.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.OpenCLDeviceType">
+      <summary>
+            For OpenCL, controls the desired acceleration device type. This maps to CL_DEVICE_TYPE in the underlying OpenCL driver.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.OpenCLDeviceType.CPU">
+      <summary>
+            An OpenCL device that is the host processor.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.OpenCLDeviceType.GPU">
+      <summary>
+            An OpenCL device that is a GPU. By this we mean that the device can also be used to accelerate a 3D API such as OpenGL or DirectX.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.OpenCLDeviceType.Accelerator">
+      <summary>
+            Dedicated OpenCL accelerators (for example the IBM CELL Blade). These devices communicate with the host processor using a peripheral interconnect such as PCIe.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.SimulationCullingType">
+      <summary>
+            Controls how fluid simulation is culled.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.SimulationCullingType.AlwaysSimulate">
+      <summary>
+            Always simulate the fluid, even when offscreen.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.SimulationCullingType.BasedOnRenderers">
+      <summary>
+            Pause simulation when renderers are not visible.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidColliderBoundsType">
+      <summary>
+            Controls how the bounds for fluid colliders are calculated.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidColliderBoundsType.Automatic">
+      <summary>
+            Calculates collider bounds automatically.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidColliderBoundsType.Manual">
+      <summary>
+            Allows the specification of one or more bounding boxes where collider particles can be created.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidEffectorForceType">
+      <summary>
+            Controls the type of force that an effector uses.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectorForceType.Radial">
+      <summary>
+            Radial forces push or pull particles relative to an effector's center.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectorForceType.Directional">
+      <summary>
+            Directional forces pull particles in the specified local space direction.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidEffectorForceAxis">
+      <summary>
+            Controls the local axis of an effector's force when using directional forces.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectorForceAxis.X">
+      <summary>
+            Apply the directional force in the local X axis.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectorForceAxis.Y">
+      <summary>
+            Apply the directional force in the local Y axis.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectorForceAxis.Z">
+      <summary>
+            Apply the directional force in the local Z axis.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidEffectorDecayType">
+      <summary>
+            Controls how particles in an effector will decay.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectorDecayType.None">
+      <summary>
+            Don't decay particles or affect their lifetime in any way.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectorDecayType.KeepAlive">
+      <summary>
+            Keep particles within the effector's area alive (pause particle lifetime).
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidEffectorDecayType.Decay">
+      <summary>
+            Decay particles based on the effector's decay and decay jitter properties.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioMinMaxCurveState">
+      <summary>
+            Controls the state of a fluid curve. Used in various fluid plugins.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioMinMaxCurveState.Constant">
+      <summary>
+            Sample a constant value.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioMinMaxCurveState.Curve">
+      <summary>
+            Sample a single curve.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioMinMaxCurveState.RandomBetweenTwoConstants">
+      <summary>
+            Sample a random value between two constants.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioMinMaxCurveState.RandomBetweenTwoCurves">
+      <summary>
+            Sample a random value between two curves.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioMinMaxGradientState">
+      <summary>
+            Controls the state of a fluid gradient. Used in various fluid plugins.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioMinMaxGradientState.Color">
+      <summary>
+            Sample a constant color.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioMinMaxGradientState.Gradient">
+      <summary>
+            Sample a single gradient.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioMinMaxGradientState.RandomBetweenTwoColors">
+      <summary>
+            Sample a random color between two colors.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioMinMaxGradientState.RandomBetweenTwoGradients">
+      <summary>
+            Sample a random color between two gradients.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Fluid">
+      <summary>
+            Represents a fluid that can be simulated and integrates with a rendering component.
+            </summary>
+      <remarks>
+            Fluids are the main component for fluid simulation with Fluvio.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Fluid.prewarmTimeScale">
+      <summary>
+            Controls the initial simulation accuracy of a fluid with "Prewarm" enabled, applied as a multiplier to the fluid's fixed delta time. Higher values consume less CPU for the first fluid frame, but reduce simulation quality.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidBase">
+      <summary>
+            This is the base fluid component that interfaces with a solver and represents all types of fluids.
+            </summary>
+      <remarks>
+            Fluids are the main component for fluid simulation with Fluvio.
+            </remarks>
+    </member>
+    <member name="E:Thinksquirrel.Fluvio.FluidBase.onFluidEnabled">
+      <summary>
+            An event that is invoked when a fluid is enabled.
+            </summary>
+    </member>
+    <member name="E:Thinksquirrel.Fluvio.FluidBase.onFluidDisabled">
+      <summary>
+            An event that is invoked when a fluid is disabled
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.gravity">
+      <summary>
+            Gets the current gravity vector of the fluid, in world space.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.buoyancyCoefficient">
+      <summary>
+            Controls the buoyancy coefficient of a fluid. This should be used when simulating gas like smoke or fire.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.simulationScale">
+      <summary>
+            Controls the simulation scale of a fluid.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.density">
+      <summary>
+            Controls the overall density of the fluid.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.dimensions">
+      <summary>
+            Controls the simulation dimensions for the fluid.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.cullingType">
+      <summary>
+            Controls how fluid simulation should be culled.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.gasConstant">
+      <summary>
+            Controls the gas constant of a fluid.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.minimumDensity">
+      <summary>
+            Controls the minimum density of each fluid particle.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.parentFluid">
+      <summary>
+            Gets the parent fluid, if this fluid is a sub-fluid.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.particleMass">
+      <summary>
+            Controls the mass of each fluid particle.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.pluginCount">
+      <summary>
+            Gets the fluid's plugin count.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.plugins">
+      <summary>
+            Gets an array of the fluid's plugins. (Allocates a new array)
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.smoothingDistance">
+      <summary>
+            Controls the smoothing distance of fluid particles.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.solverEnabled">
+      <summary>
+            Controls whether or not the fluid's simulation solver is enabled.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.supportsTurbulence">
+      <summary>
+            Returns true if the current fluid supports turbulent forces.
+            </summary>
+      <remarks>
+            Turbulence is disabled on mobile platforms.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.supportsExternalForces">
+      <summary>
+            Returns true if the current fluid supports external forces.
+            </summary>
+      <remarks>
+            External forces are disabled on mobile platforms.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.supportsDistanceConstraintSolver">
+      <summary>
+            Returns true if the current fluid supports the distance constraint solver.
+            </summary>
+      <remarks>
+            The distance constraint solver is disabled on mobile platforms.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.enableHardwareAcceleration">
+      <summary>
+            Controls whether or not hardware acceleration is enabled, if available.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.fluidType">
+      <summary>
+            Controls whether or not the fluid is dynamic, kinematic, or static.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.subFluidCount">
+      <summary>
+            Gets the number of sub-fluids currently attached to this fluid.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.surfaceTension">
+      <summary>
+            Controls the surface tension of a fluid (liquids only).
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.viscosity">
+      <summary>
+            Controls the viscosity of a fluid.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.turbulence">
+      <summary>
+            Controls the turbulence probability of a fluid.
+            </summary>
+      <remarks>
+            The turbulence probability is a threshold beyond which a particle may become turbulent.
+            Turbulent particles will not affect non-turbulent particles.
+            Fluid particles are not turbulent by default. Turbulent forces are applied through effectors (using the Vorticity property), or can be applied to particles through custom plugins.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidBase.fluidCount">
+      <summary>
+            Returns the total number of enabled fluids in the current scene.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.IsHardwareAccelerated">
+      <summary>
+            Returns true if GPU acceleration is available and enabled for the fluid.
+            </summary>
+      <returns>True if GPU acceleration is available and enabled.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.Find(System.String)">
+      <summary>
+            Find the first fluid matching the name specified.
+            </summary>
+      <param name="name">
+            The name of the fluid to search for.
+            </param>
+      <returns>
+            The matching fluid. Returns null if not found.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.FindAll(System.String)">
+      <summary>
+            Find all fluids matching the name specified.
+            </summary>
+      <param name="name">
+            The name of the fluid to search for.
+            </param>
+      <returns>
+            The matching fluids. Returns null if not found.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetAllFluids">
+      <summary>
+            Gets all active fluids.
+            </summary>
+      <returns>
+            All active fluids in the scene.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetFluidID">
+      <summary>
+            Gets the fluid's solver ID.
+            </summary>
+      <returns>The solver ID, or -1 if there is currently no solver for the fluid or the solver has not been initialized.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetParticleCount">
+      <summary>
+            Gets the currently allocated particle count for the fluid.
+            </summary>
+      <returns>
+            The currently allocated maximum particle count.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetActiveParticleCount">
+      <summary>
+            Gets the fluid's active particle count.
+            </summary>
+      <returns>
+            The current active particle count.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetPlugin(System.Int32)">
+      <summary>
+            Gets the plugin at the specified index.
+            </summary>
+      <param name="index">The zero-based index of the fluid plugin to get.</param>
+      <returns>The fluid plugin at the specified index.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetPlugin``1">
+      <summary>
+            Gets the first fluid plugin found of the specified type.
+            </summary>
+      <returns>The first plugin found of the specified type.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetPlugins(Thinksquirrel.Fluvio.Plugins.FluidPlugin[]@)">
+      <summary>
+            Writes the fluid's plugins into an array. This will automatically resize the array, if needed.
+            </summary>
+      <param name="pluginArray">The array to write the fluid's plugins into.</param>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetPlugins(Thinksquirrel.Fluvio.Plugins.FluidPlugin[])">
+      <summary>
+            Writes the fluid's plugins into an array.
+            </summary>
+      <param name="pluginArray">The array to write the fluid's plugins into.</param>
+      <returns>
+            The amount of plugins written into the array.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetPlugins``1">
+      <summary>
+            Gets all fluid plugins of the specified type.
+            </summary>
+      <returns>An enumerable of all fluid plugins of the specified type.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetSubFluid(System.Int32)">
+      <summary>
+            Gets the sub-fluid at the specified index.
+            </summary>
+      <param name="index">The zero-based index of the sub-fluid to get.</param>
+      <returns>The sub-fluid at the specified index.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetTotalActiveParticleCount">
+      <summary>
+            Gets the total particle count for the fluid group (includes sub-fluids and parent fluids).
+            </summary>
+      <returns>The total active particle count.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidBase.GetTotalParticleCount">
+      <summary>
+            Gets the total particle count for the fluid group (includes sub-fluids and parent fluids).
+            </summary>
+      <returns>The total maximum particle count.</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidCollider">
+      <summary>
+            Represents a three dimensional fluid collider.
+            </summary>
+      <remarks>
+            Fluid colliders are a special type of fluid that serve as collision boundaries for fluid simulation.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidCollider.attachedCollider">
+      <summary>
+            The attached collider. This must be on the same GameObject as the fluid collider.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidCollider.fillCollider">
+      <summary>
+            Controls whether or not the collider should be filled.
+            </summary>
+      <remarks>
+            Filled colliders provide better simulation for solid objects and higher velocity objects, but have a higher performance overhead (especially in 3D).
+            For edge and terrain colliders, this will always return false.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidCollider.wheelColliderThickness">
+      <summary>
+            Controls the thickness of the collider when using attached wheel colliders.
+            </summary>
+      <remarks>
+            This has no effect for other collider types.
+            </remarks>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidCollider2D">
+      <summary>
+            Represents a two dimensional fluid collider.
+            </summary>
+      <remarks>
+            Fluid colliders are a special type of fluid that serve as collision boundaries for fluid simulation.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidCollider2D.attachedCollider">
+      <summary>
+            The attached collider. This must be on the same GameObject as the fluid collider.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidCollider2D.fillCollider">
+      <summary>
+            Controls whether or not the collider should be filled.
+            </summary>
+      <remarks>
+            Filled colliders provide better simulation for solid objects and higher velocity objects, but have a higher performance overhead (especially in 3D).
+            For edge and terrain colliders, this will always return false.
+            </remarks>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidColliderBase">
+      <summary>
+            Represents a fluid collider.
+            </summary>
+      <remarks>
+            Fluid colliders are a special type of fluid that serve as collision boundaries for fluid simulation.
+            </remarks>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluidColliderBase.kEpsilon">
+      <summary>
+            Minimum float value for collider distance calculation.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidColliderBase.colliderResolution">
+      <summary>
+            Controls the resolution of the collider.
+            </summary>
+      <remarks>
+            Higher values introduce more collider detail at the cost of performance.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidColliderBase.boundsType">
+      <summary>
+            Controls whether or not collider bounds are calculated automatically.
+            </summary>
+      <remarks>
+            If set to manual, a set of bounds can be used to voxelize the collider instead. This can be useful to decrease the amount of boundary particles generated.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidColliderBase.colliderBounds">
+      <summary>
+            Gets or sets a set of bounds for voxelizing the collider.
+            </summary>
+      <remarks>
+            These bounds are only used when manual bounds are enabled.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidColliderBase.fillCollider">
+      <summary>
+            Controls whether or not the collider should be filled.
+            </summary>
+      <remarks>
+            Filled colliders provide better simulation for solid objects and higher velocity objects, but have a higher performance overhead (especially in 3D).
+            For edge and terrain colliders, this will always return false.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidColliderBase.ForceColliderUpdate(System.Boolean)">
+      <summary>
+            Forces the collider to update during the next solver synchronization step.
+            </summary>
+      <param name="updateImmediately">If true, update the collider immediately.</param>
+      <remarks>
+            In most cases, the collider will update automatically. However, colliders need to be manually updated in some situations.
+            Even when updating immediately, the boundary particles that make up the collider will still only be uploaded during the synchronization step.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidColliderBase.AddCollisionPoint(UnityEngine.Vector3)">
+      <summary>
+            Adds a collision point to the fluid collider.
+            </summary>
+      <param name="pt">The point to add to the collider. Collision points are represented by boundary particles in the fluid simulation.</param>
+      <returns>True if the operation was successful; otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidColliderBase.DrawCollider">
+      <summary>
+            Draws the collider in the editor scene view. Called during OnDrawGizmos.
+            </summary>
+      <remarks>
+            Colliders should implement this function to allow users to visualize the collider.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidColliderBase.SetColliderMatrix">
+      <summary>
+            Sets the matrix of the collider.
+            </summary>
+      <remarks>
+            Some colliders (wheel and terrain colliders) have a special collider matrix. This method is used to override the default matrix.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidColliderBase.ColliderIsValid">
+      <summary>
+            Determines whether or not the attached collider is valid (not destroyed or disabled).
+            </summary>
+      <returns>
+            True if the collider is valid; otherwise, false.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidColliderBase.ColliderHasChanged">
+      <summary>
+            Determines whether or not any attached collider properties have been changed.
+            </summary>
+      <remarks>
+            The fluid collider is automatically set to dirty if its transform or base properties changes.
+            </remarks>
+      <returns>
+            True if any attached collider properties have changed; otherwise, false.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidColliderBase.Voxelize">
+      <summary>
+            Voxelize the collider. This provides the actual entry point for collider generation.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidColliderBase.GetDefaultCollider">
+      <summary>
+            Provides a method for obtaining a default base collider (when no base collider is selected).
+            </summary>
+      <remarks>
+            Base colliders should reside on the same GameObject as the fluid collider.
+            </remarks>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidEffect">
+      <summary>
+            Renders a fluid as screen space metaballs.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidEffect.particleFilterMode">
+      <summary>
+            The filter mode for the particle render texture.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidEffect.depthMode">
+      <summary>
+            Controls how fluid effect depth is calculated relative to opaque objects.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidEffect.additionalRenderers">
+      <summary>
+            Additional renderers (other than the fluid's renderer) that should be processed by this fluid effect.
+            </summary>
+      <remarks>
+            Additional renderers should have the same layer and shader as the fluid.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidEffect.CompareTo(Thinksquirrel.Fluvio.FluidEffect,UnityEngine.Camera)">
+      <summary>
+            Compares a fluid effect's rendering order to another.
+            </summary>
+      <param name="other">The fluid effect to compare.</param>
+      <param name="camera">The optional camera to use for comparison. If no camera is specified, the current or main camera is used, if available.</param>
+      <returns>A comparison between the two effects (-1, 0, or 1).</returns>
+      <remarks>
+            Fluid effects are sorted by sorting layer, sorting fudge, distance, and render queue, in order.
+            Additionally, the effect's renderer and additional renderers are rendered as one batch and sorted by Unity.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidEffect.UpdateCommandBuffer">
+      <summary>
+            Notifies the fluid effect to update the underlying command buffer during its next render.
+            </summary>
+      <remarks>
+            In most cases, calling this function is not required.
+            </remarks>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidGroup">
+      <summary>
+            Provides a manual override of a fluid group for multi-fluid simulation.
+            </summary>
+      <remarks>
+            By default, fluid groups are formed when fluids are in the same hierarchy. This component can be used to create custom groups out
+            of one or more hierarchies or other object setups.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidGroup.parentFluid">
+      <summary>
+            The parent fluid of the fluid group.
+            </summary>
+      <remarks>
+            With multi-fluid simulation, some physical properties must be applied to all fluids within a group. The parent fluid controls these properties.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidGroup.subFluidCount">
+      <summary>
+            Returns the total number of sub-fluids in the fluid group.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidGroup.IEnumerable.GetEnumerator">
+      <summary>
+            Returns an enumerator that iterates through the fluid group.
+            </summary>
+      <returns>An enumerator for the fluid group.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidGroup.GetEnumerator">
+      <summary>
+            Returns an enumerator that iterates through the fluid group (generic version).
+            </summary>
+      <returns>An enumerator for the fluid group.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidGroup.AddSubFluid(Thinksquirrel.Fluvio.FluidBase)">
+      <summary>
+            Adds a sub-fluid to the fluid group.
+            </summary>
+      <param name="fluid">The sub-fluid to add to the fluid group.</param>
+      <returns>True if the sub-fluid was added; otherwise false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidGroup.ClearSubFluids">
+      <summary>
+            Remove all sub-fluids from the fluid group.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidGroup.Contains(Thinksquirrel.Fluvio.FluidBase)">
+      <summary>
+            Determines whether or not the fluid group contains the specified fluid.
+            </summary>
+      <param name="fluid">The fluid to search for.</param>
+      <returns>True if the fluid group contains the fluid; otherwise false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidGroup.RemoveSubFluid(Thinksquirrel.Fluvio.FluidBase)">
+      <summary>
+            Removes a sub-fluid from the fluid group.
+            </summary>
+      <param name="fluid">The fluid to remove from the fluid group.</param>
+      <returns>True if the remove operation was successful; otherwise false.</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidParticleSystem">
+      <summary>
+            Represents a fluid that integrates with the Shuriken particle system.
+            </summary>
+      <remarks>
+            Fluids are the main component for fluid simulation with Fluvio.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidParticleSystem.collisionForceModifier">
+      <summary>
+            Controls the force multiplier applied by the fluid when colliding with other objects.
+            </summary>
+      <remarks>
+            This property has no effect unless Unity's particle collision module is enabled.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidParticleSystem.GetParticleSystem">
+      <summary>
+            Gets the particle system associated with this fluid.
+            </summary>
+      <returns>
+            The particle system associated with this fluid.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidParticleSystem.IsUsingAcceleratedIntegrationPath">
+      <summary>
+            If true, matrix multiplication is currently hardware accelerated.
+            </summary>
+      <returns>True if matrix multiplication is currently hardware accelerated; otherwise, false.</returns>
+      <remarks>
+            Matrix multiplication cannot be hardware accelerated when using CPU-only plugins.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidParticleSystem.GetWorldToParticleMatrix">
+      <summary>
+            Gets the fluid particle system's world to particle matrix.
+            </summary>
+      <returns>The current world to particle matrix.</returns>
+      <remarks>
+            This value is cached at the start of a solver frame.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidParticleSystem.GetParticleToWorldMatrix">
+      <summary>
+            gGets the fluid particle system's particle to world matrix.
+            </summary>
+      <returns>The current particle to world matrix.</returns>
+      <remarks>
+            This value is cached at the start of a solver frame.
+            </remarks>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidSpriteCollider">
+      <summary>
+            Represents a collider based on a sprite's alpha channel.
+            </summary>
+      <remarks>
+            Fluid colliders are a special type of fluid that serve as collision boundaries for fluid simulation.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidSpriteCollider.sprite">
+      <summary>
+            The sprite to use for the collider.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidTextureCollider">
+      <summary>
+            Represents a collider based on a texture's alpha channel.
+            </summary>
+      <remarks>
+            Fluid colliders are a special type of fluid that serve as collision boundaries for fluid simulation.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidTextureCollider.texture">
+      <summary>
+            The texture to use for the collider.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidTextureCollider.pixelsPerUnit">
+      <summary>
+            The number of pixels in the texture that correspond to one unit in world space.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidTextureCollider.uvOffset">
+      <summary>
+            Applies a UV offset to the texture collider, for texture atlases.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidTextureCollider.pivot">
+      <summary>
+            Pivot of the texture collider, in local space.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluidTextureColliderBase">
+      <summary>
+            Base class for texture and sprite colliders.
+            </summary>
+      <remarks>
+            Fluid colliders are a special type of fluid that serve as collision boundaries for fluid simulation.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidTextureColliderBase.alphaThreshold">
+      <summary>
+            Returns the alpha threshold for the collider.
+            </summary>
+      <remarks>
+            Pixels with an alpha value higher than or equal to the threshold will generate a collision point.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluidTextureColliderBase.fillCollider">
+      <summary>
+            Controls whether or not the collider should be filled.
+            </summary>
+      <remarks>
+            For texture colliders, this will always return true.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidTextureColliderBase.GetLocalBounds">
+      <summary>
+            Gets the local bounds of the texture collider.
+            </summary>
+      <returns>
+            A local space Rect struct, representing the bounds of the texture collider.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluidTextureColliderBase.GetWorldBounds">
+      <summary>
+            Gets the world bounds of the texture collider.
+            </summary>
+      <returns>
+            A world space Bounds struct, representing the bounds of the texture collider.
+            </returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioComputeShader">
+      <summary>
+            Provides a proxy object for both Unity's native compute shaders and OpenCL compute programs.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioComputeShader.Find(System.String)">
+      <summary>
+            Finds a Fluvio compute shader by resource path.
+            </summary>
+      <param name="path">The resource path to search.</param>
+      <returns>The Fluvio compute shader if found; otherwise null.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioComputeShader.DisposeOpenCLResources">
+      <summary>
+            Disposes any native OpenCL resources associated with this shader.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioDebug">
+      <summary>
+            Provides various static logging methods.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioDebug.LogCallback">
+      <summary>
+            Callback formats for onLogMessage, sent after most Fluvio log messages.
+            </summary>
+      <param name="logType">The type of log entry.</param>
+      <param name="message">The message (string) or exception (System.Exception).</param>
+      <param name="context">Additional context, if any, for the log message.</param>
+    </member>
+    <member name="E:Thinksquirrel.Fluvio.FluvioDebug.onLogMessage">
+      <summary>
+            An event that is fired after most Fluvio log messages.
+            This event can be subscribed to in order to enable logging to a file, for example.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioDebug.Log(System.Object,System.Object,System.Boolean)">
+      <summary>
+            Logs a prefixed message (wrapped in conditional compilation flags).
+            </summary>
+      <param name="message">The message to log.</param>
+      <param name="context">Object to which the message applies.</param>
+      <param name="invokeEvent">If true, invoke the onLogMessage event. This should only be done when logging from the main thread.</param>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioDebug.LogWarning(System.Object,System.Object,System.Boolean)">
+      <summary>
+            Logs a prefixed warning.
+            </summary>
+      <param name="message">The message to log.</param>
+      <param name="context">Object to which the message applies.</param>
+      <param name="invokeEvent">If true, invoke the onLogMessage event. This should only be done when logging from the main thread.</param>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioDebug.LogError(System.Object,System.Object,System.Boolean)">
+      <summary>
+            Logs a prefixed erorr.
+            </summary>
+      <param name="message">The message to log.</param>
+      <param name="context">Object to which the message applies.</param>
+      <param name="invokeEvent">If true, invoke the onLogMessage event. This should only be done when logging from the main thread.</param>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioDebug.LogException(System.Exception,System.Object,System.Boolean)">
+      <summary>
+            Logs an exception.
+            </summary>
+      <param name="ex">The exception to log.</param>
+      <param name="context">Object to which the message applies.</param>
+      <param name="invokeEvent">If true, invoke the onLogMessage event. This should only be done when logging from the main thread.</param>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioMinMaxCurve">
+      <summary>
+            Defines a min-max curve for fluid plugins.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioMinMaxCurve.#ctor">
+      <summary>
+            Creates a new min-max curve.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxCurve.isSigned">
+      <summary>
+            Returns true if the curve is signed (between -1 and 1).
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxCurve.maxCurve">
+      <summary>
+            The maximum curve. Keyframe times must be between 0 and 1. Values must be between -1 and 1 for signed curves, or 0 and 1 for unsigned curves.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxCurve.minCurve">
+      <summary>
+            The minimum curve. Keyframe times must be between 0 and 1. Values must be between -1 and 1 for signed curves, or 0 and 1 for unsigned curves.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxCurve.minConstant">
+      <summary>
+            The minimum constant value.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxCurve.maxConstant">
+      <summary>
+            The maximum constant value.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxCurve.scalar">
+      <summary>
+            A scalar to multiply the curve's value by.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxCurve.minMaxState">
+      <summary>
+            The min-max state of the curve.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioMinMaxCurve.Evaluate(System.UInt32,System.Single)">
+      <summary>
+            Evaluate the min-max curve.
+            </summary>
+      <param name="seed">The random seed to use for curve evaluation.</param>
+      <param name="time">The time to evaluate, between 0 and 1.</param>
+      <returns>The evaluated min-max curve.</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioMinMaxGradient">
+      <summary>
+            Defines a min-max gradient for fluid plugins.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioMinMaxGradient.#ctor">
+      <summary>
+            Creates a new min-max gradient.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxGradient.maxGradient">
+      <summary>
+            The maximum gradient.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxGradient.minGradient">
+      <summary>
+            The minimum gradient.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxGradient.maxColor">
+      <summary>
+            The maximum color.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxGradient.minColor">
+      <summary>
+            The minimum color.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioMinMaxGradient.minMaxState">
+      <summary>
+            The min-max state of the gradient.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioMinMaxGradient.Evaluate(System.UInt32,System.Single)">
+      <summary>
+            Evaluate the min-max gradient.
+            </summary>
+      <param name="seed">The random seed to use for gradient evaluation.</param>
+      <param name="time">The time to evaluate, between 0 and 1.</param>
+      <returns>The evaluated min-max gradient.</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioMonoBehaviourBase">
+      <summary>
+            MonoBehavior base class for all Fluvio components.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioMonoBehaviourBase.IsValid(UnityEngine.Behaviour)">
+      <summary>
+            Returns true if the specified behavior is not destroyed or null, active, and enabled.
+            </summary>
+      <param name="b">The behavior to check.</param>
+      <returns>True if the behavior is not destroyed or null, active within its hierarchy, and enabled. Otherwise; false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioMonoBehaviourBase.IsValid(UnityEngine.Component)">
+      <summary>
+            Returns true if the specified component is not destroyed or null and active.
+            </summary>
+      <param name="c">The component to check.</param>
+      <returns>True if the component is not destroyed or null and active within its hierarchy. Otherwise; false.</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioScriptableObjectBase">
+      <summary>
+            ScriptableObject base class for all Fluvio components.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioSettings">
+      <summary>
+            This class controls global Fluvio settings.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kComputeThreadGroupSize">
+      <summary>
+            Compute shader thread group size (single dimension).
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kComputeThreadGroupSizeX">
+      <summary>
+            Compute shader thread group size (X).
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kComputeThreadGroupSizeY">
+      <summary>
+            Compute shader thread group size (Y).
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kComputeThreadGroupSizeZ">
+      <summary>
+            Compute shader thread group size (Z).
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kEpsilon">
+      <summary>
+            Minimum float value for fluid simulation.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kMaxSqrVelocityChange">
+      <summary>
+            Maximum squared velocity magnitude that will be applied in a single solver iteration. Higher values are ignored. Prevents numerical errors.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kTurbulenceConstant">
+      <summary>
+            Turbulence constant for vortical forces.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kMaxPluginBuffers">
+      <summary>
+            Maximum amount of plugin buffers supported.
+            </summary>
+      <remarks>
+            Plugin values also take up buffer spots.
+            The actual amount of plugin buffers that can be used is platform-dependent.
+            For mobile platforms, it is recommended to not have more than two plugin buffers (or one read-write plugin buffer).
+            It is highly recommended to pack plguin information into structs in order to use as few buffers as possible.
+            </remarks>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kFluidColliderSkinWidth">
+      <summary>
+            Fluid collider skin width. This is multiplied by the fluid's smoothing distance to determine boundary skin width.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioSettings.kFluidColliderMaxParticleCount">
+      <summary>
+            Fluid colldier maximum particle count.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.preloadComputeShaders">
+      <summary>
+            Preload compute shaders whenever possible.
+            </summary>
+      <remarks>
+            This currently only applies to OpenCL and can only be changed in the editor.
+            All OpenCL shaders will preload with the first API call to any Fluvio object, even if a fluid is not yet in the scene.
+            Shaders will not preload in edit mode.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.fixedDeltaTime">
+      <summary>
+            Controls the default physics time step for fluid simulation.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.maxDeltaTime">
+      <summary>
+            Controls the maximum physics time step for fluid simulation.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.limitTimestep">
+      <summary>
+            If true, limits the frame timestep based on real time passed.
+            </summary>
+      <remarks>
+            This helps prevent runaway physics, in the cases where the amount of computational time to simulate a timestep is
+            longer than the amount of time passed. It is recommended to leave this on for realtime use.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.solverIterations">
+      <summary>
+            Controls the amount of solver iterations.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.motionExtrapolation">
+      <summary>
+            Enables or disables motion extrapolation.
+            </summary>
+      <remarks>
+            Motion extrapolation extrapolates the position of particles between physics frames for a smoother experience and a lower overall
+            computational cost.
+            It is recommended to keep this enabled, especially for VR.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.useIndexGrid">
+      <summary>
+            Whether or not an index grid should be used to accelerate neighbor search.
+            </summary>
+      <remarks>
+            In almost all situations, this should be enabled. The index grid significantly accelerates particle simulation,
+            in exchange for an additional memory cost.
+            Changing this value will trigger a recompile of all compute shaders and can only be changed in the editor.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.maxGridSize">
+      <summary>
+            The maximum amount of grid cells to have in any one direction (X/Y or X/Y/Z). Cells are the same size as the root fluid's smoothing distance.
+            </summary>
+      <remarks>
+            Grid sizes have a very large affect on fluid memory usage and performance. It is recommended to use the default values in almost every case.
+            Changing this value will trigger a recompile of all compute shaders and can only be changed in the editor.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.gridBucketSize">
+      <summary>
+            The maximum amount of particles per grid cell.
+            </summary>
+      <remarks>
+            Grid sizes have a very large affect on fluid memory usage and performance. It is recommended to use the default values in almost every case.
+            Changing this value will trigger a recompile of all compute shaders and can only be changed in the editor.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.gridBytes">
+      <summary>
+            Gets the size of the index grid, in bytes.
+            </summary>
+      <remarks>
+            This can be used to evaluate whether or not the target device has enough memory to support the index grid.
+            If the index grid is disabled, returns 0.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.particleStride2D">
+      <summary>
+            Particle stride for solver arrays for 2D fluids. Equal to 9 full grid cells minus one particle (gridBucketSize * 9 - 1).
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.particleStride3D">
+      <summary>
+            Particle stride for solver arrays for 3D fluids. Equal to 27 full grid cells minus one particle (gridBucketSize * 27 - 1).
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.currentThreadCount">
+      <summary>
+            The current amount of threads used for fluid simulation and other parallel tasks.
+            </summary>
+      <remarks>
+            The maximum amount of threads used will always be the amount of logical cores in the system - 1.
+            If the current platform does not support multithreading, this will return a value of 1.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.desiredComputeAPI">
+      <summary>
+            Controls the desired compute API for hardware accelerated fluid simulation.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.openCLDesiredDeviceType">
+      <summary>
+            Controls the desired device type when using OpenCL hardware acceleration.
+            </summary>
+      <remarks>
+            Using a CPU device may perform better for applications that are GPU bound, or for GPUs that have a low CPU/GPU memory latency or poor compute capabilities.
+            Using a GPU device may perform better for applications that are CPU bound when using larger particle counts on a system with low CPU/GPU memory latency.
+            When multiple devices of the same class exist, these devices are given a score based on the number of compute cores and processor speed, and the device with the highest score is picked.
+            Blacklisted devices are always skipped, regardless of their type.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.enableComputeOnAndroid">
+      <summary>
+            Controls whether or not Unity Native compute is enabled on Android. This feature is experimental, and off by default.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.enableOpenCLGPUOnMac">
+      <summary>
+            Controls whether or not OpenCL GPU and accelerator devices are enabled on macOS. This feature is experimental, and off by default.
+            </summary>
+      <remarks>
+            Due to driver issues, some macOS devices may crash with OpenCL in GPU mode.
+            This option allows for a global override on whether or not GPU devices should be considered for simulation on macOS devices.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.openCLDeviceBlacklist">
+      <summary>
+            Controls device strings that should be blacklisted when using OpenCL.
+            </summary>
+      <remarks>
+            When changing these values, accelerated fluids must have their buffers reinitialized using ReinitializeAllAcceleratedFluids manually.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.openCLPlatformBlacklist">
+      <summary>
+            Controls platforms that should be blacklisted when using OpenCL.
+            </summary>
+      <remarks>
+            When changing these values, accelerated fluids must have their buffers reinitialized using ReinitializeAllAcceleratedFluids manually.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.FluvioSettings.enableTimers">
+      <summary>
+            Enables or disables timers. This will always return true in the editor.
+            </summary>
+      <remarks>
+            The FluidDebug plugin enables this by default.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioSettings.GetCurrentComputeAPI">
+      <summary>
+            Gets the current compute API used for Fluvio.
+            </summary>
+      <returns>The desired compute API, or a fallback if available.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioSettings.ForceInitializeOpenCL(Cloo.ComputeDevice)">
+      <summary>
+            Force an initialization of OpenCL.
+            </summary>
+      <param name="device">An optional compute device to use (from the Cloo OpenCL library). This can be used to force a specific OpenCL device, overriding the detault device option.</param>
+      <remarks>
+            This should only be called if OpenCL has already been initialized and the desired device type, platform blacklist, or device blacklist have changed.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioSettings.ReinitializeAllAcceleratedFluids">
+      <summary>
+            Reinitialize all accelerated fluids in the scene.
+            </summary>
+      <remarks>
+            This will not reset simulation, but is a very performance-intensive operation.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioSettings.GetCurrentComputePlatform(Thinksquirrel.Fluvio.FluidBase)">
+      <summary>
+            Get the name of the current compute platform for the specified fluid.
+            </summary>
+      <param name="fluid">The fluid to get the compute platform name for.</param>
+      <returns>The name and version of the current compute platform.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioSettings.GetCurrentDeviceName(Thinksquirrel.Fluvio.FluidBase)">
+      <summary>
+            Get the name of the current compute device for the specified fluid.
+            </summary>
+      <param name="fluid">The fluid to get the compute device name for.</param>
+      <returns>The name of the current compute device.</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.FluvioTimeStep">
+      <summary>
+            Represents a single fixed timestep for fluid simulation.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioTimeStep.deltaTime">
+      <summary>
+            The delta time of the current frame.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioTimeStep.dtIter">
+      <summary>
+            dt * (1.0f / solverIterations)
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioTimeStep.invDt">
+      <summary>
+            1.0f / deltaTime
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.FluvioTimeStep.solverIterations">
+      <summary>
+            The amount of solver solver iterations, as a float.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.FluvioTimeStep.op_Implicit(Thinksquirrel.Fluvio.FluvioTimeStep)~UnityEngine.Vector4">
+      <summary>
+            Provides an implicit conversion of a timestep into a 4-component vector.
+            </summary>
+      <param name="timeStep">The timestep to convert.</param>
+      <returns>The converted vector. x - deltaTime, y - dtIter, z - invDt, w - solverIterations</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.VectorValidationExtensions">
+      <summary>
+            Helper extensions for validating vectors
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsNaN(UnityEngine.Vector2)">
+      <summary>
+            Returns true if any vector component is not a number.
+            </summary>
+      <param name="vec">The 2-component vector to check.</param>
+      <returns>True if any component of the vector is not a number; otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsInf(UnityEngine.Vector2)">
+      <summary>
+            Returns true if any vector component is infinite.
+            </summary>
+      <param name="vec">The 2-component vector to check.</param>
+      <returns>True if any component of the vector is equal to positive or negative infinity; otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsOutOfRange(UnityEngine.Vector2)">
+      <summary>
+            Returns true if any vector component is large enough to have potential floating point errors when used with Fluvio.
+            </summary>
+      <param name="vec">The 2-component vector to check.</param>
+      <returns>True if any component of the vector is grater than abs(1.0f / Vector2.kEpsilon); otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsValid(UnityEngine.Vector2)">
+      <summary>
+            Checks a vector to determine that all values are valid for use with Fluvio.
+            </summary>
+      <param name="vec">The 2-component vector to check.</param>
+      <returns>True if all vector components are a number, non-infinite, and have an absolute value less than or equal to 1.0f / Vector2.kEpsilon.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsNaN(UnityEngine.Vector3)">
+      <summary>
+            Returns true if any vector component is not a number.
+            </summary>
+      <param name="vec">The 3-component vector to check.</param>
+      <returns>True if any component of the vector is not a number; otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsInf(UnityEngine.Vector3)">
+      <summary>
+            Returns true if any vector component is infinite.
+            </summary>
+      <param name="vec">The 3-component vector to check.</param>
+      <returns>True if any component of the vector is equal to positive or negative infinity; otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsOutOfRange(UnityEngine.Vector3)">
+      <summary>
+            Returns true if any vector component is large enough to have potential floating point errors when used with Fluvio.
+            </summary>
+      <param name="vec">The 3-component vector to check.</param>
+      <returns>True if any component of the vector is grater than abs(1.0f / Vector3.kEpsilon); otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsValid(UnityEngine.Vector3)">
+      <summary>
+            Checks a vector to determine that all values are valid for use with Fluvio.
+            </summary>
+      <param name="vec">The 3-component vector to check.</param>
+      <returns>True if all vector components are a number, non-infinite, and have an absolute value less than or equal to 1.0f / Vector3.kEpsilon.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsNaN(UnityEngine.Vector4)">
+      <summary>
+            Returns true if any vector component is not a number.
+            </summary>
+      <param name="vec">The 4-component vector to check.</param>
+      <returns>True if any component of the vector is not a number; otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsInf(UnityEngine.Vector4)">
+      <summary>
+            Returns true if any vector component is infinite.
+            </summary>
+      <param name="vec">The 4-component vector to check.</param>
+      <returns>True if any component of the vector is equal to positive or negative infinity; otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsOutOfRange(UnityEngine.Vector4)">
+      <summary>
+            Returns true if any vector component is large enough to have potential floating point errors when used with Fluvio.
+            </summary>
+      <param name="vec">The 4-component vector to check.</param>
+      <returns>True if any component of the vector is grater than abs(1.0f / Vector4.kEpsilon); otherwise, false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.VectorValidationExtensions.IsValid(UnityEngine.Vector4)">
+      <summary>
+            Checks a vector to determine that all values are valid for use with Fluvio.
+            </summary>
+      <param name="vec">The 4-component vector to check.</param>
+      <returns>True if all vector components are a number, non-infinite, and have an absolute value less than or equal to 1.0f / Vector4.kEpsilon.</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Internal.VersionInfo">
+      <summary>
+            Contains Fluvio version information.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.Internal.VersionInfo.version">
+      <summary>
+            Gets the current version of Fluvio.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.Internal.VersionInfo.isFreeEdition">
+      <summary>
+            Whether or not the current Fluvio build is the free edition.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.Internal.VersionInfo.isProEdition">
+      <summary>
+            Whether or not this build of Fluvio is the professional edition.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.Internal.VersionInfo.isStandardEdition">
+      <summary>
+            Whether or not this build of Fluvio is the standard edition.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Internal.VersionInfo.license">
+      <summary>
+            Gets the current Fluvio license, in human-readable form.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Internal.Solvers.FluidSolver">
+            SPH-based fluid simulation solver. Multithreaded, CPU.
+            Maximum # of fluids per solver group: 255
+            Maximum # of particles per solver group: 65536</member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.ColorByDensity">
+      <summary>
+            This plugin changes the color of particles based on their density.
+            </summary>
+      <remarks>
+            Changing color by density is useful for particle visualization, fire, or for foam effects.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.ColorByDensity.color">
+      <summary>
+            The color by density gradient, from minimum to rest density.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.ColorByDensity.range">
+      <summary>
+            The density range for the gradient.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.ColorByDensity.smoothing">
+      <summary>
+            The amount to smooth the color output by interpolating with the previous color.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.FluidDebug">
+      <summary>
+            FluidPlugin for debug information.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidDebug.updateInterval">
+      <summary>
+            Controls the update interval for time averages.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidDebug.debugText">
+      <summary>
+            Gets or sets the current debug text component.
+            </summary>
+      <returns>The Text component used to print debug text.</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin">
+      <summary>
+            Base class for all fluid plugins that can operate on multiple threads or in a compute shader.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.computeShader">
+      <summary>
+            The compute shader currently assigned to this plugin.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.kernelIndex">
+      <summary>
+            The compute shader kernel currently assigned to this plugin.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.isValidComputePlugin">
+      <summary>
+            Returns true if the plugin can currently execute on the GPU or another hardware accelerated platform.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.runAcceleratedOnly">
+      <summary>
+            Controls whether or not a plugin should run on hardware accelerated platforms only.
+            </summary>
+      <remarks>
+            This disables the CPU fallback for the plugin.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.includeFluidGroup">
+      <summary>
+            If true, also process any sub-fluids or parent fluids with this plugin.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnEndPluginFrame">
+      <summary>
+            Provides an end method for the fluid plugin each frame.
+            </summary>
+      <remarks>
+            This runs on the main thread.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnPluginPostSolve">
+      <summary>
+            Provides a method that runs after integration each frame.
+            </summary>
+      <remarks>
+            This runs on the main thread. Use this method to modify resulting particle velocities or to emit particles.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnStartPluginFrame(Thinksquirrel.Fluvio.FluvioTimeStep@)">
+      <summary>
+            Provides a start method for the fluid plugin each frame. Returns false if the plugin should not continue execution
+            for this frame.
+            </summary>
+      <param name="timeStep">The current simulation time step for this frame.</param>
+      <returns>False if the plugin should not continue execution for the rest of the frame; otherwise, true.</returns>
+      <remarks>
+            This runs on the main thread.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnSetComputeShaderVariables">
+      <summary>
+            Provides a method to pass plugin variables to the plugin's compute shader.
+            </summary>
+      <remarks>
+            This runs on the main thread.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnReadComputeBuffers">
+      <summary>
+            Provides a method to read custom compute buffers from the plugin, if needed.
+            </summary>
+      <remarks>
+            Reading back from compute buffers can incur a significant overhead.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.SetComputeShader(Thinksquirrel.Fluvio.FluvioComputeShader,System.String)">
+      <summary>
+            Sets a compute shader for the plugin to use, if the fluid is hardware accelerated.
+            </summary>
+      <param name="computeShader">The compute shader to set.</param>
+      <param name="kernelName">The compute kernel to use.</param>
+      <remarks>
+            If a compute shader is unavailable on a hardware accelerated fluid, the plugin will execute using the CPU fallback.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.SetComputePluginBuffer``1(System.Int32,T[],System.Boolean)">
+      <summary>
+            Sets a compute buffer for the plugin to use and copy the specified data into the buffer, if the fluid is hardware accelerated.
+            </summary>
+      <param name="index">The plugin data index to use. Must be less than FluvioSettings.kMaxPluginBuffers.</param>
+      <param name="data">An array of data to copy to the buffer.</param>
+      <param name="readWrite">If true, set the buffer as writable from the hardware device.</param>
+      <remarks>
+            This should only be used in <see cref="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnSetComputeShaderVariables" />.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.SetComputePluginBuffer``1(System.Int32,System.Int32,System.Boolean)">
+      <summary>
+            Sets a compute buffer of the specified type and length for the plugin to use, if the fluid is hardware accelerated.
+            </summary>
+      <param name="index">The plugin data index to use. Must be less than FluvioSettings.kMaxPluginBuffers.</param>
+      <param name="length">The number of elements in the buffer.</param>
+      <param name="readWrite">If true, set the buffer as writable from the hardware device.</param>
+      <remarks>
+            This should only be used in <see cref="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnSetComputeShaderVariables" />.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.SetComputePluginValue``1(System.Int32,``0,System.Boolean)">
+      <summary>
+            Sets a value for the plugin to use, if the fluid is hardware accelerated.
+            </summary>
+      <param name="index">The plugin data index to use. Must be less than FluvioSettings.kMaxPluginBuffers.</param>
+      <param name="value">The value to copy to the compute plugin.</param>
+      <param name="readWrite">If true, set the data as writable from the hardware device.</param>
+      <remarks>
+            This should only be used in <see cref="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnSetComputeShaderVariables" />.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.SetComputePluginMinMaxCurve(System.Int32,Thinksquirrel.Fluvio.FluvioMinMaxCurve)">
+      <summary>
+            Sets a min-max curve for the plugin to use, if the fluid is hardware accelerated.
+            </summary>
+      <param name="index">The plugin data index to use. Must be less than FluvioSettings.kMaxPluginBuffers.</param>
+      <param name="minMaxCurve">The min-max curve to copy to the compute plugin.</param>
+      <remarks>
+            This should only be used in <see cref="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnSetComputeShaderVariables" />.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.SetComputePluginMinMaxGradient(System.Int32,System.Int32,Thinksquirrel.Fluvio.FluvioMinMaxGradient)">
+      <summary>
+            Sets a min-max gradient for the plugin to use, if the fluid is hardware accelerated.
+            </summary>
+      <param name="index0">The plugin data index to use for color keys. Must be less than FluvioSettings.kMaxPluginBuffers.</param>
+      <param name="index1">The plugin data index to use for alpha keys. Must be less than FluvioSettings.kMaxPluginBuffers.</param>
+      <param name="minMaxGradient">The min-max gradient to copy to the compute plugin.</param>
+      <remarks>
+            This should only be used in <see cref="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnSetComputeShaderVariables" />.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.SetCurveAsSigned(Thinksquirrel.Fluvio.FluvioMinMaxCurve,System.Boolean)">
+      <summary>
+            Set a min-max curve as signed (between -1 and 1). Whether or not a curve is signed depends on the plugin implementation.
+            </summary>
+      <param name="curve">The curve to set as signed.</param>
+      <param name="isSigned">If true, the curve will be signed; otherwise it will be unsigned.</param>
+      <remarks>Curves are unsigned by default.</remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.GetComputePluginBuffer``1(System.Int32,T[])">
+      <summary>
+            Gets the data from a plugin compute buffer, if the fluid is hardware accelerated.
+            </summary>
+      <param name="index">The plugin data index to use. Must be less than FluvioSettings.kMaxPluginBuffers.</param>
+      <param name="data">An array to write buffer data to.</param>
+      <remarks>
+            This should only be used in <see cref="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnReadComputeBuffers" />.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.GetComputePluginValue``1(System.Int32,``0@)">
+      <summary>
+            Gets a value from a compute plugin, if the fluid is hardware accelerated.
+            </summary>
+      <param name="index">The plugin data index to use. Must be less than FluvioSettings.kMaxPluginBuffers.</param>
+      <param name="value">The value to retrieve from the compute plugin.</param>
+      <remarks>
+            This should only be used in <see cref="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.OnReadComputeBuffers" />.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.ClearComputePluginData(System.Int32)">
+      <summary>
+            Release the compute plugin buffer at the specified index. Does nothing if the buffer has never been set.
+            </summary>
+      <param name="index">The index of the buffer to release.</param>
+      <remarks>
+            Plugin buffers are automatically cleaned up when a plugin is disabled.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParallelPlugin.RemoveComputeShader">
+      <summary>
+            Removes a compute shader from the plugin. This forces the plugin to execute on the CPU.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.FluidParticlePairPlugin">
+      <summary>
+            Base class for all fluid plugins that operate on particle pairs.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParticlePairPlugin.OnUpdatePlugin(Thinksquirrel.Fluvio.Plugins.SolverData,System.Int32,System.Int32)">
+      <summary>
+            Provides an update method for the fluid plugin. If the fluid and plugin are hardware accelerated, this method will not be executed.
+            </summary>
+      <param name="solverData">Solver data for the current simulation. This can be used to modify forces and other physical parameters.</param>
+      <param name="particleIndex">The current particle index for the update.</param>
+      <param name="neighborIndex">The current neighbor index for the update.</param>
+      <remarks>
+            This method provides internal solver data, along with the indices of a particle and its neighbor.
+            Because this method may run on multiple threads along with other plugins, the neighbor particle should
+            NOT be modified. Each pair will execute twice (A -&gt; B and B -&gt; A). Also note that neighbor information may
+            not be up to date (it may be modified on another thread at any time). It is recommended to access each neighbor
+            property only once, in order to keep physical consistency and reduce potential numerical errors.
+            </remarks>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.FluidParticlePlugin">
+      <summary>
+            Base class for all fluid plugins that operate on particles.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParticlePlugin.RandomFloat(System.UInt32)">
+      <summary>
+            Get a random float from a seed value. Suitable for parallel access.
+            </summary>
+      <param name="seed">The seed to use.</param>
+      <returns>A random [0-1] float.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidParticlePlugin.OnUpdatePlugin(Thinksquirrel.Fluvio.Plugins.SolverData,System.Int32)">
+      <summary>
+            Provides an update method for the fluid plugin. If the fluid and plugin are hardware accelerated, this method will
+            not be executed.
+            </summary>
+      <param name="solverData">Solver data for the current simulation. This can be used to modify forces and other physical parameters.</param>
+      <param name="particleIndex">The current particle index for the update.</param>
+      <remarks>
+            This method provides internal solver data, along with the index of a particle.
+            This method may run on multiple threads - arrays should be modified only at the particle index.
+            </remarks>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.FluidPlugin">
+      <summary>
+            Base class for fluid plugins.
+            </summary>
+      <remarks>
+            Fluid plugins are components that modify a fluid or a fluid group.
+            They can be displayed with a fluid, or as an independent component.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidPlugin.isVisibleInEditor">
+      <summary>
+            Returns true if the component should be visible in the editor (for example, under a visible foldout)
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidPlugin.fluid">
+      <summary>
+            Controls the fluid that this plugin belongs to.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.FluidPlugin.weight">
+      <summary>
+            Determines the display and execution order of a plugin.
+            </summary>
+      <remarks>
+            Note that this does not determine the execution order of plugins that use standard Unity functions like Update/LateUpdate.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidPlugin.Awake">
+      <summary>
+            This is called by Unity when the plugin is enabled for the first time. Overriding classes MUST call base.Awake() to initialize the
+            plugin properly.
+            </summary>
+      <remarks>
+            Plugins should use OnEnablePlugin or OnResetPlugin instead.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidPlugin.OnDisable">
+      <summary>
+            This is called by Unity when the plugin is disabled. Overriding classes MUST call base.OnDisable() to remove the
+            plugin properly.
+            </summary>
+      <remarks>
+            Plugins should use OnDisablePlugin instead.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidPlugin.OnEnable">
+      <summary>
+            This is called by Unity when the plugin is enabled. Overriding classes MUST call base.OnEnable() to initialize the
+            plugin properly.
+            </summary>
+      <remarks>
+            Plugins should use OnEnablePlugin instead.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidPlugin.Reset">
+      <summary>
+            This is called by Unity when the plugin is reset, or by Fluvio when the plugin is created for the first time. Overriding classes MUST call base.Reset() to initialize the
+            plugin properly.
+            </summary>
+      <remarks>
+            Plugins should use OnResetPlugin instead.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidPlugin.OnResetPlugin">
+      <summary>
+            Provides a reset method for the fluid plugin.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidPlugin.OnDisablePlugin">
+      <summary>
+            Provides a disable method for the fluid plugin.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.FluidPlugin.OnEnablePlugin">
+      <summary>
+            Provides an initialization method for the fluid plugin.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.PhaseChange">
+      <summary>
+            This plugin will automatically remove particles that pass a density threshold, and optionally replace them with particles from another system.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.PhaseChange.ComparisonType">
+      <summary>
+            Determines how the particle must interact with the density threshold in order to phase change.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.Plugins.PhaseChange.ComparisonType.LessThan">
+      <summary>
+            The particle must be less than the density threshold in order to phase change.
+            </summary>
+    </member>
+    <member name="F:Thinksquirrel.Fluvio.Plugins.PhaseChange.ComparisonType.GreaterThan">
+      <summary>
+            The particle must be greater than the density threshold in order to phase change.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.PhaseChange.otherParticleSystem">
+      <summary>
+            The particle system to transition to when a fluid reaches a density threshold.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.PhaseChange.comparisonType">
+      <summary>
+            Determines how the particle must interact with the density threshold in order to phase change.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.PhaseChange.densityThreshold">
+      <summary>
+            Controls at what density a given particle in a fluid will phase change.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.SizeByDensity">
+      <summary>
+            This plugin changes the size of particles based on their density.
+            </summary>
+      <remarks>
+            Changing size by density is useful for simulating the diffusion of gas particles.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.SizeByDensity.size">
+      <summary>
+            The size by density curve, from minimum to rest density.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.SizeByDensity.range">
+      <summary>
+            The density range for the curve.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.SizeByDensity.smoothing">
+      <summary>
+            The amount to smooth the size output by interpolating with the previous size.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.SolverData">
+      <summary>
+            Represents data from Fluvio's internal solver, for use in plugins.
+            </summary>
+      <remarks>
+            Fluvio's solver data is organized as a set of linear arrays for fast parallel access.
+            Solver data is always in world space, and while any units can be used, numbers are tuned for MKS units (meters, kilograms, and seconds).
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.AddForce(System.Int32,UnityEngine.Vector3,UnityEngine.ForceMode)">
+      <summary>
+            Adds the specified force to the particle, using an optional force mode.
+            </summary>
+      <param name="particleIndex">The particle index to add a force to.</param>
+      <param name="forceAmount">The amount and direction of force to apply to the particle.</param>
+      <param name="forceMode">The type of force to apply to the particle.</param>
+      <remarks>
+        <list type="bullet">
+          <item>
+            <term>ForceMode.Force: </term>
+            <description>f<sub>0</sub> += f<sub>1</sub></description>
+          </item>
+          <item>
+            <term>ForceMode.Acceleration: </term>
+            <description>f<sub>0</sub> += f<sub>1</sub> * invMass</description>
+          </item>
+          <item>
+            <term>ForceMode.Impulse: </term>
+            <description>f<sub>0</sub> += f<sub>1</sub> / dt</description>
+          </item>
+          <item>
+            <term>ForceMode.VelocityChange: </term>
+            <description>f<sub>0</sub> += (f<sub>1</sub> * invMass) / dt</description>
+          </item>
+        </list>
+      </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetColor(System.Int32)">
+      <summary>
+            Gets the color of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle color.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetFluid(System.Int32)">
+      <summary>
+            Gets the fluid that is associated with the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The fluid associated with the particle.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetDensity(System.Int32)">
+      <summary>
+            Gets the density of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle density.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetForce(System.Int32)">
+      <summary>
+            Gets the unapplied force of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle force.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetMass(System.Int32)">
+      <summary>
+            Gets the mass of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle mass.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetLifetime(System.Int32)">
+      <summary>
+            Gets the lifetime of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle lifetime.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetPosition(System.Int32)">
+      <summary>
+            Gets the position of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle position.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetPressure(System.Int32)">
+      <summary>
+            Gets the pressure of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle pressure.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetRandomSeed(System.Int32)">
+      <summary>
+            Gets the random seed of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle random seed.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetSize(System.Int32)">
+      <summary>
+            Gets the size of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle size.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetSurfaceNormal(System.Int32)">
+      <summary>
+            Gets the surface normal of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle surface normal.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetSurfaceNormalLength(System.Int32)">
+      <summary>
+            Gets the surface normal length of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle surface normal length. If this value is between pi and 2 * pi, the particle can be assumed to be on the surface of the fluid.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetTurbulence(System.Int32)">
+      <summary>
+            Gets the turbulence probability of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle turbulence probability.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetVelocity(System.Int32)">
+      <summary>
+            Gets the current velocity of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle velocity.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.GetVorticity(System.Int32)">
+      <summary>
+            Gets the vorticity of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <returns>The particle vorticity.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.SetColor(System.Int32,UnityEngine.Color)">
+      <summary>
+            Sets the color of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <param name="color">The color to set.</param>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.SetForce(System.Int32,UnityEngine.Vector3)">
+      <summary>
+            Sets the unapplied force of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <param name="force">The force to set.</param>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.SetLifetime(System.Int32,System.Single)">
+      <summary>
+            Sets the lifetime of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <param name="lifetime">The lifetime to set.</param>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.SetSize(System.Int32,System.Single)">
+      <summary>
+            Sets the size of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <param name="size">The size to set.</param>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.SetTurbulence(System.Int32,System.Single)">
+      <summary>
+            Sets the turbulence probability of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <param name="turbulence">The turbulence to set.</param>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.SetVorticity(System.Int32,UnityEngine.Vector3)">
+      <summary>
+            Sets the vorticity of the particle at the specified index in the solver data.
+            </summary>
+      <param name="particleIndex">The index of the particle in the solver data.</param>
+      <param name="vorticity">The vorticity to set.</param>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.Effectors.FluidCubeEffector">
+      <summary>
+            Defines a cube shaped effector.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidCubeEffector.dimensions">
+      <summary>
+            The dimensions (in local space) of the cube.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector">
+      <summary>Base class for effector components.</summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.allowBufferReadback">
+      <summary>
+            If true, allow compute buffers to be read back to determine the number of particles in an effector.
+            </summary>
+      <remarks>
+            This can have an additional performance cost.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.forceType">
+      <summary>
+            Controls the force type for the effector.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.forceAxis">
+      <summary>
+            Controls the force axis for the effector.
+            </summary>
+      <remarks>
+            This is only used for directional forces.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.force">
+      <summary>
+            Controls the force applied to particles within the effector's range.
+            </summary>
+      <remarks>
+            This property adds a constant linear force to particles.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.vorticity">
+      <summary>
+            Controls the vorticity applied to particles within the effector's range.
+            </summary>
+      <remarks>
+            This property adds a turbulent rotational force to particles.
+            </remarks>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.effectorCenter">
+      <summary>
+            Gets the effector's center in world space. The location of this point depends on the type of effector as
+            well as the position of the object's transform.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.effectorRange">
+      <summary>
+            Controls the maximum range of the effector, from the effector's center.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.decayType">
+      <summary>
+            Controls how the effector will decay.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.decay">
+      <summary>
+            If the effector decays particles, controls the rate of decay (from 0-1).
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.decayJitter">
+      <summary>
+            If the effector decays particles, provides a random jitter to the rate of decay (from 0-1).
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.position">
+      <summary>The position offset (in local space) of the effector.</summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.worldPosition">
+      <summary>The world space position of the effector.</summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.particlesInEffector">
+      <summary>
+            Get the number of particles currently in the effector.
+            </summary>
+      <remarks>
+            For compute-based effectors, this will always return 0 unless allowBufferReadback is enabled.
+            </remarks>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.IsInEffector(UnityEngine.Vector3@)">
+      <summary>
+            Determines whether or not the specified point (in world space) is within the effector.
+            </summary>
+      <param name="position">The world space position to query.</param>
+      <returns>True if the point is in the effector, otherwise false.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.GetExtents">
+      <summary>
+            Gets the extents of the effector.
+            </summary>
+      <returns>
+            How this value is used is implementation-specific.
+            </returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.OnDrawEffectorGizmos">
+      <summary>
+            Provides a gizmo drawing method for the fluid effector.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.OnDrawEffectorGizmosSelected">
+      <summary>
+            Provides a selected gizmo drawing method for the fluid effector.
+            </summary>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.GetEffectorCenter">
+      <summary>Gets the center of the effector, in world space (thread-safe).</summary>
+      <returns>The center of the fluid effector.</returns>
+    </member>
+    <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.GetPosition">
+      <summary>Gets the local position offset of the effector (thread-safe).</summary>
+      <returns>The local position offset of the fluid effector.</returns>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEllipsoidEffector">
+      <summary>
+            Defines an ellipsoid shaped effector.
+            </summary>
+    </member>
+    <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEllipsoidEffector.dimensions">
+      <summary>
+            The dimensions (in local space) of the ellipsoid.
+            </summary>
+    </member>
+    <member name="T:Thinksquirrel.Fluvio.Plugins.Effectors.FluidPointEffector">
+      <summary>
+            Defines a point effector.
+            </summary>
+    </member>
+  </members>
+</doc>particleIndex">The index of the particle in the solver data.</param>
+            <param name="size">The size to set.</param>
+        </member>
+        <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.SetTurbulence(System.Int32,System.Single)">
+            <summary>
+            Sets the turbulence probability of the particle at the specified index in the solver data.
+            </summary>
+            <param name="particleIndex">The index of the particle in the solver data.</param>
+            <param name="turbulence">The turbulence to set.</param>
+        </member>
+        <member name="M:Thinksquirrel.Fluvio.Plugins.SolverData.SetVorticity(System.Int32,UnityEngine.Vector3)">
+            <summary>
+            Sets the vorticity of the particle at the specified index in the solver data.
+            </summary>
+            <param name="particleIndex">The index of the particle in the solver data.</param>
+            <param name="vorticity">The vorticity to set.</param>
+        </member>
+        <member name="T:Thinksquirrel.Fluvio.Plugins.Effectors.FluidCubeEffector">
+            <summary>
+            Defines a cube shaped effector.
+            </summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidCubeEffector.dimensions">
+            <summary>
+            The dimensions (in local space) of the cube.
+            </summary>
+        </member>
+        <member name="T:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector">
+            <summary>Base class for effector components.</summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.allowBufferReadback">
+            <summary>
+            If true, allow compute buffers to be read back to determine the number of particles in an effector.
+            </summary>
+            <remarks>
+            This can have an additional performance cost.
+            </remarks>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.forceType">
+            <summary>
+            Controls the force type for the effector.
+            </summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.forceAxis">
+            <summary>
+            Controls the force axis for the effector.
+            </summary>
+            <remarks>
+            This is only used for directional forces.
+            </remarks>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.force">
+            <summary>
+            Controls the force applied to particles within the effector's range.
+            </summary>
+            <remarks>
+            This property adds a constant linear force to particles.
+            </remarks>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.vorticity">
+            <summary>
+            Controls the vorticity applied to particles within the effector's range.
+            </summary>
+            <remarks>
+            This property adds a turbulent rotational force to particles.
+            </remarks>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.effectorCenter">
+            <summary>
+            Gets the effector's center in world space. The location of this point depends on the type of effector as
+            well as the position of the object's transform.
+            </summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.effectorRange">
+            <summary>
+            Controls the maximum range of the effector, from the effector's center.
+            </summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.decayType">
+            <summary>
+            Controls how the effector will decay.
+            </summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.decay">
+            <summary>
+            If the effector decays particles, controls the rate of decay (from 0-1).
+            </summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.decayJitter">
+            <summary>
+            If the effector decays particles, provides a random jitter to the rate of decay (from 0-1).
+            </summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.position">
+            <summary>The position offset (in local space) of the effector.</summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.worldPosition">
+            <summary>The world space position of the effector.</summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.particlesInEffector">
+            <summary>
+            Get the number of particles currently in the effector.
+            </summary>
+            <remarks>
+            For compute-based effectors, this will always return 0 unless allowBufferReadback is enabled.
+            </remarks>
+        </member>
+        <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.IsInEffector(UnityEngine.Vector3@)">
+            <summary>
+            Determines whether or not the specified point (in world space) is within the effector.
+            </summary>
+            <param name="position">The world space position to query.</param>
+            <returns>True if the point is in the effector, otherwise false.</returns>
+        </member>
+        <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.GetExtents">
+            <summary>
+            Gets the extents of the effector.
+            </summary>
+            <returns>
+            How this value is used is implementation-specific.
+            </returns>
+        </member>
+        <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.OnDrawEffectorGizmos">
+            <summary>
+            Provides a gizmo drawing method for the fluid effector.
+            </summary>
+        </member>
+        <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.OnDrawEffectorGizmosSelected">
+            <summary>
+            Provides a selected gizmo drawing method for the fluid effector.
+            </summary>
+        </member>
+        <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.GetEffectorCenter">
+            <summary>Gets the center of the effector, in world space (thread-safe).</summary>
+            <returns>The center of the fluid effector.</returns>
+        </member>
+        <member name="M:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEffector.GetPosition">
+            <summary>Gets the local position offset of the effector (thread-safe).</summary>
+            <returns>The local position offset of the fluid effector.</returns>
+        </member>
+        <member name="T:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEllipsoidEffector">
+            <summary>
+            Defines an ellipsoid shaped effector.
+            </summary>
+        </member>
+        <member name="P:Thinksquirrel.Fluvio.Plugins.Effectors.FluidEllipsoidEffector.dimensions">
+            <summary>
+            The dimensions (in local space) of the ellipsoid.
+            </summary>
+        </member>
+        <member name="T:Thinksquirrel.Fluvio.Plugins.Effectors.FluidPointEffector">
+            <summary>
+            Defines a point effector.
+            </summary>
+        </member>
+    </members>
+</doc>

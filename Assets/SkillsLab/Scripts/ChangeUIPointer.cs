@@ -43,7 +43,7 @@ public class ChangeUIPointer : MonoBehaviour {
     }
 
     // Set Bezier or Straight Point Renderer
-    private void SetPointerRenderer(bool setBezier)
+    public void SetPointerRenderer(bool setBezier)
     {
         rightPointer.enabled = false;
         leftPointer.enabled = false;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class KeyBoard : MonoBehaviour {
 
@@ -69,7 +70,8 @@ public class KeyBoard : MonoBehaviour {
 
     public void TypeKey(string character)
     {
-        if (character == "⌫")
+        inputF.caretPosition = 0;
+        if (character == "←")
         {
             BackSpace();
             return;
@@ -80,6 +82,10 @@ public class KeyBoard : MonoBehaviour {
             return;
         }
         inputF.text += character;
+        if(inputF.text.Length >= 2)
+        {
+            Submit();
+        }
     }
 
     public void BackSpace()
@@ -95,10 +101,9 @@ public class KeyBoard : MonoBehaviour {
         if (inputF == medical)
         {
             resultsPatients.interactable = false;
-            //GoButtonPatient.interactable = false;
+            resultsPatients.Hide();
             GoButtonPatient.gameObject.SetActive(false);
             resultsMedical.interactable = true;
-            //GoButtonMedical.interactable = true;
             GoButtonMedical.gameObject.SetActive(true);
 
             results = search.SearchForMedical(medical.text);
@@ -120,18 +125,19 @@ public class KeyBoard : MonoBehaviour {
             }
             else
             {
+                //resultsMedical.Hide();
                 resultsMedical.GetComponentInChildren<Text>().text = "Results";
                 resultsMedical.interactable = true;
-                resultsMedical.Show();
+                //resultsMedical.Show();
+                StartCoroutine(RefreshDropdown(resultsMedical));
             }
         }
         else
         {
+            resultsMedical.Hide();
             resultsPatients.interactable = true;
-            //GoButtonPatient.interactable = true;
             GoButtonPatient.gameObject.SetActive(true);
             resultsMedical.interactable = false;
-            //GoButtonMedical.interactable = false;
             GoButtonMedical.gameObject.SetActive(false);
 
             results = search.SearchForName(firstName.text, lastName.text);
@@ -152,16 +158,39 @@ public class KeyBoard : MonoBehaviour {
             }
             else
             {
+                //resultsPatients.Hide();
                 resultsPatients.GetComponentInChildren<Text>().text = "Results";
                 resultsPatients.interactable = true;
-                resultsPatients.Show();
+                //resultsPatients.Show();
+                StartCoroutine(RefreshDropdown(resultsPatients));
+
             }
+
         }
+        DisableBlocker();
 
         foreach (var result in results)
         {
             Debug.Log(result.ToString());
         }
+    }
+
+    protected void DisableBlocker()
+    {
+        Transform blocker = null;
+        blocker = this.gameObject.transform.parent.parent.Find("Blocker");
+        if (blocker != null)
+        {
+            Destroy(blocker.gameObject);
+        }
+    }
+
+    protected IEnumerator RefreshDropdown(Dropdown dropdown)
+    {
+        dropdown.Hide();
+        yield return new WaitForSeconds(0.2f);
+        dropdown.Show();
+        DisableBlocker();
     }
 
 }

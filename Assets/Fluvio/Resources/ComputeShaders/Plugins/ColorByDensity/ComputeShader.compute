@@ -1,0 +1,4 @@
+// Editing this file is not recommended.
+// Instead, edit ComputeShader.cginc.
+#pragma kernel OnUpdatePlugin
+#include "ComputeShader.cginc"

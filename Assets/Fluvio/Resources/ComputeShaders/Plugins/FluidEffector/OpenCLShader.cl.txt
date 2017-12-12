@@ -1,0 +1,4 @@
+#pragma kernel OnUpdatePlugin_PointEffector
+#pragma kernel OnUpdatePlugin_CubeEffector
+#pragma kernel OnUpdatePlugin_EllipsoidEffector
+#include "ComputeShader.cginc"

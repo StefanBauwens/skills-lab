@@ -22,6 +22,13 @@ public class Drawer : MonoBehaviour {
         interactScript.InteractableObjectGrabbed += new InteractableObjectEventHandler(ObjectGrabbed);
     }
 
+    public bool IsGrabbable
+    {
+        get{
+            return interactScript.isGrabbable;
+        }
+    }
+
 
     // Enable/disable drawer light
     public void SetLightStatus(bool enableLight)

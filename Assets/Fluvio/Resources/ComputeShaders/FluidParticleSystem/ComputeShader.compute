@@ -1,0 +1,6 @@
+// Editing this file is not recommended.
+// Instead, edit ComputeShader.cginc.
+#pragma kernel ParticleSystemToFluid
+#pragma kernel FluidToParticleSystem
+#pragma kernel FluidToParticleSystemFast
+#include "ComputeShader.cginc"

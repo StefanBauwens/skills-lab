@@ -88,7 +88,7 @@ public class DrawerManager : MonoBehaviour {
         Managers.DrawersMan.SetActiveDrawer(medicine.param1);
     }
 
-    private IEnumerator DisableLights()
+    private IEnumerator DisableLights() //enable not disable :P
     {
         // Enable smallLight on blueVanas
         if (activeDrawer.name.Contains("BlueDrawer"))
