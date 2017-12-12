@@ -5307,6 +5307,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   maxMove: 0.1
+  hapticInterval: 0.02
+  hapticIntervalError: 0.005
 --- !u!4 &206171575 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4298316605540868, guid: 50a64376d54d2e5429d01f4e80ca6c99,
@@ -8715,6 +8717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   maxMove: 0.13
+  hapticInterval: 0.02
+  hapticIntervalError: 0.005
 --- !u!4 &413923939 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4401333183709378, guid: 84bfed683bb594941b0a818dbe1a5b7e,
@@ -11151,6 +11155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   maxMove: 0.1
+  hapticInterval: 0.02
+  hapticIntervalError: 0.005
 --- !u!1 &552360954
 GameObject:
   m_ObjectHideFlags: 0
@@ -13196,6 +13202,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   maxMove: 0.1
+  hapticInterval: 0.02
+  hapticIntervalError: 0.005
 --- !u!4 &677782297 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4582810504450138, guid: 844b77c8d50dd1b46ad03f4875599eb9,
@@ -14473,6 +14481,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   maxMove: 0.1
+  hapticInterval: 0.02
+  hapticIntervalError: 0.005
 --- !u!4 &745146453 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4812216352420342, guid: c9cd55ecb94f662439bd968880483d24,
@@ -23941,6 +23951,21 @@ Prefab:
       propertyPath: useOnlyIfGrabbed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114059970058461350, guid: a4bdb1a8e162d2940aef5c12a45bcc25,
+        type: 2}
+      propertyPath: strengthOnUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059970058461350, guid: a4bdb1a8e162d2940aef5c12a45bcc25,
+        type: 2}
+      propertyPath: durationOnUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059970058461350, guid: a4bdb1a8e162d2940aef5c12a45bcc25,
+        type: 2}
+      propertyPath: clipOnUse
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4bdb1a8e162d2940aef5c12a45bcc25, type: 2}
   m_IsPrefabParent: 0
@@ -23962,6 +23987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   maxMove: 0.2
+  hapticInterval: 0.05
+  hapticIntervalError: 0.0005
 --- !u!1 &1306417541
 GameObject:
   m_ObjectHideFlags: 0
