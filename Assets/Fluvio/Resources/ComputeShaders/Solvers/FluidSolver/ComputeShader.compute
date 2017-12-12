@@ -1,0 +1,17 @@
+#pragma kernel Solver_BoundaryTexture
+#pragma kernel Solver_IndexGridClear
+#pragma kernel Solver_IndexGridAdd
+#pragma kernel Solver_NeighborSearchGrid2D
+#pragma kernel Solver_NeighborSearchGrid3D
+#pragma kernel Solver_NeighborSearch2D
+#pragma kernel Solver_NeighborSearch3D
+#pragma kernel Solver_DensityPressure
+#pragma kernel Solver_Normal
+#pragma kernel Solver_Forces
+#pragma kernel Solver_BoundaryForces
+#pragma kernel Solver_Turbulence
+#pragma kernel Solver_ExternalForces
+#pragma kernel Solver_Constraints
+
+#pragma warning(disable: 3556)
+#include "ComputeShader.cginc"
