@@ -29,19 +29,19 @@ public class PullSyringe : MonoBehaviour {
         //toggle = false;
         snapDrop = this.GetComponentInChildren<VRTK_SnapDropZone>().transform;
         insideSyringe = this.transform.Find(INSIDESYRINGE);
-        //fillWater = this.transform.Find(FILLWATER);
+        fillWater = this.transform.Find(FILLWATER);
         beginPosition = insideSyringe.localPosition;
-        //beginPositionWater = fillWater.localPosition;
+        beginPositionWater = fillWater.localPosition;
         interactScript = GetComponent<VRTK_InteractableObject>();
 
         interactScript.InteractableObjectUsed += new InteractableObjectEventHandler(ObjectUsed);
         interactScript.InteractableObjectUnused += new InteractableObjectEventHandler(ObjectUnused);
 
-        //interactScript.InteractableObjectTouched += new InteractableObjectEventHandler(ObjectTouched);
-        //interactScript.InteractableObjectUntouched += new InteractableObjectEventHandler(ObjectUntouched);
+        interactScript.InteractableObjectTouched += new InteractableObjectEventHandler(ObjectTouched);
+        interactScript.InteractableObjectUntouched += new InteractableObjectEventHandler(ObjectUntouched);
     }
 
-    /*private void ObjectTouched(object sender, InteractableObjectEventArgs e)
+    private void ObjectTouched(object sender, InteractableObjectEventArgs e)
     {
         foreach (Transform child in snapDrop)
         {
@@ -56,7 +56,7 @@ public class PullSyringe : MonoBehaviour {
     private void ObjectUntouched(object sender, InteractableObjectEventArgs e)
     {
         isPushing = false;
-    }*/
+    }
 
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
@@ -89,7 +89,8 @@ public class PullSyringe : MonoBehaviour {
 
     protected void ResizeWater(float distance)
     {
-        
+        fillWater.position = new Vector3(beginPositionWater.x, beginPositionWater.y+(distance/2), beginPositionWater.z);
+        fillWater.localScale = new Vector3(fillWater.localScale.x, distance, fillWater.localScale.z);
     }
 
     IEnumerator Pulling()
@@ -99,6 +100,7 @@ public class PullSyringe : MonoBehaviour {
             yield return new WaitForEndOfFrame();
 
             float distance = (insideSyringe.localPosition.y - beginPosition.y);
+            ResizeWater(distance);
             if (distance % hapticInterval < hapticIntervalError)
             {
                 //!! CHANGE HAND TO CURREN THAND GRABBING
@@ -117,6 +119,8 @@ public class PullSyringe : MonoBehaviour {
             yield return new WaitForEndOfFrame();
 
             float distance = (insideSyringe.localPosition.y - beginPosition.y);
+            ResizeWater(distance);
+
             if (distance%hapticInterval < hapticIntervalError)
             {
                 //!! CHANGE HAND TO CURREN THAND GRABBING
