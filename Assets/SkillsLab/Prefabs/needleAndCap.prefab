@@ -81,7 +81,6 @@ GameObject:
   - component: {fileID: 114369789690968878}
   - component: {fileID: 114495782208087942}
   - component: {fileID: 114523305610649150}
-  - component: {fileID: 114458939982526482}
   m_Layer: 10
   m_Name: 27G
   m_TagString: Untagged
@@ -138,10 +137,8 @@ GameObject:
   - component: {fileID: 114165026729798640}
   - component: {fileID: 114965534095156288}
   - component: {fileID: 114863191626042760}
-  - component: {fileID: 114109327904639514}
   - component: {fileID: 114230331364229104}
   - component: {fileID: 114046761833538358}
-  - component: {fileID: 114056879788072390}
   m_Layer: 11
   m_Name: needleCover (4)
   m_TagString: needleCap
@@ -500,28 +497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64669bf0685405c48a40d81ee4399859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114056879788072390
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1722920969851770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114109327904639514
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1722920969851770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64669bf0685405c48a40d81ee4399859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114165026729798640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -608,17 +583,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114458939982526482
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1470806743778674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114495782208087942

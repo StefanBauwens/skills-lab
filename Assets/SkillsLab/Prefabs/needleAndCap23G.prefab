@@ -28,7 +28,6 @@ GameObject:
   - component: {fileID: 114186776479352724}
   - component: {fileID: 114193283412774038}
   - component: {fileID: 114916515688415506}
-  - component: {fileID: 114973830544865354}
   - component: {fileID: 114326420293117678}
   m_Layer: 10
   m_Name: 23G
@@ -122,8 +121,6 @@ GameObject:
   - component: {fileID: 114453631398999106}
   - component: {fileID: 114244087342506582}
   - component: {fileID: 114111318153400986}
-  - component: {fileID: 114950955851365710}
-  - component: {fileID: 114847177271077860}
   - component: {fileID: 114940497381695004}
   m_Layer: 11
   m_Name: needleCover (2)
@@ -668,17 +665,6 @@ MonoBehaviour:
   validObjectListPolicy: {fileID: 114452814578855152}
   displayDropZoneInEditor: 1
   defaultSnappedObject: {fileID: 1873172875437614}
---- !u!114 &114847177271077860
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1873172875437614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64669bf0685405c48a40d81ee4399859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114916515688415506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -720,17 +706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114950955851365710
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1873172875437614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114973262632453486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -740,17 +715,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114973830544865354
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1177685869051388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114986895332535518

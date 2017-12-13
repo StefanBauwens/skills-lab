@@ -8,17 +8,20 @@ public class PullSyringe : MonoBehaviour {
     private VRTK_InteractableObject interactScript;
     protected Transform snapDrop;
     protected Transform insideSyringe;
+    protected Transform fillWater;
     public float speed = 0.1f;
     public float maxMove = 0.1f;
     public float hapticInterval = 0.02f;
     public float hapticIntervalError = 0.005f;
     protected Vector3 beginPosition;
+    protected Vector3 beginPositionWater;
     protected bool isPulling;
     protected bool isPushing;
     //protected bool toggle;
 
     const string NEEDLELAYER = "needle";
     const string INSIDESYRINGE = "inside";
+    const string FILLWATER = "fillWater";
 
     void Start()
     {
@@ -26,17 +29,19 @@ public class PullSyringe : MonoBehaviour {
         //toggle = false;
         snapDrop = this.GetComponentInChildren<VRTK_SnapDropZone>().transform;
         insideSyringe = this.transform.Find(INSIDESYRINGE);
-        beginPosition = insideSyringe.transform.localPosition;
+        //fillWater = this.transform.Find(FILLWATER);
+        beginPosition = insideSyringe.localPosition;
+        //beginPositionWater = fillWater.localPosition;
         interactScript = GetComponent<VRTK_InteractableObject>();
 
         interactScript.InteractableObjectUsed += new InteractableObjectEventHandler(ObjectUsed);
         interactScript.InteractableObjectUnused += new InteractableObjectEventHandler(ObjectUnused);
 
-        interactScript.InteractableObjectTouched += new InteractableObjectEventHandler(ObjectTouched);
-        interactScript.InteractableObjectUntouched += new InteractableObjectEventHandler(ObjectUntouched);
+        //interactScript.InteractableObjectTouched += new InteractableObjectEventHandler(ObjectTouched);
+        //interactScript.InteractableObjectUntouched += new InteractableObjectEventHandler(ObjectUntouched);
     }
 
-    private void ObjectTouched(object sender, InteractableObjectEventArgs e)
+    /*private void ObjectTouched(object sender, InteractableObjectEventArgs e)
     {
         foreach (Transform child in snapDrop)
         {
@@ -51,7 +56,7 @@ public class PullSyringe : MonoBehaviour {
     private void ObjectUntouched(object sender, InteractableObjectEventArgs e)
     {
         isPushing = false;
-    }
+    }*/
 
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
@@ -80,6 +85,11 @@ public class PullSyringe : MonoBehaviour {
         //toggle = !toggle;
         isPulling = false;
         //isPushing = false;
+    }
+
+    protected void ResizeWater(float distance)
+    {
+        
     }
 
     IEnumerator Pulling()
