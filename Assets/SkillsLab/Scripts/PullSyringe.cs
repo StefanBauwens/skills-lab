@@ -15,7 +15,7 @@ public class PullSyringe : MonoBehaviour {
     protected Vector3 beginPosition;
     protected bool isPulling;
     protected bool isPushing;
-    protected bool toggle;
+    //protected bool toggle;
 
     const string NEEDLELAYER = "needle";
     const string INSIDESYRINGE = "inside";
@@ -23,7 +23,7 @@ public class PullSyringe : MonoBehaviour {
     void Start()
     {
         isPulling = false;
-        toggle = false;
+        //toggle = false;
         snapDrop = this.GetComponentInChildren<VRTK_SnapDropZone>().transform;
         insideSyringe = this.transform.Find(INSIDESYRINGE);
         beginPosition = insideSyringe.transform.localPosition;
@@ -31,7 +31,28 @@ public class PullSyringe : MonoBehaviour {
 
         interactScript.InteractableObjectUsed += new InteractableObjectEventHandler(ObjectUsed);
         interactScript.InteractableObjectUnused += new InteractableObjectEventHandler(ObjectUnused);
+
+        interactScript.InteractableObjectTouched += new InteractableObjectEventHandler(ObjectTouched);
+        interactScript.InteractableObjectUntouched += new InteractableObjectEventHandler(ObjectUntouched);
     }
+
+    private void ObjectTouched(object sender, InteractableObjectEventArgs e)
+    {
+        foreach (Transform child in snapDrop)
+        {
+            if (LayerMask.LayerToName(child.gameObject.layer) == NEEDLELAYER && !isPulling && !isPulling)
+            {
+                isPushing = true;
+                StartCoroutine(Pushing());
+            }
+        }
+    }
+
+    private void ObjectUntouched(object sender, InteractableObjectEventArgs e)
+    {
+        isPushing = false;
+    }
+
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
     {
@@ -39,16 +60,16 @@ public class PullSyringe : MonoBehaviour {
         {
             if (LayerMask.LayerToName(child.gameObject.layer) == NEEDLELAYER && !isPulling && !isPulling)
             {
-                if (!toggle)
-                {
+                //if (!toggle)
+                //{
                     isPulling = true;
                     StartCoroutine(Pulling());
-                }
+                /*}
                 else
                 {
                     isPushing = true;
                     StartCoroutine(Pushing());
-                }
+                }*/
                
             }
         }
@@ -56,9 +77,9 @@ public class PullSyringe : MonoBehaviour {
 
     private void ObjectUnused(object sender, InteractableObjectEventArgs e)
     {
-        toggle = !toggle;
+        //toggle = !toggle;
         isPulling = false;
-        isPushing = false;
+        //isPushing = false;
     }
 
     IEnumerator Pulling()
