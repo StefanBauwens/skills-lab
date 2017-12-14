@@ -880,6 +880,7 @@ MonoBehaviour:
   maxMove: 0.1
   hapticInterval: 0.02
   hapticIntervalError: 0.005
+  syringeValue: 10
 --- !u!114 &114108261532559218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -950,9 +951,9 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 114691449553216908}
   secondaryGrabActionScript: {fileID: 114212713870435972}
-  isUsable: 0
+  isUsable: 1
   holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
+  useOnlyIfGrabbed: 1
   pointerActivatesUseAction: 0
   useOverrideButton: 0
   allowedUseControllers: 0

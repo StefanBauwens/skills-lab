@@ -32,15 +32,15 @@ public class PullSyringe : MonoBehaviour {
         isPulling = false;
         //toggle = false;
         snapDrop = this.GetComponentInChildren<VRTK_SnapDropZone>().transform;
-        lcdText = this.GetComponentInChildren<Text>();
-        lcdCanvas = this.GetComponentInChildren<Canvas>().transform;
+        //lcdText = this.GetComponentInChildren<Text>();
+        //lcdCanvas = this.GetComponentInChildren<Canvas>().transform;
         insideSyringe = this.transform.Find(INSIDESYRINGE);
-        fillWater = this.transform.Find(FILLWATER);
+        //fillWater = this.transform.Find(FILLWATER);
         beginPosition = insideSyringe.localPosition;
-        beginPositionWater = fillWater.localPosition;
+        //beginPositionWater = fillWater.localPosition;
         interactScript = GetComponent<VRTK_InteractableObject>();
 
-        lcdCanvas.gameObject.SetActive(false);
+        //lcdCanvas.gameObject.SetActive(false);
 
         interactScript.InteractableObjectUsed += new InteractableObjectEventHandler(ObjectUsed);
         interactScript.InteractableObjectUnused += new InteractableObjectEventHandler(ObjectUnused);
@@ -97,10 +97,10 @@ public class PullSyringe : MonoBehaviour {
 
     protected void ResizeWater(float distance)
     {
-        fillWater.position = new Vector3(beginPositionWater.x, beginPositionWater.y+(distance/2), beginPositionWater.z);
+        /*fillWater.position = new Vector3(beginPositionWater.x, beginPositionWater.y+(distance/2), beginPositionWater.z);
         fillWater.localScale = new Vector3(fillWater.localScale.x, distance, fillWater.localScale.z);
         lcdCanvas.gameObject.SetActive(true);
-        lcdText.text = ((distance / maxMove) * syringeValue) + " ml";
+        lcdText.text = ((distance / maxMove) * syringeValue) + " ml";*/
     }
 
     IEnumerator Pulling()
@@ -111,16 +111,16 @@ public class PullSyringe : MonoBehaviour {
 
             float distance = (insideSyringe.localPosition.y - beginPosition.y);
             ResizeWater(distance);
-            if (distance % hapticInterval < hapticIntervalError)
+            /*if (distance % hapticInterval < hapticIntervalError)
             {
                 //!! CHANGE HAND TO CURREN THAND GRABBING
                 VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(SDK_BaseController.ControllerHand.Right), 0.5f, 0.2f, 0.5f);
-            }
+            }*/
 
             insideSyringe.localPosition += (Vector3.up * Time.deltaTime * speed);
         }
         isPulling = false;
-        lcdCanvas.gameObject.SetActive(false);
+        //lcdCanvas.gameObject.SetActive(false);
     }
 
     IEnumerator Pushing()
@@ -132,15 +132,15 @@ public class PullSyringe : MonoBehaviour {
             float distance = (insideSyringe.localPosition.y - beginPosition.y);
             ResizeWater(distance);
 
-            if (distance%hapticInterval < hapticIntervalError)
+            /*if (distance%hapticInterval < hapticIntervalError)
             {
                 //!! CHANGE HAND TO CURREN THAND GRABBING
                 VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(SDK_BaseController.ControllerHand.Right), 0.5f, 0.2f, 0.5f);
-            }
+            }*/
             insideSyringe.localPosition -= (Vector3.up * Time.deltaTime * speed);
             
         }
         isPushing = false;
-        lcdCanvas.gameObject.SetActive(false);
+        //lcdCanvas.gameObject.SetActive(false);
     }
 }
