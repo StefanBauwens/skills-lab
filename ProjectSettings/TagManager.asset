@@ -9,6 +9,7 @@ TagManager:
   - badge
   - needleCap
   - effervescentTablet
+  - vrtk_scripts
   layers:
   - Default
   - TransparentFX

@@ -21,47 +21,120 @@ public class PullSyringe : MonoBehaviour {
     protected bool isPushing;
     protected Text lcdText;
     protected Transform lcdCanvas;
+    protected Transform leftController;
+    protected Transform rightController;
+    protected VRTK_ControllerEvents leftEvents;
+    protected VRTK_ControllerEvents rightEvents;
     //protected bool toggle;
 
     const string NEEDLELAYER = "needle";
     const string INSIDESYRINGE = "inside";
     const string FILLWATER = "fillWater";
+    const string VRTKSCRIPT = "vrtk_scripts";
+    const string LCONTR = "LeftController";
+    const string RCONTR = "RightController";
 
     void Start()
     {
         isPulling = false;
         //toggle = false;
+        GameObject vrtkScripts = GameObject.FindGameObjectWithTag(VRTKSCRIPT);
+        leftController = vrtkScripts.transform.Find(LCONTR);
+        rightController = vrtkScripts.transform.Find(RCONTR);
+        leftEvents = leftController.GetComponent<VRTK_ControllerEvents>();
+        rightEvents = rightController.GetComponent<VRTK_ControllerEvents>();
+
         snapDrop = this.GetComponentInChildren<VRTK_SnapDropZone>().transform;
-        //lcdText = this.GetComponentInChildren<Text>();
-        //lcdCanvas = this.GetComponentInChildren<Canvas>().transform;
+        lcdText = this.GetComponentInChildren<Text>();
+        lcdCanvas = this.GetComponentInChildren<Canvas>().transform;
         insideSyringe = this.transform.Find(INSIDESYRINGE);
-        //fillWater = this.transform.Find(FILLWATER);
+        fillWater = this.transform.Find(FILLWATER);
         beginPosition = insideSyringe.localPosition;
-        //beginPositionWater = fillWater.localPosition;
+        beginPositionWater = fillWater.localPosition;
         interactScript = GetComponent<VRTK_InteractableObject>();
 
-        //lcdCanvas.gameObject.SetActive(false);
+        lcdCanvas.gameObject.SetActive(false);
 
         interactScript.InteractableObjectUsed += new InteractableObjectEventHandler(ObjectUsed);
         interactScript.InteractableObjectUnused += new InteractableObjectEventHandler(ObjectUnused);
+        interactScript.InteractableObjectGrabbed += new InteractableObjectEventHandler(ObjectGrabbed);
+        interactScript.InteractableObjectUngrabbed += new InteractableObjectEventHandler(ObjectUngrabbed);
 
-        interactScript.InteractableObjectTouched += new InteractableObjectEventHandler(ObjectTouched);
-        interactScript.InteractableObjectUntouched += new InteractableObjectEventHandler(ObjectUntouched);
+
+        leftEvents.TouchpadPressed += new ControllerInteractionEventHandler(LeftTouchpadPressed);
+        leftEvents.TouchpadReleased += new ControllerInteractionEventHandler(LeftTouchpadReleased);
+        rightEvents.TouchpadPressed += new ControllerInteractionEventHandler(RightTouchpadPressed);
+        rightEvents.TouchpadReleased += new ControllerInteractionEventHandler(RightTouchpadReleased);
+
+        //interactScript.InteractableObjectTouched += new InteractableObjectEventHandler(ObjectTouched);
+        //interactScript.InteractableObjectUntouched += new InteractableObjectEventHandler(ObjectUntouched);
     }
 
-    private void ObjectTouched(object sender, InteractableObjectEventArgs e)
+    protected void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
-        foreach (Transform child in snapDrop)
+        if (HasNeedle())
         {
-            if (LayerMask.LayerToName(child.gameObject.layer) == NEEDLELAYER && !isPulling && !isPulling)
+            if (leftController.GetComponent<VRTK_InteractGrab>().GetGrabbedObject() == this.gameObject)
             {
-                isPushing = true;
-                StartCoroutine(Pushing());
+                leftController.GetComponent<VRTK_Pointer>().enabled = false;
             }
+            else
+            {
+                rightController.GetComponent<VRTK_Pointer>().enabled = false;
+            }
+        }
+        else
+        {
+            rightController.GetComponent<VRTK_Pointer>().enabled = true;
+            leftController.GetComponent<VRTK_Pointer>().enabled = true;
         }
     }
 
-    private void ObjectUntouched(object sender, InteractableObjectEventArgs e)
+    protected void ObjectUngrabbed(object sender, InteractableObjectEventArgs e)
+    {
+        rightController.GetComponent<VRTK_Pointer>().enabled = true;
+        leftController.GetComponent<VRTK_Pointer>().enabled = true;
+    }
+
+    protected void LeftTouchpadPressed(object sender, ControllerInteractionEventArgs e)
+    {
+        if (leftController.GetComponent<VRTK_InteractGrab>().GetGrabbedObject() == this.gameObject)
+        {
+            ObjectTouchPad();
+        }
+    }
+    protected void LeftTouchpadReleased(object sender, ControllerInteractionEventArgs e)
+    {
+        if (leftController.GetComponent<VRTK_InteractGrab>().GetGrabbedObject() == this.gameObject)
+        {
+            ObjectUntouchPad();
+        }
+    }
+    protected void RightTouchpadPressed(object sender, ControllerInteractionEventArgs e)
+    {
+        if (rightController.GetComponent<VRTK_InteractGrab>().GetGrabbedObject() == this.gameObject)
+        {
+            ObjectTouchPad();
+        }
+    }
+    protected void RightTouchpadReleased(object sender, ControllerInteractionEventArgs e)
+    {
+        if (rightController.GetComponent<VRTK_InteractGrab>().GetGrabbedObject() == this.gameObject)
+        {
+            ObjectUntouchPad();
+        }
+    }
+
+    public void ObjectTouchPad()
+    {
+        if (HasNeedle() && !isPulling && !isPulling)
+        {
+            isPushing = true;
+            StartCoroutine(Pushing());
+        }       
+    }
+
+    public void ObjectUntouchPad()
     {
         isPushing = false;
     }
@@ -69,38 +142,38 @@ public class PullSyringe : MonoBehaviour {
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
     {
-        foreach (Transform child in snapDrop)
+        if (HasNeedle() && !isPulling && !isPulling)
         {
-            if (LayerMask.LayerToName(child.gameObject.layer) == NEEDLELAYER && !isPulling && !isPulling)
-            {
-                //if (!toggle)
-                //{
-                    isPulling = true;
-                    StartCoroutine(Pulling());
-                /*}
-                else
-                {
-                    isPushing = true;
-                    StartCoroutine(Pushing());
-                }*/
-               
-            }
+            isPulling = true;
+            StartCoroutine(Pulling());
         }
     }
 
     private void ObjectUnused(object sender, InteractableObjectEventArgs e)
     {
-        //toggle = !toggle;
         isPulling = false;
-        //isPushing = false;
     }
 
     protected void ResizeWater(float distance)
     {
-        /*fillWater.position = new Vector3(beginPositionWater.x, beginPositionWater.y+(distance/2), beginPositionWater.z);
-        fillWater.localScale = new Vector3(fillWater.localScale.x, distance, fillWater.localScale.z);
+        fillWater.localPosition = new Vector3(beginPositionWater.x, beginPositionWater.y + (distance / 2), beginPositionWater.z);
+        fillWater.localScale = new Vector3(fillWater.localScale.x, distance / 2, fillWater.localScale.z);
         lcdCanvas.gameObject.SetActive(true);
-        lcdText.text = ((distance / maxMove) * syringeValue) + " ml";*/
+        //lcdText.text = ((distance / maxMove) * syringeValue).ToString("F2") + " ml";
+        lcdText.text = ((Mathf.Round((distance / maxMove) * syringeValue*2))/2.0f).ToString("F2") + " ml";
+    }
+
+    protected bool HasNeedle()
+    {
+        bool returnValue = false;
+        foreach (Transform child in snapDrop)
+        {
+            if (LayerMask.LayerToName(child.gameObject.layer) == NEEDLELAYER)
+            {
+                returnValue = true;
+            }
+        }
+        return returnValue;
     }
 
     IEnumerator Pulling()
@@ -111,16 +184,15 @@ public class PullSyringe : MonoBehaviour {
 
             float distance = (insideSyringe.localPosition.y - beginPosition.y);
             ResizeWater(distance);
-            /*if (distance % hapticInterval < hapticIntervalError)
+            if (distance % hapticInterval < hapticIntervalError)
             {
                 //!! CHANGE HAND TO CURREN THAND GRABBING
                 VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(SDK_BaseController.ControllerHand.Right), 0.5f, 0.2f, 0.5f);
-            }*/
+            }
 
             insideSyringe.localPosition += (Vector3.up * Time.deltaTime * speed);
         }
         isPulling = false;
-        //lcdCanvas.gameObject.SetActive(false);
     }
 
     IEnumerator Pushing()
@@ -132,15 +204,14 @@ public class PullSyringe : MonoBehaviour {
             float distance = (insideSyringe.localPosition.y - beginPosition.y);
             ResizeWater(distance);
 
-            /*if (distance%hapticInterval < hapticIntervalError)
+            if (distance%hapticInterval < hapticIntervalError)
             {
                 //!! CHANGE HAND TO CURREN THAND GRABBING
                 VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(SDK_BaseController.ControllerHand.Right), 0.5f, 0.2f, 0.5f);
-            }*/
+            }
             insideSyringe.localPosition -= (Vector3.up * Time.deltaTime * speed);
             
         }
         isPushing = false;
-        //lcdCanvas.gameObject.SetActive(false);
     }
 }
