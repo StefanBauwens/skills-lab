@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 114160476728591680}
   - component: {fileID: 114124604910746434}
   - component: {fileID: 114688665419683570}
-  - component: {fileID: 114557743030219866}
   - component: {fileID: 114282680797927796}
   m_Layer: 10
   m_Name: 18G
@@ -121,8 +120,6 @@ GameObject:
   - component: {fileID: 114636780453784036}
   - component: {fileID: 114434284090489918}
   - component: {fileID: 114877654894092544}
-  - component: {fileID: 114903576453785110}
-  - component: {fileID: 114700130874938896}
   - component: {fileID: 114677197705479670}
   - component: {fileID: 114124722389236402}
   m_Layer: 11
@@ -655,17 +652,6 @@ MonoBehaviour:
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
---- !u!114 &114557743030219866
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1077945651097470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114636780453784036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -718,17 +704,6 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
---- !u!114 &114700130874938896
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1633861122698808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114877654894092544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -759,17 +734,6 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
---- !u!114 &114903576453785110
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1633861122698808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64669bf0685405c48a40d81ee4399859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &135425320823955676
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using VRTK;
 
 public class PullSyringe : MonoBehaviour {
@@ -13,10 +14,13 @@ public class PullSyringe : MonoBehaviour {
     public float maxMove = 0.1f;
     public float hapticInterval = 0.02f;
     public float hapticIntervalError = 0.005f;
+    public float syringeValue = 10; //10ml
     protected Vector3 beginPosition;
     protected Vector3 beginPositionWater;
     protected bool isPulling;
     protected bool isPushing;
+    protected Text lcdText;
+    protected Transform lcdCanvas;
     //protected bool toggle;
 
     const string NEEDLELAYER = "needle";
@@ -28,11 +32,15 @@ public class PullSyringe : MonoBehaviour {
         isPulling = false;
         //toggle = false;
         snapDrop = this.GetComponentInChildren<VRTK_SnapDropZone>().transform;
+        lcdText = this.GetComponentInChildren<Text>();
+        lcdCanvas = this.GetComponentInChildren<Canvas>().transform;
         insideSyringe = this.transform.Find(INSIDESYRINGE);
         fillWater = this.transform.Find(FILLWATER);
         beginPosition = insideSyringe.localPosition;
         beginPositionWater = fillWater.localPosition;
         interactScript = GetComponent<VRTK_InteractableObject>();
+
+        lcdCanvas.gameObject.SetActive(false);
 
         interactScript.InteractableObjectUsed += new InteractableObjectEventHandler(ObjectUsed);
         interactScript.InteractableObjectUnused += new InteractableObjectEventHandler(ObjectUnused);
@@ -91,6 +99,8 @@ public class PullSyringe : MonoBehaviour {
     {
         fillWater.position = new Vector3(beginPositionWater.x, beginPositionWater.y+(distance/2), beginPositionWater.z);
         fillWater.localScale = new Vector3(fillWater.localScale.x, distance, fillWater.localScale.z);
+        lcdCanvas.gameObject.SetActive(true);
+        lcdText.text = ((distance / maxMove) * syringeValue) + " ml";
     }
 
     IEnumerator Pulling()
@@ -110,6 +120,7 @@ public class PullSyringe : MonoBehaviour {
             insideSyringe.localPosition += (Vector3.up * Time.deltaTime * speed);
         }
         isPulling = false;
+        lcdCanvas.gameObject.SetActive(false);
     }
 
     IEnumerator Pushing()
@@ -130,5 +141,6 @@ public class PullSyringe : MonoBehaviour {
             
         }
         isPushing = false;
+        lcdCanvas.gameObject.SetActive(false);
     }
 }
