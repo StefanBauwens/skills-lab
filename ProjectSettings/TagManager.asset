@@ -8,6 +8,7 @@ TagManager:
   - ExcludeTeleport
   - badge
   - needleCap
+  - effervescentTablet
   layers:
   - Default
   - TransparentFX
