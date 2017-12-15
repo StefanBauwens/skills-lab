@@ -25,6 +25,7 @@ public class PullSyringe : MonoBehaviour {
     protected Transform rightController;
     protected VRTK_ControllerEvents leftEvents;
     protected VRTK_ControllerEvents rightEvents;
+    protected bool _isGrabbed;
     //protected bool toggle;
 
     const string NEEDLELAYER = "needle";
@@ -47,8 +48,8 @@ public class PullSyringe : MonoBehaviour {
         snapDrop = this.GetComponentInChildren<VRTK_SnapDropZone>().transform;
         lcdText = this.GetComponentInChildren<Text>();
         lcdCanvas = this.GetComponentInChildren<Canvas>().transform;
-        insideSyringe = this.transform.Find(INSIDESYRINGE);
-        fillWater = this.transform.Find(FILLWATER);
+        insideSyringe = this.transform.GetChild(0).Find(INSIDESYRINGE);
+        fillWater = this.transform.GetChild(0).Find(FILLWATER);
         beginPosition = insideSyringe.localPosition;
         beginPositionWater = fillWater.localPosition;
         interactScript = GetComponent<VRTK_InteractableObject>();
@@ -70,10 +71,18 @@ public class PullSyringe : MonoBehaviour {
         //interactScript.InteractableObjectUntouched += new InteractableObjectEventHandler(ObjectUntouched);
     }
 
+    public bool IsGrabbedWithNeedle
+    {
+        get{
+            return _isGrabbed;
+        }
+    }
+
     protected void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
         if (HasNeedle())
         {
+            _isGrabbed = true;
             if (leftController.GetComponent<VRTK_InteractGrab>().GetGrabbedObject() == this.gameObject)
             {
                 leftController.GetComponent<VRTK_Pointer>().enabled = false;
@@ -85,6 +94,7 @@ public class PullSyringe : MonoBehaviour {
         }
         else
         {
+            _isGrabbed = false;
             rightController.GetComponent<VRTK_Pointer>().enabled = true;
             leftController.GetComponent<VRTK_Pointer>().enabled = true;
         }
@@ -92,6 +102,7 @@ public class PullSyringe : MonoBehaviour {
 
     protected void ObjectUngrabbed(object sender, InteractableObjectEventArgs e)
     {
+        _isGrabbed = false;
         rightController.GetComponent<VRTK_Pointer>().enabled = true;
         leftController.GetComponent<VRTK_Pointer>().enabled = true;
     }

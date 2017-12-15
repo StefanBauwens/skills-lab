@@ -10,6 +10,7 @@ TagManager:
   - needleCap
   - effervescentTablet
   - vrtk_scripts
+  - injectionZone
   layers:
   - Default
   - TransparentFX
