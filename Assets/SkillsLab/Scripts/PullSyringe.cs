@@ -61,28 +61,24 @@ public class PullSyringe : MonoBehaviour {
         interactScript.InteractableObjectGrabbed += new InteractableObjectEventHandler(ObjectGrabbed);
         interactScript.InteractableObjectUngrabbed += new InteractableObjectEventHandler(ObjectUngrabbed);
 
-
         leftEvents.TouchpadPressed += new ControllerInteractionEventHandler(LeftTouchpadPressed);
         leftEvents.TouchpadReleased += new ControllerInteractionEventHandler(LeftTouchpadReleased);
         rightEvents.TouchpadPressed += new ControllerInteractionEventHandler(RightTouchpadPressed);
         rightEvents.TouchpadReleased += new ControllerInteractionEventHandler(RightTouchpadReleased);
-
-        //interactScript.InteractableObjectTouched += new InteractableObjectEventHandler(ObjectTouched);
-        //interactScript.InteractableObjectUntouched += new InteractableObjectEventHandler(ObjectUntouched);
-    }
+   }
 
     public bool IsGrabbedWithNeedle
     {
         get{
-            return _isGrabbed;
+            return _isGrabbed&&HasNeedle();
         }
     }
 
     protected void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
+        _isGrabbed = true;
         if (HasNeedle())
         {
-            _isGrabbed = true;
             if (leftController.GetComponent<VRTK_InteractGrab>().GetGrabbedObject() == this.gameObject)
             {
                 leftController.GetComponent<VRTK_Pointer>().enabled = false;
@@ -94,7 +90,6 @@ public class PullSyringe : MonoBehaviour {
         }
         else
         {
-            _isGrabbed = false;
             rightController.GetComponent<VRTK_Pointer>().enabled = true;
             leftController.GetComponent<VRTK_Pointer>().enabled = true;
         }
@@ -167,10 +162,9 @@ public class PullSyringe : MonoBehaviour {
 
     protected void ResizeWater(float distance)
     {
-        fillWater.localPosition = new Vector3(beginPositionWater.x, beginPositionWater.y + (distance / 2), beginPositionWater.z);
+        fillWater.localPosition = new Vector3(beginPositionWater.x, beginPositionWater.y, beginPositionWater.z + (distance/2));
         fillWater.localScale = new Vector3(fillWater.localScale.x, distance / 2, fillWater.localScale.z);
         lcdCanvas.gameObject.SetActive(true);
-        //lcdText.text = ((distance / maxMove) * syringeValue).ToString("F2") + " ml";
         lcdText.text = ((Mathf.Round((distance / maxMove) * syringeValue*2))/2.0f).ToString("F2") + " ml";
     }
 
@@ -189,11 +183,11 @@ public class PullSyringe : MonoBehaviour {
 
     IEnumerator Pulling()
     {
-        while (!isPushing && isPulling && (insideSyringe.localPosition.y - beginPosition.y) < maxMove) 
+        while (!isPushing && isPulling && (insideSyringe.localPosition.z - beginPosition.z) < maxMove) 
         {
             yield return new WaitForEndOfFrame();
 
-            float distance = (insideSyringe.localPosition.y - beginPosition.y);
+            float distance = (insideSyringe.localPosition.z - beginPosition.z);
             ResizeWater(distance);
             if (distance % hapticInterval < hapticIntervalError)
             {
@@ -208,11 +202,11 @@ public class PullSyringe : MonoBehaviour {
 
     IEnumerator Pushing()
     {
-        while (!isPulling && isPushing && (insideSyringe.localPosition.y - beginPosition.y) > 0)
+        while (!isPulling && isPushing && (insideSyringe.localPosition.z - beginPosition.z) > 0)
         {
             yield return new WaitForEndOfFrame();
 
-            float distance = (insideSyringe.localPosition.y - beginPosition.y);
+            float distance = (insideSyringe.localPosition.z - beginPosition.z);
             ResizeWater(distance);
 
             if (distance%hapticInterval < hapticIntervalError)
@@ -220,7 +214,7 @@ public class PullSyringe : MonoBehaviour {
                 //!! CHANGE HAND TO CURREN THAND GRABBING
                 VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(SDK_BaseController.ControllerHand.Right), 0.5f, 0.2f, 0.5f);
             }
-            insideSyringe.localPosition -= (Vector3.up * Time.deltaTime * speed);
+            insideSyringe.localPosition -= (Vector3.forward * Time.deltaTime * speed);
             
         }
         isPushing = false;
