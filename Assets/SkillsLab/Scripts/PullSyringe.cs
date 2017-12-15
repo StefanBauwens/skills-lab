@@ -183,11 +183,11 @@ public class PullSyringe : MonoBehaviour {
 
     IEnumerator Pulling()
     {
-        while (!isPushing && isPulling && (insideSyringe.localPosition.z - beginPosition.z) < maxMove) 
+        while (!isPushing && isPulling && (insideSyringe.localPosition.y - beginPosition.y) < maxMove) 
         {
             yield return new WaitForEndOfFrame();
 
-            float distance = (insideSyringe.localPosition.z - beginPosition.z);
+            float distance = (insideSyringe.localPosition.y - beginPosition.y);
             ResizeWater(distance);
             if (distance % hapticInterval < hapticIntervalError)
             {
@@ -195,18 +195,18 @@ public class PullSyringe : MonoBehaviour {
                 VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(SDK_BaseController.ControllerHand.Right), 0.5f, 0.2f, 0.5f);
             }
 
-            insideSyringe.localPosition += (Vector3.up * Time.deltaTime * speed);
+            insideSyringe.localPosition += (Vector3.forward * Time.deltaTime * speed);
         }
         isPulling = false;
     }
 
     IEnumerator Pushing()
     {
-        while (!isPulling && isPushing && (insideSyringe.localPosition.z - beginPosition.z) > 0)
+        while (!isPulling && isPushing && (insideSyringe.localPosition.y - beginPosition.y) > 0)
         {
             yield return new WaitForEndOfFrame();
 
-            float distance = (insideSyringe.localPosition.z - beginPosition.z);
+            float distance = (insideSyringe.localPosition.y - beginPosition.y);
             ResizeWater(distance);
 
             if (distance%hapticInterval < hapticIntervalError)

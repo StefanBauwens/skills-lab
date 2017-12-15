@@ -11402,7 +11402,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
   m_Center: {x: 0, y: -0, z: 0.11}
 --- !u!114 &389620511
 MonoBehaviour:
@@ -12415,7 +12415,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
   m_Center: {x: 0, y: -0, z: 0.15}
 --- !u!114 &444821107
 MonoBehaviour:
@@ -15088,6 +15088,16 @@ Prefab:
       propertyPath: highlightObjectPrefab
       value: 
       objectReference: {fileID: 41398002}
+    - target: {fileID: 135792848298707316, guid: c515399bbc3c4234fa6e6957846ffa27,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 135792848298707316, guid: c515399bbc3c4234fa6e6957846ffa27,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 0.22
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c515399bbc3c4234fa6e6957846ffa27, type: 2}
   m_IsPrefabParent: 0
@@ -21890,7 +21900,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
   m_Center: {x: 0, y: -0, z: 0.18}
 --- !u!114 &775784995
 MonoBehaviour:
@@ -29576,8 +29586,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 0, y: -0, z: 0.13}
+  m_Radius: 0.06
+  m_Center: {x: 0, y: -0, z: 0.135}
 --- !u!114 &1114265690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45247,7 +45257,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
   m_Center: {x: 0, y: -0, z: 0.11}
 --- !u!114 &1705688583
 MonoBehaviour:
