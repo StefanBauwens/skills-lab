@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using VRTK;
+using System.Globalization;
 
 public class PullSyringe : MonoBehaviour {
 
@@ -19,6 +20,7 @@ public class PullSyringe : MonoBehaviour {
     protected Vector3 beginPositionWater;
     protected bool isPulling;
     protected bool isPushing;
+    protected bool grabbedByLeftHand;
     protected Text lcdText;
     protected Transform lcdCanvas;
     protected Transform leftController;
@@ -82,10 +84,12 @@ public class PullSyringe : MonoBehaviour {
         _isGrabbed = true;
         if (leftController.GetComponent<VRTK_InteractGrab>().GetGrabbedObject() == this.gameObject)
         {
+            grabbedByLeftHand = true;
             leftController.GetComponent<VRTK_Pointer>().enabled = false;
         }
         else
         {
+            grabbedByLeftHand = false;
             rightController.GetComponent<VRTK_Pointer>().enabled = false;
         }
     }
@@ -162,6 +166,12 @@ public class PullSyringe : MonoBehaviour {
         fillWater.localScale = new Vector3(fillWater.localScale.x, distance / 2, fillWater.localScale.z);
         lcdCanvas.gameObject.SetActive(true);
         lcdText.text = ((Mathf.Round((distance / maxMove) * syringeValue*2))/2.0f).ToString("F2") + " ml";
+
+        //if (distance % hapticInterval < hapticIntervalError)
+        if (float.Parse(lcdText.text, CultureInfo.InvariantCulture.NumberFormat)%1f == 0) //this should buzz every ml
+        {
+            VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(GetUsedHand()), 0.5f, 0.2f, 0.5f);
+        }
     }
 
     protected bool HasNeedle()
@@ -177,20 +187,25 @@ public class PullSyringe : MonoBehaviour {
         return returnValue;
     }
 
+    protected SDK_BaseController.ControllerHand GetUsedHand()
+    {
+        if (grabbedByLeftHand)
+        {
+            return SDK_BaseController.ControllerHand.Left;
+        }
+        else
+        {
+            return SDK_BaseController.ControllerHand.Right;
+        }
+    }
+
     IEnumerator Pulling()
     {
         while (!isPushing && isPulling && (beginPosition.z- insideSyringe.localPosition.z) < maxMove) 
         {
             yield return new WaitForEndOfFrame();
-
             float distance = (beginPosition.z - insideSyringe.localPosition.z);
             ResizeWater(distance);
-            if (distance % hapticInterval < hapticIntervalError)
-            {
-                //!! CHANGE HAND TO CURREN THAND GRABBING
-                VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(SDK_BaseController.ControllerHand.Right), 0.5f, 0.2f, 0.5f);
-            }
-
             insideSyringe.localPosition -= (Vector3.forward * Time.deltaTime * speed);
         }
         isPulling = false;
@@ -201,15 +216,8 @@ public class PullSyringe : MonoBehaviour {
         while (!isPulling && isPushing && (beginPosition.z- insideSyringe.localPosition.z) > 0)
         {
             yield return new WaitForEndOfFrame();
-
             float distance = (beginPosition.z - insideSyringe.localPosition.z);
             ResizeWater(distance);
-
-            if (distance%hapticInterval < hapticIntervalError)
-            {
-                //!! CHANGE HAND TO CURREN THAND GRABBING
-                VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(SDK_BaseController.ControllerHand.Right), 0.5f, 0.2f, 0.5f);
-            }
             insideSyringe.localPosition += (Vector3.forward * Time.deltaTime * speed);
             
         }
