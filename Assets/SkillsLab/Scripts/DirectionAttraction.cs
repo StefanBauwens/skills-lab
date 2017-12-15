@@ -25,7 +25,7 @@ public class DirectionAttraction : MonoBehaviour
     {
         if (isColliding && pullSyringe.IsGrabbedWithNeedle)
         {
-            gameObject.transform.LookAt(injectionZone); //lookat rotates the transform so the FORWARD vector faces the quad.(Z axis)
+            gameObject.transform.LookAt(injectionZone, Vector3.down); //lookat rotates the transform so the FORWARD vector faces the quad.(Z axis)
         }
         else
         {
