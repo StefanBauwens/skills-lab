@@ -245,12 +245,12 @@ Prefab:
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 510
+      value: 466
       objectReference: {fileID: 0}
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 272.5
+      value: 277.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000013127654674, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -680,12 +680,12 @@ Prefab:
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 429
+      value: 385
       objectReference: {fileID: 0}
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 202.5
+      value: 277.5
       objectReference: {fileID: 0}
     - target: {fileID: 224000012484682510, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -11402,7 +11402,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
   m_Center: {x: 0, y: -0, z: 0.11}
 --- !u!114 &389620511
 MonoBehaviour:
@@ -12415,7 +12415,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
   m_Center: {x: 0, y: -0, z: 0.15}
 --- !u!114 &444821107
 MonoBehaviour:
@@ -13165,7 +13165,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &465860577
 GameObject:
@@ -15088,6 +15088,21 @@ Prefab:
       propertyPath: highlightObjectPrefab
       value: 
       objectReference: {fileID: 41398002}
+    - target: {fileID: 135792848298707316, guid: c515399bbc3c4234fa6e6957846ffa27,
+        type: 2}
+      propertyPath: m_Radius
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 135792848298707316, guid: c515399bbc3c4234fa6e6957846ffa27,
+        type: 2}
+      propertyPath: m_Center.z
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 223201217432904654, guid: c515399bbc3c4234fa6e6957846ffa27,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c515399bbc3c4234fa6e6957846ffa27, type: 2}
   m_IsPrefabParent: 0
@@ -15679,7 +15694,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!4 &546598806 stripped
 Transform:
@@ -16249,7 +16264,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &569230377
 GameObject:
@@ -21890,7 +21905,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
   m_Center: {x: 0, y: -0, z: 0.18}
 --- !u!114 &775784995
 MonoBehaviour:
@@ -29576,8 +29591,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 0, y: -0, z: 0.13}
+  m_Radius: 0.06
+  m_Center: {x: 0, y: -0, z: 0.135}
 --- !u!114 &1114265690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45247,7 +45262,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.06
   m_Center: {x: 0, y: -0, z: 0.11}
 --- !u!114 &1705688583
 MonoBehaviour:
@@ -51614,7 +51629,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1001 &1975699247
 Prefab:
@@ -51819,7 +51834,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &1992015337
 GameObject:
