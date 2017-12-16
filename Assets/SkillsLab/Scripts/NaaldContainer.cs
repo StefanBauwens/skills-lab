@@ -13,13 +13,8 @@ public class NaaldContainer : MonoBehaviour {
         material = this.gameObject.GetComponent<MeshRenderer>().material;
         material.color = standardColor;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (LayerMask.LayerToName(other.gameObject.layer)==needleLayer)
         {
@@ -27,7 +22,7 @@ public class NaaldContainer : MonoBehaviour {
         }
     }
 
-    private void OnTriggerExit(Collider other) //only remove needle after pulling it back out
+    protected virtual void OnTriggerExit(Collider other) //only remove needle after pulling it back out
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == needleLayer)
         {
