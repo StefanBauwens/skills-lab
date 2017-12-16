@@ -127,6 +127,9 @@ MonoBehaviour:
   needleLayer: needle
   standardColor: {r: 1, g: 1, b: 0, a: 0}
   snapColor: {r: 1, g: 1, b: 0, a: 0.809}
+  clothingPiece: 0
+  top: {fileID: 0}
+  bottom: {fileID: 0}
 --- !u!135 &135249769083968358
 SphereCollider:
   m_ObjectHideFlags: 1

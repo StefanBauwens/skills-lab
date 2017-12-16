@@ -16,6 +16,7 @@ public class NaaldContainer : MonoBehaviour {
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        // Object in trigger is a needle
         if (LayerMask.LayerToName(other.gameObject.layer)==needleLayer)
         {
             material.color = snapColor;
