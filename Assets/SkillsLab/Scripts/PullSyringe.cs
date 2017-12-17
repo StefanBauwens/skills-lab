@@ -133,7 +133,7 @@ public class PullSyringe : MonoBehaviour {
 
     public void ObjectTouchPad()
     {
-        if (HasNeedle() && !isPulling && !isPulling && dAttraction.IsCollidingWithInjectionZone)
+        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone)
         {
             isPushing = true;
             StartCoroutine(Pushing());
@@ -148,7 +148,7 @@ public class PullSyringe : MonoBehaviour {
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
     {
-        if (HasNeedle() && !isPulling && !isPulling && dAttraction.IsCollidingWithInjectionZone)
+        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone)
         {
             isPulling = true;
             StartCoroutine(Pulling());
