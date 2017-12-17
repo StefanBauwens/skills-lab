@@ -10,6 +10,7 @@ public class DissolveEffervescentTablet : MonoBehaviour {
     private Material waterMaterial;
     public Texture dissolvedWater;
     public bool tabletInWater;
+    public GameObject particleTablet;
 
     // Use this for initialization
     void Start () {
@@ -25,13 +26,22 @@ public class DissolveEffervescentTablet : MonoBehaviour {
         {
             if(child.tag == "effervescentTablet")
             {
-                // ADD Splash particles
-                // Change to medicineWater texture
-                waterMaterial.mainTexture = dissolvedWater;
-                Destroy(child.gameObject);
-                tabletInWater = true;
-                Destroy(this.gameObject);
+                child.GetComponent<BoxCollider>().enabled = false;
+                Destroy(child.GetComponent<Rigidbody>());
+                child.position = particleTablet.transform.position;
+                StartCoroutine(PlayParticleTablet(child));
             }
         }
+    }
+
+    private IEnumerator PlayParticleTablet(Transform tablet)
+    {
+        particleTablet.SetActive(true);
+        yield return new WaitForSeconds(7);
+        // Change to medicineWater texture
+        waterMaterial.mainTexture = dissolvedWater;
+        tabletInWater = true;
+        Destroy(particleTablet);
+        Destroy(this.gameObject);
     }
 }
