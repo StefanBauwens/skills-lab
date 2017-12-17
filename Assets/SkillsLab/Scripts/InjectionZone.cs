@@ -5,7 +5,7 @@ using UnityEngine;
 public enum Clothing { Top, Bottom, Both};
 
 public class InjectionZone : NaaldContainer {
-   
+
     public Clothing clothingPiece;
     public GameObject top;
     public GameObject bottom;
@@ -22,19 +22,23 @@ public class InjectionZone : NaaldContainer {
         // Change cylinder to snap color
         base.OnTriggerEnter(other);
 
-        // Disable clothing piece
-        switch (clothingPiece)
+        // Object in trigger is a needle
+        if (LayerMask.LayerToName(other.gameObject.layer) == needleLayer)
         {
-            case Clothing.Top:
-                top.SetActive(false);
-                break;
-            case Clothing.Bottom:
-                bottom.SetActive(false);
-                break;
-            case Clothing.Both:
-                top.SetActive(false);
-                bottom.SetActive(false);
-                break;
+            // Disable clothing piece
+            switch (clothingPiece)
+            {
+                case Clothing.Top:
+                    top.SetActive(false);
+                    break;
+                case Clothing.Bottom:
+                    bottom.SetActive(false);
+                    break;
+                case Clothing.Both:
+                    top.SetActive(false);
+                    bottom.SetActive(false);
+                    break;
+            }
         }
     }
 

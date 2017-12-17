@@ -30,6 +30,7 @@ public class DissolveEffervescentTablet : MonoBehaviour {
                 waterMaterial.mainTexture = dissolvedWater;
                 Destroy(child.gameObject);
                 tabletInWater = true;
+                Destroy(this.gameObject);
             }
         }
     }

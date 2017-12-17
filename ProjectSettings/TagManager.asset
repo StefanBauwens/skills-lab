@@ -11,6 +11,9 @@ TagManager:
   - effervescentTablet
   - vrtk_scripts
   - injectionZone
+  - waterCup
+  - medicineCup
+  - rightHand
   layers:
   - Default
   - TransparentFX
