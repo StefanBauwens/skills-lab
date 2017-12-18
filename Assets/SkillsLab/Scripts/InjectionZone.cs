@@ -16,6 +16,23 @@ public class InjectionZone : NaaldContainer {
         material.color = standardColor;
 	}
 
+	protected void toggleClothes(bool enabled)
+	{
+		switch (clothingPiece)
+		{
+			case Clothing.Top:
+				top.SetActive(enabled);
+				break;
+			case Clothing.Bottom:
+				bottom.SetActive(enabled);
+				break;
+			case Clothing.Both:
+				top.SetActive(enabled);
+				bottom.SetActive(enabled);
+				break;
+		}
+	}
+
     // Syringe enters injection zone
     protected override void OnTriggerEnter(Collider other)
     {
@@ -26,19 +43,7 @@ public class InjectionZone : NaaldContainer {
         if (LayerMask.LayerToName(other.gameObject.layer) == needleLayer)
         {
             // Disable clothing piece
-            switch (clothingPiece)
-            {
-                case Clothing.Top:
-                    top.SetActive(false);
-                    break;
-                case Clothing.Bottom:
-                    bottom.SetActive(false);
-                    break;
-                case Clothing.Both:
-                    top.SetActive(false);
-                    bottom.SetActive(false);
-                    break;
-            }
+			toggleClothes(false);
         }
     }
 
@@ -47,6 +52,7 @@ public class InjectionZone : NaaldContainer {
         if (LayerMask.LayerToName(other.gameObject.layer) == needleLayer)
         {
             material.color = standardColor;
+			toggleClothes (true);
         }
     }
 }

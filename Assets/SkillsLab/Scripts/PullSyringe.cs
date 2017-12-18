@@ -13,8 +13,6 @@ public class PullSyringe : MonoBehaviour {
     protected Transform fillWater;
     public float speed = 0.1f;
     public float maxMove = 0.1f;
-    public float hapticInterval = 0.02f;
-    public float hapticIntervalError = 0.005f;
     public float syringeValue = 10; //10ml
     protected Vector3 beginPosition;
     protected Vector3 beginPositionWater;
@@ -40,6 +38,7 @@ public class PullSyringe : MonoBehaviour {
 
     void Start()
     {
+		string temp = "34.50";
         isPulling = false;
         //toggle = false;
         GameObject vrtkScripts = GameObject.FindGameObjectWithTag(VRTKSCRIPT);
@@ -165,10 +164,10 @@ public class PullSyringe : MonoBehaviour {
         fillWater.localPosition = new Vector3(beginPositionWater.x, beginPositionWater.y, beginPositionWater.z - (distance/2));
         fillWater.localScale = new Vector3(fillWater.localScale.x, distance / 2, fillWater.localScale.z);
         lcdCanvas.gameObject.SetActive(true);
-        lcdText.text = ((Mathf.Round((distance / maxMove) * syringeValue*2))/2.0f).ToString("F2") + " ml";
+		string value = ((Mathf.Round ((distance / maxMove) * syringeValue * 2)) / 2.0f).ToString ("F2");
+        lcdText.text = value + " ml";
 
-        //if (distance % hapticInterval < hapticIntervalError)
-        if (float.Parse(lcdText.text, CultureInfo.InvariantCulture.NumberFormat)%1f == 0) //this should buzz every ml
+		if (float.Parse(value)%1 == 0) //this should buzz every ml
         {
             VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(GetUsedHand()), 0.5f, 0.2f, 0.5f);
         }

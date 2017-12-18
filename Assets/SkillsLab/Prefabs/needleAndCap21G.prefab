@@ -645,7 +645,8 @@ MonoBehaviour:
   disableWhenIdle: 1
   touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
   allowedTouchControllers: 0
-  ignoredColliders: []
+  ignoredColliders:
+  - {fileID: 135820285694225638}
   isGrabbable: 1
   holdButtonToGrab: 0
   stayGrabbedOnTeleport: 1

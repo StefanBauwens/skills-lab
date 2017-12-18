@@ -1034,9 +1034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  maxMove: 0.1
-  hapticInterval: 0.02
-  hapticIntervalError: 0.005
+  maxMove: 0.12
   syringeValue: 1.5
 --- !u!114 &114143161413895844
 MonoBehaviour:
