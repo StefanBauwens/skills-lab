@@ -504,6 +504,7 @@ MonoBehaviour:
   waterObject: {fileID: 1752868206158338}
   dissolvedWater: {fileID: 2800000, guid: 3f14cbf8d3fa8e44094b159240841414, type: 3}
   tabletInWater: 0
+  particleTablet: {fileID: 0}
 --- !u!114 &114834291284512778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,7 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 0
+  precisionGrab: 1
   rightSnapHandle: {fileID: 0}
   leftSnapHandle: {fileID: 0}
   throwVelocityWithAttachDistance: 0

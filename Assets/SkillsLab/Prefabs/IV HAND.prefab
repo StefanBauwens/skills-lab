@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4684704497256878}
   - component: {fileID: 95750030504041362}
+  - component: {fileID: 136388364681379618}
   m_Layer: 0
   m_Name: salineLock (1)
   m_TagString: Untagged
@@ -255,7 +256,7 @@ GameObject:
   - component: {fileID: 4142853600489294}
   m_Layer: 0
   m_Name: IV HAND
-  m_TagString: Untagged
+  m_TagString: ivSyringe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,8 +283,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1917934435035042}
   m_LocalRotation: {x: -0, y: 0.07893841, z: -0, w: 0.9968795}
-  m_LocalPosition: {x: -3.108, y: 1.5954, z: -1.5778}
-  m_LocalScale: {x: 0.007437766, y: 0.007437766, z: 0.007437766}
+  m_LocalPosition: {x: 3.0103, y: 0.7653, z: -2.0469}
+  m_LocalScale: {x: 0.00819792, y: 0.008197922, z: 0.008197922}
   m_Children:
   - {fileID: 4684704497256878}
   - {fileID: 4960220865487206}
@@ -947,3 +948,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!136 &136388364681379618
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1332628003616714}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.32
+  m_Height: 7.21
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -3.34}
