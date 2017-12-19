@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 8ed93af5e8af94d28b8036ac24ac2de1
+timeCreated: 1513259695
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: LCDDot TR
+  fontNames:
+  - LCDDot TR
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

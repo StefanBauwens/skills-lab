@@ -14,8 +14,6 @@ public class CheckClosed : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
-
         if (other.gameObject.GetComponent<Drawer>())
         {
             if (other.gameObject.GetComponent<Drawer>().IsGrabbable && !drawersToLock.Contains(other.gameObject.GetComponent<Drawer>()))

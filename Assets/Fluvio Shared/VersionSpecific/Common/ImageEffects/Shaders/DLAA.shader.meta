@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+fileFormatVersion: 2
+guid: 4dec5e1ed548940478e8c9ce3ea8f633
+timeCreated: 1433725737
+licenseType: Pro
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 4dec5e1ed548940478e8c9ce3ea8f633
+timeCreated: 1433725737
+licenseType: Pro
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> f4355ea4fc05a73878ad82bc0c4d0b623d170cfe

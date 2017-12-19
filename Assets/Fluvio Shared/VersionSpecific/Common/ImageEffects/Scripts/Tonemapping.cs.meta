@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+fileFormatVersion: 2
+guid: 73134223b62745849bcbf7f5c1f87c1e
+timeCreated: 1433725718
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+=======
+fileFormatVersion: 2
+guid: 73134223b62745849bcbf7f5c1f87c1e
+timeCreated: 1433725718
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+>>>>>>> f4355ea4fc05a73878ad82bc0c4d0b623d170cfe

@@ -8,6 +8,15 @@ TagManager:
   - ExcludeTeleport
   - badge
   - needleCap
+  - effervescentTablet
+  - vrtk_scripts
+  - injectionZone
+  - waterCup
+  - medicineCup
+  - rightHand
+  - ivSyringe
+  - ivTubes
+  - medicine
   layers:
   - Default
   - TransparentFX
@@ -22,9 +31,9 @@ TagManager:
   - needle
   - needleCover
   - syringe
-  - 
-  - 
-  - 
+  - medicineBottle
+  - tube
+  - salineLock
   - 
   - 
   - 
