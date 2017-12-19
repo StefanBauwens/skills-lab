@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 114525768503076374}
   - component: {fileID: 114302040543651544}
   - component: {fileID: 114765625540550888}
+  - component: {fileID: 114731149753795472}
   m_Layer: 12
   m_Name: Syringe50ml (1)
   m_TagString: Untagged
@@ -1229,6 +1230,23 @@ MonoBehaviour:
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+--- !u!114 &114731149753795472
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1190824802000978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817f15b2a0426974bb4e88ef34aa22b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideControllerOnTouch: 0
+  hideDelayOnTouch: 0
+  hideControllerOnGrab: 1
+  hideDelayOnGrab: 0
+  hideControllerOnUse: 0
+  hideDelayOnUse: 0
 --- !u!114 &114765625540550888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1242,8 +1260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.025
   maxMove: 0.2
-  hapticInterval: 0.05
-  hapticIntervalError: 0.0005
   syringeValue: 50
 --- !u!114 &114848842746654438
 MonoBehaviour:

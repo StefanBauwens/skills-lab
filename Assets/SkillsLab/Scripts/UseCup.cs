@@ -57,6 +57,7 @@ public class UseCup : MonoBehaviour {
     {
         cupObject.GetComponent<Rigidbody>().useGravity = false;
         cupObject.GetComponent<Rigidbody>().isKinematic = true;
-        cupObject.transform.position = snapCupPosition.position;
+		cupObject.transform.position = snapCupPosition.position;
+		snapCupPosition.gameObject.GetComponent<SphereCollider> ().enabled = false;
     }
 }

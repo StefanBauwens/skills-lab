@@ -5,7 +5,8 @@ using VRTK;
 
 public class DestroyMedicine : MonoBehaviour {
 
-    protected VRTK_SnapDropZone snapDropZone;
+	protected VRTK_SnapDropZone snapDropZone;
+	const string TAG = "medicine";
 
     void Start()
     {
@@ -16,6 +17,12 @@ public class DestroyMedicine : MonoBehaviour {
 
 	protected void DestroyMed(object sender, SnapDropZoneEventArgs e)
 	{
-        GameObject.Destroy ((GameObject)sender);
+		Debug.Log ("Object : " + sender);
+		foreach (Transform child in this.transform) {
+			if (child.tag == TAG) {
+				Destroy (child.gameObject);
+			}
+		}
+        //GameObject.Destroy ((GameObject)sender);
 	}
 }

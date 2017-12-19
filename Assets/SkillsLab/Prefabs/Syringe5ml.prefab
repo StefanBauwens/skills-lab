@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 114978357462655106}
   - component: {fileID: 114616037117879968}
   - component: {fileID: 114064213082937378}
+  - component: {fileID: 114073406590802238}
   m_Layer: 12
   m_Name: Syringe5ml
   m_TagString: Untagged
@@ -1035,9 +1036,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.1
   maxMove: 0.1
-  hapticInterval: 0.02
-  hapticIntervalError: 0.005
   syringeValue: 5
+--- !u!114 &114073406590802238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121781738166662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817f15b2a0426974bb4e88ef34aa22b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideControllerOnTouch: 0
+  hideDelayOnTouch: 0
+  hideControllerOnGrab: 1
+  hideDelayOnGrab: 0
+  hideControllerOnUse: 0
+  hideDelayOnUse: 0
 --- !u!114 &114078777814465272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1214,7 +1230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precisionGrab: 1
+  precisionGrab: 0
   rightSnapHandle: {fileID: 0}
   leftSnapHandle: {fileID: 0}
   throwVelocityWithAttachDistance: 0

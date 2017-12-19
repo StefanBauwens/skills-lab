@@ -9,6 +9,7 @@ public class DrinkEvents : MonoBehaviour {
     public GameObject handUsed; // Hand that will hold cup
     public Transform cupOnTablePos;
     public GameObject noClothing;
+	public SphereCollider snapCupRightColl;
     
 
     public void CupFollowHand()
@@ -23,11 +24,15 @@ public class DrinkEvents : MonoBehaviour {
 
     public void CupOnTable()
     {
-        Destroy(cupObject);
-        //cupObject.transform.position = cupOnTablePos.position;
-        //cupObject.transform.rotation = cupOnTablePos.rotation;
-        //cupObject.GetComponent<Rigidbody>().useGravity = true;
-        //cupObject.GetComponent<Rigidbody>().isKinematic = false;
+		cupObject.transform.SetParent (null);
+		snapCupRightColl.enabled = true;
+		cupObject.GetComponent<Rigidbody>().useGravity = false;
+		cupObject.GetComponent<Rigidbody>().isKinematic = true;
+
+		cupObject.transform.position = cupOnTablePos.position;
+		cupObject.transform.rotation = cupOnTablePos.rotation;
+        cupObject.GetComponent<Rigidbody>().useGravity = true;
+        cupObject.GetComponent<Rigidbody>().isKinematic = false;
     }
 
     // Switch back to body with no clothing

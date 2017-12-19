@@ -79,26 +79,29 @@ public class PullSyringe : MonoBehaviour {
 
     protected void ObjectGrabbed(object sender, InteractableObjectEventArgs e)
     {
-        Debug.Log("Is grabbing");
+        //Debug.Log("Is grabbing");
         _isGrabbed = true;
         if (leftController.GetComponent<VRTK_InteractGrab>().GetGrabbedObject() == this.gameObject)
         {
             grabbedByLeftHand = true;
             leftController.GetComponent<VRTK_Pointer>().enabled = false;
+			//Debug.Log ("left pointer disabled");
         }
         else
         {
             grabbedByLeftHand = false;
             rightController.GetComponent<VRTK_Pointer>().enabled = false;
+			//Debug.Log ("right pointer disabled");
         }
     }
 
     protected void ObjectUngrabbed(object sender, InteractableObjectEventArgs e)
     {
-        Debug.Log("Is no more grabbing");
+        //Debug.Log("Is no more grabbing");
         _isGrabbed = false;
         rightController.GetComponent<VRTK_Pointer>().enabled = true;
         leftController.GetComponent<VRTK_Pointer>().enabled = true;
+		//Debug.Log ("pointers enabled");
     }
 
     protected void LeftTouchpadPressed(object sender, ControllerInteractionEventArgs e)
@@ -164,7 +167,10 @@ public class PullSyringe : MonoBehaviour {
         fillWater.localPosition = new Vector3(beginPositionWater.x, beginPositionWater.y, beginPositionWater.z - (distance/2));
         fillWater.localScale = new Vector3(fillWater.localScale.x, distance / 2, fillWater.localScale.z);
         lcdCanvas.gameObject.SetActive(true);
-		string value = ((Mathf.Round ((distance / maxMove) * syringeValue * 2)) / 2.0f).ToString ("F2");
+		float accurateValue = (distance / maxMove) * syringeValue;
+		float valueF = ((Mathf.Round (accurateValue * 2)) / 2.0f);
+		string value = valueF.ToString ("F2");
+
         lcdText.text = value + " ml";
 
 		if (float.Parse(value)%1 == 0) //this should buzz every ml
