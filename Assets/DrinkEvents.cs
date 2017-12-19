@@ -8,6 +8,7 @@ public class DrinkEvents : MonoBehaviour {
     public GameObject cupObject;
     public GameObject handUsed; // Hand that will hold cup
     public Transform cupOnTablePos;
+    public GameObject noClothing;
     
 
     public void CupFollowHand()
@@ -27,5 +28,12 @@ public class DrinkEvents : MonoBehaviour {
         //cupObject.transform.rotation = cupOnTablePos.rotation;
         //cupObject.GetComponent<Rigidbody>().useGravity = true;
         //cupObject.GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    // Switch back to body with no clothing
+    public void SwitchBodyNoClothing()
+    {
+        noClothing.SetActive(true);
+        this.gameObject.SetActive(false);
     }
 }
