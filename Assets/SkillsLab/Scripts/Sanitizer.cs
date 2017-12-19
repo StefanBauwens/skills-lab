@@ -36,7 +36,6 @@ public class Sanitizer : MonoBehaviour {
 		while (this.transform.position.y < originalPosition.y) {
 			yield return new WaitForEndOfFrame ();
 			this.transform.position += new Vector3 (0, factor*Time.fixedDeltaTime, 0);
-			Debug.Log ("this rns");
 		}
 		coroutineRunning = false;
 	}

@@ -27,6 +27,7 @@ public class DissolveEffervescentTablet : MonoBehaviour {
             if(child.tag == "effervescentTablet")
             {
                 child.GetComponent<BoxCollider>().enabled = false;
+                child.GetComponent<VRTK_InteractableObject>().isGrabbable = false;
                 Destroy(child.GetComponent<Rigidbody>());
                 child.position = particleTablet.transform.position;
                 StartCoroutine(PlayParticleTablet(child));
