@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Xml.Serialization;
+using System.Runtime.Serialization;
+using System;
+using System.IO;
 
-public class SearchResult : MonoBehaviour {
+public class SearchResult {
 
-    protected string _Name;
+    /*protected string _Name;
     protected string _Info;
 
     public string Name
@@ -28,10 +32,11 @@ public class SearchResult : MonoBehaviour {
     public override string ToString()
     {
         return string.Format("[SearchResult: Name={0}, Info={1}]", Name, Info);
-    }
-
+    }*/
+    
     public virtual string ToResult()
     {
-        return string.Format("Name: {0}\nInfo:\n{1}", Name, Info);
+        //return string.Format("Name: {0}\nInfo:\n{1}", Name, Info);
+        return string.Format("Name : blank");
     }
 }

@@ -6,17 +6,21 @@ using System.Linq;
 public class SearchVanas : MonoBehaviour
 {
     protected Patient[] patients; //represents a list of all patients
-    protected Medical[] medicals; //represents all the medical stuff to be found in the shelf
+    //protected Medical[] medicals; //represents all the medical stuff to be found in the shelf
+    protected Medicine[] medicals;
 
     // Use this for initialization
     public void Start()
     {
-        patients = new Patient[] { new Patient("Bauwens", "Stefan", "jabla", 22, true, 62.5f, "not aware of any", "none", "Effervescent tablet", "x", "2 Packs of effervecent tablets per day"), new Patient("Ho", "Cindy", "habla", 20, false, 1, "Air", "none", "Effervescent tablet", "x", "1 shot of cocaine a day") };
-		medicals = new Medical[] {
+        //patients = new Patient[] { new Patient("Bauwens", "Stefan", "jabla", 22, true, 62.5f, "not aware of any", "none", "Effervescent tablet", "x", "2 Packs of effervecent tablets per day"), new Patient("Ho", "Cindy", "habla", 20, false, 1, "Air", "none", "Effervescent tablet", "x", "1 shot of cocaine a day") };
+		/*medicals = new Medical[] {
 			new Medical ("Ibuprofen", "", "A1", TypeOfMedicine.Pill, 4),
 			new Medical ("Aspirine", "bruis", "B2", TypeOfMedicine.EffervescentTablet, 3),
 			new Medical ("Fun", "bla", "C#", TypeOfMedicine.IDKYET, 9001)
-		};
+
+		};*/
+    //THERE IS CURRENTLY NOTHING IN VANAS DATABASE. SEE WITH XML
+
     }
 
     public Patient[] SearchForName(string fName, string lName)
@@ -46,7 +50,7 @@ public class SearchVanas : MonoBehaviour
         return results.ToArray();
     }
 
-    public Medical[] SearchForMedical(string name)
+    /*public Medical[] SearchForMedical(string name)
     {
         List<Medical> results = new List<Medical>();
         foreach (Medical medical in medicals)
@@ -57,8 +61,19 @@ public class SearchVanas : MonoBehaviour
             }
         }
         return results.ToArray();
+    }*/
+
+    public Medicine[] SearchForMedical(string name)
+    {
+        List<Medicine> results = new List<Medicine>();
+        foreach (Medicine medical in medicals)
+        {
+            if (medical.Name.ToLower().Contains(name.ToLower()))
+            {
+                results.Add(medical);
+            }
+        }
+        return results.ToArray();
     }
-
-
 
 }

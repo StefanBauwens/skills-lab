@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TypeOfMedicine
+//THIS SCRIPT IS OBSOLETE
+
+/*public enum TypeOfMedicine
 {
     Pill,
     EffervescentTablet,
@@ -13,9 +15,17 @@ public enum TypeOfMedicine
 
 public class Medical : SearchResult
 {
+    protected string _Name;
     protected string _Drawer; //which drawer the medicine is located in
     protected TypeOfMedicine _Type;
     protected int _Quantity;
+
+    public string Name
+    {
+        get{
+            return _Name;
+        }
+    }
 
     public int Quantity
     {
@@ -33,12 +43,13 @@ public class Medical : SearchResult
     {
         get { return _Type; }
         set { _Type = value; }
-    }
+    }*/
 
 
 
-    public Medical(string name, string info, string drawer, TypeOfMedicine typeM, int quantity):base(name, info)
+    /*public Medical(string name, string info, string drawer, TypeOfMedicine typeM, int quantity):base(name, info)
     {
+        _Name = name;
         Drawer = drawer;
         Type = typeM;
         _Quantity = quantity;
@@ -53,4 +64,4 @@ public class Medical : SearchResult
     {
         return string.Format("<b>Name:</b> {0}\n<b>Type:</b> {1}\n<b>Drawer:</b> {2}\t<b>Quantity:</b> {3}\n<b>Info:</b>\n{4}", Name, Type.ToString(), Drawer, Quantity, Info);
     }
-}
+}*/

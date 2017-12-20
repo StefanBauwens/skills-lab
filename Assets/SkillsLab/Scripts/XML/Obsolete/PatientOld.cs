@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Patient : SearchResult
+public class PatientOld //: SearchResult
 {
-    protected string _FirstName;
+    /*protected string _FirstName;
     protected int _Age;
     protected bool _IsMale;
     protected float _Weight;
@@ -70,7 +70,7 @@ public class Patient : SearchResult
     }
 
 
-    public Patient(string name, string firstname, string info, int age, bool isMale, float weight, string allergies, string complications, string currentMedicine, string previousDosages, string prescription):base(name, info)
+    public PatientOld(string name, string firstname, string info, int age, bool isMale, float weight, string allergies, string complications, string currentMedicine, string previousDosages, string prescription) : base(name, info)
     {
         _FirstName = firstname;
         _Age = age;
@@ -92,5 +92,5 @@ public class Patient : SearchResult
     {
         return string.Format("<b>Name:</b> {0}\t<b>FirstName:</b> {1}\n<b>Age:</b> {2}\t<b>Sex:</b> {3}\n<b>Weight:</b> {4}\n<b>Allergies:</b> {5}\n<b>Complications:</b> {6}\n<b>Current medicine:</b> {7}\n<b>Previous dosages:</b> {8}\n<b>Prescription:</b> {9}\n<b>Info:</b>\n{10}", Name, FirstName, Age, IsMale ? "M" : "F", (Weight + "Kg"), Allergies, Complications, CurrentMedicine, PreviousDosages, Prescription, Info);
     }
-
+    */
 }

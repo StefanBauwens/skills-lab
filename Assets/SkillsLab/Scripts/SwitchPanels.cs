@@ -34,9 +34,11 @@ public class SwitchPanels : MonoBehaviour {
 
     public void ShowResult(SearchResult result)
     {
-        if (result is Medical)
+        if (result is /*Medical*/Medicine)
         {
-            retrieveButton.gameObject.SetActive(((Medical)result).Quantity > 0);
+            //retrieveButton.gameObject.SetActive(((/*Medical*/Medicine)result).Quantity > 0);
+            //TEMP DISABLED ABOVE LINE BECAUSE XML IS CONFUSING
+            retrieveButton.gameObject.SetActive(true);
         }
         else
         {
@@ -56,12 +58,12 @@ public class SwitchPanels : MonoBehaviour {
 
     protected void RetrieveButton()
     {
-        ((Medical)currentResult).Quantity--;
+        //((/*Medical*/Medicine)currentResult).Quantity--; //SEE IF QUANTITY IS ABOUT HOW MANY PILLS IN A BOX, OR IF ITS ABOUT HOW MANY BOXES WITH PILLS. BIT CONFUSING WITH XML
 
         EventParam medicine = new EventParam();
-        medicine.param1 = currentResult.Name;
+        medicine.param1 = /*currentResult.Name;*/((Medicine)currentResult).Name;
         EventManagerParam.TriggerEvent(GameEvent.UNLOCK_DRAWER, medicine);
-        Debug.Log("medicine selected: " + currentResult.Name);
+        //Debug.Log("medicine selected: " + currentResult.Name);
     }
 
     protected void DisablePanel(CanvasGroup panel, bool disablePanel)

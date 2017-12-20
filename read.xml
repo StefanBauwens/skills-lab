@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MedicalAppData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <mPatients>
+    <Patient mID="0">
+      <mName>Jane Doe</mName>
+      <mAge>30</mAge>
+      <mWeight>65</mWeight>
+      <mType>pregnant</mType>
+      <mSex>female</mSex>
+      <mAllergies />
+    </Patient>
+    <Patient mID="1">
+      <mName>Jim Doe</mName>
+      <mAge>6</mAge>
+      <mWeight>20</mWeight>
+      <mType>child</mType>
+      <mSex>male</mSex>
+      <mAllergies />
+    </Patient>
+    <Patient mID="2">
+      <mName>Walterke</mName>
+      <mAge>45</mAge>
+      <mWeight>80</mWeight>
+      <mType>child</mType>
+      <mSex>male</mSex>
+      <mAllergies />
+    </Patient>
+  </mPatients>
+  <mMedicines>
+    <Medicine mID="0">
+      <mName>aspirine</mName>
+      <mQuantity>10</mQuantity>
+      <mUnit>units</mUnit>
+      <mPackage>box</mPackage>
+      <mPointsOfAttention>goed voor de koppijn #gevaarlijk voor hartpatienten</mPointsOfAttention>
+    </Medicine>
+    <Medicine mID="1">
+      <mName>hoestfles</mName>
+      <mQuantity>50</mQuantity>
+      <mUnit>ml</mUnit>
+      <mPackage>flask</mPackage>
+      <mPointsOfAttention>tegen den hoest</mPointsOfAttention>
+    </Medicine>
+  </mMedicines>
+  <mTools>
+    <DeliveryTool mID="0">
+      <mName>syringe 50cc</mName>
+    </DeliveryTool>
+    <DeliveryTool mID="1">
+      <mName>cup of water</mName>
+    </DeliveryTool>
+  </mTools>
+  <mMethods>
+    <DeliveryMethod mID="0">
+      <mName>use syringe</mName>
+      <mTools>
+        <int>0</int>
+        <int>1</int>
+        <int>2</int>
+        <int>0</int>
+        <int>1</int>
+        <int>2</int>
+      </mTools>
+    </DeliveryMethod>
+  </mMethods>
+  <mDrawers>
+    <CabinetDrawer mID="0">
+      <mMedicines>
+        <int>0</int>
+        <int>2</int>
+      </mMedicines>
+      <mDeliveryTools>
+        <int>0</int>
+        <int>1</int>
+      </mDeliveryTools>
+      <mIsLocked>true</mIsLocked>
+    </CabinetDrawer>
+    <CabinetDrawer mID="1">
+      <mMedicines>
+        <int>4</int>
+      </mMedicines>
+      <mDeliveryTools>
+        <int>1</int>
+      </mDeliveryTools>
+      <mIsLocked>false</mIsLocked>
+    </CabinetDrawer>
+  </mDrawers>
+  <mCabinets>
+    <Cabinet mID="0">
+      <mDrawers>
+        <int>0</int>
+        <int>1</int>
+        <int>2</int>
+      </mDrawers>
+    </Cabinet>
+  </mCabinets>
+  <mScenarios>
+    <Scenario mID="0">
+      <mName>Testscenario</mName>
+      <mPatientID>1</mPatientID>
+      <mCabinetID>0</mCabinetID>
+      <mMedicineID>0</mMedicineID>
+      <mDeliveryMethod>0</mDeliveryMethod>
+    </Scenario>
+  </mScenarios>
+  <mMetaData>
+    <mVersion>0.1</mVersion>
+    <mDateTime>2017-12-13T21:16:31.347479+01:00</mDateTime>
+    <mGenerator>KdG XML Generator v0.1</mGenerator>
+  </mMetaData>
+</MedicalAppData>

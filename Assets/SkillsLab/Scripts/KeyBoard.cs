@@ -110,7 +110,7 @@ public class KeyBoard : MonoBehaviour {
             resultsMedical.options.Clear();
             foreach (var item in results)
             {
-                resultsMedical.options.Add(new Dropdown.OptionData(item.Name));
+                resultsMedical.options.Add(new Dropdown.OptionData(((Medicine)item).Name));
             }
             resultsMedical.options.Add(new Dropdown.OptionData("None"));
             ignoredValueChange = true;
@@ -144,7 +144,8 @@ public class KeyBoard : MonoBehaviour {
             resultsPatients.options.Clear();
             foreach (var item in results)
             {
-                resultsPatients.options.Add(new Dropdown.OptionData(item.Name + " " + ((Patient)item).FirstName));
+                //resultsPatients.options.Add(new Dropdown.OptionData(item.Name + " " + ((Patient)item).FirstName));
+                resultsPatients.options.Add(new Dropdown.OptionData(((Patient)item).Name));
             }
             resultsPatients.options.Add(new Dropdown.OptionData("None"));
             ignoredValueChange = true;
