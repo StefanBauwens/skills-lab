@@ -6,7 +6,6 @@ using System.Runtime.Serialization;
 using System;
 using System.IO;
 
-
 public class MedicalAppData  {
 
     public List<Patient> mPatients;

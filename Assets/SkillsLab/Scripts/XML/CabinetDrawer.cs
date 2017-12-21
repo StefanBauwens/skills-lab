@@ -20,7 +20,7 @@ public class CabinetDrawer
         mID = 0;
         mMedicines = new List<int>();
         mDeliveryTools = new List<int>();
-        mIsLocked = false;
+        mIsLocked = false; //plz. It should be always locked ok?
     }
 
 }

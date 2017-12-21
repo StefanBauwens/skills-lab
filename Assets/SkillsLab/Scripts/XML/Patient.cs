@@ -23,7 +23,6 @@ public enum Sex
     x
 }
 
-
 public class Patient : SearchResult //inheritance added by stefan
 {
     [XmlAttribute]

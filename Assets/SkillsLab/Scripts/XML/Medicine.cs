@@ -53,7 +53,7 @@ public class Medicine : SearchResult { //inheritance added by stefan
 
     public override string ToResult()
     {
-        return string.Format("<b>Name:</b> {0}\n<b>Package:</b> {1}\n<b>Quantity:</b> {2}\t<b>Unit:</b> {3}\n<b>Points of attention:</b>\n{4}", mName, mPackage.ToString(), mQuantity, mUnit, mPointsOfAttention);
+        return string.Format("<b>Name:</b> {0}\n<b>Package:</b> {1}\n<b>Quantity:</b> {2}\t<b>Unit:</b> {3}\n<b>Points of attention:</b>\n{4}", mName, mPackage.ToString(), mQuantity, mUnit, String.Join("&bull;",mPointsOfAttention.Split('#')));
     }
 
 }

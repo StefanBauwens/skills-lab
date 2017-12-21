@@ -33,7 +33,7 @@ public class Scenario  {
         mPatientID = 0;
         mCabinetID = 0;
         mMedicineID = 0;
-        mDeliveryMethod = 0;
+        mDeliveryMethod = 0; //ID I assume?
     }
 
    
