@@ -1,9 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System;
+using System.Runtime.Serialization;
+using System.Linq;
+
 //By Stefan
 //UP to 5 items in one drawer of a blue vanas shelf (because 5 compartments)
 //This script is placed on the BlueVanas
+[Serializable]
+public struct MedicinesPrefabs
+{
+    public string medicineName;
+    public Package medicinePackage;
+    public GameObject medicinePrefab;
+}
 
 public struct Compartments
 {
@@ -18,6 +30,9 @@ public struct Compartments
 }
 
 public class LoadVanas : MonoBehaviour {
+    public MedicinesPrefabs[] medicinePrefabs; //fill this in the inspector so the program knows what gameobjects to instantiate by certain medicines
+    public GameObject unknownMedicinePrefab;
+
     const int MAXDRAWERS = 6;
     const int MAXCOMPORTMENTS = 5;
     const string DRAWERS = "Drawers";
@@ -42,9 +57,25 @@ public class LoadVanas : MonoBehaviour {
                 //medicines.Add(appData.mMedicines[appData.mDrawers[appData.mCabinets[scenarioToGetMedsFrom.mCabinetID].mDrawers[i]].mMedicines[j]]);
                 //MAKE A DICTIONARY OR STRUCT LIST SO WE KNOW WHAT MEDICINE HAS WHAT GAMEOBJECT
                 //instantiate here that xmldata
+                Medicine med = XMLData.appData.mMedicines[XMLData.appData.mDrawers[XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers[i]].mMedicines[j]];
+                GameObject medicineObject = Array.Find(medicinePrefabs, x => (x.medicineName == med.mName) && (x.medicinePackage == med.mPackage)).medicinePrefab; //looks if the medicine is in the medicinePrefabs array so it can know which prefabs belongs with it
+
+                Vector3 position = compartments.Find(x => x._drawerID == i)._compartment[j].transform.position; 
+
+                if (medicineObject != null) //if it found a match
+                {
+                    Instantiate(medicineObject, position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(unknownMedicinePrefab, position, Quaternion.identity);
+                }
+
+                //CHECK TO PUT STUFF IN  VANAS KAST + MODIFY CINDY's CODE to allow multiple medicine per drawer
+                //Instantiate()
             }
         }
-        XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers
+        //XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers
 
     }
 
