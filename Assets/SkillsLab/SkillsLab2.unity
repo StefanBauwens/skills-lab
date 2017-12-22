@@ -51764,7 +51764,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1748215166}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d608e3df6982e4a59a692c6859359f49, type: 3}
   m_Name: 
@@ -51776,6 +51776,7 @@ MonoBehaviour:
   - medicineName: 
     medicinePackage: 0
     medicinePrefab: {fileID: 0}
+  unknownMedicinePrefab: {fileID: 0}
 --- !u!1 &1750673842
 GameObject:
   m_ObjectHideFlags: 0
