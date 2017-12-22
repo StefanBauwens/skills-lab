@@ -13,15 +13,7 @@ public class SearchVanas : MonoBehaviour
     public void Start()
     {
         patients = XMLData.appData.mPatients.ToArray();
-        medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario).ToArray(); //NEEDS TO BE TESTEDD
-        //patients = new Patient[] { new Patient("Bauwens", "Stefan", "jabla", 22, true, 62.5f, "not aware of any", "none", "Effervescent tablet", "x", "2 Packs of effervecent tablets per day"), new Patient("Ho", "Cindy", "habla", 20, false, 1, "Air", "none", "Effervescent tablet", "x", "1 shot of cocaine a day") };
-		/*medicals = new Medical[] {
-			new Medical ("Ibuprofen", "", "A1", TypeOfMedicine.Pill, 4),
-			new Medical ("Aspirine", "bruis", "B2", TypeOfMedicine.EffervescentTablet, 3),
-			new Medical ("Fun", "bla", "C#", TypeOfMedicine.IDKYET, 9001)
-
-		};*/
-
+        medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario).ToArray(); //NEEDS TO BE TESTED
     }
 
     public Patient[] SearchForName(string fName, string lName)

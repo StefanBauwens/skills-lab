@@ -19,7 +19,7 @@ public class CabinetDrawer
     {
         mID = 0;
         mMedicines = new List<int>();
-        mDeliveryTools = new List<int>();
+        mDeliveryTools = new List<int>(); //delivery tools don't belong in a vanas shelf
         mIsLocked = false; //plz. It should be always locked ok?
     }
 
