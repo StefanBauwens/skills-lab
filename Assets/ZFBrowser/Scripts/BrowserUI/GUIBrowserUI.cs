@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Runtime.InteropServices;
 
+//Modified by Stefan Bauwens to work with vrtk and my scripts
 namespace ZenFulcrum.EmbeddedBrowser {
 
 /** Attach this script to a GUI Image to use a browser on it. */
@@ -20,6 +22,7 @@ public class GUIBrowserUI :
 	protected Browser browser;
 
 	public bool enableInput = true;
+	protected bool isClicking = false;
 
 	protected void Awake() {
 		BrowserCursor = new BrowserCursor();
@@ -89,13 +92,16 @@ public class GUIBrowserUI :
 				RectTransformUtility.ScreenPointToLocalPointInRectangle(
 					(RectTransform)transform, Input.mousePosition, raycaster.eventCamera, out pos
 				);
-				pos.x = pos.x / rTransform.rect.width + .5f;
-				pos.y = pos.y / rTransform.rect.height + .5f;
+				//pos.x = pos.x / rTransform.rect.width + .5f;
+				//pos.y = pos.y / rTransform.rect.height + .5f;
+				pos = GetComponent<PointerToPos>().GetLocalPosition2();
 				MousePosition = pos;
+				Debug.Log ("Mouseposition x=" + pos.x + " y=" + pos.y);
 
 
 				var buttons = (MouseButton)0;
-				if (Input.GetMouseButton(0)) buttons |= MouseButton.Left;
+				//if (Input.GetMouseButton(0)) buttons |= MouseButton.Left;
+				if (isClicking) buttons |= MouseButton.Left;
 				if (Input.GetMouseButton(1)) buttons |= MouseButton.Right;
 				if (Input.GetMouseButton(2)) buttons |= MouseButton.Middle;
 				MouseButtons = buttons;
@@ -124,7 +130,6 @@ public class GUIBrowserUI :
 	public void OnGUI() {
 		var ev = Event.current;
 		if (ev.type != EventType.KeyDown && ev.type != EventType.KeyUp) return;
-
 		keyEvents.Add(new Event(ev));
 	}
 
@@ -177,7 +182,17 @@ public class GUIBrowserUI :
 
 	public void OnPointerDown(PointerEventData eventData) {
 		EventSystem.current.SetSelectedGameObject(gameObject);
+		StartCoroutine (fakeMouthClick());
 	}
+
+	IEnumerator fakeMouthClick()
+	{
+		isClicking = true;
+		yield return new WaitForSeconds (0.2f);
+		isClicking = false;
+	}
+
+	
 }
 
 }

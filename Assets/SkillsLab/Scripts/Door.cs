@@ -5,26 +5,35 @@ using UnityEngine;
 public class Door : MonoBehaviour {
 
     private Animator anim;
+	protected string state;
 
     private void Start()
     {
+		//state = "opened";
         anim = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        anim.SetBool("open", true);
-        Debug.Log("Open door");
+		//if (state=="closed") { //if isn't already opening and is closed
+			anim.SetBool ("open", true);
+			Debug.Log ("Open door");
+		//}
     }
 
     private void OnTriggerExit(Collider other)
     {
-        anim.SetBool("close", true);
-        Debug.Log("Close door");
+		//if (state=="opened") { //if isn't already closing and is open
+		//	anim.SetBool("close", true);
+		anim.SetBool("open", false);
+			Debug.Log("Close door");
+		//}
+
     }
 
     public void ResetBoolean(string doorState)
     {
+		/*state = doorState;
         if(doorState == "opened")
         {
             anim.SetBool("open", false);
@@ -34,6 +43,6 @@ public class Door : MonoBehaviour {
         {
             anim.SetBool("close", false);
             Debug.Log("close bool reset");
-        }   
+        }   */
     }
 }
