@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: e950700f758f0d943aa6e919f46ccb3f
+timeCreated: 1515370470
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: BackWall
+    100002: Ceiling
+    100004: CircleLight.000
+    100006: CircleLight.001
+    100008: CircleLight.002
+    100010: CircleLight.003
+    100012: CircleLight.006
+    100014: CircleLight.007
+    100016: ClosetHor
+    100018: ClosetVer
+    100020: Door
+    100022: DoorFrame
+    100024: Floor
+    100026: FrontWall
+    100028: LeftWall
+    100030: LightBlock
+    100032: //RootNode
+    100034: RectangleLight.002
+    100036: RectangleLight.003
+    100038: RectangleLight.004
+    100040: RightWall
+    100042: ToiletDoor
+    100044: ToiletWall
+    100046: WallCloset
+    100048: WindowFrame
+    100050: WindowGlass
+    400000: BackWall
+    400002: Ceiling
+    400004: CircleLight.000
+    400006: CircleLight.001
+    400008: CircleLight.002
+    400010: CircleLight.003
+    400012: CircleLight.006
+    400014: CircleLight.007
+    400016: ClosetHor
+    400018: ClosetVer
+    400020: Door
+    400022: DoorFrame
+    400024: Floor
+    400026: FrontWall
+    400028: LeftWall
+    400030: LightBlock
+    400032: //RootNode
+    400034: RectangleLight.002
+    400036: RectangleLight.003
+    400038: RectangleLight.004
+    400040: RightWall
+    400042: ToiletDoor
+    400044: ToiletWall
+    400046: WallCloset
+    400048: WindowFrame
+    400050: WindowGlass
+    2100000: CircleLight
+    2100002: RectangleLight
+    2100004: Ceiling
+    2100006: WallCloset
+    2100008: WindowFrame
+    2100010: RightWall
+    2100012: ClosetHor
+    2100014: ClosetVer
+    2100016: Door
+    2100018: WindowGlass
+    2100020: FrontWall
+    2100022: ToiletDoor
+    2100024: ToiletWall
+    2100026: BackWall
+    2100028: LeftWall
+    2100030: Floor
+    2100032: DoorFrame
+    2100034: LightBlock
+    2300000: BackWall
+    2300002: Ceiling
+    2300004: CircleLight.000
+    2300006: CircleLight.001
+    2300008: CircleLight.002
+    2300010: CircleLight.003
+    2300012: CircleLight.006
+    2300014: CircleLight.007
+    2300016: ClosetHor
+    2300018: ClosetVer
+    2300020: Door
+    2300022: DoorFrame
+    2300024: Floor
+    2300026: FrontWall
+    2300028: LeftWall
+    2300030: LightBlock
+    2300032: RectangleLight.002
+    2300034: RectangleLight.003
+    2300036: RectangleLight.004
+    2300038: RightWall
+    2300040: ToiletDoor
+    2300042: ToiletWall
+    2300044: WallCloset
+    2300046: WindowFrame
+    2300048: WindowGlass
+    3300000: BackWall
+    3300002: Ceiling
+    3300004: CircleLight.000
+    3300006: CircleLight.001
+    3300008: CircleLight.002
+    3300010: CircleLight.003
+    3300012: CircleLight.006
+    3300014: CircleLight.007
+    3300016: ClosetHor
+    3300018: ClosetVer
+    3300020: Door
+    3300022: DoorFrame
+    3300024: Floor
+    3300026: FrontWall
+    3300028: LeftWall
+    3300030: LightBlock
+    3300032: RectangleLight.002
+    3300034: RectangleLight.003
+    3300036: RectangleLight.004
+    3300038: RightWall
+    3300040: ToiletDoor
+    3300042: ToiletWall
+    3300044: WallCloset
+    3300046: WindowFrame
+    3300048: WindowGlass
+    4300000: CircleLight.003
+    4300002: CircleLight.001
+    4300004: CircleLight.000
+    4300006: CircleLight.007
+    4300008: CircleLight.006
+    4300010: RectangleLight.004
+    4300012: RectangleLight.003
+    4300014: RectangleLight.002
+    4300016: CircleLight.002
+    4300018: Ceiling
+    4300020: WallCloset
+    4300022: WindowFrame
+    4300024: RightWall
+    4300026: ClosetHor
+    4300028: ClosetVer
+    4300030: Door
+    4300032: WindowGlass
+    4300034: FrontWall
+    4300036: ToiletDoor
+    4300038: ToiletWall
+    4300040: BackWall
+    4300042: LeftWall
+    4300044: Floor
+    4300046: DoorFrame
+    4300048: LightBlock
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
