@@ -146,7 +146,7 @@ class PostBuildStandalone {
 
 	[PostProcessBuild(10)]
 	public static void PostprocessMacBuild(BuildTarget target, string buildFile) {
-		if (target == BuildTarget.StandaloneOSXIntel || target == BuildTarget.StandaloneOSXUniversal) {
+		if (target == BuildTarget.StandaloneOSXIntel || target == BuildTarget.StandaloneOSX) {
 			throw new Exception("Only x86_64 is supported");
 		}
 		if (target != BuildTarget.StandaloneOSXIntel64) return;
