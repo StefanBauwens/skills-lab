@@ -6289,6 +6289,9 @@ MonoBehaviour:
   rightController: {fileID: 1236200560}
   leftOptions: {fileID: 2115994403}
   rightOptions: {fileID: 1311054198}
+  ivSelectedTexture: {fileID: 2800000, guid: 27a781eb51426448b81fa5704cd9d56d, type: 3}
+  imSelectedTexture: {fileID: 2800000, guid: b0c438e184b6246eb96c0c4f912e0529, type: 3}
+  scSelectedTexture: {fileID: 2800000, guid: 0b79df0ac5d344683b0ab97d72331b4a, type: 3}
   optionChosen: 0
 --- !u!1 &188268524
 GameObject:
@@ -42368,6 +42371,9 @@ MonoBehaviour:
   rightController: {fileID: 1236200560}
   leftOptions: {fileID: 0}
   rightOptions: {fileID: 0}
+  ivSelectedTexture: {fileID: 0}
+  imSelectedTexture: {fileID: 0}
+  scSelectedTexture: {fileID: 0}
   optionChosen: 0
 --- !u!1 &1400472262
 GameObject:
