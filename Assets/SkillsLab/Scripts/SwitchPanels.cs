@@ -7,13 +7,17 @@ public class SwitchPanels : MonoBehaviour {
     public CanvasGroup panelSearch;
     public CanvasGroup panelResults;
     public CanvasGroup loginScreen;
+    public CanvasGroup website;
     protected SearchResult currentResult;
+    protected bool websiteToggled;
 
     public Button logOutBtn;
     public Button retrieveButton;
 
 	void Start () {
+
         Logout();
+        websiteToggled = false;
         currentResult = null;
         logOutBtn.onClick.AddListener(Logout);
         retrieveButton.onClick.AddListener(RetrieveButton);
@@ -23,12 +27,14 @@ public class SwitchPanels : MonoBehaviour {
     {
         BackButton();
         DisablePanel(loginScreen, true);
+        DisablePanel(website, true);
     }
 
     protected void Logout()
     {
         DisablePanel(panelResults, true);
         DisablePanel(panelSearch, true);
+        DisablePanel(website, true);
         DisablePanel(loginScreen, false);
     }
 
@@ -54,6 +60,13 @@ public class SwitchPanels : MonoBehaviour {
     {
         DisablePanel(panelResults, true);
         DisablePanel(panelSearch, false);
+    }
+
+    public void ModeButton()
+    {
+        websiteToggled = !websiteToggled;
+        DisablePanel(panelSearch, websiteToggled);
+        DisablePanel(website, !websiteToggled);
     }
 
     protected void RetrieveButton()
