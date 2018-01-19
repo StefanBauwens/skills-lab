@@ -4,8 +4,11 @@ using UnityEngine;
 //By Stefan
 //This script will look in XMLData for the Patient from the current scenario and load it. 
 
-//DONT FORGET
-//TO ENABLE THE LOADPATIENT GAMEOBJECT
+/// <summary>
+/// OBSOLETE! THIS SCRIPT WILL NOT BE USED. 
+/// </summary>
+
+
 public class LoadPatient : MonoBehaviour {
     public GameObject adultMan; //prefab of adult man
     public GameObject child;

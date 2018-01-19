@@ -34,7 +34,7 @@ public class Patient : SearchResult //inheritance added by stefan
     public Sex mSex;
     public List<string> mAllergies;
 
-    public Patient()
+    public Patient() // == unknown patient
     {
         mID = 0;
         mName = "John Doe";
@@ -47,6 +47,17 @@ public class Patient : SearchResult //inheritance added by stefan
         mType = PatientType.adult;
     }
     //Following added by stefan
+
+    public Patient (Patient patient) //this constructor will clone another patient
+    {
+        this.mID = patient.mID;
+        this.mName = patient.mName;
+        this.mAge = patient.mAge;
+        this.mWeight = patient.mWeight;
+        this.mType = patient.mType;
+        this.mSex = patient.mSex;
+        this.mAllergies = patient.mAllergies;
+    }
 
     public string Name //returns lastname
     {

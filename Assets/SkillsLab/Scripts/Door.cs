@@ -15,20 +15,12 @@ public class Door : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-		//if (state=="closed") { //if isn't already opening and is closed
-			anim.SetBool ("open", true);
-			Debug.Log ("Open door");
-		//}
+		anim.SetBool ("open", true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-		//if (state=="opened") { //if isn't already closing and is open
-		//	anim.SetBool("close", true);
 		anim.SetBool("open", false);
-			Debug.Log("Close door");
-		//}
-
     }
 
     public void ResetBoolean(string doorState)
