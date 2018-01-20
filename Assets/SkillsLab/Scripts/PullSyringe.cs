@@ -27,6 +27,8 @@ public class PullSyringe : MonoBehaviour {
     protected VRTK_ControllerEvents rightEvents;
     protected bool _isGrabbed;
     protected DirectionAttraction dAttraction;
+    protected SelectInjection sInjection;
+    protected bool _hasChosen;
     //protected bool toggle;
 
     const string NEEDLELAYER = "needle";
@@ -38,6 +40,7 @@ public class PullSyringe : MonoBehaviour {
 
     void Start()
     {
+        _hasChosen = false;
 		string temp = "34.50";
         isPulling = false;
         //toggle = false;
@@ -46,6 +49,7 @@ public class PullSyringe : MonoBehaviour {
         rightController = vrtkScripts.transform.Find(RCONTR);
         leftEvents = leftController.GetComponent<VRTK_ControllerEvents>();
         rightEvents = rightController.GetComponent<VRTK_ControllerEvents>();
+        sInjection = leftController.GetComponent<SelectInjection>(); //the selectionInjection script should be always and ONLY on the left controller
 
         snapDrop = this.GetComponentInChildren<VRTK_SnapDropZone>().transform;
         lcdText = this.GetComponentInChildren<Text>();
@@ -101,6 +105,7 @@ public class PullSyringe : MonoBehaviour {
         _isGrabbed = false;
         rightController.GetComponent<VRTK_Pointer>().enabled = true;
         leftController.GetComponent<VRTK_Pointer>().enabled = true;
+        _hasChosen = false; //resets the fact that you already chose an injection option;
 		//Debug.Log ("pointers enabled");
     }
 
@@ -133,9 +138,51 @@ public class PullSyringe : MonoBehaviour {
         }
     }
 
+    public bool HasChosen
+    {
+        get { return _hasChosen; }
+        set { _hasChosen = value; }
+    }
+
+    public void StopChoosing()
+    {
+        HasChosen = true;
+        if (grabbedByLeftHand)
+        {
+            rightController.GetComponent<VRTK_Pointer>().enabled = true;
+        }
+        else
+        {
+            leftController.GetComponent<VRTK_Pointer>().enabled = true;
+        }
+    }
+
+    public void SelectInjectionMethod()
+    {
+        if (HasNeedle())
+        {
+            sInjection.Subscribe(this);
+            sInjection.optionChosen = false;
+            if (grabbedByLeftHand)
+            {
+                sInjection.EnableLeftOptions(false); //reversed because when grabbing with left hand your controller dissapears so you need to show it on the right controller
+                sInjection.EnableRightOptions(true);
+                sInjection.leftHand = false;
+                rightController.GetComponent<VRTK_Pointer>().enabled = false;
+            }
+            else
+            {
+                sInjection.EnableRightOptions(false);
+                sInjection.EnableLeftOptions(true);
+                sInjection.leftHand = true;
+                leftController.GetComponent<VRTK_Pointer>().enabled = false;
+            }
+        }
+    }
+
     public void ObjectTouchPad()
     {
-        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone)
+        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone && HasChosen)
         {
             isPushing = true;
             StartCoroutine(Pushing());
@@ -150,7 +197,7 @@ public class PullSyringe : MonoBehaviour {
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
     {
-        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone)
+        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone && HasChosen)
         {
             isPulling = true;
             StartCoroutine(Pulling());

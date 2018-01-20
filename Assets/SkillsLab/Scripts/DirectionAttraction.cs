@@ -43,6 +43,7 @@ public class DirectionAttraction : MonoBehaviour
         {
             isColliding = true;
             injectionZone = other.gameObject.transform;
+            pullSyringe.SelectInjectionMethod();           
         }
     }
 
@@ -51,6 +52,7 @@ public class DirectionAttraction : MonoBehaviour
         if (other.gameObject.tag == TAGSNAP)
         {
             isColliding = false;
+            pullSyringe.HasChosen = false;
         }
     }
 

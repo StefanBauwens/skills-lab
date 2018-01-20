@@ -20,20 +20,22 @@ public class SelectInjection : MonoBehaviour {
     public Texture imSelectedTexture;
     public Texture scSelectedTexture;
 
+    protected PullSyringe subscribedSyringe;
+
     protected bool isTouchingLeft;
     protected bool isTouchingRight;
 
-    protected bool isReady;
+    public bool leftHand;
 
     public bool optionChosen;
     protected InjectionOption option; //this says which option has been chosen
 
 	// Use this for initialization
 	void Start () {
-        isReady = false;
+        leftHand = false;
         isTouchingLeft = false;
         isTouchingRight = false;
-        optionChosen = false;
+        optionChosen = true;
         leftController.TouchpadPressed += new ControllerInteractionEventHandler(LeftTouchpadPressed);
         leftController.TouchpadReleased += new ControllerInteractionEventHandler(LeftTouchpadReleased);
         rightController.TouchpadPressed += new ControllerInteractionEventHandler(RightTouchpadPressed);
@@ -44,10 +46,14 @@ public class SelectInjection : MonoBehaviour {
     {
         optionChosen = false;
     }
+
+    public void Subscribe(PullSyringe syringe)
+    {
+        subscribedSyringe = syringe;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("Left angle: " + leftController.GetTouchpadAxisAngle() + " right angle: " + rightController.GetTouchpadAxisAngle());
         if (isTouchingLeft)
         {
             //change hover materiar based on angle
@@ -55,7 +61,6 @@ public class SelectInjection : MonoBehaviour {
             switch(result)
             {
                 case 0:
-                    //leftOptions.GetComponent<Material>().mainTexture = ivSelectedTexture;
                     leftOptions.GetComponent<MeshRenderer>().material.mainTexture = ivSelectedTexture;
                     break;
                 case 1:
@@ -85,29 +90,33 @@ public class SelectInjection : MonoBehaviour {
 
     }
 
-    protected void EnableLeftOptions(bool enable)
+    public void EnableLeftOptions(bool enable)
     {
         leftOptions.SetActive(enable);
     }
 
-    protected void EnableRightOptions(bool enable)
+    public void EnableRightOptions(bool enable)
     {
         rightOptions.SetActive(enable);
     }
 
     protected void LeftTouchpadPressed(object sender, ControllerInteractionEventArgs e)
     {
-        isTouchingLeft |= !optionChosen;
+        if (leftHand)
+        {
+            isTouchingLeft |= !optionChosen;
+        }
     }
 
     protected void LeftTouchpadReleased(object sender, ControllerInteractionEventArgs e)
     {
-        if (!optionChosen)
+        if (!optionChosen && leftHand)
         {
             option = (InjectionOption)Mathf.FloorToInt(leftController.GetTouchpadAxisAngle() / (360 / 3));
             optionChosen = true;
             isTouchingLeft = false;
             EnableLeftOptions(false);
+            subscribedSyringe.StopChoosing();
             Debug.Log("Option = " + option.ToString());
         }
 
@@ -115,17 +124,21 @@ public class SelectInjection : MonoBehaviour {
 
     protected void RightTouchpadPressed(object sender, ControllerInteractionEventArgs e)
     {
-        isTouchingRight |= !optionChosen;
+        if (!leftHand)
+        {
+            isTouchingRight |= !optionChosen;
+        }
     }
 
     protected void RightTouchpadReleased(object sender, ControllerInteractionEventArgs e)
     {
-        if (!optionChosen)
+        if (!optionChosen && !leftHand)
         {
             option = (InjectionOption)Mathf.FloorToInt(rightController.GetTouchpadAxisAngle() / (360 / 3));
             optionChosen = true;
             EnableRightOptions(false);
             isTouchingRight = false;
+            subscribedSyringe.StopChoosing();
             Debug.Log("Option = " + option.ToString());
         }
     }
