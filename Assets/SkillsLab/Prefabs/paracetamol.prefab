@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114706793496209466}
   - component: {fileID: 114375185452574818}
   - component: {fileID: 114282734755887542}
+  - component: {fileID: 114762268714669664}
   m_Layer: 0
   m_Name: paracetamol
   m_TagString: Untagged
@@ -156,9 +157,9 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 114375185452574818}
   secondaryGrabActionScript: {fileID: 114706793496209466}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
+  isUsable: 1
+  holdButtonToUse: 0
+  useOnlyIfGrabbed: 1
   pointerActivatesUseAction: 0
   useOverrideButton: 0
   allowedUseControllers: 0
@@ -191,6 +192,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114762268714669664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1319872056978396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf50bc160b775d4f91ac59b9ff44208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 1040115173759112, guid: 4b9369ca9e6c1494482ab7350593a825,
+    type: 2}
 --- !u!114 &114775463661663028
 MonoBehaviour:
   m_ObjectHideFlags: 1

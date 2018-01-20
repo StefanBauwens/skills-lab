@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114593308779296376}
   - component: {fileID: 114836356307298720}
   - component: {fileID: 114957189972117260}
+  - component: {fileID: 114917540224597636}
   m_Layer: 0
   m_Name: lorametazepam
   m_TagString: Untagged
@@ -184,6 +185,19 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!114 &114917540224597636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1731818414849338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf50bc160b775d4f91ac59b9ff44208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSpawn: {fileID: 1455399300844174, guid: 6702493d96f8f488abc18a897b072894,
+    type: 2}
 --- !u!114 &114957189972117260
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,9 +221,9 @@ MonoBehaviour:
   allowedGrabControllers: 0
   grabAttachMechanicScript: {fileID: 114836356307298720}
   secondaryGrabActionScript: {fileID: 114593308779296376}
-  isUsable: 0
-  holdButtonToUse: 1
-  useOnlyIfGrabbed: 0
+  isUsable: 1
+  holdButtonToUse: 0
+  useOnlyIfGrabbed: 1
   pointerActivatesUseAction: 0
   useOverrideButton: 0
   allowedUseControllers: 0
