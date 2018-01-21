@@ -661,7 +661,7 @@ Prefab:
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 1451
+      value: 881
       objectReference: {fileID: 0}
     - target: {fileID: 224000012623161658, guid: d46cf6b1ad9d84a48ae7548a2a6b41b3,
         type: 2}
@@ -15384,21 +15384,6 @@ Prefab:
       propertyPath: leftController
       value: 
       objectReference: {fileID: 186996275}
-    - target: {fileID: 225135280596443906, guid: c6dfd21110ee54041b1755619c93e9c1,
-        type: 2}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 225135280596443906, guid: c6dfd21110ee54041b1755619c93e9c1,
-        type: 2}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 225135280596443906, guid: c6dfd21110ee54041b1755619c93e9c1,
-        type: 2}
-      propertyPath: m_BlocksRaycasts
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6dfd21110ee54041b1755619c93e9c1, type: 2}
   m_IsPrefabParent: 0

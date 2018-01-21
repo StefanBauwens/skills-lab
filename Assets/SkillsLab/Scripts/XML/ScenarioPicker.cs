@@ -14,10 +14,14 @@ public class ScenarioPicker : MonoBehaviour {
     public CanvasGroup loadPanel;
     public CanvasGroup descriptionPanel;
 
+    protected Text descriptionPanelText;
+
     protected List<Dropdown.OptionData> scenarioOptions = new List<Dropdown.OptionData>();
 
 	// Use this for initialization
 	void Start () {
+        descriptionPanelText = descriptionPanel.GetComponentInChildren<Text>();
+
         for (int i = 0; i < XMLData.appData.mScenarios.Count; i++)
         {
             string nameDescription = XMLData.appData.mScenarios[i].mName;
@@ -28,23 +32,56 @@ public class ScenarioPicker : MonoBehaviour {
             scenarioOptions.Add(new Dropdown.OptionData(nameDescription));
         }
         dropdown.options = scenarioOptions;
+
+        ShowDescription(); //shows the description of the default loaded scenario.
     }
 	
 	void Update () {
 		
 	}
 
+    protected int PatientToNumber(PatientType type) //gives the number of the room the patient is in.
+    {
+        int result = 0;
+        switch(type)
+        {
+            case PatientType.adult:
+                result = 306;
+                break;
+            case PatientType.child:
+                result = 305;
+                break;
+            case PatientType.pregnant:
+                result = 304;
+                break;
+            case PatientType.senior:
+                result = 307;
+                break;
+            default:
+                result = -1;
+                break;
+        }
+        return result;
+    }
+
     public void ButtonPress() //loadscene
     {
         LoadScenario(dropdown.value);
+        ShowDescription();
+    }
+
+    protected void ShowDescription()
+    {
         if (XMLData.scenario.mName.Contains("#"))
         {
-            descriptionPanel.GetComponentInChildren<Text>().text = XMLData.scenario.mName.Split('#')[0] + "\n\n" + XMLData.scenario.mName.Split('#')[1];
+            descriptionPanelText.text = XMLData.scenario.mName.Split('#')[0] + "\n\n" + XMLData.scenario.mName.Split('#')[1];
         }
         else
         {
-            descriptionPanel.GetComponentInChildren<Text>().text = XMLData.scenario.mName + "\n\n" + "No description available";
+            descriptionPanelText.text = XMLData.scenario.mName + "\n\n" + "No description available"; 
         }
+        descriptionPanelText.text += ("\nThe patient can be found in room " + PatientToNumber(XMLData.appData.mPatients[XMLData.scenario.mPatientID].mType) + "."); 
+
         loadPanel.alpha = 0;
         loadPanel.interactable = false;
         loadPanel.blocksRaycasts = false;
