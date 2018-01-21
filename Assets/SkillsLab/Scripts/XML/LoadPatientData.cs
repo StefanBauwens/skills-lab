@@ -5,36 +5,40 @@ using UnityEngine;
 //By Stefan. Used to attach a patient script to the patient gameobjects. 
 
 public class LoadPatientData : MonoBehaviour {
-    public GameObject adult; //IF HAVING ERROR CHECK IF THESE ARE FILLED IN. 
-    public GameObject child;
-    public GameObject pregnant;
-    public GameObject senior;
+    public PatientPerson adult; //IF HAVING ERROR CHECK IF THESE ARE FILLED IN. 
+    public PatientPerson child;
+    public PatientPerson pregnant;
+    public PatientPerson senior;
 
     protected Patient patient;
     protected Patient unknownPatient;
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
 
         patient = XMLData.appData.mPatients[XMLData.scenario.mPatientID];
 
         switch (patient.mType)
         {
             case PatientType.adult:
-                adult.GetComponent<PatientPerson>().patient = patient; //@FUTRURE STEFAN: If you get an error saying there is not Patientperson, just add a new script on the gameobject! You're welcome :)
+                adult.patient = patient; //@FUTRURE STEFAN: If you get an error saying there is not Patientperson, just add a new script on the gameobject! You're welcome :)
                 break;
             case PatientType.child:
-                child.GetComponent<PatientPerson>().patient = patient;
+                child.patient = patient;
                 break;
             case PatientType.pregnant:
-                pregnant.GetComponent<PatientPerson>().patient = patient;
+                pregnant.patient = patient;
                 break;
             case PatientType.senior:
-                senior.GetComponent<PatientPerson>().patient = patient;
+                senior.patient = patient;
                 break;
             default:
                 Debug.Log("Unknown patienttype... Fix XML");
                 break;
         }
+        adult.Start();
+        child.Start();
+        pregnant.Start();
+        senior.Start();
 	}
 }

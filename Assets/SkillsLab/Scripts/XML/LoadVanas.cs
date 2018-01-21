@@ -33,15 +33,23 @@ public class LoadVanas : MonoBehaviour {
     public MedicinesPrefabs[] medicinePrefabs; //fill this in the inspector so the program knows what gameobjects to instantiate by certain medicines
     public GameObject unknownMedicinePrefab;
 
+    protected List<GameObject> instantiatedMeds; //keeps a list of medicines that are instantiated so it can remove them when loading a new scenario
+
     const int MAXDRAWERS = 6;
     const int MAXCOMPORTMENTS = 5;
     const string DRAWERS = "Drawers";
     protected List<Compartments> compartments = new List<Compartments>();
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
         Transform drawersGameObject = this.transform.Find(DRAWERS);
         int index = 0;
+
+        foreach (var item in instantiatedMeds)
+        {
+            Destroy(item); //deletes all previous instantiated medicines
+        }
+        instantiatedMeds.Clear();
 
         foreach (Transform child in drawersGameObject) //makes a list of compartments
         {
@@ -67,19 +75,22 @@ public class LoadVanas : MonoBehaviour {
 
                 Vector3 position = compartments.Find(x => x._drawerID == i)._compartment[j].transform.position; 
 
+
                 if (medicineObject != null) //if it found a match
                 {
-                    Instantiate(medicineObject, position, medicineObject.transform.rotation);
+                    GameObject medicine = Instantiate(medicineObject, position, medicineObject.transform.rotation);
+                    instantiatedMeds.Add(medicine);
                 }
                 else
                 {
-                    Instantiate(unknownMedicinePrefab, position, medicineObject.transform.rotation);
+                    GameObject medicine = Instantiate(unknownMedicinePrefab, position, medicineObject.transform.rotation);
+                    instantiatedMeds.Add(medicine);
                 }
 
                 //list which medicines are in which drawer 
                 drawersGameObject.GetChild(i).GetComponent<Drawer>().medicinesInDrawer.Add(med.Name);
 
-                //CHECK TO PUT STUFF IN  VANAS KAST
+                //CHECK TO PUT STUFF IN  VANAS KAST!!!(might be that the line above does it)
             }
         }
 

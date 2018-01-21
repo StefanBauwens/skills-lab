@@ -29,7 +29,7 @@ public class Scenario  {
     public Scenario()
     {
         mID = 0;
-        mName = "";
+        mName = ""; //Divide name and description with #
         mPatientID = 0;
         mCabinetID = 0;
         mMedicineID = 0;

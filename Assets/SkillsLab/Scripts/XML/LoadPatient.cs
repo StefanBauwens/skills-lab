@@ -4,9 +4,8 @@ using UnityEngine;
 //By Stefan
 //This script will look in XMLData for the Patient from the current scenario and load it. 
 
-/// <summary>
 /// OBSOLETE! THIS SCRIPT WILL NOT BE USED. 
-/// </summary>
+
 
 
 public class LoadPatient : MonoBehaviour {
@@ -17,13 +16,15 @@ public class LoadPatient : MonoBehaviour {
 
     protected Patient patientData;
     protected GameObject patient;
-
+    /// OBSOLETE! THIS SCRIPT WILL NOT BE USED. 
 	// Use this for initialization
 	void Start () {
         patientData = XMLData.appData.mPatients[XMLData.scenario.mPatientID];
         Debug.Log("Loading prefab of " + patientData.mType);
         switch (patientData.mType)
         {
+            /// OBSOLETE! THIS SCRIPT WILL NOT BE USED. 
+
             case PatientType.adult:
                 patient = Instantiate(adultMan, this.transform.position, this.transform.rotation);
                 break;
@@ -39,6 +40,8 @@ public class LoadPatient : MonoBehaviour {
             default:
                 Debug.Log("Error trying to load patient.");
                 break;
+                /// OBSOLETE! THIS SCRIPT WILL NOT BE USED. 
+
         }
     }
 

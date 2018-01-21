@@ -8,7 +8,7 @@ public class PatientPerson : MonoBehaviour {
     public Patient patient = new Patient();
     public string name;
 
-    private void Start()
+    public void Start()
     {
         StartCoroutine(ChangeName());
     }
