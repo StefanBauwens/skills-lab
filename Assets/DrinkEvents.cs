@@ -15,6 +15,7 @@ public class DrinkEvents : MonoBehaviour {
     public void CupFollowHand()
     {
         cupObject.transform.SetParent(handUsed.transform);
+        Debug.Log("parent cup: " + cupObject.transform.parent);
     }
 
     public void EmptyCup()
