@@ -15,12 +15,22 @@ public class Door : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-		anim.SetBool ("open", true);
+        if(other.name == "Head")
+        {
+            anim.SetBool("open", true);
+        }
+		
+        Debug.Log("gameobject: " + gameObject.name + " other collider enter: " + other);
     }
 
     private void OnTriggerExit(Collider other)
     {
-		anim.SetBool("open", false);
+        if (other.name == "Head")
+        {
+            anim.SetBool("open", false);
+        }
+            
+        Debug.Log("gameobject: "+ gameObject.name + " other collider exit: " + other);
     }
 
     public void ResetBoolean(string doorState)
