@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114406091130116800}
   - component: {fileID: 114797828236943768}
   - component: {fileID: 114943060243434884}
+  - component: {fileID: 114817885774025048}
   m_Layer: 0
   m_Name: pill1
   m_TagString: medicine
@@ -185,6 +186,17 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!114 &114817885774025048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673178089874312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114943060243434884
 MonoBehaviour:
   m_ObjectHideFlags: 1

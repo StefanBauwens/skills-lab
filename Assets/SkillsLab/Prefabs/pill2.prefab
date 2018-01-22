@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114973158330299332}
   - component: {fileID: 114407376995225432}
   - component: {fileID: 114455220564680644}
+  - component: {fileID: 114834031360908130}
   m_Layer: 0
   m_Name: pill2
   m_TagString: medicine
@@ -204,6 +205,17 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!114 &114834031360908130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1471764175484766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114973158330299332
 MonoBehaviour:
   m_ObjectHideFlags: 1

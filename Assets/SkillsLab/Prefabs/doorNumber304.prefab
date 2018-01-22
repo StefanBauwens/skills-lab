@@ -53,6 +53,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4022943272583098}
+  - component: {fileID: 114742878417970790}
   m_Layer: 0
   m_Name: doorNumber304
   m_TagString: Untagged
@@ -184,3 +185,14 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1864508048513074}
   m_Mesh: {fileID: 4300000, guid: f524562c638ea473fb632844e68ff991, type: 3}
+--- !u!114 &114742878417970790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870645886066822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
