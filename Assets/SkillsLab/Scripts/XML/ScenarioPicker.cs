@@ -13,6 +13,7 @@ public class ScenarioPicker : MonoBehaviour {
 
     public CanvasGroup loadPanel;
     public CanvasGroup descriptionPanel;
+    public CanvasGroup reportPanel;
 
     protected Text descriptionPanelText;
 
@@ -80,26 +81,47 @@ public class ScenarioPicker : MonoBehaviour {
         {
             descriptionPanelText.text = XMLData.scenario.mName + "\n\n" + "No description available"; 
         }
-        descriptionPanelText.text += ("\nThe patient can be found in room " + PatientToNumber(XMLData.appData.mPatients[XMLData.scenario.mPatientID].mType) + "."); 
+        Patient patient = XMLData.appData.mPatients[XMLData.scenario.mPatientID];
+        descriptionPanelText.text += ("\nThe patient " + patient.Name + "can be found in room " + PatientToNumber(patient.mType) + "."); 
 
-        loadPanel.alpha = 0;
+        EnablePanel(loadPanel, false);
+        EnablePanel(descriptionPanel, true);
+
+        /*loadPanel.alpha = 0;
         loadPanel.interactable = false;
         loadPanel.blocksRaycasts = false;
 
         descriptionPanel.alpha = 1;
         descriptionPanel.interactable = true;
-        descriptionPanel.blocksRaycasts = true;
+        descriptionPanel.blocksRaycasts = true;*/
+    }
+
+    public void ButtonFinish()
+    {
+        EnablePanel(loadPanel, false);
+        EnablePanel(reportPanel, true);
     }
 
     public void ButtonBack()
     {
-        loadPanel.alpha = 1;
+        EnablePanel(loadPanel, true);
+        EnablePanel(descriptionPanel, false);
+        EnablePanel(reportPanel, false);
+
+        /*loadPanel.alpha = 1;
         loadPanel.interactable = true;
         loadPanel.blocksRaycasts = true;
 
         descriptionPanel.alpha = 0;
         descriptionPanel.interactable = false;
-        descriptionPanel.blocksRaycasts = false;
+        descriptionPanel.blocksRaycasts = false;*/
+    }
+
+    protected void EnablePanel(CanvasGroup panel, bool enable)
+    {
+        panel.alpha = enable ? 1 : 0;
+        panel.interactable = enable;
+        panel.blocksRaycasts = enable;
     }
 
     protected void LoadScenario(int index)

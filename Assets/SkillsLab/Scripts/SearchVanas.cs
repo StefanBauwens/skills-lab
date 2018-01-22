@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class SearchVanas : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SearchVanas : MonoBehaviour
     //protected Medical[] medicals; //represents all the medical stuff to be found in the shelf
     //protected Medicine[] medicals;
     protected List<Medicine> medicals = new List<Medicine>();
+    const string GRAYMED = "#GRAY";
 
     // Use this for initialization
     public void Start()
@@ -16,7 +18,16 @@ public class SearchVanas : MonoBehaviour
         patients = XMLData.appData.mPatients.ToArray();
 
         //medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario).ToArray(); //NEEDS TO BE TESTED
-        medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario); //NEEDS TO BE TESTED
+        medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario);
+
+        foreach (var medicine in XMLData.appData.mMedicines) //add gray objects in vanas
+        {
+            if (medicine.mName.Contains(GRAYMED))
+            {
+                medicals.Add(medicine);
+            }
+        }
+
         Debug.Log("New medicines loaded");
 
     }

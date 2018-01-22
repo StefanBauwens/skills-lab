@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.Linq;
 
 //By Stefan
-//UP to 5 items in one drawer of a blue vanas shelf (because 5 physcial compartments)
+//UP to 5 items in one drawer of a blue vanas shelf (because 5 physcial compartments) and max 6 drawers
 //This script is placed on the BlueVanas
 [Serializable]
 public struct MedicinesPrefabs
@@ -67,11 +67,11 @@ public class LoadVanas : MonoBehaviour {
             {
                 //medicines.Add(appData.mMedicines[appData.mDrawers[appData.mCabinets[scenarioToGetMedsFrom.mCabinetID].mDrawers[i]].mMedicines[j]]);
                 //instantiate here that xmldata
-                Debug.Log("i : " + i + " j : " + j + " i count : " + XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers.Count + " j count :" + XMLData.appData.mDrawers[XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers[i]].mMedicines.Count  );
-                Debug.Log("Index : " + XMLData.appData.mDrawers[XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers[i]].mMedicines[j]);
+                //Debug.Log("i : " + i + " j : " + j + " i count : " + XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers.Count + " j count :" + XMLData.appData.mDrawers[XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers[i]].mMedicines.Count  );
+                //Debug.Log("Index : " + XMLData.appData.mDrawers[XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers[i]].mMedicines[j]);
                 Medicine med = XMLData.appData.mMedicines[XMLData.appData.mDrawers[XMLData.appData.mCabinets[XMLData.scenario.mCabinetID].mDrawers[i]].mMedicines[j]];
-                Debug.Log("Medicine :" + med);
-                GameObject medicineObject = Array.Find(medicinePrefabs, x => (x.medicineName == med.mName) && (x.medicinePackage == med.mPackage)).medicinePrefab; //looks if the medicine is in the medicinePrefabs array so it can know which prefabs belongs with it
+                //Debug.Log("Medicine :" + med);
+                GameObject medicineObject = Array.Find(medicinePrefabs, x => (x.medicineName.ToLower() == med.mName.ToLower()) && (x.medicinePackage == med.mPackage)).medicinePrefab; //looks if the medicine is in the medicinePrefabs array so it can know which prefabs belongs with it
 
                 Vector3 position = compartments.Find(x => x._drawerID == i)._compartment[j].transform.position; 
 
@@ -89,9 +89,7 @@ public class LoadVanas : MonoBehaviour {
 
                 //list which medicines are in which drawer 
                 drawersGameObject.GetChild(i).GetComponent<Drawer>().medicinesInDrawer.Add(med.Name);
-
-                //CHECK TO PUT STUFF IN  VANAS KAST!!!(might be that the line above does it)
-            }
+                            }
         }
 
     }

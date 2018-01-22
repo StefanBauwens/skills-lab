@@ -41,6 +41,13 @@
       <mPackage>flask</mPackage>
       <mPointsOfAttention>tegen den hoest</mPointsOfAttention>
     </Medicine>
+    <Medicine mID="2">
+      <mName>litican#gray</mName>
+      <mQuantity>50</mQuantity>
+      <mUnit>ml</mUnit>
+      <mPackage>flask</mPackage>
+      <mPointsOfAttention>litican</mPointsOfAttention>
+    </Medicine>
   </mMedicines>
   <mTools>
     <DeliveryTool mID="0">
