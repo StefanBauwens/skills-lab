@@ -16,14 +16,14 @@ public class KeyBoard : MonoBehaviour {
     public Button GoButtonPatient;
     public Button GoButtonMedical;
 
-    protected SearchVanas search;
+    public SearchVanas search;
     protected SearchResult[] results;
 
     protected bool ignoredValueChange;
 
 
 	// Use this for initi1alization
-	void Start () {
+	public void Start () {
         ignoredValueChange = false;
         inputF = firstName;
         search = new SearchVanas();

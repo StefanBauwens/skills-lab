@@ -9,7 +9,7 @@ public class ScenarioPicker : MonoBehaviour {
     public Dropdown dropdown;
     public LoadPatientData loadPatientData;  //FILL ALL THESE IN IN INSPECTORs
     public LoadVanas loadVanas;
-    public SearchVanas searchVanas;
+    public KeyBoard[] keyboards;
 
     public CanvasGroup loadPanel;
     public CanvasGroup descriptionPanel;
@@ -109,9 +109,13 @@ public class ScenarioPicker : MonoBehaviour {
             XMLData.scenario = XMLData.appData.mScenarios[index];
 
             //load everything again:
-            loadPatientData.Start(); //loads patient
+            //loadPatientData.Start(); //loads patient
             loadVanas.Start();
-            searchVanas.Start(); //reloads medicines in vanas
+           
+            foreach (var keyboard in keyboards)
+            {
+                keyboard.Start(); //reloads medicines in vanas
+            }
             Debug.Log("Loaded new scenario!");
                            
         }

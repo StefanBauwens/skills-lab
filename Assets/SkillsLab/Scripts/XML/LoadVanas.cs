@@ -33,7 +33,7 @@ public class LoadVanas : MonoBehaviour {
     public MedicinesPrefabs[] medicinePrefabs; //fill this in the inspector so the program knows what gameobjects to instantiate by certain medicines
     public GameObject unknownMedicinePrefab;
 
-    protected List<GameObject> instantiatedMeds; //keeps a list of medicines that are instantiated so it can remove them when loading a new scenario
+    protected List<GameObject> instantiatedMeds = new List<GameObject>(); //keeps a list of medicines that are instantiated so it can remove them when loading a new scenario
 
     const int MAXDRAWERS = 6;
     const int MAXCOMPORTMENTS = 5;

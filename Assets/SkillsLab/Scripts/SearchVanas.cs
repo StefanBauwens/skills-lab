@@ -7,13 +7,18 @@ public class SearchVanas : MonoBehaviour
 {
     protected Patient[] patients; //represents a list of all patients
     //protected Medical[] medicals; //represents all the medical stuff to be found in the shelf
-    protected Medicine[] medicals;
+    //protected Medicine[] medicals;
+    protected List<Medicine> medicals = new List<Medicine>();
 
     // Use this for initialization
     public void Start()
     {
         patients = XMLData.appData.mPatients.ToArray();
-        medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario).ToArray(); //NEEDS TO BE TESTED
+
+        //medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario).ToArray(); //NEEDS TO BE TESTED
+        medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario); //NEEDS TO BE TESTED
+        Debug.Log("New medicines loaded");
+
     }
 
     public Patient[] SearchForName(string fName, string lName)

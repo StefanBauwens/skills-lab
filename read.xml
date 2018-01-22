@@ -13,7 +13,7 @@
       <mName>Jim Doe</mName>
       <mAge>6</mAge>
       <mWeight>20</mWeight>
-      <mType>child</mType>
+      <mType>adult</mType>
       <mSex>male</mSex>
       <mAllergies />
     </Patient>
@@ -84,20 +84,45 @@
       </mDeliveryTools>
       <mIsLocked>false</mIsLocked>
     </CabinetDrawer>
+    <CabinetDrawer mID="2">
+      <mMedicines>
+        <int>0</int>
+        <int>1</int>
+      </mMedicines>
+      <mDeliveryTools>
+        <int>0</int>
+        <int>1</int>
+      </mDeliveryTools>
+      <mIsLocked>true</mIsLocked>
+    </CabinetDrawer>
   </mDrawers>
   <mCabinets>
     <Cabinet mID="0">
       <mDrawers>
         <int>0</int>
-        <int>1</int>
+        <int>0</int>
+      </mDrawers>
+    </Cabinet>
+    <Cabinet mID="1">
+      <mDrawers>
+	  <int>2</int>
+	  <int>2</int>
+        <int>2</int>
       </mDrawers>
     </Cabinet>
   </mCabinets>
   <mScenarios>
     <Scenario mID="0">
-      <mName>Testscenario</mName>
+      <mName>Testscenario#This is a test scenario</mName>
       <mPatientID>1</mPatientID>
       <mCabinetID>0</mCabinetID>
+      <mMedicineID>0</mMedicineID>
+      <mDeliveryMethod>0</mDeliveryMethod>
+    </Scenario>
+    <Scenario mID="1">
+      <mName>Yolo#This is yolo</mName>
+      <mPatientID>2</mPatientID>
+      <mCabinetID>1</mCabinetID>
       <mMedicineID>0</mMedicineID>
       <mDeliveryMethod>0</mDeliveryMethod>
     </Scenario>
