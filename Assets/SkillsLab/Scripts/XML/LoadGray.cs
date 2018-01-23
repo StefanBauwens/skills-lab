@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 //auto loads the gray vanas with meds. (check quantity) (max quantity) 
@@ -21,7 +22,16 @@ public class LoadGray : MonoBehaviour {
 	// Use this for initialization
 
     protected List<Compartments> compartments = new List<Compartments>(); //notice compartmentS, not compartment (see loadVanas.cs)
-	void Start () {
+    protected List<GameObject> instantiatedMeds = new List<GameObject>();
+	public void Start () {
+        compartments.Clear();
+        if (instantiatedMeds.Any()) //deletes the already instantiated meds
+        {
+            foreach (GameObject item in instantiatedMeds)
+            {
+                Destroy(item);
+            }
+        }
         Transform drawersGameObject = this.transform.Find(DRAWERS);
 
         int index = 0;
@@ -49,10 +59,11 @@ public class LoadGray : MonoBehaviour {
                 }
                 foreach (var compartment in compartments[index]._compartment)
                 {
-                    Instantiate(medicineObject, compartment.transform.position, medicineObject.transform.rotation);
+                    GameObject temp = Instantiate(medicineObject, compartment.transform.position, medicineObject.transform.rotation);
+                    instantiatedMeds.Add(temp);
                 }
                 compartments[index]._compartment[0].transform.parent.GetComponent<Drawer>().medicinesInDrawer.Clear();
-                compartments[index]._compartment[0].transform.parent.GetComponent<Drawer>().medicinesInDrawer.Add(med.Name);
+                compartments[index]._compartment[0].transform.parent.GetComponent<Drawer>().medicinesInDrawer.Add(med.Name.Split('#')[0]);
                 index++;
                 if (index+1 > compartments.Count)
                 {

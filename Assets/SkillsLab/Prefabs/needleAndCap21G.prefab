@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 114727323128248930}
   - component: {fileID: 114689923193249022}
   - component: {fileID: 114140870748149064}
+  - component: {fileID: 114677230597693464}
   m_Layer: 10
   m_Name: 21G
   m_TagString: Untagged
@@ -639,6 +640,18 @@ MonoBehaviour:
   validObjectListPolicy: {fileID: 114807838016791510}
   displayDropZoneInEditor: 1
   defaultSnappedObject: {fileID: 1282307367141930}
+--- !u!114 &114677230597693464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1521804004104958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814f60b3be435465bb8b6b11e68304a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanBeUsedFor: 000000000100000002000000
 --- !u!114 &114689923193249022
 MonoBehaviour:
   m_ObjectHideFlags: 1

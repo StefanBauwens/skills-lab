@@ -9,6 +9,7 @@ public class ScenarioPicker : MonoBehaviour {
     public Dropdown dropdown;
     public LoadPatientData loadPatientData;  //FILL ALL THESE IN IN INSPECTORs
     public LoadVanas loadVanas;
+    public LoadGray loadGray;
     public KeyBoard[] keyboards;
 
     public CanvasGroup loadPanel;
@@ -82,18 +83,10 @@ public class ScenarioPicker : MonoBehaviour {
             descriptionPanelText.text = XMLData.scenario.mName + "\n\n" + "No description available"; 
         }
         Patient patient = XMLData.appData.mPatients[XMLData.scenario.mPatientID];
-        descriptionPanelText.text += ("\nThe patient " + patient.Name + "can be found in room " + PatientToNumber(patient.mType) + "."); 
+        descriptionPanelText.text += ("\nThe patient " + patient.Name + " can be found in room " + PatientToNumber(patient.mType) + "."); 
 
         EnablePanel(loadPanel, false);
         EnablePanel(descriptionPanel, true);
-
-        /*loadPanel.alpha = 0;
-        loadPanel.interactable = false;
-        loadPanel.blocksRaycasts = false;
-
-        descriptionPanel.alpha = 1;
-        descriptionPanel.interactable = true;
-        descriptionPanel.blocksRaycasts = true;*/
     }
 
     public void ButtonFinish()
@@ -107,14 +100,6 @@ public class ScenarioPicker : MonoBehaviour {
         EnablePanel(loadPanel, true);
         EnablePanel(descriptionPanel, false);
         EnablePanel(reportPanel, false);
-
-        /*loadPanel.alpha = 1;
-        loadPanel.interactable = true;
-        loadPanel.blocksRaycasts = true;
-
-        descriptionPanel.alpha = 0;
-        descriptionPanel.interactable = false;
-        descriptionPanel.blocksRaycasts = false;*/
     }
 
     protected void EnablePanel(CanvasGroup panel, bool enable)
@@ -133,6 +118,7 @@ public class ScenarioPicker : MonoBehaviour {
             //load everything again:
             //loadPatientData.Start(); //loads patient
             loadVanas.Start();
+            loadGray.Start();
            
             foreach (var keyboard in keyboards)
             {
