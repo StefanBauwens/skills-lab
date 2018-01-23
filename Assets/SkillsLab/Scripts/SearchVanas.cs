@@ -22,7 +22,7 @@ public class SearchVanas : MonoBehaviour
 
         foreach (var medicine in XMLData.appData.mMedicines) //add gray objects in vanas
         {
-            if (medicine.mName.Contains(GRAYMED))
+            if (medicine.mName.ToLower().Contains(GRAYMED.ToLower()))
             {
                 medicals.Add(medicine);
             }

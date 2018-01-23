@@ -39,10 +39,11 @@ public class LoadGray : MonoBehaviour {
         index = 0;
         foreach (var med in XMLData.appData.mMedicines)
         {
-            if (med.mName.Contains(GRAYMED))
+            if (med.mName.ToLower().Contains(GRAYMED.ToLower()))
             {
+                Debug.Log("Graymed found!");
                 GameObject medicineObject = Array.Find(medicinePrefabs, x => (x.medicineName.ToLower() == med.mName.Split('#')[0].ToLower()) && (x.medicinePackage == med.mPackage)).medicinePrefab; //looks if the medicine is in the medicinePrefabs array so it can know which prefabs belongs with it
-                if (medicineObject =  null)
+                if (medicineObject == null)
                 {
                     medicineObject = unknownMedicinePrefab;
                 }
@@ -50,9 +51,14 @@ public class LoadGray : MonoBehaviour {
                 {
                     Instantiate(medicineObject, compartment.transform.position, medicineObject.transform.rotation);
                 }
-                compartments[index]._compartment[0].transform.parent.GetComponent<Drawer>().medicinesInDrawer[0] = med.Name;
+                compartments[index]._compartment[0].transform.parent.GetComponent<Drawer>().medicinesInDrawer.Clear();
+                compartments[index]._compartment[0].transform.parent.GetComponent<Drawer>().medicinesInDrawer.Add(med.Name);
+                index++;
+                if (index+1 > compartments.Count)
+                {
+                    return;
+                }
             }
-            index++;
         }
 
     }

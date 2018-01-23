@@ -5315,6 +5315,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4451981586572148}
+  - component: {fileID: 114777626725979794}
   m_Layer: 8
   m_Name: GrayVanas
   m_TagString: Untagged
@@ -7367,8 +7368,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1980608770538876}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.6181973, y: 0.109, z: 0.955}
-  m_LocalScale: {x: 23, y: 4.4, z: 29.7}
+  m_LocalPosition: {x: 0.6181973, y: 0.279, z: 0.955}
+  m_LocalScale: {x: 23, y: 4.4, z: 25.3}
   m_Children: []
   m_Father: {fileID: 4451981586572148}
   m_RootOrder: 7
@@ -16623,7 +16624,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: d98fde27e4ae6874eafe696c22d240c1, type: 3}
@@ -16637,7 +16638,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300006, guid: d98fde27e4ae6874eafe696c22d240c1, type: 3}
@@ -17071,7 +17072,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300012, guid: d98fde27e4ae6874eafe696c22d240c1, type: 3}
@@ -17225,7 +17226,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300008, guid: d98fde27e4ae6874eafe696c22d240c1, type: 3}
@@ -17421,7 +17422,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300010, guid: d98fde27e4ae6874eafe696c22d240c1, type: 3}
@@ -17617,7 +17618,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300004, guid: d98fde27e4ae6874eafe696c22d240c1, type: 3}
@@ -18471,8 +18472,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.001457768, y: 0.00042915295, z: 0.00072731613}
-  m_Center: {x: 0.0000021389126, y: -0.00059161626, z: 0.000000505782}
+  m_Size: {x: 0.001457768, y: 0.000653938, z: 0.00072731613}
+  m_Center: {x: 0.0000021389133, y: -0.0007040076, z: 0.000000505782}
 --- !u!65 &65336385215016138
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -19275,8 +19276,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.36065686, y: 0.5232998, z: 0.07648516}
-  m_Center: {x: 0.61280066, y: 0.12593573, z: 1.724458}
+  m_Size: {x: 0.46, y: 0.71, z: 0.07648516}
+  m_Center: {x: 0.61280066, y: 0.26, z: 1.724458}
 --- !u!65 &65775853673277618
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -22127,6 +22128,9 @@ MonoBehaviour:
   - {fileID: 64009396659755534}
   - {fileID: 64597113578735810}
   - {fileID: 64005109098071036}
+  - {fileID: 65703659847815394}
+  - {fileID: 65943799247494490}
+  - {fileID: 65651641893338442}
   isGrabbable: 0
   holdButtonToGrab: 1
   stayGrabbedOnTeleport: 1
@@ -27459,6 +27463,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a034a563ae5242e1b199d2e9333912c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114777626725979794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716176071270386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8c2956857224202909694abacc2b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medicinePrefabs:
+  - medicineName: primperan
+    medicinePackage: 1
+    medicinePrefab: {fileID: 1863191422914154, guid: 6d139f3c353694cb3bbf1accf5ccf13f,
+      type: 2}
+  - medicineName: dipidolor
+    medicinePackage: 1
+    medicinePrefab: {fileID: 1257012540259980, guid: 3d6dc8459aa4942458810e0b2aa9c53e,
+      type: 2}
+  - medicineName: litican
+    medicinePackage: 1
+    medicinePrefab: {fileID: 1822037833700820, guid: aa66dc0ec08a84587b2cebf1a54d12ce,
+      type: 2}
+  unknownMedicinePrefab: {fileID: 1471764175484766, guid: b1d7d1b57a46910479a481caaa942167,
+    type: 2}
 --- !u!114 &114782880595359190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -30049,7 +30079,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.618197, y: 1.5093007, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.463198, y: 1.5093007, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -30143,7 +30173,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.618197, y: 1.8413012, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.463198, y: 1.8413012, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -30237,7 +30267,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.773197, y: 1.5093007, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.618197, y: 1.5093007, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -30331,7 +30361,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.618197, y: 1.4263006, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.463198, y: 1.4263006, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -30425,7 +30455,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.773197, y: 1.8413012, z: 4.465436}
+  m_ConnectedAnchor: {x: -9.773197, y: 1.8413011, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -30519,7 +30549,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.773197, y: 1.8413011, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.618197, y: 1.8413012, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -30613,7 +30643,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.773197, y: 1.5923009, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.618197, y: 1.5923009, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -30707,7 +30737,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.618197, y: 1.6753008, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.463198, y: 1.6753008, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -30989,7 +31019,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.618197, y: 1.758301, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.463198, y: 1.758301, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -31083,7 +31113,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.618197, y: 1.5923009, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.463198, y: 1.5923009, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -31177,7 +31207,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.773197, y: 1.758301, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.618197, y: 1.758301, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -31271,7 +31301,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.773197, y: 1.6753008, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.618197, y: 1.6753008, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
@@ -31365,7 +31395,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.0008, z: 0}
   m_Axis: {x: 0, y: -45, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -9.773197, y: 1.4263006, z: 4.8942366}
+  m_ConnectedAnchor: {x: -9.618197, y: 1.4263006, z: 4.8942366}
   serializedVersion: 2
   m_SecondaryAxis: {x: 0, y: -1, z: 0}
   m_XMotion: 1
