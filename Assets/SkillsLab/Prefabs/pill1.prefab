@@ -23,14 +23,16 @@ GameObject:
   - component: {fileID: 23640388816723288}
   - component: {fileID: 95177040629492222}
   - component: {fileID: 54006236201301098}
-  - component: {fileID: 136561644683082324}
-  - component: {fileID: 65958426517527238}
-  - component: {fileID: 114470013999630172}
-  - component: {fileID: 114406091130116800}
-  - component: {fileID: 114797828236943768}
-  - component: {fileID: 114943060243434884}
   - component: {fileID: 114817885774025048}
   - component: {fileID: 114201002985774540}
+  - component: {fileID: 65469966911741096}
+  - component: {fileID: 135252654187789226}
+  - component: {fileID: 114659965848132726}
+  - component: {fileID: 114157265892938476}
+  - component: {fileID: 114557232947888872}
+  - component: {fileID: 114345571790292958}
+  - component: {fileID: 114524101637198090}
+  - component: {fileID: 114053662742817266}
   m_Layer: 0
   m_Name: pill1
   m_TagString: medicine
@@ -45,7 +47,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673178089874312}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1350033, y: 1.2899027, z: -0.313}
+  m_LocalPosition: {x: -11.146, y: 1.5448391, z: 4.285}
   m_LocalScale: {x: 0.01076169, y: 0.01076169, z: 0.01076169}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,7 +109,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65958426517527238
+--- !u!65 &65469966911741096
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -136,7 +138,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114201002985774540
+--- !u!114 &114053662742817266
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -144,21 +146,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1673178089874312}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114406091130116800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1673178089874312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114470013999630172
+--- !u!114 &114157265892938476
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -181,7 +172,25 @@ MonoBehaviour:
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
---- !u!114 &114797828236943768
+--- !u!114 &114201002985774540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673178089874312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medicine:
+    mID: 0
+    mName: 
+    mQuantity: 0
+    mUnit: 0
+    mPackage: 0
+    mPointsOfAttention: 
+--- !u!114 &114345571790292958
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -198,18 +207,7 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
---- !u!114 &114817885774025048
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1673178089874312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114943060243434884
+--- !u!114 &114524101637198090
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -221,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableWhenIdle: 1
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  touchHighlightColor: {r: 1, g: 1, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
@@ -230,8 +228,8 @@ MonoBehaviour:
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 114797828236943768}
-  secondaryGrabActionScript: {fileID: 114406091130116800}
+  grabAttachMechanicScript: {fileID: 114345571790292958}
+  secondaryGrabActionScript: {fileID: 114557232947888872}
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -239,8 +237,47 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
---- !u!136 &136561644683082324
-CapsuleCollider:
+--- !u!114 &114557232947888872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673178089874312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114659965848132726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673178089874312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08517e04830d6d44a13c5ea5f574181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  unhighlightOnDisable: 1
+  thickness: 0.2
+  customOutlineModels: []
+  customOutlineModelPaths: []
+  enableSubmeshHighlight: 0
+--- !u!114 &114817885774025048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673178089874312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &135252654187789226
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -248,7 +285,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 3
-  m_Height: 0.42749095
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 2.01
   m_Center: {x: -0.4773374, y: 0.058868967, z: 0}
