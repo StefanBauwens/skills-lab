@@ -17,11 +17,15 @@ public class LoadPatientData : MonoBehaviour {
     public void Start () {
 
         patient = XMLData.appData.mPatients[XMLData.scenario.mPatientID];
+        adult.Reset();
+        child.Reset();
+        pregnant.Reset();
+        senior.Reset();
 
         switch (patient.mType)
         {
             case PatientType.adult:
-                adult.patient = patient; //@FUTRURE STEFAN: If you get an error saying there is not Patientperson, just add a new script on the gameobject! You're welcome :)
+                adult.patient = patient;
                 break;
             case PatientType.child:
                 child.patient = patient;
@@ -36,9 +40,5 @@ public class LoadPatientData : MonoBehaviour {
                 Debug.Log("Unknown patienttype... Fix XML");
                 break;
         }
-        adult.Start();
-        child.Start();
-        pregnant.Start();
-        senior.Start();
 	}
 }

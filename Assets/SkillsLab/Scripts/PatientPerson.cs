@@ -5,17 +5,10 @@ using UnityEngine;
 //This script is neccesary since a patient class cannot be attached to a gameobject as it doesn't derive from Monobehaviour as this conflicts with XML loading.
 //Instead this script is attached.
 public class PatientPerson : MonoBehaviour {
-    public Patient patient = new Patient();
-    public string name;
+    public Patient patient;
 
-    public void Start()
+    public void Reset()
     {
-        StartCoroutine(ChangeName());
-    }
-
-    IEnumerator ChangeName()//this is only for debugging puproses and may be removed at a later time
-    {
-        yield return new WaitForSeconds(2); 
-        name = patient.FirstName;
+        patient = new Patient();
     }
 }

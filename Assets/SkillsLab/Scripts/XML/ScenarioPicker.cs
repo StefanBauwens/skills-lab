@@ -116,7 +116,7 @@ public class ScenarioPicker : MonoBehaviour {
             XMLData.scenario = XMLData.appData.mScenarios[index];
 
             //load everything again:
-            //loadPatientData.Start(); //loads patient
+            loadPatientData.Start(); //loads patient
             loadVanas.Start();
             loadGray.Start();
            
