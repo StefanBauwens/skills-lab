@@ -29,6 +29,7 @@ public class PullSyringe : MonoBehaviour {
     protected DirectionAttraction dAttraction;
     protected SelectInjection sInjection;
     protected bool _hasChosen;
+    protected bool _objectIsHuman;
     //protected bool toggle;
 
     const string NEEDLELAYER = "needle";
@@ -40,6 +41,7 @@ public class PullSyringe : MonoBehaviour {
 
     void Start()
     {
+        _objectIsHuman = false;
         _hasChosen = false;
 		string temp = "34.50";
         isPulling = false;
@@ -78,6 +80,16 @@ public class PullSyringe : MonoBehaviour {
     {
         get{
             return _isGrabbed&&HasNeedle();
+        }
+    }
+
+    public bool ObjectIsHuman
+    {
+        get{
+            return _objectIsHuman;
+        }
+        set{
+            _objectIsHuman = value;
         }
     }
 
@@ -161,6 +173,7 @@ public class PullSyringe : MonoBehaviour {
     {
         if (HasNeedle())
         {
+            _objectIsHuman = true;
             sInjection.Subscribe(this);
             sInjection.optionChosen = false;
             if (grabbedByLeftHand)
@@ -197,7 +210,7 @@ public class PullSyringe : MonoBehaviour {
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
     {
-        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone && HasChosen)
+        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone && HasChosen && !_objectIsHuman) //can't pull if object is human!
         {
             isPulling = true;
             StartCoroutine(Pulling());

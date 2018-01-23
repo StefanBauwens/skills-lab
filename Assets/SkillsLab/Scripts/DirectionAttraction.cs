@@ -60,6 +60,7 @@ public class DirectionAttraction : MonoBehaviour
         {
             isColliding = false;
             pullSyringe.HasChosen = false;
+            pullSyringe.ObjectIsHuman = false;
         }
     }
 
