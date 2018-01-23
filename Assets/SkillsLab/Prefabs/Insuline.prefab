@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 114651923119209582}
   - component: {fileID: 114819103836710458}
   - component: {fileID: 114209085029854048}
+  - component: {fileID: 114131993534977740}
   m_Layer: 0
   m_Name: Insuline
   m_TagString: Untagged
@@ -528,6 +529,17 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!114 &114131993534977740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1099630332072520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114209085029854048
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 114213245053499960}
   - component: {fileID: 114150578154968198}
   - component: {fileID: 114585993982837258}
+  - component: {fileID: 114776275795513954}
   m_Layer: 0
   m_Name: ampouleDipidolor
   m_TagString: Untagged
@@ -381,6 +382,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114776275795513954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257012540259980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114783089602676820

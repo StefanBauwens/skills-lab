@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114916214440927206}
   - component: {fileID: 114402714033017514}
   - component: {fileID: 114619092973614016}
+  - component: {fileID: 114818042256010156}
   m_Layer: 0
   m_Name: paracetamol 1
   m_TagString: medicine
@@ -208,6 +209,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114818042256010156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1040115173759112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114916214440927206

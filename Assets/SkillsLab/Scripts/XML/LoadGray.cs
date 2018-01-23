@@ -60,6 +60,7 @@ public class LoadGray : MonoBehaviour {
                 foreach (var compartment in compartments[index]._compartment)
                 {
                     GameObject temp = Instantiate(medicineObject, compartment.transform.position, medicineObject.transform.rotation);
+                    temp.GetComponent<MedicineData>().medicine = med.CleanUpName(); //Adds the medicine to the object
                     instantiatedMeds.Add(temp);
                 }
                 compartments[index]._compartment[0].transform.parent.GetComponent<Drawer>().medicinesInDrawer.Clear();

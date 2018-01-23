@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114248535631752408}
   - component: {fileID: 114265101362523654}
   - component: {fileID: 114383885926145844}
+  - component: {fileID: 114624510484459306}
   m_Layer: 0
   m_Name: EffervescentTablet
   m_TagString: effervescentTablet
@@ -215,6 +216,17 @@ MonoBehaviour:
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+--- !u!114 &114624510484459306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1789377140443072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136712791948137344
 CapsuleCollider:
   m_ObjectHideFlags: 1

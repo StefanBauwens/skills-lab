@@ -29,6 +29,9 @@ public class PullSyringe : MonoBehaviour {
     protected DirectionAttraction dAttraction;
     protected SelectInjection sInjection;
     protected bool _hasChosen;
+    protected bool _objectIsHuman;
+    public List<Medicine> pulledMedicine = new List<Medicine>(); //list that keeps track of all the medication that's pulled in syringe (only clear when value is 0.00)
+    protected Medicine _currentCollidingMedicine;
     //protected bool toggle;
 
     const string NEEDLELAYER = "needle";
@@ -40,6 +43,7 @@ public class PullSyringe : MonoBehaviour {
 
     void Start()
     {
+        _objectIsHuman = false;
         _hasChosen = false;
 		string temp = "34.50";
         isPulling = false;
@@ -78,6 +82,26 @@ public class PullSyringe : MonoBehaviour {
     {
         get{
             return _isGrabbed&&HasNeedle();
+        }
+    }
+
+    public bool ObjectIsHuman
+    {
+        get{
+            return _objectIsHuman;
+        }
+        set{
+            _objectIsHuman = value;
+        }
+    }
+
+    public Medicine CurrentlCollidingMedicine
+    {
+        get{
+            return _currentCollidingMedicine;
+        }
+        set{
+            _currentCollidingMedicine = value;
         }
     }
 
@@ -161,6 +185,7 @@ public class PullSyringe : MonoBehaviour {
     {
         if (HasNeedle())
         {
+            _objectIsHuman = true;
             sInjection.Subscribe(this);
             sInjection.optionChosen = false;
             if (grabbedByLeftHand)
@@ -197,10 +222,16 @@ public class PullSyringe : MonoBehaviour {
 
     private void ObjectUsed(object sender, InteractableObjectEventArgs e)
     {
-        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone && HasChosen)
+        if (HasNeedle() && !isPulling && !isPushing && dAttraction.IsCollidingWithInjectionZone && HasChosen && !_objectIsHuman) //can't pull if object is human!
         {
             isPulling = true;
             StartCoroutine(Pulling());
+            //ADD medicine to list
+            if (!pulledMedicine.Contains(_currentCollidingMedicine))
+            {
+                pulledMedicine.Add(_currentCollidingMedicine);
+            }
+
         }
     }
 
@@ -217,6 +248,12 @@ public class PullSyringe : MonoBehaviour {
 		float accurateValue = (distance / maxMove) * syringeValue;
 		float valueF = ((Mathf.Round (accurateValue * 2)) / 2.0f);
 		string value = valueF.ToString ("F2");
+
+        if (value == "0.00") //if syringe is empty clear medication it has pulled
+        {
+            pulledMedicine.Clear();
+            Debug.Log("Medication in syringe cleared!");
+        }
 
         lcdText.text = value + " ml";
 
