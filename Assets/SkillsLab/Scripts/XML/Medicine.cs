@@ -22,7 +22,7 @@ public enum Package
     bottle,
     baxter
 }
-
+[Serializable]
 public class Medicine : SearchResult { //inheritance added by stefan
     [XmlAttribute]
     public int mID;

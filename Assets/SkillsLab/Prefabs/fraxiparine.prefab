@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114548088641484568}
   - component: {fileID: 114132706472726634}
   - component: {fileID: 114392183114633410}
+  - component: {fileID: 114486696652896652}
   m_Layer: 0
   m_Name: fraxiparine
   m_TagString: Untagged
@@ -180,6 +181,17 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!114 &114486696652896652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1687562221886468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114548088641484568
 MonoBehaviour:
   m_ObjectHideFlags: 1

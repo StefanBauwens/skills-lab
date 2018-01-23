@@ -48,6 +48,7 @@ public class DirectionAttraction : MonoBehaviour
             else
             {
                 pullSyringe.HasChosen = true;
+                pullSyringe.CurrentlCollidingMedicine = other.transform.parent.gameObject.GetComponent<MedicineData>().medicine;
             }
             isColliding = true;
             injectionZone = other.gameObject.transform;

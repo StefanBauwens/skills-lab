@@ -79,17 +79,19 @@ public class LoadVanas : MonoBehaviour {
                 if (medicineObject != null) //if it found a match
                 {
                     GameObject medicine = Instantiate(medicineObject, position, medicineObject.transform.rotation);
+                    medicine.GetComponent<MedicineData>().medicine = med;
                     instantiatedMeds.Add(medicine);
                 }
                 else
                 {
                     GameObject medicine = Instantiate(unknownMedicinePrefab, position, medicineObject.transform.rotation);
+                    medicine.GetComponent<MedicineData>().medicine = med; //adds the medicine to the object
                     instantiatedMeds.Add(medicine);
                 }
 
                 //list which medicines are in which drawer 
                 drawersGameObject.GetChild(i).GetComponent<Drawer>().medicinesInDrawer.Add(med.Name);
-                            }
+            }
         }
 
     }

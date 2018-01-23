@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114419457815331786}
   - component: {fileID: 114279692173301768}
   - component: {fileID: 114967827680427590}
+  - component: {fileID: 114487660079915348}
   m_Layer: 0
   m_Name: medicinePackage
   m_TagString: Untagged
@@ -182,6 +183,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114487660079915348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407091407024346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114967827680427590

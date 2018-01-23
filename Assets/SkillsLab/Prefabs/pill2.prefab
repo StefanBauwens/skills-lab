@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 114407376995225432}
   - component: {fileID: 114455220564680644}
   - component: {fileID: 114834031360908130}
+  - component: {fileID: 114059161964677558}
   m_Layer: 0
   m_Name: pill2
   m_TagString: medicine
@@ -135,6 +136,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114059161964677558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1471764175484766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114063339507536326
 MonoBehaviour:
   m_ObjectHideFlags: 1
