@@ -19,8 +19,6 @@ public class Door : MonoBehaviour {
         {
             anim.SetBool("open", true);
         }
-		
-        Debug.Log("gameobject: " + gameObject.name + " other collider enter: " + other);
     }
 
     private void OnTriggerExit(Collider other)
@@ -29,8 +27,6 @@ public class Door : MonoBehaviour {
         {
             anim.SetBool("open", false);
         }
-            
-        Debug.Log("gameobject: "+ gameObject.name + " other collider exit: " + other);
     }
 
     public void ResetBoolean(string doorState)

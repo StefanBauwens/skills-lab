@@ -2886,7 +2886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickOnPointerCollision: 1
-  autoActivateWithinDistance: 0.2
+  autoActivateWithinDistance: 0
 --- !u!114 &114016223627176958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4217,6 +4217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightController: {fileID: 0}
   leftController: {fileID: 0}
+  isTablet: 1
 --- !u!114 &114185996045543434
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7754,6 +7754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 124152296}
   - component: {fileID: 124152297}
+  - component: {fileID: 124152298}
   m_Layer: 0
   m_Name: youngAdult
   m_TagString: Untagged
@@ -7787,6 +7788,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eddcf31839961a849ba48fa12a328e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &124152298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 124152295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c09d289a68da44aa1c080e4efab43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &125413534
@@ -9157,6 +9169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 151668835}
   - component: {fileID: 151668836}
+  - component: {fileID: 151668837}
   m_Layer: 0
   m_Name: elderMan
   m_TagString: Untagged
@@ -9190,6 +9203,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eddcf31839961a849ba48fa12a328e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &151668837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 151668834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c09d289a68da44aa1c080e4efab43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &153627698
@@ -16295,6 +16319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327011199}
   - component: {fileID: 327011200}
+  - component: {fileID: 327011201}
   m_Layer: 0
   m_Name: pregnantWoman
   m_TagString: Untagged
@@ -16328,6 +16353,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eddcf31839961a849ba48fa12a328e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &327011201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 327011198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c09d289a68da44aa1c080e4efab43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &327901943
@@ -61242,6 +61278,11 @@ Prefab:
       propertyPath: rightPointer
       value: 
       objectReference: {fileID: 1236200562}
+    - target: {fileID: 114172839501279056, guid: 6cffe6b68cab78742b0326e23beea6c7,
+        type: 2}
+      propertyPath: isTablet
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6cffe6b68cab78742b0326e23beea6c7, type: 2}
   m_IsPrefabParent: 0
@@ -63881,6 +63922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightController: {fileID: 1236200556}
   leftController: {fileID: 186996275}
+  isTablet: 0
 --- !u!65 &1308391330
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79184,6 +79226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1665229845}
   - component: {fileID: 1665229844}
+  - component: {fileID: 1665229846}
   m_Layer: 0
   m_Name: adultMan
   m_TagString: Untagged
@@ -79223,6 +79266,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 34
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &1665229846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1665229843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25c09d289a68da44aa1c080e4efab43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1670214345
 GameObject:
   m_ObjectHideFlags: 0
