@@ -41,9 +41,16 @@ public class DirectionAttraction : MonoBehaviour
     {
         if (other.gameObject.tag == TAGSNAP)
         {
+            if (other.gameObject.GetComponent<Human>()) //if the injectionzone is part of human, only then you need to select injectiontype
+            {
+                pullSyringe.SelectInjectionMethod();           
+            }
+            else
+            {
+                pullSyringe.HasChosen = true;
+            }
             isColliding = true;
             injectionZone = other.gameObject.transform;
-            pullSyringe.SelectInjectionMethod();           
         }
     }
 
