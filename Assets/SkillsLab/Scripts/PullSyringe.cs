@@ -30,7 +30,6 @@ public class PullSyringe : MonoBehaviour {
     protected SelectInjection sInjection;
     protected bool _hasChosen;
     protected bool _objectIsHuman;
-    [SerializeField]
     public List<Medicine> pulledMedicine = new List<Medicine>(); //list that keeps track of all the medication that's pulled in syringe (only clear when value is 0.00)
     protected Medicine _currentCollidingMedicine;
     //protected bool toggle;
