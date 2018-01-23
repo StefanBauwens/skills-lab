@@ -226,12 +226,6 @@ public class PullSyringe : MonoBehaviour {
         {
             isPulling = true;
             StartCoroutine(Pulling());
-            //ADD medicine to list
-            if (!pulledMedicine.Contains(_currentCollidingMedicine))
-            {
-                pulledMedicine.Add(_currentCollidingMedicine);
-            }
-
         }
     }
 
@@ -246,9 +240,19 @@ public class PullSyringe : MonoBehaviour {
         fillWater.localScale = new Vector3(fillWater.localScale.x, distance / 2, fillWater.localScale.z);
         lcdCanvas.gameObject.SetActive(true);
 		float accurateValue = (distance / maxMove) * syringeValue;
+
+        if (accurateValue < 0.3f) //gets rid of rounding errors:
+        {
+            accurateValue = 0;
+        }
+        else if (accurateValue > (syringeValue-0.3f))
+        {
+            accurateValue = syringeValue;
+        }
+
 		float valueF = ((Mathf.Round (accurateValue * 2)) / 2.0f);
 		string value = valueF.ToString ("F2");
-
+        Debug.Log("Value Syringe: " + valueF + " accurate value : " + accurateValue);
         if (value == "0.00") //if syringe is empty clear medication it has pulled
         {
             pulledMedicine.Clear();
@@ -296,6 +300,10 @@ public class PullSyringe : MonoBehaviour {
             float distance = (beginPosition.z - insideSyringe.localPosition.z);
             ResizeWater(distance);
             insideSyringe.localPosition -= (Vector3.forward * Time.deltaTime * speed);
+        }
+        if (!pulledMedicine.Contains(_currentCollidingMedicine)) //add medicine to list
+        {
+            pulledMedicine.Add(_currentCollidingMedicine);
         }
         isPulling = false;
     }

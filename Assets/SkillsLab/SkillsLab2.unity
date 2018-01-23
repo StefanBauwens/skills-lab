@@ -1610,6 +1610,7 @@ GameObject:
   - component: {fileID: 22115140}
   - component: {fileID: 22115142}
   - component: {fileID: 22115141}
+  - component: {fileID: 22115143}
   m_Layer: 0
   m_Name: LeftLowerThigh
   m_TagString: injectionZone
@@ -1663,6 +1664,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &22115143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 22115139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &23087109
 GameObject:
   m_ObjectHideFlags: 0
@@ -8798,6 +8810,7 @@ GameObject:
   - component: {fileID: 143807414}
   - component: {fileID: 143807416}
   - component: {fileID: 143807415}
+  - component: {fileID: 143807417}
   m_Layer: 0
   m_Name: RightUpperArm
   m_TagString: injectionZone
@@ -8851,6 +8864,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &143807417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 143807413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &143951482
 GameObject:
   m_ObjectHideFlags: 0
@@ -9787,6 +9811,7 @@ GameObject:
   - component: {fileID: 162523030}
   - component: {fileID: 162523032}
   - component: {fileID: 162523031}
+  - component: {fileID: 162523033}
   m_Layer: 0
   m_Name: RightButt
   m_TagString: injectionZone
@@ -9840,6 +9865,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &162523033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 162523029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &165174768
 GameObject:
   m_ObjectHideFlags: 0
@@ -16496,6 +16532,7 @@ GameObject:
   - component: {fileID: 326402974}
   - component: {fileID: 326402976}
   - component: {fileID: 326402975}
+  - component: {fileID: 326402977}
   m_Layer: 0
   m_Name: RightLowerThigh
   m_TagString: injectionZone
@@ -16549,6 +16586,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &326402977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 326402973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &327011198
 GameObject:
   m_ObjectHideFlags: 0
@@ -19202,6 +19250,7 @@ GameObject:
   - component: {fileID: 374160943}
   - component: {fileID: 374160945}
   - component: {fileID: 374160944}
+  - component: {fileID: 374160946}
   m_Layer: 0
   m_Name: LeftButt
   m_TagString: injectionZone
@@ -19255,6 +19304,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &374160946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 374160942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &382918672
 GameObject:
   m_ObjectHideFlags: 0
@@ -19344,6 +19404,7 @@ GameObject:
   - component: {fileID: 383492432}
   - component: {fileID: 383492434}
   - component: {fileID: 383492433}
+  - component: {fileID: 383492435}
   m_Layer: 0
   m_Name: LeftButt
   m_TagString: injectionZone
@@ -19397,6 +19458,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &383492435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 383492431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &383801313 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4298245165873488, guid: 1d54e56a59e33e94084f1e9a619aa80d,
@@ -24336,6 +24408,7 @@ GameObject:
   - component: {fileID: 505485792}
   - component: {fileID: 505485794}
   - component: {fileID: 505485793}
+  - component: {fileID: 505485795}
   m_Layer: 0
   m_Name: LeftUpperArm
   m_TagString: injectionZone
@@ -24389,6 +24462,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &505485795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 505485791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &508289445
 GameObject:
   m_ObjectHideFlags: 0
@@ -24461,6 +24545,7 @@ GameObject:
   - component: {fileID: 514169936}
   - component: {fileID: 514169938}
   - component: {fileID: 514169937}
+  - component: {fileID: 514169939}
   m_Layer: 0
   m_Name: RightAbdomen
   m_TagString: injectionZone
@@ -24514,6 +24599,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0.03, y: 0, z: 0}
+--- !u!114 &514169939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 514169935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &516844225
 Prefab:
   m_ObjectHideFlags: 0
@@ -25136,6 +25232,7 @@ GameObject:
   - component: {fileID: 525349946}
   - component: {fileID: 525349948}
   - component: {fileID: 525349947}
+  - component: {fileID: 525349949}
   m_Layer: 0
   m_Name: LeftUpperArm
   m_TagString: injectionZone
@@ -25189,6 +25286,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &525349949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 525349945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &526456688
 GameObject:
   m_ObjectHideFlags: 0
@@ -25606,6 +25714,7 @@ GameObject:
   - component: {fileID: 542221845}
   - component: {fileID: 542221847}
   - component: {fileID: 542221846}
+  - component: {fileID: 542221848}
   m_Layer: 0
   m_Name: RightAbdomen
   m_TagString: injectionZone
@@ -25659,6 +25768,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0.03, y: 0, z: 0}
+--- !u!114 &542221848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 542221844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &544253333 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400134, guid: 91fe2498864eaa54eac168c32be8dab1, type: 3}
@@ -28891,6 +29011,7 @@ GameObject:
   - component: {fileID: 612692143}
   - component: {fileID: 612692145}
   - component: {fileID: 612692144}
+  - component: {fileID: 612692146}
   m_Layer: 0
   m_Name: LeftAbdomen
   m_TagString: injectionZone
@@ -28944,6 +29065,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: -0.03, y: 0, z: 0}
+--- !u!114 &612692146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612692142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &614033694
 GameObject:
   m_ObjectHideFlags: 0
@@ -29088,6 +29220,7 @@ GameObject:
   - component: {fileID: 617416962}
   - component: {fileID: 617416964}
   - component: {fileID: 617416963}
+  - component: {fileID: 617416965}
   m_Layer: 0
   m_Name: RightUpperArm
   m_TagString: injectionZone
@@ -29141,6 +29274,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &617416965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617416961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &623059087
 GameObject:
   m_ObjectHideFlags: 0
@@ -31731,6 +31875,7 @@ GameObject:
   - component: {fileID: 671445718}
   - component: {fileID: 671445720}
   - component: {fileID: 671445719}
+  - component: {fileID: 671445721}
   m_Layer: 0
   m_Name: LeftUpperArm
   m_TagString: injectionZone
@@ -31784,6 +31929,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &671445721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 671445717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &672158176
 Prefab:
   m_ObjectHideFlags: 0
@@ -40123,6 +40279,7 @@ GameObject:
   - component: {fileID: 793907222}
   - component: {fileID: 793907224}
   - component: {fileID: 793907223}
+  - component: {fileID: 793907225}
   m_Layer: 0
   m_Name: RightLowerThigh
   m_TagString: injectionZone
@@ -40176,6 +40333,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &793907225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793907221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &794365728
 GameObject:
   m_ObjectHideFlags: 0
@@ -42830,6 +42998,7 @@ GameObject:
   - component: {fileID: 841631269}
   - component: {fileID: 841631271}
   - component: {fileID: 841631270}
+  - component: {fileID: 841631272}
   m_Layer: 0
   m_Name: LeftLowerThigh
   m_TagString: injectionZone
@@ -42883,6 +43052,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &841631272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 841631268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &841851033
 GameObject:
   m_ObjectHideFlags: 0
@@ -43578,6 +43758,7 @@ GameObject:
   - component: {fileID: 855203745}
   - component: {fileID: 855203747}
   - component: {fileID: 855203746}
+  - component: {fileID: 855203748}
   m_Layer: 0
   m_Name: LeftAbdomen
   m_TagString: injectionZone
@@ -43631,6 +43812,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: -0.03, y: 0, z: 0}
+--- !u!114 &855203748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 855203744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &857564909
 GameObject:
   m_ObjectHideFlags: 0
@@ -45652,6 +45844,7 @@ GameObject:
   - component: {fileID: 903913820}
   - component: {fileID: 903913822}
   - component: {fileID: 903913821}
+  - component: {fileID: 903913823}
   m_Layer: 0
   m_Name: LeftUpperArm
   m_TagString: injectionZone
@@ -45705,6 +45898,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &903913823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 903913819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &905088200
 GameObject:
   m_ObjectHideFlags: 0
@@ -47485,6 +47689,7 @@ GameObject:
   - component: {fileID: 964372492}
   - component: {fileID: 964372494}
   - component: {fileID: 964372493}
+  - component: {fileID: 964372495}
   m_Layer: 0
   m_Name: LeftButt
   m_TagString: injectionZone
@@ -47538,6 +47743,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &964372495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 964372491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &964490669
 GameObject:
   m_ObjectHideFlags: 0
@@ -49315,6 +49531,7 @@ GameObject:
   - component: {fileID: 1005642879}
   - component: {fileID: 1005642881}
   - component: {fileID: 1005642880}
+  - component: {fileID: 1005642882}
   m_Layer: 0
   m_Name: LeftAbdomen
   m_TagString: injectionZone
@@ -49368,6 +49585,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: -0.03, y: 0, z: 0}
+--- !u!114 &1005642882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1005642878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1007249649
 GameObject:
   m_ObjectHideFlags: 0
@@ -57304,6 +57532,7 @@ GameObject:
   - component: {fileID: 1168242775}
   - component: {fileID: 1168242777}
   - component: {fileID: 1168242776}
+  - component: {fileID: 1168242778}
   m_Layer: 0
   m_Name: RightAbdomen
   m_TagString: injectionZone
@@ -57357,6 +57586,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0.03, y: 0, z: 0}
+--- !u!114 &1168242778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1168242774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1168451909
 GameObject:
   m_ObjectHideFlags: 0
@@ -66448,6 +66688,7 @@ GameObject:
   - component: {fileID: 1374111640}
   - component: {fileID: 1374111642}
   - component: {fileID: 1374111641}
+  - component: {fileID: 1374111643}
   m_Layer: 0
   m_Name: RightUpperArm
   m_TagString: injectionZone
@@ -66501,6 +66742,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1374111643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1374111639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1375862961
 GameObject:
   m_ObjectHideFlags: 0
@@ -68757,6 +69009,7 @@ GameObject:
   - component: {fileID: 1422985370}
   - component: {fileID: 1422985372}
   - component: {fileID: 1422985371}
+  - component: {fileID: 1422985373}
   m_Layer: 0
   m_Name: RightAbdomen
   m_TagString: injectionZone
@@ -68810,6 +69063,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0.03, y: 0, z: 0}
+--- !u!114 &1422985373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1422985369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1426277885 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4814379427790226, guid: bbf68216393fb704c9acbc774711c26d,
@@ -76402,6 +76666,7 @@ GameObject:
   - component: {fileID: 1607217732}
   - component: {fileID: 1607217734}
   - component: {fileID: 1607217733}
+  - component: {fileID: 1607217735}
   m_Layer: 0
   m_Name: RightLowerThigh
   m_TagString: injectionZone
@@ -76455,6 +76720,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1607217735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1607217731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1611031491
 GameObject:
   m_ObjectHideFlags: 0
@@ -81333,6 +81609,7 @@ GameObject:
   - component: {fileID: 1716080986}
   - component: {fileID: 1716080988}
   - component: {fileID: 1716080987}
+  - component: {fileID: 1716080989}
   m_Layer: 0
   m_Name: LeftLowerThigh
   m_TagString: injectionZone
@@ -81386,6 +81663,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1716080989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1716080985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1716216413
 Prefab:
   m_ObjectHideFlags: 0
@@ -81510,6 +81798,7 @@ GameObject:
   - component: {fileID: 1719675280}
   - component: {fileID: 1719675282}
   - component: {fileID: 1719675281}
+  - component: {fileID: 1719675283}
   m_Layer: 0
   m_Name: RightButt
   m_TagString: injectionZone
@@ -81563,6 +81852,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1719675283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719675279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1720386993
 GameObject:
   m_ObjectHideFlags: 0
@@ -83952,6 +84252,7 @@ GameObject:
   - component: {fileID: 1771836590}
   - component: {fileID: 1771836592}
   - component: {fileID: 1771836591}
+  - component: {fileID: 1771836593}
   m_Layer: 0
   m_Name: RightButt
   m_TagString: injectionZone
@@ -84005,6 +84306,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1771836593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1771836589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1772742967
 GameObject:
   m_ObjectHideFlags: 0
@@ -85150,6 +85462,7 @@ GameObject:
   - component: {fileID: 1803199484}
   - component: {fileID: 1803199486}
   - component: {fileID: 1803199485}
+  - component: {fileID: 1803199487}
   m_Layer: 0
   m_Name: LeftButt
   m_TagString: injectionZone
@@ -85203,6 +85516,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1803199487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1803199483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1803325465
 GameObject:
   m_ObjectHideFlags: 0
@@ -85622,6 +85946,7 @@ GameObject:
   - component: {fileID: 1808085930}
   - component: {fileID: 1808085932}
   - component: {fileID: 1808085931}
+  - component: {fileID: 1808085933}
   m_Layer: 0
   m_Name: LeftLowerThigh
   m_TagString: injectionZone
@@ -85675,6 +86000,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1808085933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1808085929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1808589069
 GameObject:
   m_ObjectHideFlags: 0
@@ -89198,6 +89534,7 @@ GameObject:
   - component: {fileID: 1900997266}
   - component: {fileID: 1900997268}
   - component: {fileID: 1900997267}
+  - component: {fileID: 1900997269}
   m_Layer: 0
   m_Name: RightButt
   m_TagString: injectionZone
@@ -89251,6 +89588,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1900997269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1900997265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1901462466
 GameObject:
   m_ObjectHideFlags: 0
@@ -95422,6 +95770,7 @@ GameObject:
   - component: {fileID: 2066691411}
   - component: {fileID: 2066691413}
   - component: {fileID: 2066691412}
+  - component: {fileID: 2066691414}
   m_Layer: 0
   m_Name: RightLowerThigh
   m_TagString: injectionZone
@@ -95475,6 +95824,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2066691414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2066691410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2072004338
 GameObject:
   m_ObjectHideFlags: 0
@@ -96006,6 +96366,7 @@ GameObject:
   - component: {fileID: 2087536994}
   - component: {fileID: 2087536996}
   - component: {fileID: 2087536995}
+  - component: {fileID: 2087536997}
   m_Layer: 0
   m_Name: RightUpperArm
   m_TagString: injectionZone
@@ -96059,6 +96420,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2087536997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2087536993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2088989395
 GameObject:
   m_ObjectHideFlags: 0
@@ -97382,6 +97754,7 @@ GameObject:
   - component: {fileID: 2125161267}
   - component: {fileID: 2125161269}
   - component: {fileID: 2125161268}
+  - component: {fileID: 2125161270}
   m_Layer: 0
   m_Name: LeftAbdomen
   m_TagString: injectionZone
@@ -97435,6 +97808,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.07
   m_Center: {x: -0.03, y: 0, z: 0}
+--- !u!114 &2125161270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2125161266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448adfd6000fc40f19fc72e1d7c56fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2125611380
 GameObject:
   m_ObjectHideFlags: 0
