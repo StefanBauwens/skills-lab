@@ -7,8 +7,6 @@ using System;
 public class SearchVanas : MonoBehaviour
 {
     protected Patient[] patients; //represents a list of all patients
-    //protected Medical[] medicals; //represents all the medical stuff to be found in the shelf
-    //protected Medicine[] medicals;
     protected List<Medicine> medicals = new List<Medicine>();
     const string GRAYMED = "#GRAY";
 
@@ -17,19 +15,15 @@ public class SearchVanas : MonoBehaviour
     {
         patients = XMLData.appData.mPatients.ToArray();
 
-        //medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario).ToArray(); //NEEDS TO BE TESTED
         medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario);
 
         foreach (var medicine in XMLData.appData.mMedicines) //add gray objects in vanas
         {
             if (medicine.mName.ToLower().Contains(GRAYMED.ToLower()))
             {
-                medicals.Add(medicine);
+                medicals.Add(medicine.CleanUpName());
             }
         }
-
-        Debug.Log("New medicines loaded");
-
     }
 
     public Patient[] SearchForName(string fName, string lName)
@@ -58,19 +52,6 @@ public class SearchVanas : MonoBehaviour
         }
         return results.ToArray();
     }
-
-    /*public Medical[] SearchForMedical(string name)
-    {
-        List<Medical> results = new List<Medical>();
-        foreach (Medical medical in medicals)
-        {
-            if (medical.Name.ToLower().Contains(name.ToLower()))
-            {
-                results.Add(medical);
-            }
-        }
-        return results.ToArray();
-    }*/
 
     public Medicine[] SearchForMedical(string name)
     {
