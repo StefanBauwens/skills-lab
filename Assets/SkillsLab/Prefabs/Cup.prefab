@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 114834291284512778}
   - component: {fileID: 114874742468173812}
   - component: {fileID: 114169457100449766}
+  - component: {fileID: 114195113265076644}
   m_Layer: 0
   m_Name: Cup
   m_TagString: Untagged
@@ -406,9 +407,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 199aa82455308734fb107454ad3d5715, type: 3}
 --- !u!65 &65834445658883338
@@ -453,6 +454,24 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!114 &114195113265076644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1184387833694068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  medicine:
+    mID: 0
+    mName: 
+    mQuantity: 0
+    mUnit: 0
+    mPackage: 0
+    mPointsOfAttention: 
 --- !u!114 &114623338252618316
 MonoBehaviour:
   m_ObjectHideFlags: 1
