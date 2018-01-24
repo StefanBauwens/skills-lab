@@ -23,15 +23,17 @@ GameObject:
   - component: {fileID: 23837192384222488}
   - component: {fileID: 95565282978572386}
   - component: {fileID: 54813706025986930}
-  - component: {fileID: 136292805217579620}
-  - component: {fileID: 65121751880939640}
-  - component: {fileID: 114339412806635810}
-  - component: {fileID: 114275801015791122}
-  - component: {fileID: 114578761973998630}
-  - component: {fileID: 114366285349675214}
+  - component: {fileID: 65546830111987188}
+  - component: {fileID: 135987731364786934}
+  - component: {fileID: 114433170988086708}
+  - component: {fileID: 114012379386624760}
+  - component: {fileID: 114001200474277750}
+  - component: {fileID: 114464778892524046}
+  - component: {fileID: 114432798344116292}
+  - component: {fileID: 114815525001504894}
   m_Layer: 0
   m_Name: pill3
-  m_TagString: Untagged
+  m_TagString: medicine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1849809705584546}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0589, y: 1.358, z: -0.2817}
+  m_LocalPosition: {x: -11.091179, y: 1.553931, z: 4.2884145}
   m_LocalScale: {x: 0.010761686, y: 0.010761687, z: 0.010761687}
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,7 +108,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65121751880939640
+--- !u!65 &65546830111987188
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -135,7 +137,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114275801015791122
+--- !u!114 &114001200474277750
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -146,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114339412806635810
+--- !u!114 &114012379386624760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -169,7 +171,7 @@ MonoBehaviour:
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
---- !u!114 &114366285349675214
+--- !u!114 &114432798344116292
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -181,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableWhenIdle: 1
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  touchHighlightColor: {r: 1, g: 1, b: 0, a: 0}
   allowedTouchControllers: 0
   ignoredColliders: []
   isGrabbable: 1
@@ -190,8 +192,8 @@ MonoBehaviour:
   validDrop: 1
   grabOverrideButton: 0
   allowedGrabControllers: 0
-  grabAttachMechanicScript: {fileID: 114578761973998630}
-  secondaryGrabActionScript: {fileID: 114275801015791122}
+  grabAttachMechanicScript: {fileID: 114464778892524046}
+  secondaryGrabActionScript: {fileID: 114001200474277750}
   isUsable: 0
   holdButtonToUse: 1
   useOnlyIfGrabbed: 0
@@ -199,7 +201,24 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
---- !u!114 &114578761973998630
+--- !u!114 &114433170988086708
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849809705584546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c08517e04830d6d44a13c5ea5f574181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  unhighlightOnDisable: 1
+  thickness: 0.2
+  customOutlineModels: []
+  customOutlineModelPaths: []
+  enableSubmeshHighlight: 0
+--- !u!114 &114464778892524046
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -216,8 +235,19 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
---- !u!136 &136292805217579620
-CapsuleCollider:
+--- !u!114 &114815525001504894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849809705584546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &135987731364786934
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -225,7 +255,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 3
-  m_Height: 2
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 2.01
   m_Center: {x: 0, y: 0, z: 0}

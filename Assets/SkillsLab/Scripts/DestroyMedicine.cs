@@ -17,12 +17,26 @@ public class DestroyMedicine : MonoBehaviour {
 
 	protected void DestroyMed(object sender, SnapDropZoneEventArgs e)
 	{
-		Debug.Log ("Object : " + sender);
+        bool correctPatient = false;
+        if (Tracker.patient.Equals(this.transform.parent.parent.gameObject.GetComponent<PatientPerson>().patient))
+        {
+            Tracker.interactedWithCorrectPatient = true;
+            correctPatient = true;
+        }
+        else
+        {
+            Tracker.wrongPatient++;
+        }
+
 		foreach (Transform child in this.transform) {
 			if (child.tag == TAG) {
-				Destroy (child.gameObject);
+                if (correctPatient && child.gameObject.GetComponent<MedicineData>().medicine.Equals(Tracker.medicine))
+                {
+                    Tracker.correctMedicineGiven = true; //if correctPatient and correct medicine
+                    Tracker.quantityApplied++;
+                }
+                Destroy (child.gameObject);
 			}
 		}
-        //GameObject.Destroy ((GameObject)sender);
-	}
+    }
 }

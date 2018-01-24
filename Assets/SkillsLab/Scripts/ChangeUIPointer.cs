@@ -7,6 +7,7 @@ public class ChangeUIPointer : MonoBehaviour {
 
     public GameObject rightController;
     public GameObject leftController;
+    public bool isTablet;
     private VRTK_Pointer rightPointer;
     private VRTK_Pointer leftPointer;
     private VRTK_BezierPointerRenderer rightBezier;
@@ -27,7 +28,7 @@ public class ChangeUIPointer : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         // If bodycollider collides with trigger collider
-        if (other.gameObject.name == "[VRTK][AUTOGEN][BodyColliderContainer]")
+        if (other.gameObject.name == "[VRTK][AUTOGEN][BodyColliderContainer]" && !isTablet )
         {
             SetPointerRenderer(false);
         }
@@ -36,7 +37,7 @@ public class ChangeUIPointer : MonoBehaviour {
     private void OnTriggerExit(Collider other)
     {
         // If bodycollider collides with trigger collider
-        if (other.gameObject.name == "[VRTK][AUTOGEN][BodyColliderContainer]")
+        if (other.gameObject.name == "[VRTK][AUTOGEN][BodyColliderContainer]" && !isTablet && !TabletChecker.isGrabbingTablet)
         {
             SetPointerRenderer(true);
         }
@@ -66,7 +67,7 @@ public class ChangeUIPointer : MonoBehaviour {
             rightStraight.enabled = true;
             leftStraight.enabled = true;
             rightPointer.pointerRenderer = rightStraight;
-            leftPointer.pointerRenderer = leftStraight;
+            leftPointer.pointerRenderer = leftStraight;  
         }
 
         rightPointer.pointerRenderer.enabled = true;

@@ -8,12 +8,20 @@ public class DirectionAttraction : MonoBehaviour
 
     protected bool isColliding;
     protected Transform injectionZone; //an injection zone the syringe currently is colliding with
-    protected PullSyringe pullSyringe; 
+    protected PullSyringe pullSyringe;
+    protected Collider _collidingObject;
 
     public bool IsCollidingWithInjectionZone
     {
         get{
             return isColliding;
+        }
+    }
+
+    public Collider CollidingObject
+    {
+        get{
+            return _collidingObject;
         }
     }
 
@@ -41,6 +49,24 @@ public class DirectionAttraction : MonoBehaviour
     {
         if (other.gameObject.tag == TAGSNAP)
         {
+            _collidingObject = other;
+            if (other.gameObject.GetComponent<Human>()) //if the injectionzone is part of human, only then you need to select injectiontype
+            {
+                if (other.transform.parent.parent.gameObject.GetComponent<PatientPerson>().patient.Equals(Tracker.patient))
+                {
+                    Tracker.interactedWithCorrectPatient = true;
+                }
+                else
+                {
+                    Tracker.wrongPatient++;
+                }
+                pullSyringe.SelectInjectionMethod();           
+            }
+            else
+            {
+                pullSyringe.HasChosen = true;
+                pullSyringe.CurrentlCollidingMedicine = other.transform.parent.gameObject.GetComponent<MedicineData>().medicine;
+            }
             isColliding = true;
             injectionZone = other.gameObject.transform;
         }
@@ -50,7 +76,10 @@ public class DirectionAttraction : MonoBehaviour
     {
         if (other.gameObject.tag == TAGSNAP)
         {
+            pullSyringe.ObjectIsHuman = false;
+            _collidingObject = null;
             isColliding = false;
+            pullSyringe.HasChosen = false;
         }
     }
 

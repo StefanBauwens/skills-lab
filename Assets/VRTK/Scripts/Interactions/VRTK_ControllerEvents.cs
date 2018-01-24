@@ -695,6 +695,7 @@ namespace VRTK
         {
             if (ButtonOnePressed != null)
             {
+                Debug.Log("Button one pressed");
                 ButtonOnePressed(this, e);
             }
         }

@@ -6,7 +6,8 @@ using VRTK;
 
 public class Drawer : MonoBehaviour {
 
-    public string medicineInDrawer;
+    //public string medicineInDrawer;
+    public List<string> medicinesInDrawer;
     public GameObject drawerLight;
     private VRTK_InteractableObject interactScript;
     private Rigidbody rb;

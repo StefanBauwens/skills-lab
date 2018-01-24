@@ -17,6 +17,7 @@ TagManager:
   - ivSyringe
   - ivTubes
   - medicine
+  - wristband
   layers:
   - Default
   - TransparentFX

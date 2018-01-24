@@ -78,6 +78,8 @@ GameObject:
   - component: {fileID: 114702402963401816}
   - component: {fileID: 114991980914416364}
   - component: {fileID: 114103775030998372}
+  - component: {fileID: 114425478235246806}
+  - component: {fileID: 114750603234082898}
   m_Layer: 10
   m_Name: 27G
   m_TagString: Untagged
@@ -376,6 +378,18 @@ MonoBehaviour:
   hideDelayOnGrab: 0
   hideControllerOnUse: 0
   hideDelayOnUse: 0
+--- !u!114 &114425478235246806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580754096463308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f003533c4ef4841b5f1b61b83067a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationInInventory: {x: 90, y: 0, z: -90}
 --- !u!114 &114584411765126770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -437,6 +451,17 @@ MonoBehaviour:
   throwVelocityWithAttachDistance: 0
   throwMultiplier: 1
   onGrabCollisionDelay: 0
+--- !u!114 &114750603234082898
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1580754096463308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114930835831598972
 MonoBehaviour:
   m_ObjectHideFlags: 1

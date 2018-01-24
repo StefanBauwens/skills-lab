@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 114495782208087942}
   - component: {fileID: 114523305610649150}
   - component: {fileID: 114951570240851384}
+  - component: {fileID: 114901865814662722}
   m_Layer: 10
   m_Name: 27G
   m_TagString: Untagged
@@ -114,6 +115,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4264092273293602}
+  - component: {fileID: 114857806134423302}
   m_Layer: 0
   m_Name: needleAndCap
   m_TagString: Untagged
@@ -707,6 +709,17 @@ MonoBehaviour:
   customOutlineModels: []
   customOutlineModelPaths: []
   enableSubmeshHighlight: 0
+--- !u!114 &114857806134423302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1577985211864114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114863191626042760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -737,6 +750,18 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!114 &114901865814662722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470806743778674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 814f60b3be435465bb8b6b11e68304a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanBeUsedFor: 02000000
 --- !u!114 &114951570240851384
 MonoBehaviour:
   m_ObjectHideFlags: 1

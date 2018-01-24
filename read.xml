@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MedicalAppData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <mPatients>
+    <Patient mID="0">
+      <mName>Jane Eyre</mName>
+      <mAge>29</mAge>
+      <mWeight>80</mWeight>
+      <mType>pregnant</mType>
+      <mSex>female</mSex>
+      <mAllergies />
+    </Patient>
+    <Patient mID="1">
+      <mName>Jim Doe</mName>
+      <mAge>32</mAge>
+      <mWeight>70</mWeight>
+      <mType>adult</mType>
+      <mSex>male</mSex>
+	<mAllergies />
+    </Patient>
+    <Patient mID="2">
+      <mName>Christian Ferdinand</mName>
+      <mAge>19</mAge>
+      <mWeight>65</mWeight>
+      <mType>child</mType>
+      <mSex>male</mSex>
+	 <mAllergies />
+    </Patient>
+    <Patient mID="3">
+      <mName>Jasper Marco</mName>
+      <mAge>72</mAge>
+      <mWeight>70</mWeight>
+      <mType>senior</mType>
+      <mSex>male</mSex>
+	 <mAllergies />
+    </Patient>
+  </mPatients>
+  <mMedicines>
+    <Medicine mID="0">
+      <mName>primperan#gray</mName>
+      <mQuantity>6</mQuantity>
+      <mUnit>ml</mUnit>
+      <mPackage>flask</mPackage>
+      <mPointsOfAttention>Gebruik bij misselijkheid, migraine en braken.</mPointsOfAttention>
+    </Medicine>
+    <Medicine mID="1">
+      <mName>litican#gray</mName>
+      <mQuantity>6</mQuantity>
+      <mUnit>ml</mUnit>
+      <mPackage>flask</mPackage>
+      <mPointsOfAttention>Gebruik bij misselijkheid, migraine en braken.</mPointsOfAttention>
+    </Medicine>
+    <Medicine mID="2">
+      <mName>dipidolor#gray</mName>
+      <mQuantity>6</mQuantity>
+      <mUnit>ml</mUnit>
+      <mPackage>flask</mPackage>
+      <mPointsOfAttention>Dipidolor wordt voor, tijdens en/of na
+de operatie toegediend om pijn te verminderen.</mPointsOfAttention>
+    </Medicine>
+    <Medicine mID="3">
+      <mName>paracetamol</mName>
+      <mQuantity>16</mQuantity>
+      <mUnit>units</mUnit>
+      <mPackage>box</mPackage>
+      <mPointsOfAttention>Pijnstiller en helpt tegen koorts.</mPointsOfAttention>
+    </Medicine>
+    <Medicine mID="4">
+      <mName>lormetazepam</mName>
+      <mQuantity>50</mQuantity>
+      <mUnit>units</mUnit>
+      <mPackage>box</mPackage>
+      <mPointsOfAttention>Voor het behandelen van slapeloosheid.</mPointsOfAttention>
+    </Medicine>
+    <Medicine mID="5">
+      <mName>ibuprofen</mName>
+      <mQuantity>50</mQuantity>
+      <mUnit>units</mUnit>
+      <mPackage>bottle</mPackage>
+      <mPointsOfAttention>Pijnstiller voor het behandelen van gewrichtspijn, hoofdpijn, menstruatiepijn en griep.</mPointsOfAttention>
+    </Medicine>
+    <Medicine mID="6">
+      <mName>aspirine bruis</mName>
+      <mQuantity>50</mQuantity>
+      <mUnit>units</mUnit>
+      <mPackage>bottle</mPackage>
+      <mPointsOfAttention>Stilt hoofdpijn, verlaagt koorts en remt ontstekingen.</mPointsOfAttention>
+    </Medicine>
+    <Medicine mID="7">
+      <mName>insuline</mName>
+      <mQuantity>50</mQuantity>
+      <mUnit>ml</mUnit>
+      <mPackage>bottle</mPackage>
+      <mPointsOfAttention>Injectiemiddel voor mensen met diabetes die zelf geen, of onvoldoende insuline aanmaken.</mPointsOfAttention>
+    </Medicine>
+  </mMedicines>
+  <mTools>
+    <DeliveryTool mID="0">
+      <mName>syringe#10#SC#5</mName>
+    </DeliveryTool>
+    <DeliveryTool mID="1">
+      <mName>syringe#2.5#SC#2</mName>
+    </DeliveryTool>
+    <DeliveryTool mID="2">
+      <mName>syringe#20#IM#9.50</mName>
+    </DeliveryTool>
+    <DeliveryTool mID="3">
+      <mName>empty</mName>
+    </DeliveryTool>
+  </mTools>
+  <mMethods>
+    <DeliveryMethod mID="0">
+      <mName>use syringe</mName>
+      <mTools>
+        <int>0</int>
+      </mTools>
+    </DeliveryMethod>
+    <DeliveryMethod mID="1">
+      <mName>use syringe1</mName>
+      <mTools>
+        <int>1</int>
+      </mTools>
+    </DeliveryMethod>
+    <DeliveryMethod mID="2">
+      <mName>use syringe2</mName>
+      <mTools>
+        <int>2</int>
+      </mTools>
+    </DeliveryMethod>
+    <DeliveryMethod mID="3">
+      <mName>dont use syringe</mName>
+      <mTools>
+        <int>3</int>
+      </mTools>
+    </DeliveryMethod>
+  </mMethods>
+  <mDrawers>
+    <CabinetDrawer mID="0">
+      <mMedicines>
+        <int>3</int>
+        <int>4</int>
+      </mMedicines>
+      <mDeliveryTools>
+        <int>0</int>
+      </mDeliveryTools>
+      <mIsLocked>true</mIsLocked>
+    </CabinetDrawer>
+    <CabinetDrawer mID="1">
+      <mMedicines>
+        <int>5</int>
+      </mMedicines>
+      <mDeliveryTools>
+	   <int>0</int>
+      </mDeliveryTools>
+      <mIsLocked>false</mIsLocked>
+    </CabinetDrawer>
+    <CabinetDrawer mID="2">
+      <mMedicines>
+        <int>6</int>
+        <int>7</int>
+      </mMedicines>
+      <mDeliveryTools>
+	   <int>0</int>
+      </mDeliveryTools>
+      <mIsLocked>true</mIsLocked>
+    </CabinetDrawer>
+  </mDrawers>
+  <mCabinets>
+    <Cabinet mID="0">
+      <mDrawers>
+        <int>0</int>
+	   <int>1</int>
+	   <int>2</int>
+      </mDrawers>
+    </Cabinet>
+    <Cabinet mID="1">
+      <mDrawers>
+	  <int>1</int>
+	  <int>2</int>
+      </mDrawers>
+    </Cabinet>
+    <Cabinet mID="2">
+      <mDrawers>
+	  <int>0</int>
+	  <int>2</int>
+      </mDrawers>
+    </Cabinet>
+  </mCabinets>
+  <mScenarios>
+    <Scenario mID="0">
+      <mName>Scenario 1#Patient heeft hoofdpijn en wil een bruistablet.</mName>
+      <mPatientID>0</mPatientID>
+      <mCabinetID>0</mCabinetID>
+      <mMedicineID>6</mMedicineID>
+      <mDeliveryMethod>3</mDeliveryMethod>
+    </Scenario>
+    <Scenario mID="1">
+      <mName>Scenario 2#Patient gaat straks operatie ondergaan en moet iets tegen de pijn krijgen.</mName>
+      <mPatientID>3</mPatientID>
+      <mCabinetID>0</mCabinetID>
+      <mMedicineID>2</mMedicineID>
+      <mDeliveryMethod>1</mDeliveryMethod>
+    </Scenario>
+  </mScenarios>
+  <mMetaData>
+    <mVersion>0.1</mVersion>
+    <mDateTime>2017-12-13T21:16:31.347479+01:00</mDateTime>
+    <mGenerator>KdG XML Generator v0.1</mGenerator>
+  </mMetaData>
+</MedicalAppData>

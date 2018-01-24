@@ -22,9 +22,11 @@ GameObject:
   - component: {fileID: 33972146376481596}
   - component: {fileID: 23127276073621100}
   - component: {fileID: 95448504224285350}
+  - component: {fileID: 135609288175506244}
+  - component: {fileID: 114167467682909304}
   m_Layer: 0
   m_Name: WristbandNew
-  m_TagString: Untagged
+  m_TagString: wristband
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1904411619014786}
-  m_LocalRotation: {x: -0.27303833, y: -0.074282914, z: -0.2517895, w: 0.92549133}
-  m_LocalPosition: {x: -2.609, y: 1.327, z: -0.987}
-  m_LocalScale: {x: 0.021504357, y: 0.02150435, z: 0.02150435}
+  m_LocalRotation: {x: 0.004646228, y: 0.889574, z: -0.10446598, w: -0.4446611}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.017226525, y: 0.017226517, z: 0.017226523}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -32.874, y: 0, z: -30.439001}
+  m_LocalEulerAnglesHint: {x: 10.47, y: 233.659, z: 5.905}
 --- !u!23 &23127276073621100
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -100,3 +102,27 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114167467682909304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1904411619014786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f962d55e743db7e4981a083f47778de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patientData: {fileID: 0}
+--- !u!135 &135609288175506244
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1904411619014786}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3
+  m_Center: {x: 0.000011563363, y: 0.00006103519, z: 0.0004311209}

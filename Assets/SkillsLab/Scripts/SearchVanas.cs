@@ -2,21 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 public class SearchVanas : MonoBehaviour
 {
     protected Patient[] patients; //represents a list of all patients
-    protected Medical[] medicals; //represents all the medical stuff to be found in the shelf
+    protected List<Medicine> medicals = new List<Medicine>();
+    const string GRAYMED = "#GRAY";
 
     // Use this for initialization
     public void Start()
     {
-        patients = new Patient[] { new Patient("Bauwens", "Stefan", "jabla", 22, true, 62.5f, "not aware of any", "none", "Effervescent tablet", "x", "2 Packs of effervecent tablets per day"), new Patient("Ho", "Cindy", "habla", 20, false, 1, "Air", "none", "Effervescent tablet", "x", "1 shot of cocaine a day") };
-		medicals = new Medical[] {
-			new Medical ("Ibuprofen", "", "A1", TypeOfMedicine.Pill, 4),
-			new Medical ("Aspirine", "bruis", "B2", TypeOfMedicine.EffervescentTablet, 3),
-			new Medical ("Fun", "bla", "C#", TypeOfMedicine.IDKYET, 9001)
-		};
+        patients = XMLData.appData.mPatients.ToArray();
+
+        medicals = XMLData.GetMedicinesFromScenario(XMLData.scenario);
+
+        foreach (var medicine in XMLData.appData.mMedicines) //add gray objects in vanas
+        {
+            if (medicine.mName.ToLower().Contains(GRAYMED.ToLower()))
+            {
+                medicals.Add(medicine.CleanUpName());
+            }
+        }
     }
 
     public Patient[] SearchForName(string fName, string lName)
@@ -46,10 +53,10 @@ public class SearchVanas : MonoBehaviour
         return results.ToArray();
     }
 
-    public Medical[] SearchForMedical(string name)
+    public Medicine[] SearchForMedical(string name)
     {
-        List<Medical> results = new List<Medical>();
-        foreach (Medical medical in medicals)
+        List<Medicine> results = new List<Medicine>();
+        foreach (Medicine medical in medicals)
         {
             if (medical.Name.ToLower().Contains(name.ToLower()))
             {
@@ -58,7 +65,5 @@ public class SearchVanas : MonoBehaviour
         }
         return results.ToArray();
     }
-
-
 
 }

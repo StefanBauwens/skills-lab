@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/ZFBrowser/Demo/SimpleBrowser.unity
+    guid: 6c846545c9ebeb94fb58f6dab50d2531
   - enabled: 1
     path: Assets/SkillsLab/SkillsLab2.unity
     guid: d7871bb5762d07141a919eaf56ca532c

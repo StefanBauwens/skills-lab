@@ -16,14 +16,14 @@ public class KeyBoard : MonoBehaviour {
     public Button GoButtonPatient;
     public Button GoButtonMedical;
 
-    protected SearchVanas search;
+    public SearchVanas search;
     protected SearchResult[] results;
 
     protected bool ignoredValueChange;
 
 
 	// Use this for initi1alization
-	void Start () {
+	public void Start () {
         ignoredValueChange = false;
         inputF = firstName;
         search = new SearchVanas();
@@ -110,7 +110,7 @@ public class KeyBoard : MonoBehaviour {
             resultsMedical.options.Clear();
             foreach (var item in results)
             {
-                resultsMedical.options.Add(new Dropdown.OptionData(item.Name));
+                resultsMedical.options.Add(new Dropdown.OptionData(((Medicine)item).Name));
             }
             resultsMedical.options.Add(new Dropdown.OptionData("None"));
             ignoredValueChange = true;
@@ -144,7 +144,8 @@ public class KeyBoard : MonoBehaviour {
             resultsPatients.options.Clear();
             foreach (var item in results)
             {
-                resultsPatients.options.Add(new Dropdown.OptionData(item.Name + " " + ((Patient)item).FirstName));
+                //resultsPatients.options.Add(new Dropdown.OptionData(item.Name + " " + ((Patient)item).FirstName));
+                resultsPatients.options.Add(new Dropdown.OptionData(((Patient)item).Name));
             }
             resultsPatients.options.Add(new Dropdown.OptionData("None"));
             ignoredValueChange = true;

@@ -23,14 +23,17 @@ ModelImporter:
     2300002: pushbutton
     2300004: top_MeshPart0
     2300006: top_MeshPart1
+    2300008: top
     3300000: body
     3300002: pushbutton
     3300004: top_MeshPart0
     3300006: top_MeshPart1
+    3300008: top
     4300000: pushbutton
     4300002: body
     4300004: top_MeshPart0
     4300006: top_MeshPart1
+    4300008: top
     9500000: //RootNode
   externalObjects:
   - first:
@@ -80,6 +83,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
