@@ -48,8 +48,6 @@ public static class Tracker {
     //public static List<DeliveryTool> deliveryTools = new List<DeliveryTool>(); //deliverytools are syringe, cup of water, needlecontainer, IV_hand
     //add when interacted with (e.G. snap on body, snap needle on container)
 
-    //!!DONT forget to check if has to use syringe or not, else ignore some checks
-
     public static void ResetTracking()
     {
         //REMEMBER ONLY to call this after XMLDATA has been updated with new values
