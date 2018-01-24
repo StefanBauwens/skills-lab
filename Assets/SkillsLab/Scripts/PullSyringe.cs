@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using VRTK;
 using System.Globalization;
+using System.Linq;
 
 public class PullSyringe : MonoBehaviour {
 
@@ -32,6 +33,9 @@ public class PullSyringe : MonoBehaviour {
     protected bool _objectIsHuman;
     public List<Medicine> pulledMedicine = new List<Medicine>(); //list that keeps track of all the medication that's pulled in syringe (only clear when value is 0.00)
     protected Medicine _currentCollidingMedicine;
+    protected float valueF;
+    protected Transform needleUsed;
+    protected NeedleOption _injectionOption;
     //protected bool toggle;
 
     const string NEEDLELAYER = "needle";
@@ -43,6 +47,7 @@ public class PullSyringe : MonoBehaviour {
 
     void Start()
     {
+        valueF = 0f;
         _objectIsHuman = false;
         _hasChosen = false;
 		string temp = "34.50";
@@ -76,7 +81,17 @@ public class PullSyringe : MonoBehaviour {
         leftEvents.TouchpadReleased += new ControllerInteractionEventHandler(LeftTouchpadReleased);
         rightEvents.TouchpadPressed += new ControllerInteractionEventHandler(RightTouchpadPressed);
         rightEvents.TouchpadReleased += new ControllerInteractionEventHandler(RightTouchpadReleased);
-   }
+    }
+
+    public NeedleOption InjectionOption
+    {
+        get {
+            return _injectionOption;
+        }
+        set{
+            _injectionOption = value;
+        }
+    }
 
     public bool IsGrabbedWithNeedle
     {
@@ -241,16 +256,16 @@ public class PullSyringe : MonoBehaviour {
         lcdCanvas.gameObject.SetActive(true);
 		float accurateValue = (distance / maxMove) * syringeValue;
 
-        if (accurateValue < 0.3f) //gets rid of rounding errors:
+        if (accurateValue < 0.5f) //gets rid of rounding errors:
         {
             accurateValue = 0;
         }
-        else if (accurateValue > (syringeValue-0.3f))
+        else if (accurateValue > (syringeValue-0.5f))
         {
             accurateValue = syringeValue;
         }
 
-		float valueF = ((Mathf.Round (accurateValue * 2)) / 2.0f);
+		valueF = ((Mathf.Round (accurateValue * 2)) / 2.0f);
 		string value = valueF.ToString ("F2");
         Debug.Log("Value Syringe: " + valueF + " accurate value : " + accurateValue);
         if (value == "0.00") //if syringe is empty clear medication it has pulled
@@ -275,6 +290,7 @@ public class PullSyringe : MonoBehaviour {
             if (LayerMask.LayerToName(child.gameObject.layer) == NEEDLELAYER)
             {
                 returnValue = true;
+                needleUsed = child;
             }
         }
         return returnValue;
@@ -310,13 +326,53 @@ public class PullSyringe : MonoBehaviour {
 
     IEnumerator Pushing()
     {
+        float beginValue = valueF;
         while (!isPulling && isPushing && (beginPosition.z- insideSyringe.localPosition.z) > 0)
         {
             yield return new WaitForEndOfFrame();
             float distance = (beginPosition.z - insideSyringe.localPosition.z);
             ResizeWater(distance);
-            insideSyringe.localPosition += (Vector3.forward * Time.deltaTime * speed);
-            
+            insideSyringe.localPosition += (Vector3.forward * Time.deltaTime * speed);         
+        }
+        float endValue = valueF;
+        if (_objectIsHuman)
+        {
+            bool correctMed = false;
+            if (pulledMedicine.Count==1 && pulledMedicine[0].Equals(Tracker.medicine))
+            {
+                correctMed = true;
+                Tracker.correctMedicineGiven = true;
+            }
+            if (dAttraction.CollidingObject.gameObject.transform.parent.parent.gameObject.GetComponent<PatientPerson>().patient.Equals(Tracker.patient) && correctMed)
+            {
+                Tracker.amountOfLiquidApplied += (beginValue - endValue); //only adds it if correct patient and correct med
+                if (this.syringeValue == Tracker.syringeData.syringeValue)
+                {
+                    Tracker.correctSyringe = true;
+                }
+                if (needleUsed.gameObject.GetComponent<NeedleUse>().CanBeUsedFor.Contains(Tracker.syringeData.needleToUse)) //if using correct needle
+                {
+                    Tracker.correctNeedle = true;
+
+                    if (needleUsed.gameObject.GetComponent<NeedleUse>().CanBeUsedFor.Contains(_injectionOption)) //checks to see if injectionOption is even "possible" with this needle
+                    {
+                        Tracker.correctInjectionMethod = true;
+                        if (dAttraction.CollidingObject.gameObject.GetComponent<NeedleUse>().CanBeUsedFor.Contains(this._injectionOption))
+                        {
+                            Tracker.correctPlaceOnBody = true;
+                        }
+                    }
+                    else
+                    {
+                        Tracker.correctInjectionMethod = false;
+                    }
+
+                }
+                else
+                {
+                    Tracker.correctNeedle = false; //this does mean that if you used the right needle, but aftewards a wrong one it will be counted as wrong.
+                }
+            }
         }
         isPushing = false;
     }

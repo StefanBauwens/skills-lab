@@ -48,7 +48,12 @@ public class SwitchPanels : MonoBehaviour {
         }
         else
         {
-;            retrieveButton.gameObject.SetActive(false);
+;           retrieveButton.gameObject.SetActive(false);
+            Patient result2 = (Patient)result;
+            if (result2.Equals(Tracker.patient))
+            {
+                Tracker.checkPatient = true;
+            }
         }
         currentResult = result;
         panelResults.GetComponentInChildren<Text>().text = result.ToResult();
@@ -72,11 +77,19 @@ public class SwitchPanels : MonoBehaviour {
     protected void RetrieveButton()
     {
         //((/*Medical*/Medicine)currentResult).Quantity--; //SEE IF QUANTITY IS ABOUT HOW MANY PILLS IN A BOX, OR IF ITS ABOUT HOW MANY BOXES WITH PILLS. BIT CONFUSING WITH XML
+        Medicine result2 = (Medicine)currentResult;
+        if (result2.Equals(Tracker.medicine))
+        {
+            Tracker.correctMedicineRetrieved = true;
+        }
+        else
+        {
+            Tracker.wrongMedicines++;
+        }
 
         EventParam medicine = new EventParam();
         medicine.param1 = /*currentResult.Name;*/((Medicine)currentResult).Name;
         EventManagerParam.TriggerEvent(GameEvent.UNLOCK_DRAWER, medicine);
-        //Debug.Log("medicine selected: " + currentResult.Name);
     }
 
     protected void DisablePanel(CanvasGroup panel, bool disablePanel)

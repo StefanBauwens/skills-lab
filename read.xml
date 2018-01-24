@@ -51,7 +51,7 @@
   </mMedicines>
   <mTools>
     <DeliveryTool mID="0">
-      <mName>syringe 50cc</mName>
+      <mName>syringe#10#SC#5</mName>
     </DeliveryTool>
     <DeliveryTool mID="1">
       <mName>cup of water</mName>
@@ -130,7 +130,7 @@
       <mName>Yolo#This is yolo</mName>
       <mPatientID>2</mPatientID>
       <mCabinetID>1</mCabinetID>
-      <mMedicineID>0</mMedicineID>
+      <mMedicineID>2</mMedicineID>
       <mDeliveryMethod>0</mDeliveryMethod>
     </Scenario>
   </mScenarios>

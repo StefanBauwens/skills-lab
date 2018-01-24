@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
 
-public enum InjectionOption
+/*public enum InjectionOption
 {
     IV = 0,
     IM,
     SC
-}
+}*/
 
 public class SelectInjection : MonoBehaviour {
     public VRTK_ControllerEvents leftController;
@@ -28,7 +28,8 @@ public class SelectInjection : MonoBehaviour {
     public bool leftHand;
 
     public bool optionChosen;
-    protected InjectionOption option; //this says which option has been chosen
+    //protected InjectionOption option; //this says which option has been chosen
+    protected NeedleOption option; //this says which option has been chosen
 
 	// Use this for initialization
 	void Start () {
@@ -112,10 +113,11 @@ public class SelectInjection : MonoBehaviour {
     {
         if (!optionChosen && leftHand)
         {
-            option = (InjectionOption)Mathf.FloorToInt(leftController.GetTouchpadAxisAngle() / (360 / 3));
+            option = (NeedleOption)Mathf.FloorToInt(leftController.GetTouchpadAxisAngle() / (360 / 3));
             optionChosen = true;
             isTouchingLeft = false;
             EnableLeftOptions(false);
+            subscribedSyringe.InjectionOption = option;
             subscribedSyringe.StopChoosing();
             Debug.Log("Option = " + option.ToString());
         }
@@ -134,10 +136,11 @@ public class SelectInjection : MonoBehaviour {
     {
         if (!optionChosen && !leftHand)
         {
-            option = (InjectionOption)Mathf.FloorToInt(rightController.GetTouchpadAxisAngle() / (360 / 3));
+            option = (NeedleOption)Mathf.FloorToInt(rightController.GetTouchpadAxisAngle() / (360 / 3));
             optionChosen = true;
             EnableRightOptions(false);
             isTouchingRight = false;
+            subscribedSyringe.InjectionOption = option;
             subscribedSyringe.StopChoosing();
             Debug.Log("Option = " + option.ToString());
         }

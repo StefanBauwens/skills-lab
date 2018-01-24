@@ -91,9 +91,68 @@ public class ScenarioPicker : MonoBehaviour {
 
     public void ButtonFinish()
     {
+        //fill in reportPanel
+        string textValue = "<b>REPORT</b>\n\nInteracted with correct patient: " + Answer(Tracker.interactedWithCorrectPatient);
+        textValue += ("Amount of times interacted with incorrect patient: " + Answer(Tracker.wrongPatient));
+        textValue += ("Checked patient on tablet or Vanas: " + Answer(Tracker.checkPatient));
+        textValue += ("Retrieved correct medicine from Vanas: " + Answer(Tracker.correctMedicineRetrieved));
+        textValue += ("Amount of times retrieved incorrect medicine" + Answer(Tracker.wrongMedicines));
+        textValue += ("Correct medicine given to patient: " + Answer(Tracker.correctMedicineGiven));
+        if (Tracker.usingSyringe)
+        {
+            textValue += ("Correct amount of medicine injected: " + Answer(Tracker.amountOfLiquidApplied == Tracker.syringeData.amountToPull));
+            textValue += ("Correct syringe used: " + Answer(Tracker.correctSyringe));
+            textValue += ("Correct needle used: " + Answer(Tracker.correctNeedle));
+            textValue += ("Correct injection method chosen: " + Answer(Tracker.correctInjectionMethod));
+            textValue += ("Injected on correct place on body: " + Answer(Tracker.correctPlaceOnBody));
+        }
+        else
+        {
+            textValue += ("Amount of times given medicine: " + Answer(Tracker.quantityApplied, 1));
+        }
+
+        reportPanel.GetComponentInChildren<Text>().text = textValue;
+
         EnablePanel(loadPanel, false);
         EnablePanel(reportPanel, true);
     }
+
+    protected string Answer(bool boolValue)
+    {
+        if (boolValue)
+        {
+            return "<b><color=#00ff00ff>Yes</color></b>\n";
+        }
+        else
+        {
+            return "<b>< color=#ff0000ff>No</color></b>\n";
+        }
+    }
+
+    protected string Answer(int value)
+    {
+        if (value == 0)
+        {
+            return "<b><color=#00ff00ff>0</color></b>\n";
+        }
+        else
+        {
+            return ("<b>< color=#ff0000ff>" + value + "</color></b>\n");
+        }
+    }
+
+    protected string Answer(int value, int correctValue)
+    {
+        if (value == correctValue)
+        {
+            return ("<b><color=#00ff00ff>" + correctValue + "</color></b>\n");
+        }
+        else
+        {
+            return ("<b>< color=#ff0000ff>" + value + "</color></b>\n");
+        }
+    }
+
 
     public void ButtonBack()
     {
@@ -119,6 +178,7 @@ public class ScenarioPicker : MonoBehaviour {
             loadPatientData.Start(); //loads patient
             loadVanas.Start();
             loadGray.Start();
+            Tracker.patient = XMLData.appData.mPatients[XMLData.scenario.mPatientID];
            
             foreach (var keyboard in keyboards)
             {

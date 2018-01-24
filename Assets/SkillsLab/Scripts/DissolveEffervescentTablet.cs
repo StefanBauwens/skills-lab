@@ -30,6 +30,7 @@ public class DissolveEffervescentTablet : MonoBehaviour {
                 child.GetComponent<VRTK_InteractableObject>().isGrabbable = false;
                 Destroy(child.GetComponent<Rigidbody>());
                 child.position = particleTablet.transform.position;
+                this.transform.parent.GetComponent<MedicineData>().medicine = child.transform.GetComponent<MedicineData>().medicine; //copies medicine data from effervescenttablet to cup
                 StartCoroutine(PlayParticleTablet(child));
             }
         }

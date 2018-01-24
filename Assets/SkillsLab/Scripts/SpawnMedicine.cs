@@ -18,11 +18,18 @@ public class SpawnMedicine : MonoBehaviour {
 
 	private void ObjectUsed(object sender, InteractableObjectEventArgs e)
 	{
-		Instantiate (objectToSpawn, this.gameObject.transform.position, Quaternion.identity);
+        SpawnMed();
 	}
 
 	private void ObjectUnused(object sender, InteractableObjectEventArgs e)
 	{	
-		Instantiate (objectToSpawn, this.gameObject.transform.position, Quaternion.identity);
+        SpawnMed();
 	}
+
+    protected void SpawnMed()
+    {
+        GameObject temp = Instantiate(objectToSpawn, this.gameObject.transform.position, Quaternion.identity);
+        MedicineData medData = temp.AddComponent<MedicineData>();
+        medData.medicine = this.GetComponent<MedicineData>().medicine;
+    }
 }
