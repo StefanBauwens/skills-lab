@@ -54,14 +54,10 @@ public class DrawerManager : MonoBehaviour {
         int index = -1;
         foreach(Drawer drawer in drawers)
         {
-            //if(drawer.medicineInDrawer == medicine)
             if(drawer.medicinesInDrawer.Contains(medicine))
             {
                 index = Array.IndexOf(drawers, drawer);
-            }
-            else
-            {
-                Debug.Log("Can't find drawer with specified medicine");
+                break;
             }
         }
         return (byte)index;

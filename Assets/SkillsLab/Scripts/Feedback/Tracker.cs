@@ -61,9 +61,17 @@ public static class Tracker {
         }
 
         List<string> deliveryMethodFromXML = new List<string>(); //gets a string list of the deliverymethod(list of tools) from active scenario
-        foreach (var index in XMLData.appData.mMethods[XMLData.scenario.mDeliveryMethod].mTools)
+        foreach (int index in XMLData.appData.mMethods[XMLData.scenario.mDeliveryMethod].mTools)
         {
-            deliveryMethodFromXML.Add(XMLData.appData.mTools[index].mName.ToLower());
+            try
+            {
+                deliveryMethodFromXML.Add(XMLData.appData.mTools[index].mName.ToLower());
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log("Error trying to read in DeliveryTools from XML. Check XML. Error:" + e);
+            }
+
         }
 
         usingSyringe = false;
@@ -99,7 +107,7 @@ public static class Tracker {
         }
         if (usingSyringe)
         {
-            syringeData =  syringesToUse[0]; //only using first one for now. 
+            syringeData = syringesToUse[0]; //only using first one for now. 
         }
 
 

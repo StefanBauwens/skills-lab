@@ -146,6 +146,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  medicine:
+    mID: 0
+    mName: 
+    mQuantity: 0
+    mUnit: 0
+    mPackage: 0
+    mPointsOfAttention: 
 --- !u!114 &114345988960016216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -208,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf50bc160b775d4f91ac59b9ff44208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 1455399300844174, guid: 6702493d96f8f488abc18a897b072894,
+  objectToSpawn: {fileID: 1471764175484766, guid: b1d7d1b57a46910479a481caaa942167,
     type: 2}
 --- !u!114 &114957189972117260
 MonoBehaviour:

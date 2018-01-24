@@ -36,6 +36,7 @@ public class ScenarioPicker : MonoBehaviour {
         dropdown.options = scenarioOptions;
 
         ShowDescription(); //shows the description of the default loaded scenario.
+        Tracker.ResetTracking();
     }
 	
 	void Update () {
@@ -70,6 +71,7 @@ public class ScenarioPicker : MonoBehaviour {
     {
         LoadScenario(dropdown.value);
         ShowDescription();
+        Tracker.ResetTracking();
     }
 
     protected void ShowDescription()
@@ -96,7 +98,7 @@ public class ScenarioPicker : MonoBehaviour {
         textValue += ("Amount of times interacted with incorrect patient: " + Answer(Tracker.wrongPatient));
         textValue += ("Checked patient on tablet or Vanas: " + Answer(Tracker.checkPatient));
         textValue += ("Retrieved correct medicine from Vanas: " + Answer(Tracker.correctMedicineRetrieved));
-        textValue += ("Amount of times retrieved incorrect medicine" + Answer(Tracker.wrongMedicines));
+        textValue += ("Amount of times retrieved incorrect medicine: " + Answer(Tracker.wrongMedicines));
         textValue += ("Correct medicine given to patient: " + Answer(Tracker.correctMedicineGiven));
         if (Tracker.usingSyringe)
         {
@@ -125,7 +127,7 @@ public class ScenarioPicker : MonoBehaviour {
         }
         else
         {
-            return "<b>< color=#ff0000ff>No</color></b>\n";
+            return "<b><color=#ff0000ff>No</color></b>\n";
         }
     }
 
@@ -137,7 +139,7 @@ public class ScenarioPicker : MonoBehaviour {
         }
         else
         {
-            return ("<b>< color=#ff0000ff>" + value + "</color></b>\n");
+            return ("<b><color=#ff0000ff>" + value + "</color></b>\n");
         }
     }
 
@@ -149,7 +151,7 @@ public class ScenarioPicker : MonoBehaviour {
         }
         else
         {
-            return ("<b>< color=#ff0000ff>" + value + "</color></b>\n");
+            return ("<b><color=#ff0000ff>" + value + "</color></b>\n");
         }
     }
 
@@ -158,6 +160,13 @@ public class ScenarioPicker : MonoBehaviour {
     {
         EnablePanel(loadPanel, true);
         EnablePanel(descriptionPanel, false);
+        EnablePanel(reportPanel, false);
+    }
+
+    public void ButtonBackReport()
+    {
+        EnablePanel(descriptionPanel, true);
+        EnablePanel(loadPanel, false);
         EnablePanel(reportPanel, false);
     }
 

@@ -84,7 +84,8 @@ public class LoadVanas : MonoBehaviour {
                 }
                 else
                 {
-                    GameObject medicine = Instantiate(unknownMedicinePrefab, position, medicineObject.transform.rotation);
+                    Debug.Log("Unknown medicine: " + med.mName);
+                    GameObject medicine = Instantiate(unknownMedicinePrefab, position, Quaternion.identity);
                     medicine.GetComponent<MedicineData>().medicine = med; //adds the medicine to the object
                     instantiatedMeds.Add(medicine);
                 }
