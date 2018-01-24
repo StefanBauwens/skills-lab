@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 136330990803320194}
   - component: {fileID: 23066914983621384}
   - component: {fileID: 114567443463118072}
+  - component: {fileID: 114273221363732556}
   m_Layer: 0
   m_Name: Snapper
   m_TagString: Untagged
@@ -44,6 +45,7 @@ GameObject:
   - component: {fileID: 65465113852593530}
   - component: {fileID: 65893427692242146}
   - component: {fileID: 65817127438469124}
+  - component: {fileID: 114344153463393450}
   m_Layer: 0
   m_Name: Naaldcontainer
   m_TagString: Untagged
@@ -58,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1849550754953262}
   m_LocalRotation: {x: -0.49991274, y: 0.49991274, z: 0.50008726, w: 0.50008726}
-  m_LocalPosition: {x: -3.3743029, y: 1.643, z: -1.053}
+  m_LocalPosition: {x: -11.407, y: 1.643, z: 3.624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4916831652332056}
@@ -207,8 +209,30 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12242895, y: 0.054775953, z: 0.013469517}
-  m_Center: {x: -0.0012086054, y: 0.010363221, z: 0.06019481}
+  m_Size: {x: 0.12242895, y: 0.054775953, z: 0.00755712}
+  m_Center: {x: -0.0012086072, y: 0.010363221, z: 0.05723859}
+--- !u!114 &114273221363732556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1582507903105462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114344153463393450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849550754953262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114567443463118072
 MonoBehaviour:
   m_ObjectHideFlags: 1

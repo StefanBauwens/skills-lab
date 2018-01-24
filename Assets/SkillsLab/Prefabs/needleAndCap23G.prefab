@@ -61,6 +61,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4496596778801976}
+  - component: {fileID: 114630884410915286}
   m_Layer: 0
   m_Name: needleAndCap23G
   m_TagString: Untagged
@@ -685,6 +686,17 @@ MonoBehaviour:
   validObjectListPolicy: {fileID: 114452814578855152}
   displayDropZoneInEditor: 1
   defaultSnappedObject: {fileID: 1873172875437614}
+--- !u!114 &114630884410915286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1445005289307674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114730270576486530
 MonoBehaviour:
   m_ObjectHideFlags: 1

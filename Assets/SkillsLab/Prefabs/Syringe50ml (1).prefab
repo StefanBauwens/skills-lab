@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 114302040543651544}
   - component: {fileID: 114765625540550888}
   - component: {fileID: 114731149753795472}
+  - component: {fileID: 114616912948892700}
   m_Layer: 12
   m_Name: Syringe50ml (1)
   m_TagString: Untagged
@@ -1196,6 +1197,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 10 ml
+--- !u!114 &114616912948892700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1190824802000978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f003533c4ef4841b5f1b61b83067a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationInInventory: {x: 0, y: 0, z: 0}
 --- !u!114 &114645185433462060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1261,6 +1274,7 @@ MonoBehaviour:
   speed: 0.025
   maxMove: 0.2
   syringeValue: 50
+  pulledMedicine: []
 --- !u!114 &114848842746654438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1409,7 +1423,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392990172820586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.00005340576, z: 0.00000061258}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00000061258}
   m_LocalScale: {x: 0.22787298, y: 0.22787298, z: 0.22787298}
   m_Children: []
   m_Father: {fileID: 224434209608088154}
@@ -1427,7 +1441,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1310638039877600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00009536743, y: 0, z: 3.638e-12}
+  m_LocalPosition: {x: 0, y: 0, z: 3.638e-12}
   m_LocalScale: {x: 0.9999086, y: 0.99990916, z: 0.99990916}
   m_Children:
   - {fileID: 224236448992597092}
@@ -1446,7 +1460,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1896722462272958}
   m_LocalRotation: {x: -0.7071068, y: 0.000000029802312, z: 0.7071068, w: -0.00000014901156}
-  m_LocalPosition: {x: 0.03129959, y: -0.002998352, z: 0.03428205}
+  m_LocalPosition: {x: 0, y: 0, z: 0.03428205}
   m_LocalScale: {x: 0.000855264, y: 0.00085526414, z: 0.000855264}
   m_Children:
   - {fileID: 224434209608088154}

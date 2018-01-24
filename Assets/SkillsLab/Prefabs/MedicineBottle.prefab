@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 114445698819081526}
   - component: {fileID: 65815802342121786}
   - component: {fileID: 114346577109246916}
+  - component: {fileID: 114837057048283902}
   m_Layer: 8
   m_Name: MedicineBottle
   m_TagString: Untagged
@@ -436,6 +437,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  medicine:
+    mID: 0
+    mName: 
+    mQuantity: 0
+    mUnit: 0
+    mPackage: 0
+    mPointsOfAttention: 
 --- !u!114 &114348666811083124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -519,6 +527,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114837057048283902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443581162155866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f003533c4ef4841b5f1b61b83067a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationInInventory: {x: 90, y: 0, z: 0}
 --- !u!135 &135637766946714040
 SphereCollider:
   m_ObjectHideFlags: 1
