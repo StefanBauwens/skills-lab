@@ -74,7 +74,5 @@ public class ChangeUIPointer : MonoBehaviour {
         leftPointer.pointerRenderer.enabled = true;
         rightPointer.enabled = true;
         leftPointer.enabled = true;
-        Debug.Log("RightPointer: " + rightPointer.pointerRenderer);
-        Debug.Log("LeftPointer: " + leftPointer.pointerRenderer);
     }
 }

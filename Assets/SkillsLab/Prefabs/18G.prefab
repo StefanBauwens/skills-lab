@@ -98,6 +98,8 @@ GameObject:
   - component: {fileID: 114626837865944676}
   - component: {fileID: 114559916242078244}
   - component: {fileID: 114235662871067748}
+  - component: {fileID: 114238973722282566}
+  - component: {fileID: 114472930968909458}
   m_Layer: 10
   m_Name: 18G
   m_TagString: Untagged
@@ -361,6 +363,18 @@ MonoBehaviour:
   hideDelayOnGrab: 0
   hideControllerOnUse: 0
   hideDelayOnUse: 0
+--- !u!114 &114238973722282566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1952953605699316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f003533c4ef4841b5f1b61b83067a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationInInventory: {x: 90, y: 0, z: -90}
 --- !u!114 &114452036432336516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -370,6 +384,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114472930968909458
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1952953605699316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114503740025482262

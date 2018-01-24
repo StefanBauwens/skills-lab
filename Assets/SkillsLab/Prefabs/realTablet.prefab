@@ -606,6 +606,7 @@ GameObject:
   - component: {fileID: 114567329452169410}
   - component: {fileID: 114868639461321756}
   - component: {fileID: 114127974735683922}
+  - component: {fileID: 114335089862111872}
   m_Layer: 2
   m_Name: realTablet
   m_TagString: Untagged
@@ -5236,6 +5237,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114335089862111872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202402682404660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f003533c4ef4841b5f1b61b83067a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationInInventory: {x: -90, y: 90, z: 0}
 --- !u!114 &114337002987965190
 MonoBehaviour:
   m_ObjectHideFlags: 1

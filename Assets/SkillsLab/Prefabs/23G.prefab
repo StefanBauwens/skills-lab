@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 114558687695123710}
   - component: {fileID: 114391041696170856}
   - component: {fileID: 114177353526138342}
+  - component: {fileID: 114428127974184550}
+  - component: {fileID: 114931612506586466}
   m_Layer: 10
   m_Name: 23G
   m_TagString: Untagged
@@ -402,6 +404,18 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
+--- !u!114 &114428127974184550
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1079376246229468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f003533c4ef4841b5f1b61b83067a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationInInventory: {x: 90, y: 0, z: -90}
 --- !u!114 &114539181577100492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -480,6 +494,17 @@ MonoBehaviour:
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+--- !u!114 &114931612506586466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1079376246229468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114968534910363946
 MonoBehaviour:
   m_ObjectHideFlags: 1

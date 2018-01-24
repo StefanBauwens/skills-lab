@@ -29,6 +29,8 @@ GameObject:
   - component: {fileID: 114475863660584758}
   - component: {fileID: 114106940907365656}
   - component: {fileID: 114250099769809802}
+  - component: {fileID: 114431761005857400}
+  - component: {fileID: 114329113599749838}
   m_Layer: 10
   m_Name: 21G
   m_TagString: Untagged
@@ -423,6 +425,29 @@ MonoBehaviour:
   hideDelayOnGrab: 0
   hideControllerOnUse: 0
   hideDelayOnUse: 0
+--- !u!114 &114329113599749838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1266638014577938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e72485909aa8c4887fa8850a875906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114431761005857400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1266638014577938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f003533c4ef4841b5f1b61b83067a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationInInventory: {x: 90, y: 0, z: -90}
 --- !u!114 &114475863660584758
 MonoBehaviour:
   m_ObjectHideFlags: 1

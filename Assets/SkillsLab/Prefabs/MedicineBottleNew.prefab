@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114635295691332008}
   - component: {fileID: 114552541494212142}
   - component: {fileID: 114381705886498056}
+  - component: {fileID: 114569253069459026}
   m_Layer: 0
   m_Name: MedicineBottleNew
   m_TagString: Untagged
@@ -526,6 +527,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  medicine:
+    mID: 0
+    mName: 
+    mQuantity: 0
+    mUnit: 0
+    mPackage: 0
+    mPointsOfAttention: 
 --- !u!114 &114552541494212142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -549,6 +557,18 @@ MonoBehaviour:
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
+--- !u!114 &114569253069459026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1543453108926792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f003533c4ef4841b5f1b61b83067a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationInInventory: {x: 90, y: 0, z: 0}
 --- !u!114 &114635295691332008
 MonoBehaviour:
   m_ObjectHideFlags: 1
