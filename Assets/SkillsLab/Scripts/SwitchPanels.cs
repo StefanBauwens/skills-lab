@@ -84,6 +84,7 @@ public class SwitchPanels : MonoBehaviour {
         }
         else
         {
+            Debug.Log("Correct medicine is " + Tracker.medicine.mName + " but retrieved " + result2.mName);
             Tracker.wrongMedicines++;
         }
 

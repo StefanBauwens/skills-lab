@@ -29,7 +29,6 @@ GameObject:
   - component: {fileID: 114432842987058072}
   - component: {fileID: 114040569245651134}
   - component: {fileID: 114684054485957842}
-  - component: {fileID: 114938515516397950}
   m_Layer: 0
   m_Name: lormetazepam
   m_TagString: medicine
@@ -216,17 +215,6 @@ MonoBehaviour:
   useOverrideButton: 0
   allowedUseControllers: 0
   usingState: 0
---- !u!114 &114938515516397950
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455399300844174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &136472781446841720
 CapsuleCollider:
   m_ObjectHideFlags: 1

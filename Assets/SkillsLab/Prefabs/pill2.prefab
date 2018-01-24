@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 95874257223852230}
   - component: {fileID: 54029959260269152}
   - component: {fileID: 114834031360908130}
-  - component: {fileID: 114059161964677558}
   - component: {fileID: 65623123478747486}
   - component: {fileID: 135356136554829214}
   - component: {fileID: 114005205598582278}
@@ -155,24 +154,6 @@ MonoBehaviour:
   customOutlineModels: []
   customOutlineModelPaths: []
   enableSubmeshHighlight: 0
---- !u!114 &114059161964677558
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1471764175484766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 606430021b6744c23b3c428e605b8514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  medicine:
-    mID: 0
-    mName: 
-    mQuantity: 0
-    mUnit: 0
-    mPackage: 0
-    mPointsOfAttention: 
 --- !u!114 &114390940921579296
 MonoBehaviour:
   m_ObjectHideFlags: 1

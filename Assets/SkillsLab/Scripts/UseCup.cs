@@ -31,10 +31,11 @@ public class UseCup : MonoBehaviour {
         Medicine med = cupObject.GetComponent<MedicineData>().medicine;
         if (!med.Equals(new Medicine())) //if the cup has a medicine attached(not the default med)
         {
-            if (Tracker.medicine.Equals(med) && this.transform.parent.gameObject.GetComponent<PatientPerson>().Equals(Tracker.patient)) //if correct med and correct person
+            if (Tracker.medicine.Equals(med) && this.transform.parent.gameObject.GetComponent<PatientPerson>().patient.Equals(Tracker.patient)) //if correct med and correct person
             {
                 Tracker.correctMedicineGiven = true;
                 Tracker.quantityApplied++;
+                Debug.Log("Correct medicine in cup");
             }
         }
         MoveCupToHoldPos();
