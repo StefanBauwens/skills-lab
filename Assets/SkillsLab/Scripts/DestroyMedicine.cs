@@ -18,7 +18,7 @@ public class DestroyMedicine : MonoBehaviour {
 	protected void DestroyMed(object sender, SnapDropZoneEventArgs e)
 	{
         bool correctPatient = false;
-        if (Tracker.patient == this.transform.parent.parent.gameObject.GetComponent<PatientPerson>().patient)
+        if (Tracker.patient.Equals(this.transform.parent.parent.gameObject.GetComponent<PatientPerson>().patient))
         {
             Tracker.interactedWithCorrectPatient = true;
             correctPatient = true;

@@ -78,7 +78,7 @@ public class SwitchPanels : MonoBehaviour {
     {
         //((/*Medical*/Medicine)currentResult).Quantity--; //SEE IF QUANTITY IS ABOUT HOW MANY PILLS IN A BOX, OR IF ITS ABOUT HOW MANY BOXES WITH PILLS. BIT CONFUSING WITH XML
         Medicine result2 = (Medicine)currentResult;
-        if (result2.Equals(Tracker.medicine))
+        if (result2.ToResult() == Tracker.medicine.ToResult())
         {
             Tracker.correctMedicineRetrieved = true;
         }

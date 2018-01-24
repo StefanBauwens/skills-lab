@@ -76,10 +76,10 @@ public class DirectionAttraction : MonoBehaviour
     {
         if (other.gameObject.tag == TAGSNAP)
         {
+            pullSyringe.ObjectIsHuman = false;
             _collidingObject = null;
             isColliding = false;
             pullSyringe.HasChosen = false;
-            pullSyringe.ObjectIsHuman = false;
         }
     }
 

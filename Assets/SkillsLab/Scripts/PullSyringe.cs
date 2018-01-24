@@ -326,6 +326,20 @@ public class PullSyringe : MonoBehaviour {
 
     IEnumerator Pushing()
     {
+        bool correctMed = false;
+        if (_objectIsHuman)
+        {
+            if (pulledMedicine.Count == 1 && pulledMedicine[0].ToResult() == Tracker.medicine.ToResult())
+            {
+                Debug.Log("Correct liquid");
+                correctMed = true;
+                Tracker.correctMedicineGiven = true;
+            }
+            else
+            {
+                Debug.Log("Incorrect medicine syringe. Count =  " + pulledMedicine.Count + " pulled medicine = " + pulledMedicine[0].mName + " correct medicine = " + Tracker.medicine.mName);
+            }
+        }
         float beginValue = valueF;
         while (!isPulling && isPushing && (beginPosition.z- insideSyringe.localPosition.z) > 0)
         {
@@ -335,43 +349,36 @@ public class PullSyringe : MonoBehaviour {
             insideSyringe.localPosition += (Vector3.forward * Time.deltaTime * speed);         
         }
         float endValue = valueF;
-        if (_objectIsHuman)
+        if (dAttraction.CollidingObject.gameObject.transform.parent.parent.gameObject.GetComponent<PatientPerson>().patient.Equals(Tracker.patient) && correctMed)
         {
-            bool correctMed = false;
-            if (pulledMedicine.Count==1 && pulledMedicine[0].Equals(Tracker.medicine))
+            Debug.Log("Correct patient and correct medicine");
+            Tracker.amountOfLiquidApplied += (beginValue - endValue); //only adds it if correct patient and correct med
+            if (this.syringeValue == Tracker.syringeData.syringeValue)
             {
-                correctMed = true;
-                Tracker.correctMedicineGiven = true;
+                Debug.Log("Correct syringe");
+                Tracker.correctSyringe = true;
             }
-            if (dAttraction.CollidingObject.gameObject.transform.parent.parent.gameObject.GetComponent<PatientPerson>().patient.Equals(Tracker.patient) && correctMed)
+            if (needleUsed.gameObject.GetComponent<NeedleUse>().CanBeUsedFor.Contains(Tracker.syringeData.needleToUse)) //if using correct needle
             {
-                Tracker.amountOfLiquidApplied += (beginValue - endValue); //only adds it if correct patient and correct med
-                if (this.syringeValue == Tracker.syringeData.syringeValue)
+                Tracker.correctNeedle = true;
+                Debug.Log("Correct needle");
+                if (needleUsed.gameObject.GetComponent<NeedleUse>().CanBeUsedFor.Contains(_injectionOption)) //checks to see if injectionOption is even "possible" with this needle
                 {
-                    Tracker.correctSyringe = true;
-                }
-                if (needleUsed.gameObject.GetComponent<NeedleUse>().CanBeUsedFor.Contains(Tracker.syringeData.needleToUse)) //if using correct needle
-                {
-                    Tracker.correctNeedle = true;
-
-                    if (needleUsed.gameObject.GetComponent<NeedleUse>().CanBeUsedFor.Contains(_injectionOption)) //checks to see if injectionOption is even "possible" with this needle
+                    Tracker.correctInjectionMethod = true;
+                    if (dAttraction.CollidingObject.gameObject.GetComponent<NeedleUse>().CanBeUsedFor.Contains(this._injectionOption))
                     {
-                        Tracker.correctInjectionMethod = true;
-                        if (dAttraction.CollidingObject.gameObject.GetComponent<NeedleUse>().CanBeUsedFor.Contains(this._injectionOption))
-                        {
-                            Tracker.correctPlaceOnBody = true;
-                        }
+                        Tracker.correctPlaceOnBody = true;
                     }
-                    else
-                    {
-                        Tracker.correctInjectionMethod = false;
-                    }
-
                 }
                 else
                 {
-                    Tracker.correctNeedle = false; //this does mean that if you used the right needle, but aftewards a wrong one it will be counted as wrong.
+                    Tracker.correctInjectionMethod = false;
                 }
+
+            }
+            else
+            {
+                Tracker.correctNeedle = false; //this does mean that if you used the right needle, but aftewards a wrong one it will be counted as wrong.
             }
         }
         isPushing = false;

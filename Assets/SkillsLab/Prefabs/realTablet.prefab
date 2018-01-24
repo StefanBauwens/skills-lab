@@ -5248,7 +5248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f003533c4ef4841b5f1b61b83067a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationInInventory: {x: -90, y: 90, z: 0}
+  rotationInInventory: {x: 0, y: 90, z: 0}
 --- !u!114 &114337002987965190
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7645,7 +7645,7 @@ MonoBehaviour:
   throwMultiplier: 1
   onGrabCollisionDelay: 0
   destroyImmediatelyOnThrow: 1
-  breakForce: 1500
+  breakForce: Infinity
 --- !u!114 &114623140684237364
 MonoBehaviour:
   m_ObjectHideFlags: 1
