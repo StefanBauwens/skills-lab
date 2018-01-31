@@ -27,7 +27,7 @@ Using:
 Gameplay video: https://www.youtube.com/watch?v=oVm8dRNzHU8
 
 <a href="https://www.youtube.com/watch?feature=player_embedded&v=oVm8dRNzHU8" target="_blank">
-<img src="https://user-images.githubusercontent.com/22680257/30482449-5ed4a652-9a23-11e7-837d-c11b0a55647c.png" 
+<img src="https://user-images.githubusercontent.com/22680257/35644366-0ea0f498-06c9-11e8-98e0-35f56bcf4a46.PNG" 
 alt="Screenshot from the gameplay video of the nursing simulator" width="500" height="300" border="10"></a>
 <br>
 <br>
