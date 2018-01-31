@@ -24,3 +24,7 @@ Using:
 * Proper use and disposal of needles and syringes.
 * Get more information about the medicine by going to a website that acts like a database for medicines.
 
+Gameplay video: https://www.youtube.com/watch?v=oVm8dRNzHU8
+
+<a href="https://www.youtube.com/watch?feature=player_embedded&v=oVm8dRNzHU8" target="_blank">
+
