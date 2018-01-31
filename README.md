@@ -22,7 +22,7 @@ Using:
 (needle: 18G,21G,23G,25G,27G) <br>
 (syringe: 1.5ml, 2.5ml, 5ml, 10ml, 20ml, 50ml)
 * Inject the medicine in the correct body location.
-* Use the correct method of injection. (SC,IV or IM)
+* Use the correct method of injection. (SC, IV or IM)
 * Proper use and disposal of needles and syringes.
 * Get more information about the medicine by going to a website that acts like a database for medicines.
 
