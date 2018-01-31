@@ -18,7 +18,9 @@ Using:
 * Retrieve the correct medicine from the VANAS shelf. 
 * Check if the player has the right patient.
 * Give the correct medicine to the patient.
-* Choose the correct size of needle and syringe. (needle: 18G,21G,23G,25G,27G) (syringe: 1.5ml, 2.5ml, 5ml, 10ml, 20ml, 50ml)
+* Choose the correct size of needle and syringe. <br>
+(needle: 18G,21G,23G,25G,27G) <br>
+(syringe: 1.5ml, 2.5ml, 5ml, 10ml, 20ml, 50ml)
 * Inject the medicine in the correct body location.
 * Use the correct method of injection. (SC,IV or IM)
 * Proper use and disposal of needles and syringes.
@@ -31,4 +33,6 @@ Gameplay video: https://www.youtube.com/watch?v=oVm8dRNzHU8
 alt="Screenshot from the gameplay video of the nursing simulator" width="500" height="300" border="10"></a>
 <br>
 <br>
+<br>
+By Stefan Bauwens & Cindy Ho
 
