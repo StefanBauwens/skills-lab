@@ -1,4 +1,4 @@
-# Skills-Lab | Nursing Simulator
+# Skills-Lab |  VR Nursing Simulator
 
 A VR training simulation for students with a major in nursing.<br>
 The students will practice working with a complicated VANAS shelf where they can get the right dose of medicine for the patient. <br>
