@@ -27,4 +27,4 @@ Using:
 Gameplay video: https://www.youtube.com/watch?v=oVm8dRNzHU8
 
 <a href="https://www.youtube.com/watch?feature=player_embedded&v=oVm8dRNzHU8" target="_blank">
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oVm8dRNzHU8?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
